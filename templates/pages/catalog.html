@@ -34,7 +34,7 @@
   type="text/css"
   rel="stylesheet" />
 </head>
-<body>
+<body id="catalogPage">
 
   <script src="/.static/js/themeLoader.js"></script>
 
@@ -47,13 +47,18 @@
       id="labelBoard"></a>
   </p>
 
+ <hr class="belowHeaderBar">
+
+ <center><div id="newThreadText">
+  [<a href="#" onclick="displayFunction()">Start a New Thread</a>]
+ </div></center>
 
   <div id="postingForm">
-    <button
-      id="togglePosting"
-      class="hidden">Post thread</button>
+
+   <div id="hideThreadOption"><center>[<a onclick="hideDisplayFunction()">Hide</a>]</center></div>
+    
     <fieldset id="newPostFieldset">
-      <legend>Mode: Thread</legend>
+	<div class="banner">Posting Mode: New Thread&nbsp;&nbsp;<a class="unimportant" href="./#">[Return]</a></div>
 
       <form
         action="/newThread.js"
@@ -75,23 +80,25 @@
           id="formButton">Post</button>
 
       </form>
-
     </fieldset>
-
   </div>
 
-  <div
-    id="divTools"
-    class="hidden">
+  <div id="announcementPlacement">
+  <hr class="belowPostFieldset">
+  <center>
+  <div id="announcementContent">
+  • Announcements will go here.
+  </div>
+  </center>
+  <hr class="belowPostFieldset">
+  </div>
 
-    <span class="catalogLabel">Search :</span>
-    <input
-      type="text"
-      id="catalogSearchField">
-
-
-    (
-    <button
+  <div id="innerUtility">
+  <hr>
+  <div id="innerUtilityContent">
+  &nbsp;[<a href="./#">Index</a>]&nbsp;[<a href="#footer">Bottom</a>]&nbsp;[<a onclick="location.reload()">Refresh</a>]
+    
+    &nbsp;<button
       id="catalogRefreshButton"
       class="catalogLabel"
       onclick="catalog.refreshCatalog(true)">Refresh</button>
@@ -101,13 +108,32 @@
       onchange="catalog.changeCatalogRefresh()">
     <span
       class="catalogLabel"
-      id="catalogRefreshLabel">Auto</span>)
+      id="catalogRefreshLabel">Auto</span>
 
+  <div
+    id="divTools"
+    class="hidden">
+
+    <span class="catalogLabel">Search :</span>
+    <input
+      type="text"
+      id="catalogSearchField">
+  </div>
+  </div>
+  <hr>
   </div>
 
   <div
     id="divThreads"
     class="catalogDiv"></div>
+
+  	<div id="innerUtilityBottom">
+  	<hr>
+  	&nbsp;[<a href="./#">Index</a>]&nbsp;[<a href="#">Top</a>]&nbsp;[<a onclick="location.reload()">Refresh</a>]
+  	<hr>
+        </div>
+
+  <div class="footerBar" id="footerBarType" value="B"></div>
 
 </body>
 
@@ -122,5 +148,7 @@
 <script src="/.static/js/draggable.js"></script>
 <script src="/.static/js/watcher.js"></script>
 <script src="/.static/js/favouriteBoards.js"></script>
+<script src="/.static/js/hideThread.js"></script>
+<script src="/.static/js/footerInject.js"></script>
 
 </html>

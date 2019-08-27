@@ -64,22 +64,14 @@
 #postingForm {
   text-align: center;
   margin: 1em auto;
-}
-
-#postingForm input:focus, #postingForm textarea:focus,
-  .modalDecorationPanel input[type='text']:focus, #settingsMenu input[type='text']:focus,
-  #settingsMenu textarea:focus {
-  box-shadow: 0px 0px 5px 2px #117743;
+  display: none;
+  margin-bottom: -10px;
 }
 
 #postingForm button, #qrbutton {
   width: 8em;
   margin: 0.5em auto;
   font-size: 125%;
-}
-
-#postingForm button:active {
-  box-shadow: 0px 0px 5px #117743;
 }
 
 #postingForm label {
@@ -99,12 +91,12 @@
   font-size: 80%;
   padding-left: 0.1em;
   cursor: default;
-  border: 1px solid #117743;
-  border-radius: 5px;
-  background: #282A2E;
+  border: 1px solid #000;
+  padding: 0 5px;
+  background: #282a2e;
 }
 
-.theme_clear #postingForm th, .theme_clear .modalTableBody th {
+.theme_clear #postingForm th, .theme_clear  .modalTableBody th {
   background: #dddddd;
 }
 
@@ -116,7 +108,6 @@ input[type=checkbox].postingCheckbox+label::before {
   font-family: Icons;
   content: "\e0db";
   margin-right: 0.5em;
-  color: #117743;
   display: inline-block;
   cursor: pointer;
 }
@@ -172,6 +163,7 @@ input[type=checkbox].postingCheckbox:checked+label:before {
 .modalHeader {
   display: block;
   margin-bottom: 5px;
+  font-weight: bold;
 }
 
 .modalCaptchaControls {

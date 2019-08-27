@@ -44,8 +44,8 @@
     <fieldset id="settingsFieldset">
 
       <legend>Search</legend>
-      <a id="linkPrevious">Previous page</a>
-      <a id="linkNext">Next page</a>
+      <a id="linkPrevious">Previous day</a>
+      <a id="linkNext">Next day</a>
 
       <form
         action="/latestPostings.js"
@@ -56,47 +56,18 @@
           name="date"
           id="fieldDate">
         <br>
-        <span id="panelIp"> Ip: <input
-            type="text"
-            name="ip"
-            id="fieldIp"> <br></span> Boards(separate with comma, if
-        empty, all boards will be checked):
+        Boards(separate with comma, if empty, all boards will be checked):
         <input
           id="fieldBoards"
           type="text"
           name="boards">
         <br>
-        <input
-          type="hidden"
-          name="boardUri"
-          id="inputBoardUri">
-        <input
-          type="hidden"
-          name="threadId"
-          id="inputThreadId">
-        <input
-          type="hidden"
-          name="postId"
-          id="inputPostId">
         <button type="submit">Search</button>
       </form>
 
       <hr>
       <h3>Postings</h3>
-
-      <form
-        action="/contentActions.js"
-        method="post"
-        enctype="multipart/form-data">
-
-        <div id="actionsForm"></div>
-
-        <button
-          id="buttonLoadMore"
-          class="hidden">Load more</button>
-        <div id="divPostings"></div>
-
-      </form>
+      <div id="divPostings"></div>
 
     </fieldset>
   </div>
@@ -115,9 +86,6 @@
 <script src="/.static/js/settingsMenu.js"></script>
 <script src="/.static/js/tooltips.js"></script>
 <script src="/.static/js/hiding.js"></script>
-<script src="/.static/js/thumbs.js"></script>
 <script src="/.static/js/postingMenu.js"></script>
-<script src="/.static/js/captchaUtils.js"></script>
-<script src="/.static/js/bottomForms.js"></script>
 
 </html>

@@ -147,6 +147,8 @@ api.handleConnectionResponse = function(xhr, callback, silent) {
       alert(response.data);
     }
 
+  } else if (response.status === 'fileTooLarge') {
+    alert('Maximum file size exceeded for a file.');
   } else if (response.status === 'hashBan') {
 
     var desc = '';
@@ -166,73 +168,66 @@ api.handleConnectionResponse = function(xhr, callback, silent) {
     }
 
     alert(desc);
+  } else if (response.status === 'formatNotAllowed') {
+    alert('A file had a format that is not allowed by the server.');
+  } else if (response.status === 'blank') {
+    alert('Parameter ' + response.data + ' was sent in blank.');
   } else if (response.status === 'bypassable') {
 
     postCommon.displayBlockBypassPrompt(function() {
       alert('You may now post');
     });
 
+  } else if (response.status === 'tooLarge') {
+    alert('Request refused because it was too large');
   } else if (response.status === 'maintenance') {
 
     if (!silent) {
       alert('The site is going under maintenance and all of it\'s functionalities are disabled temporarily.');
     }
 
+  } else if (response.status === 'fileParseError') {
+    alert('An uploaded file could not be parsed.');
+  } else if (response.status === 'parseError') {
+    alert('Your request could not be parsed.');
   } else if (response.status === 'banned') {
-
-    var message;
-
     if (response.data.range) {
-      message = 'Your ip range ' + response.data.range
-          + ' has been banned from ' + response.data.board + '.';
-    } else if (response.data.asn) {
-      message = 'Your ASN ' + response.data.asn + ' has been banned from '
-          + response.data.board + '.';
+      alert('Your ip range ' + response.data.range + ' has been banned from '
+          + response.data.board + '.');
     } else {
-      var message = 'You are banned from ' + response.data.board + '.';
-    }
 
-    if (response.data.reason) {
-      message += '\nReason: "' + response.data.reason + '".';
-    }
+      var message = 'You are banned from ' + response.data.board + ' until '
+          + new Date(response.data.expiration).toString() + '.\nReason: '
+          + response.data.reason + '.\nYour ban id: ' + response.data.banId
+          + '.';
 
-    if (response.data.expiration) {
+      if (!response.data.appealled) {
+        message += '\nYou may appeal this ban.';
 
-      message += '\nThis ban will expire at '
-          + new Date(response.data.expiration).toString() + '.';
+        var appeal = prompt(message, 'Write your appeal');
 
-    } else {
-      message += '\nThis ban will not expire.'
-    }
+        if (appeal) {
 
-    message += '\nYour ban id: ' + response.data.banId + '.';
+          api.formApiRequest('appealBan', {
+            appeal : appeal,
+            banId : response.data.banId
+          }, function appealed(status, data) {
 
-    if (!response.data.appealled) {
-      message += '\nYou may appeal this ban.';
+            if (status !== 'ok') {
+              alert(data);
+            } else {
+              alert('Ban appealed');
+            }
 
-      var appeal = prompt(message, 'Write your appeal');
+          });
 
-      if (appeal) {
+        }
 
-        api.formApiRequest('appealBan', {
-          appeal : appeal,
-          banId : response.data.banId
-        }, function appealed(status, data) {
-
-          if (status !== 'ok') {
-            alert(data);
-          } else {
-            alert('Ban appealed');
-          }
-
-        });
-
+      } else {
+        alert(message);
       }
 
-    } else {
-      alert(message);
     }
-
   } else {
     callback(response.status, response.data);
   }

@@ -11,8 +11,9 @@
 #sideCatalogDiv {
   float: right;
   padding: 0 10px 0 10px;
-  max-width: 20%;
   margin-top: 0;
+  max-width: 30%;
+  min-width: 25%;
 }
 
 #sideCatalogBody hr {

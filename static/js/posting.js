@@ -10,10 +10,8 @@ posting.init = function() {
       + '</span> <a class="linkName"></a> <img class="imgFlag"> <span class="labelRole">'
       + '</span> <span class="labelCreated"></span> <span class="spanId"> Id:<span '
       + 'class="labelId"></span></span> <a '
-      + 'class="linkSelf">No.</a> <a class="linkQuote"></a> <a class="linkEdit">[Edit]</a> '
-      + '<a class="linkHistory">[History]</a> <a class="linkFileHistory">[File history]</a>'
-      + ' <span class="panelBacklinks"></span></div>'
-      + '<div class="panelASN">ASN: <span class="labelASN"></span> </div>'
+      + 'class="linkSelf">No.</a> <a class="linkQuote"></a> <a class="linkEdit">Edit</a> '
+      + '<span class="panelBacklinks"></span></div>'
       + '<div>'
       + '<span class="panelIp"> <span class="panelRange">Broad'
       + 'range(1/2 octets): <span class="labelBroadRange"> </span> <br>'
@@ -78,114 +76,6 @@ posting.setLocalTime = function(time) {
 
   time.innerHTML = posting.formatDateToDisplay(
       new Date(time.innerHTML + ' UTC'), true);
-
-};
-
-posting.applyBans = function(captcha) {
-
-  var typedReason = document.getElementById('reportFieldReason').value.trim();
-  var typedDuration = document.getElementById('fieldDuration').value.trim();
-  var typedMessage = document.getElementById('fieldbanMessage').value.trim();
-  var banType = document.getElementById('comboBoxBanTypes').selectedIndex;
-
-  var params = {
-    action : 'ban',
-    reason : typedReason,
-    captcha : captcha,
-    banType : banType,
-    duration : typedDuration,
-    banMessage : typedMessage,
-    global : document.getElementById('checkboxGlobal').checked
-  };
-
-  posting.newGetSelectedContent(params);
-
-  api.formApiRequest('contentActions', params, function requestComplete(status,
-      data) {
-
-    if (status === 'ok') {
-      alert('Bans applied');
-    } else {
-      alert(status + ': ' + JSON.stringify(data));
-    }
-
-  });
-};
-
-posting.banPosts = function() {
-
-  if (!document.getElementsByClassName('panelRange').length) {
-    posting.applyBans();
-    return;
-  }
-
-  var typedCaptcha = document.getElementById('fieldCaptchaReport').value.trim();
-
-  if (typedCaptcha && /\W/.test(typedCaptcha)) {
-    alert('Invalid captcha.');
-    return;
-  }
-
-  if (typedCaptcha.length == 24 || !typedCaptcha) {
-    thread.applyBans(typedCaptcha);
-  } else {
-    var parsedCookies = api.getCookies();
-
-    api.formaApiRequest('solveCaptcha', {
-      captchaId : parsedCookies.captchaid,
-      answer : typedCaptcha
-    }, function solvedCaptcha(status, data) {
-
-      if (status !== 'ok') {
-        alert(status);
-        return;
-      }
-
-      posting.applyBans(parsedCookies.captchaid);
-    });
-  }
-
-};
-
-posting.deleteFromIpOnBoard = function() {
-
-  var checkBoxes = document.getElementsByClassName('deletionCheckBox');
-
-  for (var i = 0; i < checkBoxes.length; i++) {
-    var checkBox = checkBoxes[i];
-
-    if (checkBox.checked) {
-      var splitName = checkBox.name.split('-')[0];
-      break;
-    }
-
-  }
-
-  if (!splitName) {
-    return;
-  }
-
-  var redirect = '/' + splitName + '/';
-
-  var confirmationBox = document
-      .getElementById('ipDeletionConfirmationCheckbox');
-
-  var param = {
-    action : 'ip-deletion',
-    confirmation : confirmationBox.checked
-  };
-
-  posting.newGetSelectedContent(param);
-
-  api.formApiRequest('contentActions', param, function requestComplete(status,
-      data) {
-
-    if (status === 'ok') {
-      window.location.pathname = redirect;
-    } else {
-      alert(status + ': ' + JSON.stringify(data));
-    }
-  });
 
 };
 
@@ -383,20 +273,7 @@ posting.deletePosts = function() {
       alert(data.removedThreads + ' threads and ' + data.removedPosts
           + ' posts were successfully deleted.');
 
-      if (latestPostings) {
-
-        var checkBoxes = document.getElementsByClassName('deletionCheckBox');
-
-        for (var i = checkBoxes.length - 1; i >= 0; i--) {
-          var checkBox = checkBoxes[i];
-
-          if (checkBox.checked) {
-            checkBox.parentNode.parentNode.parentNode.remove();
-          }
-
-        }
-
-      } else if (!api.isBoard && !data.removedThreads && data.removedPosts) {
+      if (!api.isBoard && !data.removedThreads && data.removedPosts) {
         thread.refreshPosts(true, true);
       } else if (data.removedThreads || data.removedPosts) {
         window.location.pathname = '/';
@@ -598,12 +475,6 @@ posting.setPostHideableElements = function(postCell, post, noExtras) {
     imgFlag.remove();
   }
 
-  if (!post.asn) {
-    postCell.getElementsByClassName('panelASN')[0].remove();
-  } else {
-    postCell.getElementsByClassName('labelASN')[0].innerHTML = post.asn;
-  }
-
   if (!post.ip) {
     postCell.getElementsByClassName('panelIp')[0].remove();
   } else {
@@ -628,7 +499,7 @@ posting.setPostLinks = function(postCell, post, boardUri, link, threadId,
 
   var postingId = post.postId || threadId;
 
-  var linkStart = '#';
+  var linkStart = '/' + boardUri + '/res/' + threadId + '.html#';
 
   linkQuote.href = linkStart;
   link.href = linkStart;
@@ -637,8 +508,6 @@ posting.setPostLinks = function(postCell, post, boardUri, link, threadId,
   linkQuote.href += 'q' + postingId;
 
   var linkEdit = postCell.getElementsByClassName('linkEdit')[0];
-  var linkHistory = postCell.getElementsByClassName('linkHistory')[0];
-  var linkFileHistory = postCell.getElementsByClassName('linkFileHistory')[0];
 
   var complement = (post.postId ? 'postId' : 'threadId') + '=' + postingId;
 
@@ -647,17 +516,6 @@ posting.setPostLinks = function(postCell, post, boardUri, link, threadId,
     linkEdit.href += complement;
   } else if (linkEdit) {
     linkEdit.remove();
-  }
-
-  if (api.mod && post.ip) {
-    linkFileHistory.href = '/mediaManagement.js?boardUri=' + boardUri + '&';
-    linkFileHistory.href += complement;
-
-    linkHistory.href = '/latestPostings.js?boardUri=' + boardUri + '&';
-    linkHistory.href += complement;
-  } else if (linkHistory) {
-    linkHistory.remove();
-    linkFileHistory.remove();
   }
 
   var checkboxName = boardUri + '-' + threadId;

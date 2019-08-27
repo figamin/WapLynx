@@ -33,7 +33,7 @@ watcher.init = function() {
   watcher.watchedMenu = document.createElement('div');
 
   var watchedMenuLabel = document.createElement('label');
-  watchedMenuLabel.innerHTML = 'Watched threads';
+  watchedMenuLabel.innerHTML = 'Watched Threads';
 
   watcher.watchedMenu.appendChild(watchedMenuLabel);
 

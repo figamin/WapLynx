@@ -1,46 +1,83 @@
 .topBoards a, #divLatestImages img, #divLatestPosts .latestPostCell,
-  .innerPost, .sideCatalogCell, .markedPost, .sideCatalogMarkedCell,
-  .catalogCell {
+  .innerPost, .sideCatalogCell, .markedPost, .sideCatalogMarkedCell {
   background: #282A2E;
-  border-radius: 5px;
-}
-
-.theme_clear .topBoards a, .theme_clear #divLatestImages img,
-  .theme_clear #divLatestPosts .latestPostCell, .theme_clear .innerPost,
-  .theme_clear .sideCatalogCell, .theme_clear .markedPost, .theme_clear .sideCatalogMarkedCell,
-  .theme_clear .catalogCell {
-  background-color: #dddddd
 }
 
 .floatingMenu, #quick-reply table {
   background: #1d1f21;
 }
 
-.theme_clear .floatingMenu, .theme_clear #quick-reply table {
-  background: #cccccc;
-}
-
 .markedPost, .sideCatalogMarkedCell {
-  background: rgba(59, 22, 43, 0.4);
+  background: #1d1d21;
 }
 
-.theme_clear .markedPost, .theme_clear .sideCatalogMarkedCell {
-  background: #868686;
+#divLatestPosts .latestPostCell,.sideCatalogCell,
+  .markedPost, .sideCatalogMarkedCell {
+  border: 1px solid #000;
 }
 
-#divLatestPosts .latestPostCell, .innerPost, .sideCatalogCell,
-  .markedPost, .sideCatalogMarkedCell, .catalogCell {
-  border: 1px solid #117743;
-}
-
-#newPostFieldset, #quick-reply table, .modalDecorationPanel,
+#quick-reply table, .modalDecorationPanel,
   .floatingMenu, #settingsFieldset, .reportFieldset {
-  border: 1px dashed #117743;
+  border: 2px solid #282a2e;
+}
+
+#newPostFieldset {
+  border: 0px solid #282a2e;
 }
 
 .logoImg {
   height: 250px;
   min-width: 1px;
+}
+
+.belowHeaderBar {
+  width: 80%;
+}
+
+.belowPostFieldset {
+  width: 400px;
+}
+
+#announcementPlacement {
+  font-size: 80%;
+}
+
+#announcementContent {
+  max-width: 400px;
+}
+
+div.banner {
+  background: #32DD72;
+  color: #000;
+  text-align: center;
+  width: 260px;
+  padding: 4px;
+  padding-left: 12px;
+  padding-right: 12px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 10px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+#hideThreadOption {
+  font-size: 80%;
+}
+
+#boardsPage .wide {
+  width: 80%;
+  max-width: 80%;
+  min-width: 80%;
+}
+
+.unimportant {
+  font-size: 10px;
+  color: #000;
+}
+
+.unimportant:hover {
+  color: #fff;
 }
 
 .captchaImage {
@@ -86,19 +123,13 @@ hr {
   height: 0px;
   border-width: 1px medium medium;
   border-style: solid none none;
-  border-color: #117743;
+  border-color: #282a2e;
 }
 
 a, .coloredIcon, .unhideButton, .embedButton, .checkedFavouriteButton:before,
   #selectedTab, #showFormsButton {
-  color: #FFB300;
+  color: #81a2be;
   cursor: pointer
-}
-
-.theme_clear a, .theme_clear .coloredIcon, .theme_clear .unhideButton,
-  .theme_clear .embedButton, .theme_clear .checkedFavouriteButton:before,
-  .theme_clear #selectedTab, .theme_clear #showFormsButton {
-  color: #000
 }
 
 .coloredIcon::before {
@@ -112,10 +143,17 @@ a, .coloredIcon, .unhideButton, .embedButton, .checkedFavouriteButton:before,
 
 a {
   text-decoration: none;
+  color: #81a2be;
 }
 
-a:hover, .glowOnHover:hover {
-  text-shadow: 0px 0px 5px #117743;
+.linkName:hover {
+  text-decoration: none;
+}
+
+a:hover,
+.linkSelf:hover,
+.linkQuote:hover {
+  color: #5f89ac;
 }
 
 u {
@@ -135,43 +173,33 @@ em {
 }
 
 input, select, textarea {
-  border: 1px double #07371F;
-  border-radius: 5px;
-  background: #282A2E;
-  color: #ACACAC;
-  font-family: 'Hack', monospace, sans-serif;
+  background: #fff;
+  color: #000;
+  font-family: arial, helvetica, sans-serif;
   font-size: 80%;
 }
 
-.theme_clear input, .theme_clear select, .theme_clear textarea {
-  background: #dddddd;
-  color: #000;
+#newThreadButton {
+  border-color: rgb(25, 27, 31) rgb(25, 27, 31) rgb(10, 12, 16);
+  background: linear-gradient(#37393D, #282A2E) repeat scroll 0% 0% transparent;
 }
 
 input[type=button], input[type=submit], button, .dropzone, .selectedCell
   {
-  border: 3px double #07371F;
-  border-radius: 5px;
-  background: #16171A;
-  color: #ACACAC;
-  padding-left: 0.25em;
-  font-family: 'Hack', monospace, sans-serif;
-  font-size: 80%;
-  font-weight: bold;
+  font-family: arial, helvetica, sans-serif;
   margin-top: 0.5em;
   margin-bottom: 0.5em;
   cursor: pointer;
 }
 
-.theme_clear input[type=button], .theme_clear input[type=submit],
-  .theme_clear button, .theme_clear .dropzone, .theme_clear .selectedCell
-  {
-  background: #a7a7a7;
-  color: #000;
+#dropzone {
+  font-size: 80%;
+  background: red;
+  border: 1px solid white;
 }
 
 .title, .unhideButton {
-  font-weight: bold;
+  font-weight: normal;
 }
 
 .fileBrowser {
@@ -205,16 +233,11 @@ input[type=button], input[type=submit], button, .dropzone, .selectedCell
 
 /* body styles, inherited by whole page */
 body {
-  color: #ACACAC;
+  color: #c5c8c6;
   background: #1D1F21;
-  font-family: 'Hack', monospace, sans-serif;
+  font-family: arial, helvetica, sans-serif;
   font-size: 100%;
   margin: 0px;
-}
-
-body.theme_clear {
-  background-color: #cccccc;
-  color: #000
 }
 
 /* header and nav / top of page styles */
@@ -228,26 +251,26 @@ nav {
   position: fixed;
   top: 0;
   width: 100%;
-  background-color: #151515;
-  border-bottom: 1px solid #B0790A;
+  background-color: #1d1f21;
+  border-bottom: 1px solid #282a2e;
   padding-bottom: 3px;
   font-size: 70%;
   text-align: center;
   z-index: 1;
 }
 
-.theme_clear nav {
-  background-color: #acacac
-}
-
 nav span, nav a {
   display: inline-block;
   text-decoration: none;
-  margin: 0 0.2em;
+  margin: 0 0.1em;
 }
 
 #navLinkSpan {
   float: left;
+}
+
+#favouriteButton {
+  display: none;
 }
 
 #navOptionsSpan {
@@ -255,7 +278,7 @@ nav span, nav a {
 }
 
 #navLinkHome:before {
-  content: "\e082";
+  content: "\e078";
 }
 
 #navBoardList:before {
@@ -271,7 +294,7 @@ nav span, nav a {
 }
 
 #navPosting:before {
-  content: "\e09a";
+  content: "\e053";
 }
 
 #navCatalog:before {
@@ -299,6 +322,14 @@ nav span, nav a {
   display: inline-block;
 }
 
+#watcherButton span {
+  display: none;
+}
+
+#boardListLinks {
+  font-size: 110%;
+}
+
 #divPages a {
   text-decoration: none;
   padding: 0 0.25em;
@@ -309,7 +340,6 @@ a.rules:after {
   font-family: Icons;
   content: "\e052";
   margin-right: 0.5em;
-  color: #117743;
   height: 80%;
   font-size: 80%;
   padding-left: 0.25em;
@@ -334,7 +364,7 @@ span.spoiler {
 }
 
 .spoiler:hover {
-  color: #ACACAC;
+  color: #c5c8c6;
   background: none;
 }
 
@@ -367,6 +397,32 @@ span.spoiler {
   padding: 0.5em;
 }
 
+#newThreadText {
+  font-size: 22px;
+  font-weight: 700;
+  text-align: center;
+}
+
+#innerUtility,
+#catalogPage #innerUtilityBottom {
+  margin: 1.3em;
+  font-size: 80%;
+}
+
+#catalogPage #divTools {
+  float: right;
+  margin-top: 6px;
+}
+
+#innerUtilityContent {
+  margin-top: -5px;
+  margin-bottom: -5px;
+}
+
+#innerUtilityBottom {
+  font-size: 80%;
+}
+
 #settingsFieldset textarea {
   display: block;
   height: 5em;
@@ -374,6 +430,10 @@ span.spoiler {
 
 #settingsFieldset label {
   display: block;
+}
+
+#fieldMessage {
+  width: 244px;
 }
 
 #settingsFieldset label input {
@@ -393,8 +453,9 @@ span.spoiler {
 }
 
 .wide, #postingForm input[type='text'], .modalTableBody input[type='text'],
-  .modalTableBody select {
-  width: 100%;
+  .modalTableBody select, #fieldPostingPassword {
+  min-width: 244px;
+  max-width: 244px;
 }
 
 #redirect, #maint {
@@ -415,7 +476,7 @@ footer {
   width: 100%;
   margin: 3em 0px 2em 0px;
   text-align: center;
-  font-size: 75%;
+  font-size: x-small !important;
 }
 
 .innerPost, .markedPost {
@@ -427,6 +488,22 @@ footer {
 /* this has to go down here to override anything above it */
 .hidden {
   display: none;
+}
+
+.hideFileButton:hover,
+.hideFileButton.glowOnHover.coloredIcon:hover,
+.extraMenuButton.glowOnHover.coloredIcon:hover,
+.hideButton.glowOnHover.coloredIcon:hover,
+.watchButton.glowOnHover.coloredIcon:hover,
+#closeWatcherMenuButton:hover,
+.watchedCellCloseButton.glowOnHover.coloredIcon:hover,
+#closeSettingsMenuButton:hover,
+#closeSideCatalogButton:hover,
+.close-btn.coloredIcon:hover,
+.floatingMenu.extraMenu div:hover,
+.floatingMenu.hideMenu div:hover,
+.hideMenu div:hover {
+  color: #5f89ac;
 }
 
 #settingsWrapper input.hidden {
@@ -454,35 +531,35 @@ footer {
 }
 
 #navBoardList::after {
-  content: 'boards';
+  content: 'Boards';
 }
 
 #navOverboard::after, #linkOverboard::after {
-  content: 'overboard';
+  content: 'Overboard';
 }
 
 #linkSfwOver::after {
-  content: 'overboard sfw';
+  content: 'Overboard SFW';
 }
 
 #navPosting::after {
-  content: 'help';
+  content: 'Donate';
 }
 
 #navLinkHome::after {
-  content: 'home';
+  content: 'Home';
 }
 
 #watcherButton::after {
-  content: 'watched threads';
+  content: 'Watching';
 }
 
 #settingsButton::after {
-  content: 'settings';
+  content: 'Settings';
 }
 
-#linkGlobalLogs::after {
-  content: 'logs';
+#linkLogs::after {
+  content: 'Logs';
 }
 
 #linkArchives::after {
@@ -550,4 +627,484 @@ footer {
     height: auto;
     max-height: 100px;
   }
+}
+
+#postingForm input:focus,
+#postingForm textarea:focus,
+.modalDecorationPanel input[type='text']:focus,
+#settingsMenu input[type='text']:focus,
+#settingsMenu textarea:focus,
+#quick-reply input[type="text"]:focus,
+#quick-reply textarea:focus,
+#quick-reply input[type="password"]:focus,
+textarea:focus {
+  box-shadow: 0px 0px 5px 2px #2be3ff;
+}
+
+#postingForm button:active {
+  box-shadow: 0px 0px 5px #117743;
+}
+
+/* Yotsuba Theme Starts Here */
+
+body.theme_yotsuba {
+  background: #ffe no-repeat;
+  background-image: linear-gradient(to bottom, #fed6af 0, transparent 260px);
+  color: maroon;
+}
+
+.theme_yotsuba .floatingMenu.extraMenu,
+.theme_yotsuba .floatingMenu.hideMenu {
+  background: #f0e0d6;
+}
+
+.theme_yotsuba .modalDecorationPanel {
+  background: #eef2ff
+}
+
+.theme_yotsuba .floatingMenu,
+.theme_yotsuba #quick-reply table {
+  background: #eef2ff no-repeat;
+  background-image: linear-gradient(to bottom, #d1d5ee 0, transparent 130px);
+}
+
+.theme_yotsuba nav {
+  background-color: #fed6af;
+}
+
+.theme_yotsuba hr,
+.theme_yotsuba nav {
+  border-color: #d9bfb7;
+}
+
+.theme_yotsuba #postingForm th,
+.theme_yotsuba .modalTableBody th {
+  background: #ea8;
+}
+
+.theme_yotsuba .innerPost,
+.theme_yotsuba .innerCell,
+.theme_yotsuba #divLatestPosts .latestPostCell,
+.theme_yotsuba .quoteTooltip,
+.theme_yotsuba .markedPost,
+.theme_yotsuba #divLatestImages img {
+  background: #f0e0d6;
+}
+
+.theme_yotsuba .markedPost,
+.theme_yotsuba .sideCatalogMarkedCell {
+  background: #f0c0b0;
+}
+
+.theme_yotsuba .innerPost,
+.theme_yotsuba #divLatestPosts .latestPostCell  {
+  border: 1px solid #d9bfb7;
+}
+
+.theme_yotsuba .markedPost,
+.theme_yotsuba .quoteTooltip,
+.theme_yotsuba .sideCatalogMarkedCell {
+  border: 1px solid #d99f91;
+}
+
+.theme_yotsuba a:hover, 
+.theme_yotsuba .labelSubject {
+  color: #cc1105;
+}
+
+.theme_yotsuba .noEmailName,
+.theme_yotsuba .noEmailName:hover,
+.theme_yotsuba .linkName {
+  color: #117743;
+}
+
+.theme_yotsuba div.banner {
+  background: #98e;
+}
+
+.theme_yotsuba #postingForm input:focus,
+.theme_yotsuba #postingForm textarea:focus,
+.theme_yotsuba .modalDecorationPanel input[type='text']:focus,
+.theme_yotsuba #settingsMenu input[type='text']:focus,
+.theme_yotsuba #settingsMenu textarea:focus,
+.theme_yotsuba #quick-reply input[type="text"]:focus,
+.theme_yotsuba #quick-reply textarea:focus,
+.theme_yotsuba #quick-reply input[type="password"]:focus,
+.theme_yotsuba textarea:focus {
+  box-shadow: 0px 0px 5px 2px #98e;
+}
+
+.theme_yotsuba .labelRole {
+  color: purple;
+}
+
+.theme_yotsuba div.banner,
+.theme_yotsuba .linkSelf,
+.theme_yotsuba .linkSelf:visited,
+.theme_yotsuba .linkQuote,
+.theme_yotsuba .linkQuote:visited,
+.theme_yotsuba .unimportant,
+.theme_yotsuba #navPosting,
+.theme_yotsuba #watcherButton,
+.theme_yotsuba #settingsButton,
+.theme_yotsuba #galleryLink,
+.theme_yotsuba #linkTop,
+.theme_yotsuba #linkBottom,
+.theme_yotsuba #navSideCatalog,
+.theme_yotsuba #navLinkHome,
+.theme_yotsuba #navBoardList,
+.theme_yotsuba #linkBack,
+.theme_yotsuba #navCatalog,
+.theme_yotsuba #linkRss,
+.theme_yotsuba .extraMenu, 
+.theme_yotsuba .hideMenu,
+.theme_yotsuba #boardListLinks a,
+.theme_yotsuba .boardHeader p
+ {
+  color: maroon;
+}
+
+.theme_yotsuba .panelBacklinks a,
+.theme_yotsuba a:visited:hover,
+.theme_yotsuba .coloredIcon,
+.theme_yotsuba .quoteLink,
+.theme_yotsuba #selectedTab,
+.theme_yotsuba #navPosting:hover,
+.theme_yotsuba #watcherButton:hover,
+.theme_yotsuba #settingsButton:hover,
+.theme_yotsuba .hideFileButton.glowOnHover.coloredIcon:hover,
+.theme_yotsuba #galleryLink:hover,
+.theme_yotsuba #linkTop:hover,
+.theme_yotsuba #navSideCatalog:hover,
+.theme_yotsuba #closeWatcherMenuButton:hover,
+.theme_yotsuba .watchedCellCloseButton.glowOnHover.coloredIcon:hover,
+.theme_yotsuba #closeSettingsMenuButton:hover,
+.theme_yotsuba .close-btn.coloredIcon:hover,
+.theme_yotsuba .extraMenuButton.glowOnHover.coloredIcon:hover,
+.theme_yotsuba .hideButton.glowOnHover.coloredIcon:hover,
+.theme_yotsuba .watchButton.glowOnHover.coloredIcon:hover,
+.theme_yotsuba .linkQuote:visited:hover,
+.theme_yotsuba #linkBack:hover,
+.theme_yotsuba #linkBottom:hover,
+.theme_yotsuba #navCatalog:hover,
+.theme_yotsuba .floatingMenu.extraMenu div:hover,
+.theme_yotsuba .floatingMenu.hideMenu div:hover,
+.theme_yotsuba .hideMenu div:hover,
+.theme_yotsuba .postCell .quoteLink
+{  
+  color: navy;
+}
+
+.theme_yotsuba .floatingMenu.extraMenu div:hover, 
+.theme_yotsuba .floatingMenu.hideMenu div:hover {
+  background: #ffe;
+}
+
+.theme_yotsuba a,
+.theme_yotsuba a:hover,
+.theme_yotsuba a:visited,
+.theme_yotsuba .hideFileButton,
+.theme_yotsuba .hideFileButton.glowOnHover.coloredIcon,
+.theme_yotsuba .extraMenuButton.glowOnHover.coloredIcon,
+.theme_yotsuba .hideButton.glowOnHover.coloredIcon,
+.theme_yotsuba .watchButton.glowOnHover.coloredIcon,
+.theme_yotsuba #closeWatcherMenuButton,
+.theme_yotsuba .watchedCellCloseButton.glowOnHover.coloredIcon,
+.theme_yotsuba #closeSettingsMenuButton,
+.theme_yotsuba #closeSideCatalogButton,
+.theme_yotsuba .close-btn.coloredIcon {
+  color: #00e;
+}
+
+.theme_yotsuba .sideCatalogCell {
+  background: #f0e0d6;
+  border: 1px solid #d9bfb7;
+}
+
+.theme_yotsuba .floatingMenu.extraMenu,
+.theme_yotsuba .floatingMenu.hideMenu,
+.theme_yotsuba #quick-reply table,
+.theme_yotsuba #watchedMenu,
+.theme_yotsuba #settingsMenu,
+.theme_yotsuba .modalDecorationPanel {
+  border: 1px solid maroon;
+}
+
+
+
+/* Yotsuba B Theme Starts Here */
+
+body.theme_yotsuba-b {
+  background: #eef2ff no-repeat;
+  background-image: linear-gradient(to bottom, #d1d5ee 0, transparent 260px);
+  color: #000;
+}
+
+.theme_yotsuba-b .modalDecorationPanel {
+  background: #eef2ff
+}
+
+.theme_yotsuba-b .floatingMenu,
+.theme_yotsuba-b #quick-reply table {
+  background: #eef2ff no-repeat;
+  background-image: linear-gradient(to bottom, #d1d5ee 0, transparent 130px);
+}
+
+.theme_yotsuba-b nav {
+  background-color: #d1d5ee;
+}
+
+.theme_yotsuba-b hr,
+.theme_yotsuba-b nav {
+  border-color: #b7c5d9;
+}
+
+.theme_yotsuba-b #postingForm th,
+.theme_yotsuba-b .modalTableBody th {
+  background: #98e;
+}
+
+.theme_yotsuba-b .innerPost,
+.theme_yotsuba-b .innerCell,
+.theme_yotsuba-b #divLatestPosts .latestPostCell,
+.theme_yotsuba-b .quoteTooltip,
+.theme_yotsuba-b .markedPost,
+.theme_yotsuba-b #divLatestImages img {
+  background: #d6daf0;
+}
+
+.theme_yotsuba-b .markedPost,
+.theme_yotsuba-b .sideCatalogMarkedCell {
+  background: #d6bad0
+}
+
+.theme_yotsuba-b .innerPost,
+.theme_yotsuba-b #divLatestPosts .latestPostCell  {
+  border: 1px solid #b7c5d9;
+}
+
+.theme_yotsuba-b .markedPost,
+.theme_yotsuba-b .quoteTooltip,
+.theme_yotsuba-b .sideCatalogMarkedCell {
+  border: 1px solid #ba9dbf;
+}
+
+.theme_yotsuba-b a:hover, 
+.theme_yotsuba-b .labelSubject {
+  color: #cc1105;
+}
+
+.theme_yotsuba-b .boardHeader p {
+  color: #af0a0f;
+}
+
+.theme_yotsuba-b .noEmailName,
+.theme_yotsuba-b .noEmailName:hover,
+.theme_yotsuba-b .linkName {
+  color: #117743;
+}
+
+.theme_yotsuba-b div.banner {
+  background: #98e;
+}
+
+.theme_yotsuba-b #postingForm input:focus,
+.theme_yotsuba-b #postingForm textarea:focus,
+.theme_yotsuba-b .modalDecorationPanel input[type='text']:focus,
+.theme_yotsuba-b #settingsMenu input[type='text']:focus,
+.theme_yotsuba-b #settingsMenu textarea:focus,
+.theme_yotsuba-b #quick-reply input[type="text"]:focus,
+.theme_yotsuba-b #quick-reply textarea:focus,
+.theme_yotsuba-b #quick-reply input[type="password"]:focus,
+.theme_yotsuba-b textarea:focus {
+  box-shadow: 0px 0px 5px 2px #98e;
+}
+
+.theme_yotsuba-b .labelRole {
+  color: purple;
+}
+
+.theme_yotsuba-b div.banner,
+.theme_yotsuba-b .linkSelf,
+.theme_yotsuba-b .linkSelf:visited,
+.theme_yotsuba-b .linkQuote,
+.theme_yotsuba-b .linkQuote:visited,
+.theme_yotsuba-b .unimportant,
+.theme_yotsuba-b #navPosting,
+.theme_yotsuba-b #watcherButton,
+.theme_yotsuba-b #settingsButton,
+.theme_yotsuba-b #galleryLink,
+.theme_yotsuba-b #linkTop,
+.theme_yotsuba-b #linkBottom,
+.theme_yotsuba-b #navSideCatalog,
+.theme_yotsuba-b .extraMenu, 
+.theme_yotsuba-b .hideMenu
+ {
+  color: #000;
+}
+
+.theme_yotsuba-b .panelBacklinks a,
+.theme_yotsuba-b a:visited:hover,
+.theme_yotsuba-b .coloredIcon,
+.theme_yotsuba-b .quoteLink,
+.theme_yotsuba-b #selectedTab,
+.theme_yotsuba-b #navPosting:hover,
+.theme_yotsuba-b #watcherButton:hover,
+.theme_yotsuba-b #settingsButton:hover,
+.theme_yotsuba-b .hideFileButton.glowOnHover.coloredIcon:hover,
+.theme_yotsuba-b #galleryLink:hover,
+.theme_yotsuba-b #linkTop:hover,
+.theme_yotsuba-b #navSideCatalog:hover,
+.theme_yotsuba-b #closeWatcherMenuButton:hover,
+.theme_yotsuba-b .watchedCellCloseButton.glowOnHover.coloredIcon:hover,
+.theme_yotsuba-b #closeSettingsMenuButton:hover,
+.theme_yotsuba-b .close-btn.coloredIcon:hover,
+.theme_yotsuba-b .extraMenuButton.glowOnHover.coloredIcon:hover,
+.theme_yotsuba-b .hideButton.glowOnHover.coloredIcon:hover,
+.theme_yotsuba-b .watchButton.glowOnHover.coloredIcon:hover,
+.theme_yotsuba-b .linkQuote:visited:hover,
+.theme_yotsuba-b #linkBack:hover,
+.theme_yotsuba-b #linkBottom:hover,
+.theme_yotsuba-b #navCatalog:hover,
+.theme_yotsuba-b .floatingMenu.extraMenu div:hover,
+.theme_yotsuba-b .floatingMenu.hideMenu div:hover,
+.theme_yotsuba-b .hideMenu div:hover,
+.theme_yotsuba-b .postCell .quoteLink
+{  
+  color: #d00;
+}
+
+.theme_yotsuba-b .floatingMenu.extraMenu div:hover, 
+.theme_yotsuba-b .floatingMenu.hideMenu div:hover {
+  background: #98e;
+}
+
+.theme_yotsuba-b a,
+.theme_yotsuba-b a:visited,
+.theme_yotsuba-b .hideFileButton,
+.theme_yotsuba-b .hideFileButton.glowOnHover.coloredIcon,
+.theme_yotsuba-b .extraMenuButton.glowOnHover.coloredIcon,
+.theme_yotsuba-b .hideButton.glowOnHover.coloredIcon,
+.theme_yotsuba-b .watchButton.glowOnHover.coloredIcon,
+.theme_yotsuba-b #closeWatcherMenuButton,
+.theme_yotsuba-b .watchedCellCloseButton.glowOnHover.coloredIcon,
+.theme_yotsuba-b #closeSettingsMenuButton,
+.theme_yotsuba-b #closeSideCatalogButton,
+.theme_yotsuba-b .close-btn.coloredIcon {
+  color: #34345c;
+}
+
+.theme_yotsuba-b .sideCatalogCell {
+  background: #d6daf0;
+  border: 1px solid #b7c5d9;
+}
+
+.theme_yotsuba-b .floatingMenu.extraMenu,
+.theme_yotsuba-b .floatingMenu.hideMenu,
+.theme_yotsuba-b #quick-reply table,
+.theme_yotsuba-b #watchedMenu,
+.theme_yotsuba-b #settingsMenu,
+.theme_yotsuba-b .modalDecorationPanel {
+  border: 1px solid #000;
+}
+
+/* Happy Day Theme Starts Here */
+
+body.theme_happy-day {
+  background: #eef8f0 no-repeat;
+  background-image: linear-gradient(to bottom,#cfecd1 0,transparent 260px);
+  color: #333;
+}
+
+.theme_happy-day .floatingMenu,
+.theme_happy-day #quick-reply table {
+  background: #eef8f0 no-repeat;
+  background-image: linear-gradient(to bottom, #cfecd1 0, transparent 130px);
+}
+
+.theme_happy-day nav {
+  background-color: #cfecd1;
+  border-color: #b7c5d9;
+}
+
+.theme_happy-day hr {
+  border-color: #b7c5d9;
+}
+
+.theme_happy-day #postingForm th,
+.theme_happy-day #divLatestPosts .latestPostCell {
+  background: #bbe6c2;
+}
+
+.theme_happy-day .innerPost,
+.theme_happy-day .innerCell {
+  background: #d6f0da;
+}
+
+.theme_happy-day .markedPost,
+.theme_happy-day .quoteTooltip {
+  border: 1px solid maroon;
+  background: #bbe6c2;
+}
+
+.theme_happy-day .linkSelf,
+.theme_happy-day .linkSelf:visited,
+.theme_happy-day .navLinkHome,
+.theme_happy-day #navLinkHome.coloredIcon,
+.theme_happy-day .linkQuote,
+.theme_happy-day a.linkQuote,
+.theme_happy-day .linkQuote:visited {
+  color: #81a2be;
+}
+
+.theme_happy-day a,
+.theme_happy-day a:visited,
+.theme_happy-day .hideFileButton {
+  color: #34345c;
+}
+
+.theme_happy-day a:hover, 
+.theme_happy-day .labelSubject {
+  color: #cc1105;
+}
+
+.theme_happy-day .boardHeader p {
+  color: #333;
+}
+
+.theme_happy-day .panelBacklinks a,
+.theme_happy-day .coloredIcon,
+.theme_happy-day .quoteLink {
+  color: #81a2be;
+}
+
+.theme_happy-day .noEmailName,
+.theme_happy-day .noEmailName:hover,
+.theme_happy-day .linkName {
+  color: #117743;
+}
+
+.theme_happy-day div.banner {
+  background: #bbe6c2;
+  color: #333;
+}
+
+.theme_happy-day .unimportant {
+  color: #333;
+}
+
+.theme_happy-day .greenText {
+  color: #588006;
+}
+
+.theme_happy-day #postingForm input:focus,
+.theme_happy-day #postingForm textarea:focus,
+.theme_happy-day .modalDecorationPanel input[type='text']:focus,
+.theme_happy-day #settingsMenu input[type='text']:focus,
+.theme_happy-day #settingsMenu textarea:focus,
+.theme_happy-day #quick-reply input[type="text"]:focus,
+.theme_happy-day #quick-reply textarea:focus,
+.theme_happy-day #quick-reply input[type="password"]:focus,
+.theme_happy-day textarea:focus {
+  box-shadow: 0px 0px 5px 2px #03a665;
 }

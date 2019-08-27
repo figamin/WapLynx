@@ -15,9 +15,6 @@ account.init = function() {
   api.convertButton('passwordFormButton', account.changePassword,
       'passwordChangeField');
 
-  api.convertButton('deleteAccountFormButton', account.deleteAccount,
-      'deleteAccountField');
-
   api.convertButton('saveFormButton', account.save, 'settingsField');
 
   api.convertButton('logoutFormButton', account.logout);
@@ -25,29 +22,6 @@ account.init = function() {
   if (document.getElementById('boardCreationDiv')) {
     api.convertButton('newBoardFormButton', account.createBoard,
         'creationField');
-  }
-
-};
-
-account.deleteAccount = function() {
-
-  var confirmed = document.getElementById('confirmationCheckbox').checked;
-
-  if (!confirmed) {
-    alert('You must confirm that you wish to delete your account.');
-  } else {
-
-    api.formApiRequest('deleteAccount', {
-      confirmation : confirmed
-    }, function requestComplete(status, data) {
-
-      if (status === 'ok') {
-        window.location = '/';
-      } else {
-        alert(status + ': ' + JSON.stringify(data));
-      }
-    });
-
   }
 
 };
@@ -149,8 +123,8 @@ account.createBoard = function() {
       .trim();
   var typedCaptcha = document.getElementById('fieldCaptcha').value.trim();
 
-  if (!typedUri.length || !typedName.length) {
-    alert('Uri and name are mandatory.');
+  if (!typedUri.length || !typedName.length || !typedDescription.length) {
+    alert('All fields are mandatory.');
   } else if (/\W/.test(typedUri)) {
     alert('Invalid uri.');
     return;

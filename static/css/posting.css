@@ -48,7 +48,8 @@ code br {
 
 .quoteTooltip {
   position: absolute;
-  display: none
+  display: none;
+  border: 1px solid #000;
 }
 
 #formMore {
@@ -68,7 +69,7 @@ code br {
   font-weight: normal;
   white-space: nowrap;
   cursor: default;
-  color: #ACACAC;
+  color: #c5c8c6;
   text-shadow: none;
 }
 
@@ -85,8 +86,12 @@ code br {
 }
 
 .postInfo, .opHead, .divMessage, .panelUploads, .panelIp, .panelProxyIp,
-  .contentOmissionIndicator, .labelOmission, .labelId, .panelASN {
+  .contentOmissionIndicator, .labelOmission, .labelId {
   font-size: 80%;
+}
+
+.postInfo {
+  margin-right: 5px;
 }
 
 .divPosts {
@@ -99,59 +104,51 @@ code br {
 
 .linkName {
   font-weight: bold;
-  color: #34ED97;
-}
-
-.linkName:hover {
-  color: #AA0000;
+  color: #c5c8c6;
 }
 
 .noEmailName, .noEmailName:hover {
-  color: #117743;
+  color: #c5c8c6;
   text-shadow: none;
 }
 
 .quoteLink {
-  color: #ff0000;
+  text-decoration: underline;
 }
 
 .linkSelf {
-  color: #ACACAC;
+  color: #c5c8c6;
   text-decoration: none;
-}
-
-.linkSelf:hover {
-  color: #AA0000;
 }
 
 .linkQuote {
-  color: #ACACAC;
+  color: #c5c8c6;
   text-decoration: none;
 }
 
-.linkQuote:hover {
-  color: #ff0000;
-}
-
 .labelSubject {
-  color: #34ED3A;
+  color: #b294bb;
   font-weight: bold;
 }
 
 .labelRole {
-  color: #ff0000;
+  color: #81a2be;
   font-weight: bold;
 }
 
 .labelRole:before {
   font-family: Icons;
-  content: "\e0dc";
-  color: #A00;
+  content: "\e020";
 }
 
 .divMessage {
   margin: 1em 1em 1em 3em;
   word-wrap: break-word;
+}
+
+.multipleUploads .innerPost .divMessage, .multipleUploads .markedPost .divMessage
+  {
+  clear: both;
 }
 
 .divBanMessage {
@@ -185,7 +182,7 @@ code br {
   object-fit: contain;
 }
 
-.multipleUploads {
+.multipleUploads .opUploadPanel, .multipleUploads .panelUploads {
   float: left;
   width: 100%;
 }
@@ -206,6 +203,7 @@ code br {
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
+  text-decoration: underline;
 }
 
 .originalNameLink:hover {
@@ -218,8 +216,8 @@ code br {
 
 .panelBacklinks a {
   padding-left: 0.5em;
-  color: #AA0000;
-  text-decoration: none;
+  color: #81a2be;
+  text-decoration: underline;
 }
 
 .hideLink {
@@ -255,16 +253,18 @@ code br {
 
 /*Board header*/
 .boardHeader p {
-  color: #663E11;
+  color: #c5c8c6;
 }
 
 .boardHeader p#labelName {
   font-size: 200%;
   display: inline-block;
+  font-weight: bold;
 }
 
 .boardHeader #favouriteButton {
   font-size: 200%;
+  display: none;
 }
 
 .boardHeader p#labelDescription {
@@ -321,8 +321,8 @@ code br {
     max-height: 75px;
     object-fit: cover;
   }
-  .multipleUploads {
-    display: block;
+  .multipleUploads .opUploadPanel, .multipleUploads .panelUploads {
+    display: inline-flex;
   }
   .postInfo, .opHead, .divMessage, .panelUploads, .panelIp, .panelProxyIp,
     .contentOmissionIndicator, .labelOmission, .labelId {

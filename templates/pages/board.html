@@ -39,23 +39,35 @@
   <script src="/.static/js/themeLoader.js"></script>
 
   <nav>
-    <span id="navLinkSpan"> <span>[</span> <a
+    <span id="navLinkSpan"> <span>
+        [</span> <a
         href="/"
         class="coloredIcon"
-        id="navLinkHome"></a> <span>/</span> <a
+        id="navLinkHome"></a> <span>
+        /
+        </span> <a
         href="/boards.js"
         class="coloredIcon"
-        id="navBoardList"></a> <span>/</span> <a
-        href="/overboard"
+        id="navBoardList"></a> <span>
+        /
+        </span> <a
+        href="/.static/pages/donate.html"
         class="coloredIcon"
-        id="navOverboard"></a> <span>/</span> <a
-        href="/.static/pages/posting.html"
-        class="coloredIcon"
-        id="navPosting"></a> <span>]</span>
+        id="navPosting"></a> <span id="boardListLinks">]&nbsp;&nbsp;&nbsp;
+        [&nbsp;<a href="/g">g</a>
+        /
+        <a href="/meta">meta</a>
+        /
+        <a href="/pol">pol</a>
+        /
+        <a href="/r9k">r9k</a>
+        /
+        <a href="/tv">tv</a>
+        ]
+    </span>
+    </span>
     </span> <span id="navBoardsSpan"> </span> <span id="navOptionsSpan"> <span>[</span>
       <a
-        class="coloredIcon"
-        id="linkLogs"></a> <span>/</span> <a
         href="#"
         class="coloredIcon"
         id="linkTop"></a> <span>/</span> <a
@@ -79,10 +91,19 @@
     <p id="labelDescription"></p>
   </header>
 
+  <hr class="belowHeaderBar">
+
+ <center><div id="newThreadText">
+  [<a href="#" onclick="displayFunction()">Start a New Thread</a>]
+ </div></center>
+
   <div id="postingForm">
 
+   <div id="hideThreadOption"><center>[<a onclick="hideDisplayFunction()">Hide</a>]</center></div>
+
     <fieldset id="newPostFieldset">
-      <legend>Mode: Thread</legend>
+
+	<div class="banner">Posting Mode: New Thread</div>
 
       <form
         action="/newThread.js"
@@ -102,16 +123,31 @@
         <button
           type="submit"
           id="formButton">Post</button>
-
       </form>
-
     </fieldset>
-
+  </div>
+  
+  <div id="announcementPlacement">
+  <hr class="belowPostFieldset">
+  <center>
+  <div id="announcementContent">
+  • Announcements will go here.
+  </div>
+  </center>
+  <hr class="belowPostFieldset">
   </div>
 
   <div id="panelMessage">
     <hr>
     <div id="divMessage"></div>
+  </div>
+
+  <div id="innerUtility">
+  <hr>
+  &nbsp;[<a href="./catalog.html">Catalog</a>]&nbsp;[<a href="#footer">Bottom</a>]&nbsp;[<a onclick="location.reload()">Refresh</a>]
+  <hr>
+  </div>
+
   </div>
 
   <div id="threadList">
@@ -127,6 +163,12 @@
 
       <div class="threadPages">
 
+  	<div id="innerUtilityBottom">
+  	<hr>
+  	&nbsp;[<a href="./catalog.html">Catalog</a>]&nbsp;[<a href="#">Top</a>]&nbsp;[<a onclick="location.reload()">Refresh</a>]
+  	<hr>
+
+  </div>
         <span class="divPages">[ <a id="linkPrevious"></a> <span
           id="divPages"></span> <a id="linkNext"></a> ]
         </span>
@@ -136,31 +178,124 @@
           <a id="linkManagement">Manage Board</a>
           <span>/</span>
           <a id="linkModeration">Moderate Board</a>
-          <span>/</span>
-          <a id="linkMod">Moderate Threads</a>
           <span>]</span>
         </div>
 
       </div>
 
-      <div id="actionsForm"></div>
+      <div id="bottomForms">
+
+        <fieldset class="reportFieldset">
+          <legend>Delete</legend>
+
+          <div class="contentAction">
+            <label>
+              Password
+              <input
+                type="text"
+                class="deletionField"
+                id="deletionFieldPassword"
+                name="password">
+            </label>
+            <label>
+              <input
+                type="checkbox"
+                class="deletionField"
+                id="checkboxOnlyFiles"
+                name="deleteUploads">
+              Delete only files (Removes the file reference to the posts)
+            </label>
+            <label>
+              <input
+                type="checkbox"
+                class="deletionField"
+                id="checkboxMediaDeletion"
+                name="deleteMedia">
+              Delete media (Removes the saved files from the server)
+            </label>
+            <button
+              type="submit"
+              id="deleteFormButton"
+              value="delete"
+              name="action">Delete</button>
+
+          </div>
+        </fieldset>
+
+        <fieldset class="reportFieldset">
+          <legend>Report</legend>
+
+          <div class="contentAction">
+
+            <label>
+              Reason
+              <input
+                type="text"
+                class="reportField"
+                id="reportFieldReason"
+                name="reason">
+            </label>
+            <label>
+              <input
+                type="checkbox"
+                class="reportField"
+                id="checkboxGlobal"
+                name="global">
+              Global
+            </label>
+            <img
+              class="captchaImage"
+              id="captchaImageReport"
+              src="/captcha.js">
+
+            <input
+              type="button"
+              class="hidden reloadCaptchaButton"
+              onclick="captchaUtils.reloadCaptcha()"
+              value="Reload">
+            <span class="captchaTimer"></span>
+            <br>
+
+            <input
+              name="captcha"
+              type="text"
+              class="captchaField reportField"
+              id="fieldCaptchaReport"
+              placeholder="answer">
+
+            <a
+              href="/noCookieCaptcha.js"
+              class="small">no cookies?</a>
+            <br>
+
+            <button
+              type="submit"
+              id="reportFormButton"
+              value="report"
+              name="action">Report</button>
+
+          </div>
+
+        </fieldset>
+
+      </div>
 
     </form>
 
   </div>
 
-  <footer id="footer"></footer>
+  <div class="footerBar" id="footerBarType" value="B"></div>
 
 </body>
 
 <script src="/.static/js/api.js"></script>
 <script src="/.static/js/crypt.js"></script>
+<script src="/.static/js/board.js"></script>
 <script src="/.static/js/postCommon.js"></script>
 <script src="/.static/js/captchaModal.js"></script>
 <script src="/.static/js/thumbs.js"></script>
 <script src="/.static/js/tooltips.js"></script>
 <script src="/.static/js/posting.js"></script>
-<script src="/.static/js/board.js"></script>
 <script src="/.static/js/captchaUtils.js"></script>
 <script src="/.static/js/themes.js"></script>
 <script src="/.static/js/draggable.js"></script>
@@ -172,5 +307,7 @@
 <script src="/.static/js/watcher.js"></script>
 <script src="/.static/js/favouriteBoards.js"></script>
 <script src="/.static/js/bottomForms.js"></script>
+<script src="/.static/js/hideThread.js"></script>
+<script src="/.static/js/footerInject.js"></script>
 
 </html>

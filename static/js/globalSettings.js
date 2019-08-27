@@ -9,27 +9,15 @@ globalSettings.init = function() {
 
     fieldSlaves : {
       setting : 'slaves',
-      type : 'string'
+      type : 'array'
     },
     checkboxSendmail : {
       type : 'boolean',
       setting : 'useSendmail',
     },
-    checkboxRedactModNames : {
-      type : 'boolean',
-      setting : 'redactModNames',
-    },
-    checkboxUnboundBoardLimits : {
-      type : 'boolean',
-      setting : 'unboundBoardLimits',
-    },
     checkboxGlobalBanners : {
       type : 'boolean',
       setting : 'useGlobalBanners',
-    },
-    checkboxValidateMimes : {
-      type : 'boolean',
-      setting : 'validateMimes',
     },
     checkboxDisableLatestPostings : {
       type : 'boolean',
@@ -39,21 +27,9 @@ globalSettings.init = function() {
       type : 'boolean',
       setting : 'verboseCache',
     },
-    checkboxVolunteerSettings : {
-      type : 'boolean',
-      setting : 'allowVolunteerSettings',
-    },
     checkboxVerboseGenerator : {
       type : 'boolean',
       setting : 'verboseGenerator',
-    },
-    checkboxDontProcessLinks : {
-      type : 'boolean',
-      setting : 'dontProcessLinks',
-    },
-    checkboxHttp2 : {
-      type : 'boolean',
-      setting : 'useHttp2',
     },
     checkboxBoardStaffArchiving : {
       type : 'boolean',
@@ -71,17 +47,9 @@ globalSettings.init = function() {
       type : 'string',
       setting : 'maxBoardHashBans',
     },
-    fieldMaxBoardGeneralBans : {
+    fieldMaxBoardRangeBans : {
       type : 'string',
-      setting : 'maxBoardGeneralBans',
-    },
-    fieldLatestPostsAmount : {
-      type : 'string',
-      setting : 'latestPostsAmount',
-    },
-    fieldFileProcessingLimit : {
-      type : 'string',
-      setting : 'fileProcessingLimit',
+      setting : 'maxBoardRangeBans',
     },
     checkboxVerboseGridfs : {
       type : 'boolean',
@@ -119,10 +87,6 @@ globalSettings.init = function() {
       type : 'string',
       setting : 'ipExpirationDays'
     },
-    fieldAuthenticationLimit : {
-      type : 'string',
-      setting : 'authenticationLimit'
-    },
     fieldClusterPort : {
       type : 'string',
       setting : 'clusterPort'
@@ -133,18 +97,6 @@ globalSettings.init = function() {
     },
     fieldMaster : {
       setting : 'master',
-      type : 'string'
-    },
-    fieldFileLimit : {
-      setting : 'fileLimit',
-      type : 'string'
-    },
-    fieldTorDNSL : {
-      setting : 'torDNSBL',
-      type : 'string'
-    },
-    fieldTrustedProxies : {
-      setting : 'trustedProxies',
       type : 'string'
     },
     fieldMessageLength : {
@@ -161,14 +113,6 @@ globalSettings.init = function() {
     },
     fieldSpamIpsSource : {
       setting : 'spamIpsSource',
-      type : 'string'
-    },
-    fieldCaptchaLimit : {
-      setting : 'captchaLimit',
-      type : 'string'
-    },
-    fieldDnsbl : {
-      setting : 'dnsbl',
       type : 'string'
     },
     fieldAddress : {
@@ -371,9 +315,9 @@ globalSettings.init = function() {
       setting : 'disableSpamCheck',
       type : 'boolean'
     },
-    comboPruningMode : {
-      setting : 'pruningMode',
-      type : 'combo'
+    checkboxAutoPruneFiles : {
+      setting : 'autoPruneFiles',
+      type : 'boolean'
     },
     checkboxFrontPageStats : {
       setting : 'frontPageStats',
@@ -387,8 +331,8 @@ globalSettings.init = function() {
       setting : 'allowGlobalBoardModeration',
       type : 'boolean'
     },
-    checkboxVersatileBlockBypass : {
-      setting : 'allowVersatileBlockBypass',
+    checkboxSpamBypass : {
+      setting : 'allowSpamBypass',
       type : 'boolean'
     },
     checkboxMediaThumb : {
@@ -421,11 +365,11 @@ globalSettings.init = function() {
     },
     fieldAcceptedMimes : {
       setting : 'acceptedMimes',
-      type : 'string'
+      type : 'array'
     },
     fieldAddons : {
       setting : 'addons',
-      type : 'string'
+      type : 'array'
     },
     comboBoardCreationRequirement : {
       setting : 'boardCreationRequirement',
@@ -467,6 +411,25 @@ globalSettings.save = function() {
     case 'combo':
       var combo = document.getElementById(key);
       parameters[item.setting] = combo.options[combo.selectedIndex].value;
+      break;
+
+    case 'array':
+      var values = document.getElementById(key).value.trim().split(',');
+
+      var processedValues = [];
+
+      for (var i = 0; i < values.length; i++) {
+        var value = values[i].trim();
+
+        if (value.length) {
+          processedValues.push(value);
+        }
+      }
+
+      if (processedValues.length) {
+        parameters[item.setting] = processedValues;
+      }
+
       break;
 
     }

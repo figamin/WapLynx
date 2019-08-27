@@ -2,9 +2,7 @@ var filterManagement = {};
 
 filterManagement.init = function() {
 
-  var boardIdentifier = document.getElementById('boardIdentifier')
-
-  api.boardUri = boardIdentifier ? boardIdentifier.value : '';
+  api.boardUri = document.getElementById('boardIdentifier').value;
 
   api.convertButton('addFormButton', filterManagement.addFilter,
       'addFilterField');
@@ -95,7 +93,6 @@ filterManagement.addFilter = function() {
               if (existing) {
                 existing.parentNode.parentNode
                     .getElementsByClassName('labelReplacement')[0].innerHTML = typedReplacement;
-
                 return;
               }
 

@@ -2,7 +2,7 @@ var bottomForms = {};
 
 bottomForms.init = function() {
 
-  var forms = document.getElementById('actionsForm');
+  var forms = document.getElementById('bottomForms');
   forms.classList.toggle('hidden');
 
   var showFormsButton = document.createElement('a');

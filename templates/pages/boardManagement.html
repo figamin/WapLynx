@@ -252,9 +252,6 @@
         <a id="rangeBansLink">Range bans</a>
       </p>
       <p>
-        <a id="asnBansLink">ASN bans</a>
-      </p>
-      <p>
         <a id="hashBansLink">Hash bans</a>
       </p>
       <p>
@@ -264,33 +261,15 @@
         <a id="closedReportsLink">Closed reports</a>
       </p>
 
-      <form
-        action="/resetBoardLock.js"
-        method="post"
-        enctype="multipart/form-data"
-        id="resetBoardLockForm">
 
-        <hr />
+      <hr />
 
-        <input
-          type="hidden"
-          name="boardUri"
-          id="resetLockIdentifier">
-        <button
-          type="submit"
-          id="resetLockButton">Reset auto board lock</button>
-      </form>
-
+      <h3>Settings</h3>
 
       <form
-        id="settingsForm"
         action="/setBoardSettings.js"
         method="post"
         enctype="multipart/form-data">
-
-        <hr />
-
-        <h3>Settings</h3>
 
         <input
           type="hidden"
@@ -524,8 +503,7 @@
 
         <p>1: Separate elements with commas</p>
         <p>2: Will be ignored if values are higher than the global
-          equivalent or are not present on the global equivalent, unless unbound
-          board settings are enabled</p>
+          equivalent or are not present on the global equivalent</p>
 
       </form>
 

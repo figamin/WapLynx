@@ -33,8 +33,6 @@
         action="/placeRangeBan.js"
         method="post"
         enctype="multipart/form-data">
-        The range must use a cidr format and the range size must be in
-        increments of 8. like 1.2.3.4/16 or 2001:db8:85a3::/64.
         <label>
           Range to be banned:
           <input
@@ -42,22 +40,6 @@
             name="range"
             class="rangeBanField"
             id="rangeField">
-        </label>
-        <label>
-          Reason:
-          <input
-            type="text"
-            name="reason"
-            class="rangeBanField"
-            id="reasonField">
-        </label>
-        <label>
-          Duration:
-          <input
-            type="text"
-            name="duration"
-            class="rangeBanField"
-            id="durationField">
         </label>
         <input
           id="boardIdentifier"

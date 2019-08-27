@@ -28,7 +28,7 @@
   text-decoration: none;
 }
 
-#linkGlobalLogs:before {
+#linkLogs:before {
   content: "\e069";
 }
 
