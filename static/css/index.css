@@ -16,11 +16,12 @@
   padding: 0.5em;
   margin: 1em auto 2em;
   font-size: 120%;
+  display: none;
 }
 
 #divStats {
   padding: 0.5em;
-  font-size: 75%;
+  font-size: 80%;
   background: #282A2E;
   border: 1px solid #000;
   border-top: none;
@@ -98,6 +99,7 @@
   border-top: none;
   background: #282A2E;
   margin-bottom: 15px;
+  height: 250px;
 }
 
 #divLatestPosts .latestPostCell {
@@ -107,6 +109,15 @@
 
 .latestPostCell a {
   display: block;
+}
+
+#divWelcome {
+    background: #282A2E;
+    margin-bottom: 15px;
+    font-size: 90%;
+    border: 1px solid #000;
+    border-top: none;
+    padding: 0.5em;
 }
 
 #divLatestImages {
@@ -131,11 +142,45 @@
   padding: 5px;
 }
 
+#divBoardsList {
+    margin: 0;
+    border: 1px solid #000;
+    border-top: none;
+    font-size: 90%;
+    background: #282A2E;
+    margin-bottom: 15px;
+    padding: 0.5em;
+    text-align: center;
+    height: 100px;    
+}
+
+#divBoardsList .column {
+    float: left;
+    width: 50%;
+}
+
+#divBoardsList .row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+#boardListCategory {
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+#boardListContent {
+    text-align: left;
+}
+
 h2 {
   margin: 0;
   font-size: 80%;
   border: 1px solid #000;
   padding-left: 5px;
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
 }
 
 @media only screen and (max-width: 812px) {
