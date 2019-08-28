@@ -1,5 +1,4 @@
-.topBoards a, #divLatestImages img, #divLatestPosts .latestPostCell,
-  .innerPost, .sideCatalogCell, .markedPost, .sideCatalogMarkedCell {
+.topBoards a, .innerPost, .sideCatalogCell, .markedPost, .sideCatalogMarkedCell {
   background: #282A2E;
 }
 
@@ -11,7 +10,7 @@
   background: #1d1d21;
 }
 
-#divLatestPosts .latestPostCell,.sideCatalogCell,
+.sideCatalogCell,
   .markedPost, .sideCatalogMarkedCell {
   border: 1px solid #000;
 }
@@ -866,7 +865,6 @@ body.theme_yotsuba-b {
 
 .theme_yotsuba-b .innerPost,
 .theme_yotsuba-b .innerCell,
-.theme_yotsuba-b #divLatestPosts .latestPostCell,
 .theme_yotsuba-b .quoteTooltip,
 .theme_yotsuba-b .markedPost,
 .theme_yotsuba-b #divLatestImages img {
