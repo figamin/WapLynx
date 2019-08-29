@@ -111,22 +111,24 @@
   display: block;
 }
 
+#divWelcome,
+#divLatestImages,
+#divBoardsList {
+  margin: 0;
+  margin-bottom: 15px;
+  background: #282A2E;
+  border-top: none;
+  border: 1px solid #000;
+}
+
+
 #divWelcome {
-    background: #282A2E;
-    margin-bottom: 15px;
     font-size: 90%;
-    border: 1px solid #000;
-    border-top: none;
     padding: 0.5em;
 }
 
 #divLatestImages {
-  margin: 0;
-  border: 1px solid #000;
-  border-top: none;
-  background: #282A2E;
   text-align: center;
-  margin-bottom: 15px;
 }
 
 #divLatestImages .latestImageCell {
@@ -143,15 +145,10 @@
 }
 
 #divBoardsList {
-    margin: 0;
-    border: 1px solid #000;
-    border-top: none;
     font-size: 90%;
-    background: #282A2E;
-    margin-bottom: 15px;
     padding: 0.5em;
     text-align: center;
-    height: 100px;    
+    height: 80px;    
 }
 
 #divBoardsList .column {
@@ -171,7 +168,8 @@
 }
 
 #boardListContent {
-    text-align: left;
+    text-align: center;
+    padding: 5px;
 }
 
 h2 {
