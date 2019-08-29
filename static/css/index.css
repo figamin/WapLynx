@@ -32,7 +32,6 @@
 }
 
 #links {
-  display: none;
   text-align: center;
   font-size: 90%;
   padding: 0.5em;
@@ -95,16 +94,12 @@
 #divLatestPosts {
   width: 100%;
   overflow-y: scroll;
-  border: 1px solid #000;
-  border-top: none;
-  background: #282A2E;
-  margin-bottom: 15px;
   height: 250px;
 }
 
 #divLatestPosts .latestPostCell {
   padding: 0.5em;
-  font-size: 90%;
+  font-size: 80%;
 }
 
 .latestPostCell a {
@@ -113,17 +108,28 @@
 
 #divWelcome,
 #divLatestImages,
-#divBoardsList {
+#divBoardsList,
+#divLatestPosts,
+#divFAQBox {
   margin: 0;
   margin-bottom: 15px;
   background: #282A2E;
-  border-top: none;
   border: 1px solid #000;
+  border-top: none;
 }
 
+#divStandardBox {
+  margin: 0;
+  background: #282A2E;
+  border: 1px solid #000;
+  border-top: none;
+  padding: 0.5em;
+  font-size: 80%;
+}
 
-#divWelcome {
-    font-size: 90%;
+#divWelcome,
+#divFAQBox {
+    font-size: 80%;
     padding: 0.5em;
 }
 
@@ -145,10 +151,10 @@
 }
 
 #divBoardsList {
-    font-size: 90%;
+    font-size: 80%;
     padding: 0.5em;
     text-align: center;
-    height: 80px;    
+    height: 65px;    
 }
 
 #divBoardsList .column {

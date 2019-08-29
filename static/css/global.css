@@ -27,6 +27,7 @@
 .logoImg {
   height: 250px;
   min-width: 1px;
+  margin: 0 auto 1em auto;
 }
 
 .belowHeaderBar {
@@ -43,6 +44,10 @@
 
 #announcementContent {
   max-width: 400px;
+}
+
+#divStandardBox hr {
+  border-color: #c5c8c6;
 }
 
 div.banner {
@@ -133,6 +138,10 @@ a, .coloredIcon, .unhideButton, .embedButton, .checkedFavouriteButton:before,
 
 .coloredIcon::before {
   font-family: 'Icons';
+}
+
+#linksPage li {
+  padding: 5px;
 }
 
 #navLinkSpan .coloredIcon:before, #navOptionsSpan .coloredIcon:before,
@@ -373,14 +382,11 @@ span.spoiler {
 
 /* CSS for pages that deal with site and account settings and bans */
 #settingsWrapper {
-  text-align: center;
-  width: 80%;
+  max-width: 700px;
   margin: 2em auto;
 }
 
 #settingsFieldset {
-  padding: 1em;
-  display: inline-block;
   text-align: left;
 }
 
