@@ -9,26 +9,69 @@
   href="/.static/css/global.css"
   type="text/css"
   rel="stylesheet" />
+<link
+  href="/.static/css/index.css"
+  type="text/css"
+  rel="stylesheet" />
+<link
+  href="/.static/css/watcher.css"
+  type="text/css"
+  rel="stylesheet" />
+<link
+  href="/.static/css/posting.css"
+  type="text/css"
+  rel="stylesheet" />
 </head>
-<body>
+<body id="graphicsIndexPage">
 
   <script src="/.static/js/themeLoader.js"></script>
 
-  <nav id="dynamicHeader"></nav>
-
-  <header>
-    <img
-      src="/.static/logo.png"
-      class="logoImg"
-      alt="logo" />
-  </header>
+  <nav>
+    <span id="navLinkSpan"> <span>
+        [</span> <a
+        href="/"
+        class="coloredIcon"
+        id="navLinkHome"></a> <span>
+        /
+        </span> <a
+        href="/boards.js"
+        class="coloredIcon"
+        id="navBoardList"></a> <span>
+        /
+        </span> <a
+        href="/.static/pages/donate.html"
+        class="coloredIcon"
+        id="navPosting"></a> <span id="boardListLinks">]&nbsp;&nbsp;&nbsp;
+        [&nbsp;<a href="/g">g</a>
+        /
+        <a href="/meta">meta</a>
+        /
+        <a href="/pol">pol</a>
+        /
+        <a href="/r9k">r9k</a>
+        /
+        <a href="/tv">tv</a>
+        ]
+    </span>
+    </span>
+    </span> <span id="navBoardsSpan"> </span> <span id="navOptionsSpan"> <span> </span>
+  </nav>
 
   <div id="settingsWrapper">
 
+    <div
+      id="logoBox"
+      class="title">
+      <img
+        src="/.static/logo.png"
+        class="logoImg"
+        alt="logo" />
+    </div>
+
     <fieldset id="settingsFieldset">
 
-      <legend>Graphs</legend>
-
+  <h2>Daily Graphs</h2>
+  <div id="divStandardBox">
       <form
         method="get"
         action="graphs.js">
@@ -39,11 +82,11 @@
             type="text"
             name="year"
             placeholder="YYYY">
-        </label>
-
         <input
           type="submit"
           value="Search">
+        
+	</label>
 
       </form>
 
@@ -52,15 +95,20 @@
       <div
         id="divDates"
         class="linkList"></div>
-
     </fieldset>
-
   </div>
+</div>
+
+<div class="footerBar" id="footerBarType" value="A"></div>
 
 </body>
 
 <script src="/.static/js/api.js"></script>
 <script src="/.static/js/themes.js"></script>
 <script src="/.static/js/favouriteBoards.js"></script>
+<script src="/.static/js/draggable.js"></script>
+<script src="/.static/js/watcher.js"></script>
+<script src="/.static/js/favouriteBoards.js"></script>
+<script src="/.static/js/footerInject.js"></script>
 
 </html>

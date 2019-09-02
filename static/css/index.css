@@ -118,7 +118,8 @@
   border-top: none;
 }
 
-#divStandardBox {
+#divStandardBox,
+#divRules {
   margin: 0;
   background: #282A2E;
   border: 1px solid #000;

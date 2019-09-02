@@ -16,7 +16,7 @@
 }
 
 #quick-reply table, .modalDecorationPanel,
-  .floatingMenu, #settingsFieldset, .reportFieldset {
+  .floatingMenu, .reportFieldset {
   border: 2px solid #282a2e;
 }
 
@@ -50,6 +50,10 @@
   border-color: #c5c8c6;
 }
 
+#archivePage #settingsWrapper input {
+  display: initial;
+}
+
 div.banner {
   background: #32DD72;
   color: #000;
@@ -73,6 +77,10 @@ div.banner {
   width: 80%;
   max-width: 80%;
   min-width: 80%;
+}
+
+#graphsIndexPage a {
+  
 }
 
 .unimportant {
@@ -112,7 +120,7 @@ div.banner {
 }
 
 .linkList a {
-  display: block;
+  display: table;
 }
 
 #themeSelector {
@@ -388,6 +396,7 @@ span.spoiler {
 
 #settingsFieldset {
   text-align: left;
+  border: none;
 }
 
 #settingsWrapper input {
