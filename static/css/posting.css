@@ -37,6 +37,7 @@ code br {
   margin-top: 1em;
   padding: 0.5em;
   margin-bottom: 1em;
+  width: max-content;
 }
 
 .labelId {

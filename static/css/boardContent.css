@@ -128,9 +128,14 @@ input[type=checkbox].postingCheckbox:checked+label:before {
   content: "\e033";
 }
 
-#boardContentLinks {
-  margin-top: 0.5em;
+#boardContentLinks,
+#showFormsButton {
   font-size: 80%;
+  float: right;
+}
+
+#showFormsButton {
+  clear: both;
 }
 
 .modalPanel {

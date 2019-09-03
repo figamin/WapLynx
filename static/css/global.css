@@ -166,7 +166,8 @@ a {
 
 a:hover,
 .linkSelf:hover,
-.linkQuote:hover {
+.linkQuote:hover,
+#showFormsButton:hover {
   color: #5f89ac;
 }
 
@@ -331,9 +332,25 @@ nav span, nav a {
   content: "\e003";
 }
 
+#showFormsButton::before {
+  content: "[ ";
+}
+
+#showFormsButton::after {
+  content: "  ]";
+}
+
+#showFormsButton::before,
+#showFormsButton::after {
+  color: #c5c8c6;
+}
 /* board list */
 #divPages {
   display: inline-block;
+}
+
+.divPages {
+  font-size: 80%;
 }
 
 #watcherButton span {
