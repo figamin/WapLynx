@@ -146,10 +146,6 @@ a, .coloredIcon, .unhideButton, .embedButton, .checkedFavouriteButton:before,
   font-family: 'Icons';
 }
 
-#linksPage li {
-  padding: 5px;
-}
-
 #navLinkSpan .coloredIcon:before, #navOptionsSpan .coloredIcon:before,
   #links .coloredIcon:before {
   margin-right: 0.25em;
