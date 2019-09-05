@@ -3,15 +3,9 @@ var themes = {};
 themes.init = function() {
 
   themes.themes = [ {
-    label : 'Yotsuba',
+    label : 'To be added',
     id : 'yotsuba'
-  } , {
-    label : 'Yotsuba B',
-    id : 'yotsuba-b',
-  } , {
-    label : 'Happy Day',
-    id : 'happy-day',
-    } ];
+  }];
 
   var postingLink = document.getElementById('navPosting');
 

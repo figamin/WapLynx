@@ -94,7 +94,7 @@
 #divLatestPosts {
   width: 100%;
   overflow-y: scroll;
-  height: 250px;
+  height: 150px;
 }
 
 #divLatestPosts .latestPostCell {
@@ -194,9 +194,6 @@ h2 {
   }
   #indexWrapper {
     width: 99%;
-  }
-  #links a, #divStats {
-    font-size: 153%;
   }
   #linkEngine {
     display: none;
