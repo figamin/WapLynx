@@ -29,27 +29,16 @@
   href="/.static/css/boards.css"
   type="text/css"
   rel="stylesheet" />
+<link
+  href="/.static/css/watcher.css"
+  type="text/css"
+  rel="stylesheet" />
 </head>
 <body id="boardsPage">
 
   <script src="/.static/js/themeLoader.js"></script>
 
-  <nav>
-    <span id="navLinkSpan"> <span>[</span> <a
-        href="/"
-        class="coloredIcon"
-        id="navLinkHome"></a> <span>/</span> <a
-        href="/boards.js"
-        class="coloredIcon"
-        id="navBoardList"></a> <span>/</span> <a
-        class="coloredIcon"
-        id="linkOverboard"></a> <span>/</span> <a id="linkSfwOver"></a> <span>/</span>
-      <a
-        href="/.static/pages/posting.html"
-        class="coloredIcon"
-        id="navPosting"></a> <span>]</span>
-    </span> <span id="navBoardsSpan"> </span> <span id="navOptionsSpan"> </span>
-  </nav>
+  <div class="navBar" id="navBarType" value="A"></div>
 
   <header>
     <img
@@ -133,7 +122,11 @@
 </body>
 
 <script src="/.static/js/api.js"></script>
+<script src="/.static/js/navInject.js"></script>
+<script src="/.static/js/footerInject.js"></script>
 <script src="/.static/js/themes.js"></script>
+<script src="/.static/js/draggable.js"></script>
+<script src="/.static/js/watcher.js"></script>
 <script src="/.static/js/favouriteBoards.js"></script>
 
 </html>

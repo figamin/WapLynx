@@ -265,15 +265,10 @@ header {
 
 nav {
   height: 18px;
-  position: fixed;
   top: 0;
   width: 100%;
-  background-color: #1d1f21;
-  border-bottom: 1px solid #282a2e;
-  padding-bottom: 3px;
-  font-size: 70%;
+  font-size: 80%;
   text-align: center;
-  z-index: 1;
 }
 
 nav span, nav a {
