@@ -31,10 +31,22 @@
   display: none;
 }
 
+#topLinks {
+  text-align: center;
+  margin-bottom: 10px;
+  font-size: 80%;
+}
+
+#topLinks a {
+  margin: 5px;
+  text-decoration: underline;
+}
+
 #links {
   text-align: center;
   font-size: 90%;
   padding: 0.5em;
+  display: none;
 }
 
 #links a {
@@ -110,7 +122,8 @@
 #divLatestImages,
 #divBoardsList,
 #divLatestPosts,
-#divFAQBox {
+#divFAQBox,
+#divPrivacyBox {
   margin: 0;
   margin-bottom: 15px;
   background: #282A2E;
@@ -129,7 +142,8 @@
 }
 
 #divWelcome,
-#divFAQBox {
+#divFAQBox,
+#divPrivacyBox {
     font-size: 80%;
     padding: 0.5em;
 }

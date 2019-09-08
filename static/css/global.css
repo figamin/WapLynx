@@ -211,8 +211,8 @@ input[type=button], input[type=submit], button, .dropzone, .selectedCell
 
 #dropzone {
   font-size: 80%;
-  background: red;
-  border: 1px solid white;
+  border: 1px solid #c5c8c6;
+  background: #282a2e;
 }
 
 .title, .unhideButton {
