@@ -72,9 +72,8 @@ div.banner {
 }
 
 #boardsPage .wide {
-  width: 80%;
-  max-width: 80%;
-  min-width: 80%;
+  max-width: 100%;
+  min-width: 100%;
 }
 
 #graphsIndexPage a {

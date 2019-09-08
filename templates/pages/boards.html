@@ -33,6 +33,10 @@
   href="/.static/css/watcher.css"
   type="text/css"
   rel="stylesheet" />
+<link
+  href="/.static/css/index.css"
+  type="text/css"
+  rel="stylesheet" />
 </head>
 <body id="boardsPage">
 
@@ -49,24 +53,14 @@
 
   <div id="boardsWrapper">
 
-    <div
-      id="divBoards"
-      class="wide">
-      <span id="divBoardsLegend"> <span id="legend"><span
-          id="labelPPH"
-          class="cellComponent">PPH</span><span
-          id="labelPosts"
-          class="cellComponent">Posts</span><span
-          id="labelUsers"
-          class="cellComponent">Users</span></span></span>
-    </div>
-
+  <h2>Boards</h2>
+   <div id="divStandardBox">
     <div class="search">
-
-      <form
+ 
+     <form
         action="/boards.js"
         method="get">
-
+<!--
         <input
           type="text"
           name="boardUri"
@@ -75,8 +69,7 @@
         <input
           type="text"
           name="tags"
-          placeholder="tags">
-
+          placeholder="tags"> -->
         <div id="boardsSort">
           <select name="sorting">
             <option value=''>Most popular</option>
@@ -89,7 +82,7 @@
             <option value='7'>Reverse alphabetic order</option>
           </select>
         </div>
-
+<!-- 
         <input
           type="checkbox"
           name="sfw">
@@ -100,7 +93,7 @@
           name="inactive">
         Abandoned boards only
         <br>
-
+-->
         <input
           type="submit"
           value="search"
@@ -109,12 +102,27 @@
       </form>
     </div>
 
+    <div
+      id="divBoards"
+      class="wide">
+      <span id="divBoardsLegend"> <span id="legend">
+         <span id="labelName" class="cellComponent">Name</span>
+          <span
+          id="labelPPH"
+          class="cellComponent">PPH</span><span
+          id="labelPosts"
+          class="cellComponent">Posts</span><span
+          id="labelUsers"
+          class="cellComponent">Users</span></span></span>
+    </div>
+
     <div>
       <span class="boardPages"> [
         <div id="divPages"></div> ]
       </span>
     </div>
 
+   </div>
   </div>
 
   <div class="footerBar" id="footerBarType" value="B"></div>
