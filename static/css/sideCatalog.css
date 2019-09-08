@@ -1,6 +1,5 @@
 #mainPanel, #sideCatalogDiv {
   overflow-y: auto;
-  height: calc(100vh - 22px);
   margin-top: 22px;
 }
 
