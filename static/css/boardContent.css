@@ -18,6 +18,9 @@
 .dropzone {
   cursor: pointer;
   transition: all 0.2s ease 0s;
+  border: 1px solid #c5c8c6;
+  background: #282a2e;
+  font-size: 80%;
 }
 
 .dragAndDropThumb {
