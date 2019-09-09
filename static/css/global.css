@@ -25,7 +25,8 @@
 }
 
 .logoImg {
-  min-width: 1px;
+    min-width: 1px;
+    max-width: 300px;
 }
 
 .belowHeaderBar {
