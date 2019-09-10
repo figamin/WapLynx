@@ -29,6 +29,10 @@
     max-width: 300px;
 }
 
+#announcementText {
+  margin: auto;
+}
+
 .belowHeaderBar {
   width: 80%;
 }
