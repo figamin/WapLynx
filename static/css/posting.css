@@ -226,6 +226,8 @@ code br {
 
 .hideLink {
   vertical-align: top;
+  padding-right: 3px;
+  color: #c5c8c6;
 }
 
 .aa {
