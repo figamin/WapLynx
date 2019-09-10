@@ -33,10 +33,11 @@
 
 .indicatorSfw {
   border-radius: 6px;
-  background: #32DD72;
+  background: green;
   font-weight: bold;
   text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
-  padding: .12em;
+  padding-left: 3px;
+  padding-right: 4px;
 }
 
 #boardsSort {
