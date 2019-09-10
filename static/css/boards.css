@@ -107,4 +107,7 @@ hr {
   .boardsCellStats, #divBoardsLegend, .labelTags {
     display: none;
   }
+  #divStandardBox {
+    height: 120px;
+  }
 }
