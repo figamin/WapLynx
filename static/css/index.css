@@ -10,6 +10,21 @@
   text-align: center;
 }
 
+#federationInfo {
+    background: maroon;
+    border-radius: 6px;
+    font-size: 90%;
+    padding: .25em;
+    width: 500px;
+    margin: auto;
+    margin-bottom: auto;
+    margin-bottom: 15px;
+}
+
+#federationInfo a {
+  color: #c5c8c6;
+}
+
 #infoBox {
   text-align: center;
   width: 100%;
@@ -123,7 +138,8 @@
 #divBoardsList,
 #divLatestPosts,
 #divFAQBox,
-#divPrivacyBox {
+#divPrivacyBox,
+#divStandardPaddedBox {
   margin: 0;
   margin-bottom: 15px;
   background: #282A2E;
@@ -143,7 +159,8 @@
 
 #divWelcome,
 #divFAQBox,
-#divPrivacyBox {
+#divPrivacyBox,
+#divStandardPaddedBox {
     font-size: 80%;
     padding: 0.5em;
 }
