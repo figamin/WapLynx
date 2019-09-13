@@ -35,6 +35,8 @@ navContent.innerHTML =
         '<a href="/r9k">&nbsp;r9k&nbsp;</a>' +
         '/' +
         '<a href="/tv">&nbsp;tv&nbsp;</a>' +
+        '/' +
+        '<a href="/v">&nbsp;v&nbsp;</a>' +
         ']' +
     '</span>' +
     '</span>' +
