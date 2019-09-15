@@ -858,7 +858,8 @@ body.theme_yotsuba_b {
 .theme_yotsuba_b .hideMenu div:hover,
 .theme_yotsuba_b .postCell .quoteLink,
 .theme_yotsuba_b #showFormsButton:hover,
-.theme_yotsuba_b .linkName.noEmailName:hover
+.theme_yotsuba_b .linkName.noEmailName:hover,
+.theme_yotsuba_b #closeSideCatalogButton:hover
 {  
   color: #d00;
 }
@@ -870,6 +871,8 @@ body.theme_yotsuba_b {
 
 .theme_yotsuba_b a,
 .theme_yotsuba_b a:visited,
+.theme_yotsuba_b #navBoardList,
+.theme_yotsuba_b #navLinkHome,
 .theme_yotsuba_b .hideFileButton,
 .theme_yotsuba_b .hideFileButton.glowOnHover.coloredIcon,
 .theme_yotsuba_b .extraMenuButton.glowOnHover.coloredIcon,
@@ -882,7 +885,9 @@ body.theme_yotsuba_b {
 .theme_yotsuba_b .close-btn.coloredIcon,
 .theme_yotsuba_b .embedButton.glowOnHover,
 .theme_yotsuba_b #showFormsButton,
-.theme_yotsuba_b #linkRss{
+.theme_yotsuba_b #linkRss,
+.theme_yotsuba_b #linkBack,
+.theme_yotsuba_b #navCatalog {
   color: #34345c;
 }
 
@@ -922,7 +927,8 @@ body.theme_yotsuba_b {
 .theme_yotsuba_b .archiveIndicator,
 .theme_yotsuba_b .lockIndicator,
 .theme_yotsuba_b .pinIndicator,
-.theme_yotsuba_b .cyclicIndicator
+.theme_yotsuba_b .cyclicIndicator,
+.theme_yotsuba_b .bumpLockIndicator
 {
   color: #5d6a99;
 }
