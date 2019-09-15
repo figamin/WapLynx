@@ -33,6 +33,10 @@
   margin: auto;
 }
 
+#divLatestPosts .latestPostCell {
+  border-bottom: 1px solid #4b4d54;
+}
+
 .belowHeaderBar {
   width: 80%;
 }
@@ -747,6 +751,7 @@ body.theme_yotsuba_b {
 .theme_yotsuba_b .innerPost,
 .theme_yotsuba_b #divLatestPosts .latestPostCell  {
   border: 1px solid #b7c5d9;
+  border-bottom: none;
 }
 
 .theme_yotsuba_b .markedPost,
