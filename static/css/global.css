@@ -913,6 +913,11 @@ body.theme_yotsuba_b {
 
 .theme_yotsuba_b .extraMenuButton.glowOnHover.coloredIcon,
 .theme_yotsuba_b .hideButton.glowOnHover.coloredIcon,
-.theme_yotsuba_b .watchButton.glowOnHover.coloredIcon {
+.theme_yotsuba_b .watchButton.glowOnHover.coloredIcon,
+.theme_yotsuba_b .archiveIndicator,
+.theme_yotsuba_b .lockIndicator,
+.theme_yotsuba_b .pinIndicator,
+.theme_yotsuba_b .cyclicIndicator
+{
   color: #5d6a99;
 }
