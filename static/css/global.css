@@ -751,8 +751,7 @@ body.theme_yotsuba_b {
   border: 1px solid #ba9dbf;
 }
 
-.theme_yotsuba_b a:hover, 
-.theme_yotsuba_b .labelSubject {
+.theme_yotsuba_b a:hover {
   color: #cc1105;
 }
 
@@ -850,7 +849,7 @@ body.theme_yotsuba_b {
 .theme_yotsuba_b .hideMenu div:hover,
 .theme_yotsuba_b .postCell .quoteLink,
 .theme_yotsuba_b #showFormsButton:hover,
-.theme_yotsuba_b .linkName.noEmailName:hover
+.linkName.noEmailName:hover
 {  
   color: #d00;
 }
@@ -897,4 +896,8 @@ body.theme_yotsuba_b {
 
 .theme_yotsuba_b #federationInfo a {
   color: #34345c;
+}
+
+.theme_yotsuba_b .labelSubject {
+  color: #0f0c5d;
 }
