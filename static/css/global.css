@@ -910,3 +910,9 @@ body.theme_yotsuba_b {
 .theme_yotsuba_b .indicatorSfw {
   color: white;  
 }
+
+.theme_yotsuba_b .extraMenuButton.glowOnHover.coloredIcon,
+.theme_yotsuba_b .hideButton.glowOnHover.coloredIcon,
+.theme_yotsuba_b .watchButton.glowOnHover.coloredIcon {
+  color: #5d6a99;
+}
