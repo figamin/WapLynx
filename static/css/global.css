@@ -81,8 +81,8 @@ div.banner {
   min-width: 100%;
 }
 
-#graphsIndexPage a {
-  
+.linkName.noEmailName:hover {
+    color: #5f89ac;
 }
 
 .unimportant {
@@ -849,7 +849,7 @@ body.theme_yotsuba_b {
 .theme_yotsuba_b .hideMenu div:hover,
 .theme_yotsuba_b .postCell .quoteLink,
 .theme_yotsuba_b #showFormsButton:hover,
-.linkName.noEmailName:hover
+.theme_yotsuba_b .linkName.noEmailName:hover
 {  
   color: #d00;
 }
@@ -901,4 +901,8 @@ body.theme_yotsuba_b {
 
 .theme_yotsuba_b .labelSubject {
   color: #0f0c5d;
+}
+
+.theme_yotsuba_b .indicatorSfw {
+  color: white;  
 }
