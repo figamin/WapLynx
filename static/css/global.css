@@ -378,6 +378,11 @@ a.rules:after {
   vertical-align: middle;
 }
 
+
+#boardsWrapper h2 {
+  text-align: left;
+}
+
 /* markdown */
 .greenText {
   color: #789922;
@@ -672,4 +677,224 @@ textarea:focus {
 
 #postingForm button:active {
   box-shadow: 0px 0px 5px #117743;
+}
+
+
+/* Yotsuba B Theme Starts Here */
+
+body.theme_yotsuba_b {
+  background: #eef2ff no-repeat;
+  background-image: linear-gradient(to bottom, #d1d5ee 0, transparent 260px);
+  color: #000;
+}
+
+.theme_yotsuba_b .modalDecorationPanel {
+  background: #eef2ff
+}
+
+.theme_yotsuba_b .floatingMenu,
+.theme_yotsuba_b #quick-reply table {
+  background: #eef2ff no-repeat;
+  background-image: linear-gradient(to bottom, #d1d5ee 0, transparent 130px);
+}
+
+.theme_yotsuba_b nav {
+  background-color: #d1d5ee;
+}
+
+.theme_yotsuba_b hr,
+.theme_yotsuba_b nav {
+  border-color: #b7c5d9;
+}
+
+.theme_yotsuba_b #postingForm th,
+.theme_yotsuba_b .modalTableBody th,
+.theme_yotsuba_b h2{
+  background: #98e;
+}
+
+.theme_yotsuba_b #divWelcome, 
+.theme_yotsuba_b #divFAQBox, 
+.theme_yotsuba_b #divPrivacyBox, 
+.theme_yotsuba_b #divStandardPaddedBox,
+.theme_yotsuba_b #divBoardsList,
+.theme_yotsuba_b #divLatestPosts,
+.theme_yotsuba_b #divLatestImages,
+.theme_yotsuba_b #divStats,
+.theme_yotsuba_b #divStandardBox
+{
+  background-color: #d6daf0;
+}
+
+
+.theme_yotsuba_b .innerPost,
+.theme_yotsuba_b .innerCell,
+.theme_yotsuba_b .quoteTooltip,
+.theme_yotsuba_b .markedPost,
+.theme_yotsuba_b #divLatestImages img {
+  background: #d6daf0;
+}
+
+.theme_yotsuba_b .markedPost,
+.theme_yotsuba_b .sideCatalogMarkedCell {
+  background: #d6bad0
+}
+
+.theme_yotsuba_b .innerPost,
+.theme_yotsuba_b #divLatestPosts .latestPostCell  {
+  border: 1px solid #b7c5d9;
+}
+
+.theme_yotsuba_b .markedPost,
+.theme_yotsuba_b .quoteTooltip,
+.theme_yotsuba_b .sideCatalogMarkedCell {
+  border: 1px solid #ba9dbf;
+}
+
+.theme_yotsuba_b a:hover, 
+.theme_yotsuba_b .labelSubject {
+  color: #cc1105;
+}
+
+.theme_yotsuba_b .boardHeader p {
+  color: #af0a0f;
+}
+
+.theme_yotsuba_b .noEmailName,
+.theme_yotsuba_b .noEmailName:hover,
+.theme_yotsuba_b .linkName {
+  color: #117743;
+}
+
+.theme_yotsuba_b div.banner {
+  background: #98e;
+}
+
+.theme_yotsuba_b #postingForm input:focus,
+.theme_yotsuba_b #postingForm textarea:focus,
+.theme_yotsuba_b .modalDecorationPanel input[type='text']:focus,
+.theme_yotsuba_b #settingsMenu input[type='text']:focus,
+.theme_yotsuba_b #settingsMenu textarea:focus,
+.theme_yotsuba_b #quick-reply input[type="text"]:focus,
+.theme_yotsuba_b #quick-reply textarea:focus,
+.theme_yotsuba_b #quick-reply input[type="password"]:focus,
+.theme_yotsuba_b textarea:focus {
+  box-shadow: 0px 0px 5px 2px #98e;
+}
+
+.theme_yotsuba_b .labelRole {
+  color: purple;
+}
+
+.theme_yotsuba_b div.banner,
+.theme_yotsuba_b .linkSelf,
+.theme_yotsuba_b .linkSelf:visited,
+.theme_yotsuba_b .linkQuote,
+.theme_yotsuba_b .linkQuote:visited,
+.theme_yotsuba_b .unimportant,
+.theme_yotsuba_b #navPosting,
+.theme_yotsuba_b #watcherButton,
+.theme_yotsuba_b #settingsButton,
+.theme_yotsuba_b #galleryLink,
+.theme_yotsuba_b #linkTop,
+.theme_yotsuba_b #linkBottom,
+.theme_yotsuba_b #navSideCatalog,
+.theme_yotsuba_b .extraMenu, 
+.theme_yotsuba_b .hideMenu,
+.theme_yotsuba_b .hideFileButton.glowOnHover.coloredIcon a,
+.theme_yotsuba_b .linkSelf a,
+.theme_yotsuba_b #showFormsButton::before, 
+.theme_yotsuba_b #showFormsButton::after
+{
+  color: #000;
+}
+
+.theme_yotsuba_b .nameLink,
+.theme_yotsuba_b .hideFileButton.glowOnHover.coloredIcon 
+{
+  color: #000!important;
+}
+
+.theme_yotsuba_b .nameLink:hover,
+.theme_yotsuba_b .hideFileButton.glowOnHover.coloredIcon:hover 
+{
+  color: #d00!important;
+}
+
+
+.theme_yotsuba_b .panelBacklinks a,
+.theme_yotsuba_b a:visited:hover,
+.theme_yotsuba_b .coloredIcon,
+.theme_yotsuba_b .quoteLink,
+.theme_yotsuba_b #selectedTab,
+.theme_yotsuba_b #navPosting:hover,
+.theme_yotsuba_b #watcherButton:hover,
+.theme_yotsuba_b #settingsButton:hover,
+.theme_yotsuba_b .hideFileButton.glowOnHover.coloredIcon:hover,
+.theme_yotsuba_b #galleryLink:hover,
+.theme_yotsuba_b #linkTop:hover,
+.theme_yotsuba_b #navSideCatalog:hover,
+.theme_yotsuba_b #closeWatcherMenuButton:hover,
+.theme_yotsuba_b .watchedCellCloseButton.glowOnHover.coloredIcon:hover,
+.theme_yotsuba_b #closeSettingsMenuButton:hover,
+.theme_yotsuba_b .close-btn.coloredIcon:hover,
+.theme_yotsuba_b .extraMenuButton.glowOnHover.coloredIcon:hover,
+.theme_yotsuba_b .hideButton.glowOnHover.coloredIcon:hover,
+.theme_yotsuba_b .watchButton.glowOnHover.coloredIcon:hover,
+.theme_yotsuba_b .linkQuote:visited:hover,
+.theme_yotsuba_b #linkBack:hover,
+.theme_yotsuba_b #linkBottom:hover,
+.theme_yotsuba_b #navCatalog:hover,
+.theme_yotsuba_b .floatingMenu.extraMenu div:hover,
+.theme_yotsuba_b .floatingMenu.hideMenu div:hover,
+.theme_yotsuba_b .hideMenu div:hover,
+.theme_yotsuba_b .postCell .quoteLink,
+.theme_yotsuba_b #showFormsButton:hover,
+.theme_yotsuba_b .linkName.noEmailName:hover
+{  
+  color: #d00;
+}
+
+.theme_yotsuba_b .floatingMenu.extraMenu div:hover, 
+.theme_yotsuba_b .floatingMenu.hideMenu div:hover {
+  background: #98e;
+}
+
+.theme_yotsuba_b a,
+.theme_yotsuba_b a:visited,
+.theme_yotsuba_b .hideFileButton,
+.theme_yotsuba_b .hideFileButton.glowOnHover.coloredIcon,
+.theme_yotsuba_b .extraMenuButton.glowOnHover.coloredIcon,
+.theme_yotsuba_b .hideButton.glowOnHover.coloredIcon,
+.theme_yotsuba_b .watchButton.glowOnHover.coloredIcon,
+.theme_yotsuba_b #closeWatcherMenuButton,
+.theme_yotsuba_b .watchedCellCloseButton.glowOnHover.coloredIcon,
+.theme_yotsuba_b #closeSettingsMenuButton,
+.theme_yotsuba_b #closeSideCatalogButton,
+.theme_yotsuba_b .close-btn.coloredIcon,
+.theme_yotsuba_b .embedButton.glowOnHover,
+.theme_yotsuba_b #showFormsButton {
+  color: #34345c;
+}
+
+.theme_yotsuba_b .sideCatalogCell {
+  background: #d6daf0;
+  border: 1px solid #b7c5d9;
+}
+
+.theme_yotsuba_b .floatingMenu.extraMenu,
+.theme_yotsuba_b .floatingMenu.hideMenu,
+.theme_yotsuba_b #quick-reply table,
+.theme_yotsuba_b #watchedMenu,
+.theme_yotsuba_b #settingsMenu,
+.theme_yotsuba_b .modalDecorationPanel {
+  border: 1px solid #000;
+}
+
+.theme_yotsuba_b #federationInfo {
+  background: #9370db;
+}
+
+.theme_yotsuba_b #federationInfo a {
+  color: #34345c;
 }
