@@ -872,7 +872,8 @@ body.theme_yotsuba_b {
 .theme_yotsuba_b #closeSideCatalogButton,
 .theme_yotsuba_b .close-btn.coloredIcon,
 .theme_yotsuba_b .embedButton.glowOnHover,
-.theme_yotsuba_b #showFormsButton {
+.theme_yotsuba_b #showFormsButton,
+.theme_yotsuba_b #linkRss{
   color: #34345c;
 }
 
