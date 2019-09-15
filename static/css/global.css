@@ -41,6 +41,10 @@
   width: 400px;
 }
 
+.labelLastEdit {
+    color: #707070;
+}
+
 #announcementPlacement {
   font-size: 80%;
 }
