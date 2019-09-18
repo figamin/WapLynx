@@ -24,9 +24,13 @@ navContent.innerHTML =
         'href="/.static/pages/donate.html" ' +
         'class="coloredIcon" ' +
         'id="navPosting"></a> <span id="boardListLinks">]&nbsp;&nbsp;&nbsp;' +
-        '[&nbsp;<a href="/b">b&nbsp;</a>' +
+        '[&nbsp;<a href="/a">a&nbsp;</a>' +
+        '/' +
+        '<a href="/b">&nbsp;b&nbsp;</a>' +
         '/' +
         '<a href="/g">&nbsp;g&nbsp;</a>' +
+        '/' +
+	'<a href="/k">&nbsp;k&nbsp;</a>' +
         '/' +
         '<a href="/meta">&nbsp;meta&nbsp;</a>' +
 	'/' +
@@ -64,9 +68,13 @@ navContent.innerHTML =
         'href="/.static/pages/donate.html" ' +
         'class="coloredIcon" ' +
         'id="navPosting"></a> <span id="boardListLinks">]&nbsp;&nbsp;&nbsp;' +
-        '[&nbsp;<a href="/b">b&nbsp;</a>' +
+        '[&nbsp;<a href="/a">a&nbsp;</a>' +
         '/' +
+        '<a href="/b">&nbsp;b&nbsp;</a>' +
+	'/' +
         '<a href="/g">&nbsp;g&nbsp;</a>' +
+        '/' +
+	'<a href="/k">&nbsp;k&nbsp;</a>' +
         '/' +
         '<a href="/meta">&nbsp;meta&nbsp;</a>' +
         '/' +
@@ -117,9 +125,13 @@ navContent.innerHTML =
         'href="/.static/pages/donate.html" ' +
         'class="coloredIcon" ' +
         'id="navPosting"></a> <span id="boardListLinks">]&nbsp;&nbsp;&nbsp;' +
-        '[&nbsp;<a href="/b">b&nbsp;</a>' +
+        '[&nbsp;<a href="/a">a&nbsp;</a>' +
+        '/' +
+        '<a href="/b">&nbsp;b&nbsp;</a>' +
         '/' +
         '<a href="/g">&nbsp;g&nbsp;</a>' +
+        '/' +
+        '<a href="/k">&nbsp;k&nbsp;</a>' +
         '/' +
         '<a href="/meta">&nbsp;meta&nbsp;</a>' +
         '/' +	
