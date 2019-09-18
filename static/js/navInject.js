@@ -41,7 +41,10 @@ navContent.innerHTML =
         '<a href="/tv">&nbsp;tv&nbsp;</a>' +
         '/' +
         '<a href="/v">&nbsp;v&nbsp;</a>' +
-        ']' +
+        ']&nbsp;&nbsp;&nbsp;' +
+	'[ ' +
+	'<a href="/latest">15 Latest Posts</a>' +
+	' ]'
     '</span>' +
     '</span>' +
     '</span> <span id="navBoardsSpan"> </span> <span id="navOptionsSpan"> <span> </span>' +
