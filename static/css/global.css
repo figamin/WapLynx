@@ -137,6 +137,19 @@ div.banner {
   image-orientation: from-image;
 }
 
+#federatedText {
+  background: maroon;
+  font-size: 90%;
+  padding: .25em;
+  width: 250px;
+  border-radius: 6px;
+  margin: auto;
+  margin-bottom: auto;
+  margin-bottom: 5px;
+  margin-top: 50px;
+  font-weight: bold;
+}
+
 .linkList a {
   display: table;
 }
@@ -344,16 +357,35 @@ nav span, nav a {
 }
 
 #showFormsButton::before {
-  content: "[ ";
+  content: "[";
 }
 
 #showFormsButton::after {
-  content: "  ]";
+  content: "]";
+}
+
+#showFederatedButton {
+  font-size: 80%;
+}
+
+#showFederatedButton::before {
+  content: "[";
+}
+
+#showFederatedButton::after {
+  content: "]";
 }
 
 #showFormsButton::before,
-#showFormsButton::after {
+#showFormsButton::after,
+#showFederatedButton::before,
+#showFederatedButton::after,
+#questionBox {
   color: #c5c8c6;
+}
+
+#questionBox:hover {
+  color: #5f89ac;
 }
 /* board list */
 #divPages {
@@ -814,7 +846,10 @@ body.theme_yotsuba_b {
 .theme_yotsuba_b .hideFileButton.glowOnHover.coloredIcon a,
 .theme_yotsuba_b .linkSelf a,
 .theme_yotsuba_b #showFormsButton::before, 
-.theme_yotsuba_b #showFormsButton::after
+.theme_yotsuba_b #showFormsButton::after,
+.theme_yotsuba_b #showFederatedButton::before,
+.theme_yotsuba_b #showFederatedButton::after,
+.theme_yotsuba_b #questionBox
 {
   color: #000;
 }
@@ -861,7 +896,10 @@ body.theme_yotsuba_b {
 .theme_yotsuba_b .postCell .quoteLink,
 .theme_yotsuba_b #showFormsButton:hover,
 .theme_yotsuba_b .linkName.noEmailName:hover,
-.theme_yotsuba_b #closeSideCatalogButton:hover
+.theme_yotsuba_b #closeSideCatalogButton:hover,
+.theme_yotsuba_b #federationInfo a:hover,
+.theme_yotsuba_b #federatedText a:hover,
+.theme_yotsuba_b #mobileInfo a:hover
 {  
   color: #d00;
 }
@@ -907,12 +945,14 @@ body.theme_yotsuba_b {
   border: 1px solid #000;
 }
 
-.theme_yotsuba_b #federationInfo {
+.theme_yotsuba_b #federationInfo,
+.theme_yotsuba_b #federatedText {
   background: #9370db;
 }
 
 .theme_yotsuba_b #federationInfo a,
-.theme_yotsuba_b #mobileInfo a {
+.theme_yotsuba_b #mobileInfo a,
+.theme_yotsuba_b #federatedText a {
   color: #34345c;
 }
 
