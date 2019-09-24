@@ -9,6 +9,10 @@ themes.init = function() {
   {
     label : 'Yotsuba B',
     id : 'yotsuba_b'
+  },
+  {
+    label : 'Happy Day',
+    id : 'happy_day'
   }];
 
   var postingLink = document.getElementById('navPosting');
