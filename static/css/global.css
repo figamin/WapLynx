@@ -1500,7 +1500,7 @@ body.theme_warosu {
 .theme_warosu #quick-reply textarea:focus,
 .theme_warosu #quick-reply input[type="password"]:focus,
 .theme_warosu textarea:focus {
-  box-shadow: 0px 0px 5px 2px maroon;
+  box-shadow: 0px 0px 5px 2px #bbe6c2;
 }
 
 
