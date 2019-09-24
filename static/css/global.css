@@ -1318,8 +1318,8 @@ body.theme_happy_day {
 
 .theme_happy_day .floatingMenu,
 .theme_happy_day #quick-reply table {
-  background: #ffe no-repeat;
-  background-image: linear-gradient(to bottom, #fed6af 0, transparent 130px);
+  background: #eef8f0 no-repeat;
+  background-image: linear-gradient(to bottom,#cfecd1 0,transparent 130px);
 }
 
 .theme_happy_day nav {
