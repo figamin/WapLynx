@@ -307,13 +307,11 @@ code br {
 .labelYou {
   color: #34ED97;
   font-weight: normal;
-  font-style: italic;
   padding: 0 3px;
 }
 
 .quoteLink.you:after {
   content: " (You)";
-  font-size: 75%;
   color: #ACACAC;
 }
 
