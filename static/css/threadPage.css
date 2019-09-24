@@ -127,3 +127,66 @@
 .handle {
   cursor: move;
 }
+
+/* page counters */
+
+#divCounters {
+  position: relative;
+  float: right;
+}
+
+#counterReplies:after,
+#counterFiles:not(:last-child):after {
+  content: " | ";
+}
+
+#counterUids {
+  font-size: 1rem;
+  cursor: pointer;
+  transition: text-shadow .25s ease;
+}
+
+.uidBox {
+  display: inline-block;
+  width: 200px;
+  height: 200px;
+
+  position: absolute;
+  top: -220px;
+  right: 0;
+
+  opacity: 0;
+  pointer-events: none;
+  transform: scale(0);
+
+  transition: .25s ease;
+  transition-property: opacity, transform;
+}
+
+#uidbox-checkbox:checked ~ .uidBox {
+  opacity: 1;
+  pointer-events: all;
+  transform: scale(1);
+}
+
+.uidBox .header label {
+  font-size: 2rem;
+  line-height: 1rem;
+  float: right;
+  cursor: pointer;
+}
+
+.uidBox .uids {
+  overflow: auto;
+  height: calc(100% - 2rem);
+}
+
+.uidBox .uids .labelId {
+  display: inline-block;
+  margin-right: 5px;
+}
+
+.replyToThread {
+  float: right;
+  padding-right: 20px;
+}

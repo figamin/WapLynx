@@ -112,6 +112,108 @@ postCommon.init = function() {
     formMore.children[0].onclick();
   }
 
+  // thread.js sets api.boardUri because penumbralynx is braindamaged so
+  // wait until the scripts load
+  document.addEventListener("DOMContentLoaded", function() {
+    if (localStorage.getItem("enableYous") === "true") {
+      postCommon.initYous();
+    }
+  }, false);
+
+  // add paste support
+  window.addEventListener('paste', function handlePaste(evt) {
+
+    if (!evt.clipboardData) return;
+
+    var data = Array.from(evt.clipboardData.items).find(function predicate(i) {
+      return i.kind === "file";
+    });
+    if (!data) return;
+
+    evt.stopPropagation();
+    evt.preventDefault();
+
+    var file = data.getAsFile();
+
+    if (file.type.indexOf("image/")
+        && file.type.indexOf("video/")
+        && file.type.indexOf("audio/")) {
+      return;
+    }
+
+    var ext = file.name.split(".").reverse()[0];
+
+    // since file names are immutable, this ugly hack is required.
+    var mime = file.type;
+    var blob = file.slice(0, file.size, mime);
+    postCommon.addSelectedFile(new File([blob], "ClipboardImage." + ext, { type: mime }));
+  });
+
+};
+
+postCommon.markPostAsYou = function(id, obj) {
+  var post = obj || document.getElementById(+id);
+  if (!post) return;
+
+  var author = post.querySelector(".linkName");
+  if (!author) return;
+
+  var youTag = document.createElement("span");
+  youTag.className = "labelYou";
+  youTag.textContent = "(You)";
+
+  author.parentElement.insertBefore(youTag, author.nextElementSibling);
+};
+
+postCommon.markReplyAsYou = function(quote) {
+  quote.classList.add("you");
+};
+
+postCommon.checkForYou = function(post, id) {
+  if (postCommon.yous.indexOf(id) !== -1) {
+    postCommon.markPostAsYou(id, post);
+  }
+
+  post.querySelectorAll(".quoteLink").forEach(function processReply(quote) {
+    var id = quote.href.split("#")[1];
+    if (postCommon.yous.indexOf(+id) !== -1) {
+      postCommon.markReplyAsYou(quote);
+    }
+  });
+};
+
+postCommon.initYous = function() {
+  var key = api.boardUri + "-yous";
+  var yous = localStorage.getItem(key);
+
+  if (yous === null) {
+    yous = [];
+  } else {
+    yous = JSON.parse(yous);
+  }
+
+  yous.forEach(function processYou(id) {
+    postCommon.markPostAsYou(id);
+
+    // i hate that i have to do this... lynxchan provides no information about
+    // about the quote on the quote links.
+    var quotes = document.querySelectorAll(".quoteLink[href$='#" + id + "']");
+    quotes.forEach(postCommon.markReplyAsYou);
+  });
+
+  postCommon.yous = yous;
+};
+
+postCommon.addSubmitShortcut = function(mbox) {
+  mbox.addEventListener("keyup", function(e) {
+    if (e.ctrlKey && e.key === "Enter") {
+      if (api.threadId) {
+        thread.postReply();
+      } else {
+        board.postThread();
+      }
+    }
+  });
 };
 
 postCommon.updateCurrentChar = function() {
@@ -435,5 +537,10 @@ postCommon.storeUsedPostingPassword = function(boardUri, threadId, postId) {
   localStorage.setItem('postingPasswords', JSON.stringify(storedData));
 
 };
+
+postCommon.addYou = function(boardUri, postId) {
+  postCommon.yous.push(postId);
+  localStorage.setItem(boardUri + "-yous", JSON.stringify(postCommon.yous));
+}
 
 postCommon.init();

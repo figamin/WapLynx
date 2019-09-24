@@ -345,6 +345,26 @@ settingsMenu.getOtherContent = function() {
   noAutoLoopLabel.innerHTML = 'No Autoloop';
   noAutoLoopiv.appendChild(noAutoLoopLabel);
 
+  // enable yous is default on
+  if (localStorage.getItem("enableYous") === null) {
+    localStorage.setItem("enableYous", "true");
+  }
+
+  var enableYousDiv = document.createElement('div');
+  enableYousDiv.innerHTML = "<input type='checkbox' id='enableYous' " +
+    (localStorage.getItem("enableYous") === "true" ? "checked" : "") +
+    " /><label class='small' for='enableYous'>Enable (You)s</label>";
+  var enableYousCheckbox = enableYousDiv.querySelector("[type=checkbox]");
+  otherPanel.appendChild(enableYousDiv);
+
+  // image hovering
+  var hoverImagesDiv = document.createElement('div');
+  hoverImagesDiv.innerHTML = "<input type='checkbox' id='hoverImages' " +
+    (localStorage.getItem("hoverImages") === "true" ? "checked" : "") +
+    " /><label class='small' for='hoverImages'>Enable image hovering</label>";
+  var hoverImagesCheckbox = hoverImagesDiv.querySelector("[type=checkbox]");
+  otherPanel.appendChild(hoverImagesDiv);
+
   var saveButton = document.createElement('button');
   otherPanel.appendChild(saveButton);
   saveButton.innerHTML = 'Save';
@@ -353,6 +373,8 @@ settingsMenu.getOtherContent = function() {
     localStorage.setItem('localTime', localCheckBox.checked);
     localStorage.setItem('relativeTime', relativeCheckBox.checked);
     localStorage.setItem('noAutoLoop', noAutoLoopCheckBox.checked);
+    localStorage.setItem('enableYous', enableYousCheckbox.checked);
+    localStorage.setItem('hoverImages', hoverImagesCheckbox.checked);
   }
 
   return otherPanel;

@@ -1,13 +1,11 @@
 var thread = {};
 
 thread.init = function() {
+  api.mod = !!document.getElementById("divMod");
 
-  api.mod = !!document.getElementById('divMod');
+  api.hiddenCaptcha = !document.getElementById("captchaDiv");
 
-  api.hiddenCaptcha = !document.getElementById('captchaDiv');
-
-  document.getElementById('mainPanel').onscroll = function() {
-
+  document.getElementById("mainPanel").onscroll = function() {
     if (!thread.unreadPosts) {
       return;
     }
@@ -19,51 +17,55 @@ thread.init = function() {
 
       document.title = thread.originalTitle;
     }
-
   };
 
-  api.boardUri = document.getElementById('boardIdentifier').value;
-  thread.divPosts = document.getElementsByClassName('divPosts')[0];
+  api.boardUri = document.getElementById("boardIdentifier").value;
+  thread.divPosts = document.getElementsByClassName("divPosts")[0];
 
   thread.initThread();
 
-  document.getElementsByClassName('divRefresh')[0].style.display = 'block';
+  document.getElementsByClassName("divRefresh")[0].style.display = "block";
 
-  thread.messageLimit = +document.getElementById('labelMessageLength').innerHTML;
-  thread.refreshLabel = document.getElementById('labelRefresh');
+  thread.messageLimit = +document.getElementById("labelMessageLength")
+    .innerHTML;
+  thread.refreshLabel = document.getElementById("labelRefresh");
 
-  thread.refreshButton = document.getElementById('refreshButton');
+  thread.refreshButton = document.getElementById("refreshButton");
 
-  if (document.getElementById('divArchive')) {
-    api.convertButton('archiveFormButon', thread.archiveThread, 'archiveField');
+  if (document.getElementById("divArchive")) {
+    api.convertButton("archiveFormButon", thread.archiveThread, "archiveField");
   }
 
-  if (document.getElementById('controlThreadIdentifier')) {
+  if (document.getElementById("controlThreadIdentifier")) {
+    api.convertButton(
+      "settingsFormButon",
+      thread.saveThreadSettings,
+      "threadSettingsField"
+    );
 
-    api.convertButton('settingsFormButon', thread.saveThreadSettings,
-        'threadSettingsField');
-
-    if (document.getElementById('ipDeletionForm')) {
-      api.convertButton('deleteFromIpFormButton', thread.deleteFromIp,
-          'ipDeletionField');
+    if (document.getElementById("ipDeletionForm")) {
+      api.convertButton(
+        "deleteFromIpFormButton",
+        thread.deleteFromIp,
+        "ipDeletionField"
+      );
     }
 
-    if (document.getElementById('formTransfer')) {
-      api.convertButton('transferFormButton', thread.transfer, 'transferField');
+    if (document.getElementById("formTransfer")) {
+      api.convertButton("transferFormButton", thread.transfer, "transferField");
     }
 
-    api.convertButton('inputBan', thread.banPosts, 'banField');
-    api.convertButton('inputIpDelete', thread.deleteFromIpOnBoard);
-    api.convertButton('inputSpoil', posting.spoilFiles);
-
+    api.convertButton("inputBan", thread.banPosts, "banField");
+    api.convertButton("inputIpDelete", thread.deleteFromIpOnBoard);
+    api.convertButton("inputSpoil", posting.spoilFiles);
   }
 
-  thread.replyButton = document.getElementById('formButton');
-  thread.replyButton.disabled = false;
+  thread.replyButton = document.getElementById("formButton");
+  thread.replyButton.disabled = true;
 
   api.convertButton(thread.replyButton, thread.postReply);
 
-  var replies = document.getElementsByClassName('postCell');
+  var replies = document.getElementsByClassName("postCell");
 
   if (replies && replies.length) {
     thread.lastReplyId = replies[replies.length - 1].id;
@@ -71,121 +73,120 @@ thread.init = function() {
 
   thread.changeRefresh();
 
-  var postingQuotes = document.getElementsByClassName('linkQuote');
+  var postingQuotes = document.getElementsByClassName("linkQuote");
 
   for (var i = 0; i < postingQuotes.length; i++) {
     thread.processPostingQuote(postingQuotes[i]);
   }
 
+  postCommon.addSubmitShortcut(document.getElementById("fieldMessage"));
+
+  thread.initCounters();
+  thread.initReplyButton();
 };
 
 thread.initThread = function() {
-
   thread.lastReplyId = 0;
   thread.originalTitle = document.title;
   posting.highLightedIds = [];
   posting.idsRelation = {};
 
-  var ids = document.getElementsByClassName('labelId');
+  var ids = document.getElementsByClassName("labelId");
 
   for (i = 0; i < ids.length; i++) {
     posting.processIdLabel(ids[i]);
   }
 
   thread.unreadPosts = 0;
-  api.threadId = +document.getElementsByClassName('opCell')[0].id;
-  thread.refreshURL = '/' + api.boardUri + '/res/' + api.threadId + '.json';
+  api.threadId = +document.getElementsByClassName("opCell")[0].id;
+  thread.refreshURL = "/" + api.boardUri + "/res/" + api.threadId + ".json";
   thread.refreshParameters = {
-    boardUri : api.boardUri,
-    threadId : api.threadId
+    boardUri: api.boardUri,
+    threadId: api.threadId
   };
-
 };
 
 thread.deleteFromIpOnBoard = function() {
-
-  var checkBoxes = document.getElementsByClassName('deletionCheckBox');
+  var checkBoxes = document.getElementsByClassName("deletionCheckBox");
 
   for (var i = 0; i < checkBoxes.length; i++) {
     var checkBox = checkBoxes[i];
 
     if (checkBox.checked) {
-      var splitName = checkBox.name.split('-')[0];
+      var splitName = checkBox.name.split("-")[0];
       break;
     }
-
   }
 
   if (!splitName) {
     return;
   }
 
-  var redirect = '/' + splitName + '/';
+  var redirect = "/" + splitName + "/";
 
-  var confirmationBox = document
-      .getElementById('ipDeletionConfirmationCheckbox');
+  var confirmationBox = document.getElementById(
+    "ipDeletionConfirmationCheckbox"
+  );
 
   var param = {
-    action : 'ip-deletion',
-    confirmation : confirmationBox.checked
+    action: "ip-deletion",
+    confirmation: confirmationBox.checked
   };
 
   posting.newGetSelectedContent(param);
 
-  api.formApiRequest('contentActions', param, function requestComplete(status,
-      data) {
-
-    if (status === 'ok') {
+  api.formApiRequest("contentActions", param, function requestComplete(
+    status,
+    data
+  ) {
+    if (status === "ok") {
       window.location.pathname = redirect;
     } else {
-      alert(status + ': ' + JSON.stringify(data));
+      alert(status + ": " + JSON.stringify(data));
     }
   });
-
 };
 
 thread.applyBans = function(captcha) {
-
-  var typedReason = document.getElementById('reportFieldReason').value.trim();
-  var typedDuration = document.getElementById('fieldDuration').value.trim();
-  var typedMessage = document.getElementById('fieldbanMessage').value.trim();
-  var banType = document.getElementById('comboBoxBanTypes').selectedIndex;
+  var typedReason = document.getElementById("reportFieldReason").value.trim();
+  var typedDuration = document.getElementById("fieldDuration").value.trim();
+  var typedMessage = document.getElementById("fieldbanMessage").value.trim();
+  var banType = document.getElementById("comboBoxBanTypes").selectedIndex;
 
   var params = {
-    action : 'ban',
-    reason : typedReason,
-    captcha : captcha,
-    banType : banType,
-    duration : typedDuration,
-    banMessage : typedMessage,
-    global : document.getElementById('checkboxGlobal').checked
+    action: "ban",
+    reason: typedReason,
+    captcha: captcha,
+    banType: banType,
+    duration: typedDuration,
+    banMessage: typedMessage,
+    global: document.getElementById("checkboxGlobal").checked
   };
 
   posting.newGetSelectedContent(params);
 
-  api.formApiRequest('contentActions', params, function requestComplete(status,
-      data) {
-
-    if (status === 'ok') {
-      alert('Bans applied');
+  api.formApiRequest("contentActions", params, function requestComplete(
+    status,
+    data
+  ) {
+    if (status === "ok") {
+      alert("Bans applied");
     } else {
-      alert(status + ': ' + JSON.stringify(data));
+      alert(status + ": " + JSON.stringify(data));
     }
-
   });
 };
 
 thread.banPosts = function() {
-
-  if (!document.getElementsByClassName('panelRange').length) {
+  if (!document.getElementsByClassName("panelRange").length) {
     thread.applyBans();
     return;
   }
 
-  var typedCaptcha = document.getElementById('fieldCaptchaReport').value.trim();
+  var typedCaptcha = document.getElementById("fieldCaptchaReport").value.trim();
 
   if (typedCaptcha && /\W/.test(typedCaptcha)) {
-    alert('Invalid captcha.');
+    alert("Invalid captcha.");
     return;
   }
 
@@ -194,184 +195,172 @@ thread.banPosts = function() {
   } else {
     var parsedCookies = api.getCookies();
 
-    api.formaApiRequest('solveCaptcha', {
-      captchaId : parsedCookies.captchaid,
-      answer : typedCaptcha
-    }, function solvedCaptcha(status, data) {
+    api.formaApiRequest(
+      "solveCaptcha",
+      {
+        captchaId: parsedCookies.captchaid,
+        answer: typedCaptcha
+      },
+      function solvedCaptcha(status, data) {
+        if (status !== "ok") {
+          alert(status);
+          return;
+        }
 
-      if (status !== 'ok') {
-        alert(status);
-        return;
+        thread.applyBans(parsedCookies.captchaid);
       }
-
-      thread.applyBans(parsedCookies.captchaid);
-    });
+    );
   }
-
 };
 
 thread.transfer = function() {
-
-  var informedBoard = document.getElementById("fieldDestinationBoard").value
-      .trim();
+  var informedBoard = document
+    .getElementById("fieldDestinationBoard")
+    .value.trim();
 
   var originThread = document.getElementById("transferThreadIdentifier").value;
   var originBoard = document.getElementById("transferBoardIdentifier").value;
 
-  api.formApiRequest('transferThread', {
-    boardUri : api.boardUri,
-    threadId : api.threadId,
-    boardUriDestination : informedBoard
-  },
-      function setLock(status, data) {
-
-        if (status === 'ok') {
-          window.location.pathname = '/' + informedBoard + '/res/' + data
-              + '.html';
-        } else {
-          alert(status + ': ' + JSON.stringify(data));
-        }
-      });
-
+  api.formApiRequest(
+    "transferThread",
+    {
+      boardUri: api.boardUri,
+      threadId: api.threadId,
+      boardUriDestination: informedBoard
+    },
+    function setLock(status, data) {
+      if (status === "ok") {
+        window.location.pathname =
+          "/" + informedBoard + "/res/" + data + ".html";
+      } else {
+        alert(status + ": " + JSON.stringify(data));
+      }
+    }
+  );
 };
 
 thread.markPost = function(id) {
-
   if (isNaN(id)) {
     return;
   }
 
-  if (thread.markedPosting && thread.markedPosting.className === 'markedPost') {
-    thread.markedPosting.className = 'innerPost';
+  if (thread.markedPosting && thread.markedPosting.className === "markedPost") {
+    thread.markedPosting.className = "innerPost";
   }
 
   var container = document.getElementById(id);
 
-  if (!container || container.className !== 'postCell') {
+  if (!container || container.className !== "postCell") {
     return;
   }
 
-  thread.markedPosting = container.getElementsByClassName('innerPost')[0];
+  thread.markedPosting = container.getElementsByClassName("innerPost")[0];
 
   if (thread.markedPosting) {
-    thread.markedPosting.className = 'markedPost';
+    thread.markedPosting.className = "markedPost";
   }
-
 };
 
 thread.processPostingQuote = function(link) {
-
   link.onclick = function() {
     qr.showQr(link.href.match(/#q(\d+)/)[1]);
   };
-
 };
 
 thread.archiveThread = function() {
-
-  if (!document.getElementById('checkboxArchive').checked) {
-    alert('You must confirm that you wish to archive this thread.');
+  if (!document.getElementById("checkboxArchive").checked) {
+    alert("You must confirm that you wish to archive this thread.");
     return;
   }
 
-  api.formApiRequest('archiveThread', {
-    confirmation : true,
-    boardUri : api.boardUri,
-    threadId : api.threadId
-  }, function archived(status, data) {
-
-    if (status === 'ok') {
-
-      api.resetIndicators({
-        locked : document.getElementsByClassName('lockIndicator').length,
-        pinned : document.getElementsByClassName('pinIndicator').length,
-        cyclic : document.getElementsByClassName('cyclicIndicator').length,
-        archived : true
-      });
-
-    } else {
-      alert(status + ': ' + JSON.stringify(data));
+  api.formApiRequest(
+    "archiveThread",
+    {
+      confirmation: true,
+      boardUri: api.boardUri,
+      threadId: api.threadId
+    },
+    function archived(status, data) {
+      if (status === "ok") {
+        api.resetIndicators({
+          locked: document.getElementsByClassName("lockIndicator").length,
+          pinned: document.getElementsByClassName("pinIndicator").length,
+          cyclic: document.getElementsByClassName("cyclicIndicator").length,
+          archived: true
+        });
+      } else {
+        alert(status + ": " + JSON.stringify(data));
+      }
     }
-
-  });
-
+  );
 };
 
 thread.saveThreadSettings = function() {
+  var pinned = document.getElementById("checkboxPin").checked;
+  var locked = document.getElementById("checkboxLock").checked;
+  var cyclic = document.getElementById("checkboxCyclic").checked;
 
-  var pinned = document.getElementById('checkboxPin').checked;
-  var locked = document.getElementById('checkboxLock').checked;
-  var cyclic = document.getElementById('checkboxCyclic').checked;
-
-  api.formApiRequest('changeThreadSettings', {
-    boardUri : api.boardUri,
-    threadId : api.threadId,
-    pin : pinned,
-    lock : locked,
-    cyclic : cyclic
-  }, function setLock(status, data) {
-
-    if (status === 'ok') {
-
-      api.resetIndicators({
-        locked : locked,
-        pinned : pinned,
-        cyclic : cyclic,
-        archived : document.getElementsByClassName('archiveIndicator').length
-      });
-
-    } else {
-      alert(status + ': ' + JSON.stringify(data));
+  api.formApiRequest(
+    "changeThreadSettings",
+    {
+      boardUri: api.boardUri,
+      threadId: api.threadId,
+      pin: pinned,
+      lock: locked,
+      cyclic: cyclic
+    },
+    function setLock(status, data) {
+      if (status === "ok") {
+        api.resetIndicators({
+          locked: locked,
+          pinned: pinned,
+          cyclic: cyclic,
+          archived: document.getElementsByClassName("archiveIndicator").length
+        });
+      } else {
+        alert(status + ": " + JSON.stringify(data));
+      }
     }
-  });
-
+  );
 };
 
 thread.replyCallback = function(status, data) {
-
-  if (status === 'ok') {
-
+  if (status === "ok") {
     postCommon.storeUsedPostingPassword(api.boardUri, api.threadId, data);
+    postCommon.addYou(api.boardUri, data);
 
-    document.getElementById('fieldMessage').value = '';
-    document.getElementById('fieldSubject').value = '';
+    document.getElementById("fieldMessage").value = "";
+    document.getElementById("fieldSubject").value = "";
     qr.clearQRAfterPosting();
     postCommon.clearSelectedFiles();
 
     thread.refreshPosts(true);
-
   } else {
-    alert(status + ': ' + JSON.stringify(data));
+    alert(status + ": " + JSON.stringify(data));
   }
-
 };
 
 thread.replyCallback.stop = function() {
-
   thread.replyButton.innerHTML = thread.originalButtonText;
 
   qr.setQRReplyText(thread.originalButtonText);
 
   thread.replyButton.disabled = false;
   qr.setQRReplyEnabled(true);
-
 };
 
 thread.replyCallback.progress = function(info) {
-
   if (info.lengthComputable) {
-    var newText = 'Uploading ' + Math.floor((info.loaded / info.total) * 100)
-        + '%';
+    var newText =
+      "Uploading " + Math.floor((info.loaded / info.total) * 100) + "%";
     thread.replyButton.innerHTML = newText;
 
     qr.setQRReplyText(newText);
   }
-
 };
 
 thread.refreshCallback = function(error, receivedData) {
-
-  if ((api.mod && (error !== 'ok')) || (!api.mod && error)) {
+  if ((api.mod && error !== "ok") || (!api.mod && error)) {
     return;
   }
 
@@ -387,7 +376,6 @@ thread.refreshCallback = function(error, receivedData) {
     }
 
     document.title = thread.originalTitle;
-
   }
 
   tooltips.cacheData(receivedData);
@@ -402,8 +390,9 @@ thread.refreshCallback = function(error, receivedData) {
     if (lastReceivedPost.postId > thread.lastReplyId) {
       foundPosts = true;
 
-      for (var i = 0; i < posts.length; i++) {
+      var uids = [];
 
+      for (var i = 0; i < posts.length; i++) {
         var post = posts[i];
 
         if (post.postId > thread.lastReplyId) {
@@ -411,45 +400,53 @@ thread.refreshCallback = function(error, receivedData) {
 
           var postCell = posting.addPost(post, api.boardUri, api.threadId);
 
+          thread.counters.replies++;
+          thread.counters.files += post.files.length;
+          if (post.id) {
+            uids.push(post.id);
+          }
+
+          postCommon.checkForYou(postCell, post.postId);
+
           thread.divPosts.appendChild(postCell);
 
           thread.lastPost = postCell;
 
           thread.lastReplyId = post.postId;
         }
-
       }
 
       if (!thread.fullRefresh) {
-        document.title = '(' + thread.unreadPosts + ') ' + thread.originalTitle;
+        document.title = "(" + thread.unreadPosts + ") " + thread.originalTitle;
       }
 
+      thread.updateLatestUIDs(uids);
+      thread.updateCounters();
     }
   }
 
   if (thread.autoRefresh) {
-    thread.startTimer(thread.manualRefresh || foundPosts ? 5
-        : thread.lastRefresh * 2);
+    thread.startTimer(
+      thread.manualRefresh || foundPosts ? 5 : thread.lastRefresh * 2
+    );
   }
-
 };
 
 thread.refreshCallback.stop = function() {
-
   thread.refreshButton.disabled = false;
 
   thread.refreshingThread = false;
 
   if (sideCatalog.waitingForRefreshData) {
-    sideCatalog.loadThread(sideCatalog.waitingForRefreshData.cell,
-        sideCatalog.waitingForRefreshData.thread);
+    sideCatalog.loadThread(
+      sideCatalog.waitingForRefreshData.cell,
+      sideCatalog.waitingForRefreshData.thread
+    );
     delete sideCatalog.waitingForRefreshData;
   }
-
 };
 
 thread.refreshPosts = function(manual, full) {
-
   if (manual && sideCatalog.loadingThread) {
     return;
   }
@@ -466,113 +463,121 @@ thread.refreshPosts = function(manual, full) {
   thread.refreshingThread = true;
 
   if (api.mod) {
-    api.formApiRequest('mod', {}, thread.refreshCallback, true,
-        thread.refreshParameters);
+    api.formApiRequest(
+      "mod",
+      {},
+      thread.refreshCallback,
+      true,
+      thread.refreshParameters
+    );
   } else {
     api.localRequest(thread.refreshURL, thread.refreshCallback);
   }
-
 };
 
 thread.sendReplyData = function(files, captchaId) {
-
-  var forcedAnon = !document.getElementById('fieldName');
-  var hiddenFlags = !document.getElementById('flagsDiv');
+  var forcedAnon = !document.getElementById("fieldName");
+  var hiddenFlags = !document.getElementById("flagsDiv");
 
   if (!hiddenFlags) {
-    var combo = document.getElementById('flagCombobox');
+    var combo = document.getElementById("flagCombobox");
 
     var selectedFlag = combo.options[combo.selectedIndex].value;
 
     postCommon.savedSelectedFlag(selectedFlag);
-
   }
 
   if (!forcedAnon) {
-    var typedName = document.getElementById('fieldName').value.trim();
-    localStorage.setItem('name', typedName);
+    var typedName = document.getElementById("fieldName").value.trim();
+    localStorage.setItem("name", typedName);
   }
 
-  var typedEmail = document.getElementById('fieldEmail').value.trim();
-  var typedMessage = document.getElementById('fieldMessage').value.trim();
-  var typedSubject = document.getElementById('fieldSubject').value.trim();
-  var typedPassword = document.getElementById('fieldPostingPassword').value
-      .trim();
+  var typedEmail = document.getElementById("fieldEmail").value.trim();
+  var typedMessage = document.getElementById("fieldMessage").value.trim();
+  var typedSubject = document.getElementById("fieldSubject").value.trim();
+  var typedPassword = document
+    .getElementById("fieldPostingPassword")
+    .value.trim();
 
   if (!typedMessage.length && !files.length) {
-    alert('A message or a file is mandatory.');
+    alert("A message or a file is mandatory.");
     return;
   } else if (!forcedAnon && typedName.length > 32) {
-    alert('Name is too long, keep it under 32 characters.');
+    alert("Name is too long, keep it under 32 characters.");
     return;
   } else if (typedMessage.length > thread.messageLimit) {
-    alert('Message is too long, keep it under ' + thread.messageLimit
-        + ' characters.');
+    alert(
+      "Message is too long, keep it under " +
+        thread.messageLimit +
+        " characters."
+    );
     return;
   } else if (typedEmail.length > 64) {
-    alert('E-mail is too long, keep it under 64 characters.');
+    alert("E-mail is too long, keep it under 64 characters.");
     return;
   } else if (typedSubject.length > 128) {
-    alert('Subject is too long, keep it under 128 characters.');
+    alert("Subject is too long, keep it under 128 characters.");
     return;
   } else if (typedPassword.length > 8) {
-    alert('Password is too long, keep it under 8 characters.');
+    alert("Password is too long, keep it under 8 characters.");
     return;
   }
 
   if (!typedPassword) {
-    typedPassword = Math.random().toString(36).substring(2, 10);
+    typedPassword = Math.random()
+      .toString(36)
+      .substring(2, 10);
   }
 
-  localStorage.setItem('deletionPassword', typedPassword);
+  localStorage.setItem("deletionPassword", typedPassword);
 
-  var spoilerCheckBox = document.getElementById('checkboxSpoiler');
+  var spoilerCheckBox = document.getElementById("checkboxSpoiler");
 
-  var noFlagCheckBox = document.getElementById('checkboxNoFlag');
+  var noFlagCheckBox = document.getElementById("checkboxNoFlag");
 
   thread.originalButtonText = thread.replyButton.innerHTML;
-  thread.replyButton.innerHTML = 'Uploading 0%';
+  thread.replyButton.innerHTML = "Uploading 0%";
   qr.setQRReplyText(thread.replyButton.innerHTML);
   thread.replyButton.disabled = true;
   qr.setQRReplyEnabled(false);
 
-  api.formApiRequest('replyThread', {
-    name : forcedAnon ? null : typedName,
-    flag : hiddenFlags ? null : selectedFlag,
-    captcha : captchaId,
-    subject : typedSubject,
-    noFlag : noFlagCheckBox ? noFlagCheckBox.checked : false,
-    spoiler : spoilerCheckBox ? spoilerCheckBox.checked : false,
-    password : typedPassword,
-    message : typedMessage,
-    email : typedEmail,
-    files : files,
-    boardUri : api.boardUri,
-    threadId : api.threadId
-  }, thread.replyCallback);
-
+  api.formApiRequest(
+    "replyThread",
+    {
+      name: forcedAnon ? null : typedName,
+      flag: hiddenFlags ? null : selectedFlag,
+      captcha: captchaId,
+      subject: typedSubject,
+      noFlag: noFlagCheckBox ? noFlagCheckBox.checked : false,
+      spoiler: spoilerCheckBox ? spoilerCheckBox.checked : false,
+      password: typedPassword,
+      message: typedMessage,
+      email: typedEmail,
+      files: files,
+      boardUri: api.boardUri,
+      threadId: api.threadId
+    },
+    thread.replyCallback
+  );
 };
 
 thread.processFilesToPost = function(captchaId) {
-
   postCommon.newGetFilesToUpload(function gotFiles(files) {
     thread.sendReplyData(files, captchaId);
   });
-
 };
 
 thread.processReplyRequest = function() {
-
   if (api.hiddenCaptcha) {
     thread.processFilesToPost();
   } else {
-    var typedCaptcha = document.getElementById('fieldCaptcha').value.trim();
+    var typedCaptcha = document.getElementById("fieldCaptcha").value.trim();
 
     if (typedCaptcha.length !== 6 && typedCaptcha.length !== 24) {
-      alert('Captchas are exactly 6 (24 if no cookies) characters long.');
+      alert("Captchas are exactly 6 (24 if no cookies) characters long.");
       return;
     } else if (/\W/.test(typedCaptcha)) {
-      alert('Invalid captcha.');
+      alert("Invalid captcha.");
       return;
     }
 
@@ -581,55 +586,49 @@ thread.processReplyRequest = function() {
     } else {
       var parsedCookies = api.getCookies();
 
-      api.formApiRequest('solveCaptcha', {
+      api.formApiRequest(
+        "solveCaptcha",
+        {
+          captchaId: parsedCookies.captchaid,
+          answer: typedCaptcha
+        },
+        function solvedCaptcha(status, data) {
+          if (status !== "ok") {
+            alert(status);
+            return;
+          }
 
-        captchaId : parsedCookies.captchaid,
-        answer : typedCaptcha
-      }, function solvedCaptcha(status, data) {
-
-        if (status !== 'ok') {
-          alert(status);
-          return;
+          thread.processFilesToPost(parsedCookies.captchaid);
         }
-
-        thread.processFilesToPost(parsedCookies.captchaid);
-      });
+      );
     }
-
   }
-
 };
 
 thread.postReply = function() {
+  api.formApiRequest("blockBypass", {}, function checked(status, data) {
+    if (status !== "ok") {
+      alert(data);
+      return;
+    }
 
-  api.formApiRequest('blockBypass', {},
-      function checked(status, data) {
+    var alwaysUseBypass = document.getElementById("alwaysUseBypassCheckBox")
+      .checked;
 
-        if (status !== 'ok') {
-          alert(data);
-          return;
-        }
-
-        var alwaysUseBypass = document
-            .getElementById('alwaysUseBypassCheckBox').checked;
-
-        if (!data.valid
-            && (data.mode == 2 || (data.mode == 1 && alwaysUseBypass))) {
-
-          postCommon.displayBlockBypassPrompt(function() {
-            thread.processReplyRequest();
-          });
-
-        } else {
-          thread.processReplyRequest();
-        }
-
+    if (
+      !data.valid &&
+      (data.mode == 2 || (data.mode == 1 && alwaysUseBypass))
+    ) {
+      postCommon.displayBlockBypassPrompt(function() {
+        thread.processReplyRequest();
       });
-
+    } else {
+      thread.processReplyRequest();
+    }
+  });
 };
 
 thread.startTimer = function(time) {
-
   if (time > 600) {
     time = 600;
   }
@@ -638,7 +637,6 @@ thread.startTimer = function(time) {
   thread.lastRefresh = time;
   thread.refreshLabel.innerHTML = thread.currentRefresh;
   thread.refreshTimer = setInterval(function checkTimer() {
-
     if (sideCatalog.loadingThread) {
       return;
     }
@@ -648,54 +646,225 @@ thread.startTimer = function(time) {
     if (!thread.currentRefresh) {
       clearInterval(thread.refreshTimer);
       thread.refreshPosts();
-      thread.refreshLabel.innerHTML = '';
+      thread.refreshLabel.innerHTML = "";
     } else {
       thread.refreshLabel.innerHTML = thread.currentRefresh;
     }
-
   }, 1000);
 };
 
 thread.changeRefresh = function() {
-
-  thread.autoRefresh = document.getElementById('checkboxChangeRefresh').checked;
+  thread.autoRefresh = document.getElementById("checkboxChangeRefresh").checked;
 
   if (!thread.autoRefresh) {
-    thread.refreshLabel.innerHTML = '';
+    thread.refreshLabel.innerHTML = "";
     clearInterval(thread.refreshTimer);
   } else {
     thread.startTimer(5);
   }
-
 };
 
 thread.deleteFromIp = function() {
-
-  var typedIp = document.getElementById('ipField').value.trim();
-  var typedBoards = document.getElementById('fieldBoards').value.trim();
+  var typedIp = document.getElementById("ipField").value.trim();
+  var typedBoards = document.getElementById("fieldBoards").value.trim();
 
   if (!typedIp.length) {
-    alert('An ip is mandatory');
+    alert("An ip is mandatory");
     return;
   }
 
-  api.formApiRequest('deleteFromIp', {
-    ip : typedIp,
-    boards : typedBoards
-  }, function requestComplete(status, data) {
+  api.formApiRequest(
+    "deleteFromIp",
+    {
+      ip: typedIp,
+      boards: typedBoards
+    },
+    function requestComplete(status, data) {
+      if (status === "ok") {
+        document.getElementById("ipField").value = "";
+        document.getElementById("fieldBoards").value = "";
 
-    if (status === 'ok') {
+        alert("Postings deleted.");
+      } else {
+        alert(status + ": " + JSON.stringify(data));
+      }
+    }
+  );
+};
 
-      document.getElementById('ipField').value = '';
-      document.getElementById('fieldBoards').value = '';
+thread.getRepliesCount = function(x) {
+  return "" + x + " " + (x === 1 ? "reply" : "replies");
+};
+thread.getFilesCount = function(x) {
+  return "" + x + " " + (x === 1 ? "file" : "files");
+};
+thread.getUIDsCount = function(x) {
+  return "" + x + " " + (x === 1 ? "UID" : "UIDs");
+};
 
-      alert('Postings deleted.');
+thread.generateUid = function(uid) {
+  return (
+    "<span class='labelId' style='background-color: #" +
+    uid +
+    ";'>" +
+    uid +
+    "</span>"
+  );
+};
 
+thread.activateUid = function(uid) {
+  var uidText = uid.textContent;
+
+  uid.addEventListener(
+    "mouseover",
+    function() {
+      uid.textContent =
+        uidText + " (" + posting.idsRelation[uidText].length + ")";
+    },
+    false
+  );
+
+  uid.addEventListener(
+    "mouseout",
+    function() {
+      uid.textContent = uidText;
+    },
+    false
+  );
+
+  uid.addEventListener(
+    "click",
+    function() {
+      // taken from posting.js
+      var index = posting.highLightedIds.indexOf(uidText);
+      var array = posting.idsRelation[uidText];
+
+      if (index > -1) {
+        posting.highLightedIds.splice(index, 1);
+      } else {
+        posting.highLightedIds.push(uidText);
+      }
+
+      for (var i = 0; i < array.length; i++) {
+        var cellToChange = array[i];
+
+        if (cellToChange.className === "innerOP") {
+          continue;
+        }
+
+        cellToChange.className = index > -1 ? "innerPost" : "markedPost";
+      }
+    },
+    false
+  );
+};
+
+thread.initCounters = function() {
+  var replies = document.querySelectorAll(".postCell").length;
+  var files = document.querySelectorAll(".uploadCell").length;
+  var uidSet = new Set(
+    Array.from(document.querySelectorAll(".labelId"))
+      .map(function processId(id) {
+        return id.textContent;
+      })
+      .reverse()
+  );
+
+  var counterEl = document.createElement("div");
+  counterEl.id = "divCounters";
+  counterEl.innerHTML =
+    "<span id='counterReplies'>" +
+    thread.getRepliesCount(replies) +
+    "</span>" +
+    "<span id='counterFiles'>" +
+    thread.getFilesCount(files) +
+    "</span>" +
+    (uidSet.size
+      ? "<input type='checkbox' class='control-checkbox' id='uidbox-checkbox' />" +
+        "<label for='uidbox-checkbox'><span id='counterUids' title='View latest UIDs'>" +
+        thread.getUIDsCount(uidSet.size) +
+        "</span></label>" +
+        "<div class='uidBox floatingMenu'><p class='header'>Latest UIDs " +
+        "<label for='uidbox-checkbox'>&times;</label></p>" +
+        "<div class='uids'>" +
+        Array.from(uidSet.values())
+          .map(thread.generateUid)
+          .join("") +
+        "</div></div>"
+      : "");
+
+  thread.counters = {
+    replies: replies,
+    files: files,
+    uidSet: uidSet,
+
+    counterEl: counterEl,
+    repliesEl: counterEl.querySelector("#counterReplies"),
+    filesEl: counterEl.querySelector("#counterFiles"),
+    uidsEl: counterEl.querySelector("#counterUids"),
+    uidBox: counterEl.querySelector(".uidBox")
+  };
+
+  // posting.processIdLabel doesn't work here.
+  if (thread.counters.uidBox) {
+    Array.from(thread.counters.uidBox.querySelectorAll(".labelId")).forEach(
+      thread.activateUid
+    );
+  }
+
+  document.querySelector(".divRefresh").appendChild(counterEl);
+};
+
+thread.updateCounters = function() {
+  thread.counters.repliesEl.textContent = thread.getRepliesCount(
+    thread.counters.replies
+  );
+  thread.counters.filesEl.textContent = thread.getFilesCount(
+    thread.counters.files
+  );
+
+  if (thread.counters.uidSet.size)
+    thread.counters.uidsEl.textContent = thread.getUIDsCount(
+      thread.counters.uidSet.size
+    );
+};
+
+var __uid_container = document.createElement("div");
+thread.updateLatestUIDs = function(uids) {
+  if (!thread.counters.uidBox) return;
+
+  uids.forEach(function(uid) {
+    var uids = thread.counters.uidBox.querySelector(".uids");
+    if (!thread.counters.uidSet.has(uid)) {
+      // add to the front
+      thread.counters.uidSet.add(uid);
+      __uid_container.innerHTML = thread.generateUid(uid);
+      var uidEl = __uid_container.firstElementChild;
+      thread.activateUid(uidEl);
+      uids.insertBefore(uidEl, uids.firstChild);
     } else {
-      alert(status + ': ' + JSON.stringify(data));
+      // bump the uid to the top
+      // lol this qs
+      var myUid = uids.querySelector('.labelId[style$="' + uid + ';"]');
+      uids.insertBefore(myUid, uids.firstChild);
     }
   });
+};
 
+thread.initReplyButton = function() {
+  var replyButton = document.createElement("a");
+  replyButton.className = "replyToThread";
+  replyButton.href = "javascript:void(0)";
+
+  replyButton.addEventListener(
+    "click",
+    function() {
+      qr.showQr("", true);
+    },
+    false
+  );
+
+  document.querySelector(".divRefresh").appendChild(replyButton);
 };
 
 thread.init();

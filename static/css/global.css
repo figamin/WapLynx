@@ -76,6 +76,8 @@
   display: initial;
 }
 
+
+
 div.banner {
   background: #32DD72;
   color: #000;
@@ -205,7 +207,8 @@ a {
 a:hover,
 .linkSelf:hover,
 .linkQuote:hover,
-#showFormsButton:hover {
+#showFormsButton:hover,
+#counterUids:hover {
   color: #5f89ac;
 }
 
@@ -464,6 +467,12 @@ span.spoiler {
 #settingsWrapper {
   max-width: 700px;
   margin: 2em auto;
+}
+
+/* unique id checkbox hide */
+
+#uidbox-checkbox {
+    display: none;
 }
 
 #settingsFieldset {
@@ -814,7 +823,8 @@ body.theme_yotsuba {
   color: maroon;
 }
 
-.theme_yotsuba a:hover {
+.theme_yotsuba a:hover,
+.theme_yotsuba #counterUids:hover {
   color: #ff0000!important;
 }
 
@@ -1053,7 +1063,8 @@ body.theme_yotsuba_b {
   border: 1px solid #ba9dbf;
 }
 
-.theme_yotsuba_b a:hover {
+.theme_yotsuba_b a:hover,
+.theme_yotsuba_b #counterUids:hover {
   color: #cc1105;
 }
 
@@ -1298,7 +1309,8 @@ body.theme_warosu {
 
 .theme_warosu #navLinkSpan a:hover,
 .theme_warosu #navOptionsSpan a:hover,
-.theme_warosu .embedButton.glowOnHover:hover {
+.theme_warosu .embedButton.glowOnHover:hover,
+.theme_warosu #counterUids:hover {
   color: #dd0000;
 }
 .theme_warosu .innerPost,
