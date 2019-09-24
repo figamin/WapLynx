@@ -24,6 +24,15 @@
   border: 0px solid #282a2e;
 }
 
+.idLabel {
+    font-weight: bold;
+}
+
+.nameLabel {
+    font-weight: bold;
+    color: #b294bb;
+}
+
 .logoImg {
     min-width: 1px;
     max-width: 300px;
@@ -914,6 +923,10 @@ body.theme_yotsuba {
   color: white;  
 }
 
+.theme_yotsuba .nameLabel  {
+  color: #cc1105;  
+}
+
 .theme_yotsuba .extraMenuButton.glowOnHover.coloredIcon,
 .theme_yotsuba .hideButton.glowOnHover.coloredIcon,
 .theme_yotsuba .watchButton.glowOnHover.coloredIcon,
@@ -1208,6 +1221,10 @@ body.theme_yotsuba_b {
 
 .theme_yotsuba_b .indicatorSfw {
   color: white;  
+}
+
+.theme_yotsuba_b .nameLabel  {
+  color: #0f0c5d;  
 }
 
 .theme_yotsuba_b .extraMenuButton.glowOnHover.coloredIcon,
