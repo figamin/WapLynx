@@ -3,6 +3,10 @@ var themes = {};
 themes.init = function() {
 
   themes.themes = [ {
+    label : 'Yotsuba',
+    id : 'yotsuba'
+  },
+  {
     label : 'Yotsuba B',
     id : 'yotsuba_b'
   }];

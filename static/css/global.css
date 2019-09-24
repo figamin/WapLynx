@@ -357,11 +357,11 @@ nav span, nav a {
 }
 
 #showFormsButton::before {
-  content: "[";
+  content: "[ ";
 }
 
 #showFormsButton::after {
-  content: "]";
+  content: " ]";
 }
 
 #showFederatedButton {
@@ -721,6 +721,235 @@ textarea:focus {
   box-shadow: 0px 0px 5px #117743;
 }
 
+/* Yotsuba Theme Starts Here */
+
+body.theme_yotsuba {
+  background: #ffe no-repeat;
+  background-image: linear-gradient(to bottom, #fed6af 0, transparent 260px);
+   color: #800000;
+}
+
+.theme_yotsuba .floatingMenu.extraMenu,
+.theme_yotsuba .floatingMenu.hideMenu,
+.theme_yotsuba .spoiler:hover {
+   color: #800000;  
+}
+
+.theme_yotsuba .floatingMenu.extraMenu div:hover,
+.theme_yotsuba .floatingMenu.hideMenu div:hover {
+   color: #ff0000;  
+}
+
+.theme_yotsuba .modalDecorationPanel {
+  background: #eef2ff
+}
+
+.theme_yotsuba #navLinkSpan,
+.theme_yotsuba #navOptionsSpan {
+  color: #b86;
+}
+
+.theme_yotsuba #navLinkSpan a,
+.theme_yotsuba #navOptionsSpan a,
+.theme_yotsuba #navLinkSpan a:visited,
+.theme_yotsuba #navOptionsSpan a:visited,
+.theme_yotsuba a.linkSelf,
+.theme_yotsuba a.linkSelf:visited,
+.theme_yotsuba a.linkQuote,
+.theme_yotsuba a.linkQuote:visited,
+.theme_yotsuba .sideCatalogCellText
+{
+  color: maroon;
+}
+
+.theme_yotsuba #navLinkSpan a:hover,
+.theme_yotsuba #navOptionsSpan a:hover,
+.theme_yotsuba .embedButton.glowOnHover:hover {
+  color: #ff0000;
+}
+.theme_yotsuba .innerPost,
+.theme_yotsuba .sideCatalogCell{
+  background: #f0e0d6;
+  border: 1px solid #d9bfb7;
+}
+
+.theme_yotsuba .linkName.noEmailName,
+.theme_yotsuba .linkName{
+  color: #117743;
+}
+
+.theme_yotsuba .labelRole {
+ color: purple; 
+}
+
+.theme_yotsuba .floatingMenu,
+.theme_yotsuba #quick-reply table {
+  background: #ffe no-repeat;
+  background-image: linear-gradient(to bottom, #fed6af 0, transparent 130px);
+}
+
+.theme_yotsuba nav {
+  background-color: #fed6af;
+}
+
+.theme_yotsuba a,
+.theme_yotsuba a:visited,
+.theme_yotsuba .embedButton.glowOnHover,
+.theme_yotsuba #showFormsButton,
+.theme_yotsuba #selectedTab {
+  color: #00e;
+}
+
+.theme_yotsuba #showFormsButton::before,
+.theme_yotsuba #showFormsButton::after{
+  color: maroon;
+}
+
+.theme_yotsuba a:hover {
+  color: #ff0000!important;
+}
+
+.theme_yotsuba .panelBacklinks a,
+.theme_yotsuba .quoteLink,
+.theme_yotsuba .quoteLink:visited {
+  color: navy;
+}
+
+.theme_yotsuba .markedPost,
+.theme_yotsuba .sideCatalogMarkedCell{
+  background: #f0c0b0;
+  border: 1px solid #d99f91;
+}
+
+.theme_yotsuba #postingForm th,
+.theme_yotsuba div.banner,
+.theme_yotsuba .modalTableBody th{
+  color: #800000;
+  background: #ea8;
+  border: 1px solid #800; 
+}
+
+.theme_yotsuba h2 {
+  background: #ea8;
+  border: 1px solid #800;
+  border-bottom: none;
+}
+
+.theme_yotsuba #divWelcome,
+.theme_yotsuba #divBoardsList,
+.theme_yotsuba #divLatestImages,
+.theme_yotsuba #divStats,
+.theme_yotsuba #divLatestPosts,
+.theme_yotsuba #divStandardBox,
+.theme_yotsuba #divPrivacyBox,
+.theme_yotsuba #divFAQBox
+{
+  background: #f0e0d6;
+  border: 1px solid #800; 
+}
+
+.theme_yotsuba #divLatestPosts .latestPostCell {
+  border-color: #d9bfb7;
+}
+
+.theme_yotsuba .modalDecorationPanel {
+  background: #ffe;
+}
+
+.theme_yotsuba #labelName,
+.theme_yotsuba #labelDescription,
+.theme_yotsuba .watchedCellLabel a{
+  color: maroon; 
+}
+
+.theme_yotsuba hr {
+  border-color: #d9bfb7;
+}
+
+.theme_yotsuba #watchedMenu,
+.theme_yotsuba #settingsMenu,
+.theme_yotsuba .floatingMenu.extraMenu,
+.theme_yotsuba .floatingMenu.hideMenu
+{
+  
+  background: #F0E0D6;
+}
+
+.theme_yotsuba .floatingMenu.extraMenu,
+.theme_yotsuba .floatingMenu.hideMenu,
+.theme_yotsuba #quick-reply table,
+.theme_yotsuba #watchedMenu,
+.theme_yotsuba #settingsMenu,
+.theme_yotsuba .modalDecorationPanel,
+.theme_yotsuba .quoteTooltip {
+  border: 1px solid #800;
+}
+
+.theme_yotsuba #federationInfo,
+.theme_yotsuba #federatedText,
+{
+  background: maroon;
+}
+
+.theme_yotsuba #federationInfo,
+.theme_yotsuba #federatedText,
+.theme_yotsuba #mobileInfo {
+  color: white;
+}
+
+
+.theme_yotsuba #federationInfo a,
+.theme_yotsuba #mobileInfo a,
+.theme_yotsuba #federatedText a {
+  color: white;
+}
+
+.theme_yotsuba .labelSubject {
+  color: #cc1105;
+}
+
+.theme_yotsuba .indicatorSfw {
+  color: white;  
+}
+
+.theme_yotsuba .extraMenuButton.glowOnHover.coloredIcon,
+.theme_yotsuba .hideButton.glowOnHover.coloredIcon,
+.theme_yotsuba .watchButton.glowOnHover.coloredIcon,
+.theme_yotsuba .archiveIndicator,
+.theme_yotsuba .lockIndicator,
+.theme_yotsuba .pinIndicator,
+.theme_yotsuba .cyclicIndicator,
+.theme_yotsuba .bumpLockIndicator
+{
+  color: #000080;
+}
+
+.theme_yotsuba .extraMenuButton.glowOnHover.coloredIcon:hover,
+.theme_yotsuba .hideButton.glowOnHover.coloredIcon:hover,
+.theme_yotsuba .watchButton.glowOnHover.coloredIcon:hover {
+  color: #ff073b;
+}
+
+.theme_yotsuba .close-btn.coloredIcon,
+.theme_yotsuba #closeWatcherMenuButton,
+.theme_yotsuba .watchedCellCloseButton.glowOnHover.coloredIcon,
+.theme_yotsuba #closeSettingsMenuButton,
+.theme_yotsuba #closeSideCatalogButton{
+  color: maroon;
+}
+
+.theme_yotsuba .close-btn.coloredIcon:hover,
+.theme_yotsuba #closeWatcherMenuButton:hover,
+.theme_yotsuba .watchedCellCloseButton.glowOnHover.coloredIcon:hover,
+.theme_yotsuba #closeSettingsMenuButton:hover,
+.theme_yotsuba #closeSideCatalogButton:hover {
+  color: #ff073b;
+}
+
+.theme_yotsuba #dropzone,
+.theme_yotsuba #dropzoneQr{
+  background: white;
+}
 
 /* Yotsuba B Theme Starts Here */
 
@@ -974,4 +1203,9 @@ body.theme_yotsuba_b {
 .theme_yotsuba_b .bumpLockIndicator
 {
   color: #5d6a99;
+}
+
+.theme_yotsuba_b #dropzone,
+.theme_yotsuba_b #dropzoneQr{
+  background: white;
 }
