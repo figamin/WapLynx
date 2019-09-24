@@ -1257,249 +1257,249 @@ body.theme_yotsuba_b {
 
 /* Happy Day Theme Starts Here */
 
-body.theme_happy_day {
+body.theme_warosu {
   background: #eef8f0 no-repeat;
   background-image: linear-gradient(to bottom,#cfecd1 0,transparent 160px);
    color: #333;
 }
 
-.theme_happy_day .floatingMenu.extraMenu,
-.theme_happy_day .floatingMenu.hideMenu,
-.theme_happy_day .spoiler:hover {
+.theme_warosu .floatingMenu.extraMenu,
+.theme_warosu .floatingMenu.hideMenu,
+.theme_warosu .spoiler:hover {
    color: #333;  
 }
 
-.theme_happy_day .floatingMenu.extraMenu div:hover,
-.theme_happy_day .floatingMenu.hideMenu div:hover {
+.theme_warosu .floatingMenu.extraMenu div:hover,
+.theme_warosu .floatingMenu.hideMenu div:hover {
    color: #dd0000;  
 }
 
-.theme_happy_day .modalDecorationPanel {
+.theme_warosu .modalDecorationPanel {
   background: #eef2ff
 }
 
-.theme_happy_day #navLinkSpan,
-.theme_happy_day #navOptionsSpan {
+.theme_warosu #navLinkSpan,
+.theme_warosu #navOptionsSpan {
   color: #333;
 }
 
-.theme_happy_day #navLinkSpan a,
-.theme_happy_day #navOptionsSpan a,
-.theme_happy_day #navLinkSpan a:visited,
-.theme_happy_day #navOptionsSpan a:visited,
-.theme_happy_day a.linkSelf,
-.theme_happy_day a.linkSelf:visited,
-.theme_happy_day a.linkQuote,
-.theme_happy_day a.linkQuote:visited,
-.theme_happy_day .sideCatalogCellText
+.theme_warosu #navLinkSpan a,
+.theme_warosu #navOptionsSpan a,
+.theme_warosu #navLinkSpan a:visited,
+.theme_warosu #navOptionsSpan a:visited,
+.theme_warosu a.linkSelf,
+.theme_warosu a.linkSelf:visited,
+.theme_warosu a.linkQuote,
+.theme_warosu a.linkQuote:visited,
+.theme_warosu .sideCatalogCellText
 {
   color: #333;
 }
 
-.theme_happy_day #navLinkSpan a:hover,
-.theme_happy_day #navOptionsSpan a:hover,
-.theme_happy_day .embedButton.glowOnHover:hover {
+.theme_warosu #navLinkSpan a:hover,
+.theme_warosu #navOptionsSpan a:hover,
+.theme_warosu .embedButton.glowOnHover:hover {
   color: #dd0000;
 }
-.theme_happy_day .innerPost,
-.theme_happy_day .sideCatalogCell{
+.theme_warosu .innerPost,
+.theme_warosu .sideCatalogCell{
   background: #d6f0da;
   border: 1px solid #c0d8c4;
 }
 
-.theme_happy_day .linkName.noEmailName,
-.theme_happy_day .linkName{
+.theme_warosu .linkName.noEmailName,
+.theme_warosu .linkName{
   color: #117743;
 }
 
-.theme_happy_day .labelRole {
+.theme_warosu .labelRole {
  color: purple; 
 }
 
-.theme_happy_day .floatingMenu,
-.theme_happy_day #quick-reply table {
+.theme_warosu .floatingMenu,
+.theme_warosu #quick-reply table {
   background: #eef8f0 no-repeat;
   background-image: linear-gradient(to bottom,#cfecd1 0,transparent 130px);
 }
 
-.theme_happy_day nav {
+.theme_warosu nav {
   background-color: #cfecd1;
 }
 
-.theme_happy_day a,
-.theme_happy_day a:visited,
-.theme_happy_day .embedButton.glowOnHover,
-.theme_happy_day #showFormsButton,
-.theme_happy_day #selectedTab {
+.theme_warosu a,
+.theme_warosu a:visited,
+.theme_warosu .embedButton.glowOnHover,
+.theme_warosu #showFormsButton,
+.theme_warosu #selectedTab {
   color: #358;
 }
 
-.theme_happy_day #showFormsButton::before,
-.theme_happy_day #showFormsButton::after{
+.theme_warosu #showFormsButton::before,
+.theme_warosu #showFormsButton::after{
   color: maroon;
 }
 
-.theme_happy_day a:hover {
+.theme_warosu a:hover {
   color: #dd0000!important;
 }
 
-.theme_happy_day .panelBacklinks a,
-.theme_happy_day .quoteLink,
-.theme_happy_day .quoteLink:visited {
+.theme_warosu .panelBacklinks a,
+.theme_warosu .quoteLink,
+.theme_warosu .quoteLink:visited {
   color: #358;
 }
 
-.theme_happy_day .markedPost,
-.theme_happy_day .sideCatalogMarkedCell{
+.theme_warosu .markedPost,
+.theme_warosu .sideCatalogMarkedCell{
   background: #bee4c5;
   border: 1px solid #000;
 }
 
-.theme_happy_day #postingForm th,
-.theme_happy_day div.banner,
-.theme_happy_day .modalTableBody th{
+.theme_warosu #postingForm th,
+.theme_warosu div.banner,
+.theme_warosu .modalTableBody th{
   color: #333;
   background: #bbe6c2;
   border: 1px solid #000; 
 }
 
-.theme_happy_day h2 {
+.theme_warosu h2 {
   background: #bbe6c2;
   border: 1px solid #000;
   border-bottom: none;
 }
 
-.theme_happy_day #divWelcome,
-.theme_happy_day #divBoardsList,
-.theme_happy_day #divLatestImages,
-.theme_happy_day #divStats,
-.theme_happy_day #divLatestPosts,
-.theme_happy_day #divStandardBox,
-.theme_happy_day #divPrivacyBox,
-.theme_happy_day #divFAQBox,
-.theme_happy_day #divRules,
-.theme_happy_day #divStandardPaddedBox
+.theme_warosu #divWelcome,
+.theme_warosu #divBoardsList,
+.theme_warosu #divLatestImages,
+.theme_warosu #divStats,
+.theme_warosu #divLatestPosts,
+.theme_warosu #divStandardBox,
+.theme_warosu #divPrivacyBox,
+.theme_warosu #divFAQBox,
+.theme_warosu #divRules,
+.theme_warosu #divStandardPaddedBox
 {
   background: #d6f0da;
   border: 1px solid #000; 
 }
 
-.theme_happy_day #divLatestPosts .latestPostCell {
+.theme_warosu #divLatestPosts .latestPostCell {
   border-color: #c0d8c4;
 }
 
-.theme_happy_day .modalDecorationPanel {
+.theme_warosu .modalDecorationPanel {
   background: #eef8f0;
 }
 
-.theme_happy_day #labelName,
-.theme_happy_day #labelDescription,
-.theme_happy_day .watchedCellLabel a{
+.theme_warosu #labelName,
+.theme_warosu #labelDescription,
+.theme_warosu .watchedCellLabel a{
   color: #333; 
 }
 
-.theme_happy_day hr {
+.theme_warosu hr {
   border-color: #d4ddd6;
 }
 
-.theme_happy_day #watchedMenu,
-.theme_happy_day #settingsMenu,
-.theme_happy_day .floatingMenu.extraMenu,
-.theme_happy_day .floatingMenu.hideMenu
+.theme_warosu #watchedMenu,
+.theme_warosu #settingsMenu,
+.theme_warosu .floatingMenu.extraMenu,
+.theme_warosu .floatingMenu.hideMenu
 {
   
   background: #d6f0da;
 }
 
-.theme_happy_day .floatingMenu.extraMenu,
-.theme_happy_day .floatingMenu.hideMenu,
-.theme_happy_day #quick-reply table,
-.theme_happy_day #watchedMenu,
-.theme_happy_day #settingsMenu,
-.theme_happy_day .modalDecorationPanel,
-.theme_happy_day .quoteTooltip {
+.theme_warosu .floatingMenu.extraMenu,
+.theme_warosu .floatingMenu.hideMenu,
+.theme_warosu #quick-reply table,
+.theme_warosu #watchedMenu,
+.theme_warosu #settingsMenu,
+.theme_warosu .modalDecorationPanel,
+.theme_warosu .quoteTooltip {
   border: 1px solid #000;
 }
 
-.theme_happy_day #federationInfo,
-.theme_happy_day #federatedText,
+.theme_warosu #federationInfo,
+.theme_warosu #federatedText,
 {
   background: maroon;
 }
 
-.theme_happy_day #federationInfo,
-.theme_happy_day #federatedText,
-.theme_happy_day #mobileInfo {
+.theme_warosu #federationInfo,
+.theme_warosu #federatedText,
+.theme_warosu #mobileInfo {
   color: white;
 }
 
 
-.theme_happy_day #federationInfo a,
-.theme_happy_day #mobileInfo a,
-.theme_happy_day #federatedText a {
+.theme_warosu #federationInfo a,
+.theme_warosu #mobileInfo a,
+.theme_warosu #federatedText a {
   color: white;
 }
 
-.theme_happy_day .labelSubject {
+.theme_warosu .labelSubject {
   color: #0f0c5d;
 }
 
-.theme_happy_day .indicatorSfw {
+.theme_warosu .indicatorSfw {
   color: white;  
 }
 
-.theme_happy_day .nameLabel  {
+.theme_warosu .nameLabel  {
   color: #0f0c5d;  
 }
 
-.theme_happy_day .extraMenuButton.glowOnHover.coloredIcon,
-.theme_happy_day .hideButton.glowOnHover.coloredIcon,
-.theme_happy_day .watchButton.glowOnHover.coloredIcon,
-.theme_happy_day .archiveIndicator,
-.theme_happy_day .lockIndicator,
-.theme_happy_day .pinIndicator,
-.theme_happy_day .cyclicIndicator,
-.theme_happy_day .bumpLockIndicator
+.theme_warosu .extraMenuButton.glowOnHover.coloredIcon,
+.theme_warosu .hideButton.glowOnHover.coloredIcon,
+.theme_warosu .watchButton.glowOnHover.coloredIcon,
+.theme_warosu .archiveIndicator,
+.theme_warosu .lockIndicator,
+.theme_warosu .pinIndicator,
+.theme_warosu .cyclicIndicator,
+.theme_warosu .bumpLockIndicator
 {
   color: #000080;
 }
 
-.theme_happy_day .extraMenuButton.glowOnHover.coloredIcon:hover,
-.theme_happy_day .hideButton.glowOnHover.coloredIcon:hover,
-.theme_happy_day .watchButton.glowOnHover.coloredIcon:hover {
+.theme_warosu .extraMenuButton.glowOnHover.coloredIcon:hover,
+.theme_warosu .hideButton.glowOnHover.coloredIcon:hover,
+.theme_warosu .watchButton.glowOnHover.coloredIcon:hover {
   color: #dd0000;
 }
 
-.theme_happy_day .close-btn.coloredIcon,
-.theme_happy_day #closeWatcherMenuButton,
-.theme_happy_day .watchedCellCloseButton.glowOnHover.coloredIcon,
-.theme_happy_day #closeSettingsMenuButton,
-.theme_happy_day #closeSideCatalogButton{
+.theme_warosu .close-btn.coloredIcon,
+.theme_warosu #closeWatcherMenuButton,
+.theme_warosu .watchedCellCloseButton.glowOnHover.coloredIcon,
+.theme_warosu #closeSettingsMenuButton,
+.theme_warosu #closeSideCatalogButton{
   color: #333;
 }
 
-.theme_happy_day .close-btn.coloredIcon:hover,
-.theme_happy_day #closeWatcherMenuButton:hover,
-.theme_happy_day .watchedCellCloseButton.glowOnHover.coloredIcon:hover,
-.theme_happy_day #closeSettingsMenuButton:hover,
-.theme_happy_day #closeSideCatalogButton:hover {
+.theme_warosu .close-btn.coloredIcon:hover,
+.theme_warosu #closeWatcherMenuButton:hover,
+.theme_warosu .watchedCellCloseButton.glowOnHover.coloredIcon:hover,
+.theme_warosu #closeSettingsMenuButton:hover,
+.theme_warosu #closeSideCatalogButton:hover {
   color: #dd0000;
 }
 
-.theme_happy_day #dropzone,
-.theme_happy_day #dropzoneQr{
+.theme_warosu #dropzone,
+.theme_warosu #dropzoneQr{
   background: white;
 }
 
-.theme_happy_day #postingForm input:focus,
-.theme_happy_day #postingForm textarea:focus,
-.theme_happy_day .modalDecorationPanel input[type='text']:focus,
-.theme_happy_day #settingsMenu input[type='text']:focus,
-.theme_happy_day #settingsMenu textarea:focus,
-.theme_happy_day #quick-reply input[type="text"]:focus,
-.theme_happy_day #quick-reply textarea:focus,
-.theme_happy_day #quick-reply input[type="password"]:focus,
-.theme_happy_day textarea:focus {
+.theme_warosu #postingForm input:focus,
+.theme_warosu #postingForm textarea:focus,
+.theme_warosu .modalDecorationPanel input[type='text']:focus,
+.theme_warosu #settingsMenu input[type='text']:focus,
+.theme_warosu #settingsMenu textarea:focus,
+.theme_warosu #quick-reply input[type="text"]:focus,
+.theme_warosu #quick-reply textarea:focus,
+.theme_warosu #quick-reply input[type="password"]:focus,
+.theme_warosu textarea:focus {
   box-shadow: 0px 0px 5px 2px maroon;
 }
 

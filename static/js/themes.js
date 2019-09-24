@@ -11,8 +11,8 @@ themes.init = function() {
     id : 'yotsuba_b'
   },
   {
-    label : 'Happy Day',
-    id : 'happy_day'
+    label : 'Warosu',
+    id : 'warosu'
   }];
 
   var postingLink = document.getElementById('navPosting');
