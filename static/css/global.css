@@ -843,7 +843,8 @@ body.theme_yotsuba {
 .theme_yotsuba #divStandardBox,
 .theme_yotsuba #divPrivacyBox,
 .theme_yotsuba #divFAQBox,
-.theme_yotsuba #divRules 
+.theme_yotsuba #divRules,
+.theme_yotsuba #divStandardPaddedBox
 {
   background: #f0e0d6;
   border: 1px solid #800; 
@@ -951,6 +952,20 @@ body.theme_yotsuba {
 .theme_yotsuba #dropzoneQr{
   background: white;
 }
+
+.theme_yotsuba #postingForm input:focus,
+.theme_yotsuba #postingForm textarea:focus,
+.theme_yotsuba .modalDecorationPanel input[type='text']:focus,
+.theme_yotsuba #settingsMenu input[type='text']:focus,
+.theme_yotsuba #settingsMenu textarea:focus,
+.theme_yotsuba #quick-reply input[type="text"]:focus,
+.theme_yotsuba #quick-reply textarea:focus,
+.theme_yotsuba #quick-reply input[type="password"]:focus,
+.theme_yotsuba textarea:focus {
+  box-shadow: 0px 0px 5px 2px maroon;
+}
+
+
 
 /* Yotsuba B Theme Starts Here */
 
