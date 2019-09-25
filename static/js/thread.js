@@ -538,7 +538,7 @@ thread.sendReplyData = function(files, captchaId) {
   thread.originalButtonText = thread.replyButton.innerHTML;
   thread.replyButton.innerHTML = "Uploading 0%";
   qr.setQRReplyText(thread.replyButton.innerHTML);
-  thread.replyButton.disabled = true;
+  thread.replyButton.disabled = false;
   qr.setQRReplyEnabled(false);
 
   api.formApiRequest(
