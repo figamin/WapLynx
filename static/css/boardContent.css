@@ -79,8 +79,9 @@
 
 #postingForm label {
   font-size: 80%;
-  display: block;
   clear: both;
+  display: inline-block;
+  vertical-align: text-bottom;
 }
 
 #postingForm td, .modalTableBody td {
@@ -104,31 +105,11 @@
 }
 
 input[type=checkbox].postingCheckbox {
-  display: none;
-}
-
-input[type=checkbox].postingCheckbox+label::before {
-  font-family: Icons;
-  content: "\e0db";
-  margin-right: 0.5em;
-  display: inline-block;
-  cursor: pointer;
-}
-
-#checkboxSpoiler+label:after {
-  content: "Spoiler";
-}
-
-#alwaysUseBypassCheckBox+label:after {
-  content: "Bypass check";
+  display: true;
 }
 
 #checkboxNoFlag+label:after {
   content: "No location";
-}
-
-input[type=checkbox].postingCheckbox:checked+label:before {
-  content: "\e033";
 }
 
 #boardContentLinks,

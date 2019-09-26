@@ -47,6 +47,7 @@
 
 .spoilerCheckbox {
   font-size: 80%;
+  vertical-align: text-top;
 }
 
 #quick-reply th {

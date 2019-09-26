@@ -463,6 +463,11 @@ span.spoiler {
   color: #117743;
 }
 
+.linkReply::before,
+.linkReply::after {
+    color: #c5c8c6;
+}
+
 /* CSS for pages that deal with site and account settings and bans */
 #settingsWrapper {
   max-width: 700px;
@@ -747,6 +752,11 @@ body.theme_yotsuba {
    color: #800000;
 }
 
+.theme_yotsuba .linkReply::before,
+.theme_yotsuba .linkReply::after {
+    color: #800000;
+}
+
 .theme_yotsuba .floatingMenu.extraMenu,
 .theme_yotsuba .floatingMenu.hideMenu,
 .theme_yotsuba .spoiler:hover {
@@ -996,6 +1006,11 @@ body.theme_yotsuba_b {
   background: #eef2ff no-repeat;
   background-image: linear-gradient(to bottom, #d1d5ee 0, transparent 260px);
   color: #000;
+}
+
+.theme_yotsuba_b .linkReply::before,
+.theme_yotsuba_b .linkReply::after {
+    color: #000;
 }
 
 .theme_yotsuba_b .modalDecorationPanel {
@@ -1272,6 +1287,11 @@ body.theme_warosu {
   background: #eef8f0 no-repeat;
   background-image: linear-gradient(to bottom,#cfecd1 0,transparent 160px);
    color: #333;
+}
+
+.theme_warosu .linkReply::before,
+.theme_warosu .linkReply::after {
+    color: #333;
 }
 
 .theme_warosu .floatingMenu.extraMenu,

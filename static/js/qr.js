@@ -94,7 +94,7 @@ qr.setQr = function() {
 
   qrhtml += '<tr><td colspan="2">';
   qrhtml += '<input id="qremail" type="text" maxlength="40" ';
-  qrhtml += 'autocomplete="off" placeholder="Email">';
+  qrhtml += 'autocomplete="off" placeholder="Options">';
   qrhtml += '</td> </tr> ';
 
   qrhtml += '<tr><td colspan="2">';
