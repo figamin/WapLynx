@@ -533,6 +533,8 @@ thread.sendReplyData = function(files, captchaId) {
 
   var spoilerCheckBox = document.getElementById("checkboxSpoiler");
 
+  var sageCheckBox = document.getElementById("checkboxSage");
+
   var noFlagCheckBox = document.getElementById("checkboxNoFlag");
 
   thread.originalButtonText = thread.replyButton.innerHTML;
@@ -545,6 +547,7 @@ thread.sendReplyData = function(files, captchaId) {
     "replyThread",
     {
       name: forcedAnon ? null : typedName,
+      sage: sageCheckBox ? sageCheckBox.checked : false,
       flag: hiddenFlags ? null : selectedFlag,
       captcha: captchaId,
       subject: typedSubject,

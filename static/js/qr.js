@@ -93,6 +93,10 @@ qr.setQr = function() {
   }
 
   qrhtml += '<tr><td colspan="2">';
+  qrhtml += '<input id="qrsage" type="checkbox"><label for="qrsage">Säge</label>';
+  qrhtml += '</td> </tr> ';
+
+  qrhtml += '<tr><td colspan="2">';
   qrhtml += '<input id="qremail" type="text" maxlength="40" ';
   qrhtml += 'autocomplete="off" placeholder="Options">';
   qrhtml += '</td> </tr> ';
@@ -112,13 +116,13 @@ qr.setQr = function() {
   var noFlagDiv = document.getElementById('noFlagDiv');
 
   if (noFlagDiv) {
-    qrhtml += '<tr><td class="centered" colspan="2"><input type="checkbox" ';
+    qrhtml += '<tr><td class="left" colspan="2"><input type="checkbox" ';
     qrhtml += 'id="qrcheckboxNoFlag" class="postingCheckbox">';
     qrhtml += '<label for="qrcheckboxNoFlag" class="spoilerCheckbox">';
     qrhtml += 'Don\'t show location</label></td></tr>';
   }
 
-  qrhtml += '<tr><td class="centered" colspan="2"><input type="checkbox" ';
+  qrhtml += '<tr><td class="left" colspan="2"><input type="checkbox" ';
   qrhtml += 'id="qralwaysUseBypassCheckBox" class="postingCheckbox">';
   qrhtml += '<label for="qralwaysUseBypassCheckBox" class="spoilerCheckbox">';
   qrhtml += 'Make sure I have a block bypass</label></td></tr>';
@@ -132,7 +136,7 @@ qr.setQr = function() {
     qrhtml += 'Drag files to upload or<br> click here to select them</div>';
     qrhtml += '<div id="selectedDivQr"></div></td> </tr>';
 
-    qrhtml += '<tr><td class="centered" colspan="2"><input type="checkbox" ';
+    qrhtml += '<tr><td class="left" colspan="2"><input type="checkbox" ';
     qrhtml += 'id="qrcheckboxSpoiler" class="postingCheckbox">';
     qrhtml += '<label for="qrcheckboxSpoiler" class="spoilerCheckbox">Spoiler</label></td> </tr>';
 
@@ -170,6 +174,7 @@ qr.setQr = function() {
   document.body.appendChild(qrPanel);
 
   qr.registerSync('fieldEmail', 'qremail', 'value', 'input');
+  qr.registerSync('checkboxSage', 'qrsage', 'checked', 'change');
   qr.registerSync('fieldSubject', 'qrsubject', 'value', 'input');
   qr.registerSync('fieldMessage', 'qrbody', 'value', 'input');
   document.getElementById('qrbody').addEventListener('input',

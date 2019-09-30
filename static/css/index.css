@@ -197,12 +197,13 @@
     font-size: 80%;
     padding: 0.5em;
     text-align: center;
-    height: 110px;
+    display: flex;
 }
 
 #divBoardsList .column {
     float: left;
     width: 50%;
+    height: auto;
 }
 
 #divBoardsList .row:after {

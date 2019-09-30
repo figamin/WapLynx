@@ -117,6 +117,7 @@ hr {
     display: none;
   }
   #divStandardBox {
-    height: 120px;
+    display: inline-table;
+    width: 100%;
   }
 }

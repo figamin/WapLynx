@@ -350,14 +350,6 @@ code br {
   content: '(Show file)';
 }
 
-.linkReply::before {
-    content: '[';
-}
-
-.linkReply::after {
-    content: ']';
-}
-
 @media only screen and (max-width: 812px) {
   .uploadCell img:not(.imgExpanded) {
     max-width: 75px;
