@@ -241,4 +241,12 @@ h2 {
   #linkEngine {
     display: none;
   }
+  #federationInfo,
+  #mobileInfo,
+  #topLinks {
+    width: auto;
+  }
+
+
+
 }
