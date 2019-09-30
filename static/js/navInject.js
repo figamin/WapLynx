@@ -28,8 +28,6 @@ navContent.innerHTML =
         '/' +
         '<a href="/b">&nbsp;b&nbsp;</a>' +
         '/' +
-        '<a href="/christian">&nbsp;christian&nbsp;</a>' +
-        '/' +
         '<a href="/fit">&nbsp;fit&nbsp;</a>' +
         '/' +
         '<a href="/g">&nbsp;g&nbsp;</a>' +
@@ -41,6 +39,8 @@ navContent.innerHTML =
         '<a href="/pol">&nbsp;pol&nbsp;</a>' +
         '/' +
         '<a href="/r9k">&nbsp;r9k&nbsp;</a>' +
+        '/' +
+        '<a href="/redpill">&nbsp;redpill&nbsp;</a>' +
         '/' +
         '<a href="/tv">&nbsp;tv&nbsp;</a>' +
         '/' +
@@ -79,8 +79,6 @@ navContent.innerHTML =
         '/' +
         '<a href="/b">&nbsp;b&nbsp;</a>' +
 	'/' +
-        '<a href="/christian">&nbsp;christian&nbsp;</a>' +
-        '/' +
         '<a href="/fit">&nbsp;fit&nbsp;</a>' +
         '/' +
         '<a href="/g">&nbsp;g&nbsp;</a>' +
@@ -92,6 +90,8 @@ navContent.innerHTML =
         '<a href="/pol">&nbsp;pol&nbsp;</a>' +
         '/' +
         '<a href="/r9k">&nbsp;r9k&nbsp;</a>' +
+        '/' +
+        '<a href="/redpill">&nbsp;redpill&nbsp;</a>' +
         '/' +
         '<a href="/tv">&nbsp;tv&nbsp;</a>' +
         '/' +
@@ -143,8 +143,6 @@ navContent.innerHTML =
         '/' +
         '<a href="/b">&nbsp;b&nbsp;</a>' +
         '/' +
-        '<a href="/christian">&nbsp;christian&nbsp;</a>' +
-        '/' +
         '<a href="/fit">&nbsp;fit&nbsp;</a>' +
         '/' +
         '<a href="/g">&nbsp;g&nbsp;</a>' +
@@ -156,6 +154,8 @@ navContent.innerHTML =
         '<a href="/pol">&nbsp;pol&nbsp;</a>' +
         '/' +
         '<a href="/r9k">&nbsp;r9k&nbsp;</a>' +
+        '/' +
+        '<a href="/redpill">&nbsp;redpill&nbsp;</a>' +
         '/' +
         '<a href="/tv">&nbsp;tv&nbsp;</a>' +
         '/' +
