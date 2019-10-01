@@ -311,7 +311,7 @@ nav {
 }
 
 nav span, nav a {
-  display: inline-block;
+  display: inline;
   text-decoration: none;
   margin: 0 0.1em;
 }
@@ -737,6 +737,11 @@ textarea:focus {
 
 #postingForm button:active {
   box-shadow: 0px 0px 5px #117743;
+}
+
+#newPostFieldset li {
+  font-size: 80%;
+  text-align: left;
 }
 
 /* Yotsuba Theme Starts Here */

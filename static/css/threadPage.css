@@ -50,6 +50,11 @@
   vertical-align: text-top;
 }
 
+.sageCheckbox {
+    font-size: 80%;
+    vertical-align: text-bottom;
+}
+
 #quick-reply th {
   text-align: center;
   padding: 2px 0;

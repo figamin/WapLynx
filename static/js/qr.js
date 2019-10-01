@@ -92,9 +92,10 @@ qr.setQr = function() {
     qrhtml += ' maxlength="35" autocomplete="off" placeholder="Name"></td> </tr>';
   }
 
-  qrhtml += '<tr><td colspan="2">';
-  qrhtml += '<input id="qrsage" type="checkbox"><label for="qrsage">Säge</label>';
-  qrhtml += '</td> </tr> ';
+  qrhtml += '<tr><td class="left" colspan="2"><input type="checkbox" ';
+  qrhtml += 'id="qrsage" class="spoilerCheckbox">';
+  qrhtml += '<label for="qrsage" class="sageCheckbox">';
+  qrhtml += 'Säge</label></td></tr>';
 
   qrhtml += '<tr><td colspan="2">';
   qrhtml += '<input id="qremail" type="text" maxlength="40" ';
