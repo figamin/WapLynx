@@ -375,6 +375,7 @@ settingsMenu.getOtherContent = function() {
     localStorage.setItem('noAutoLoop', noAutoLoopCheckBox.checked);
     localStorage.setItem('enableYous', enableYousCheckbox.checked);
     localStorage.setItem('hoverImages', hoverImagesCheckbox.checked);
+    location.reload();
   }
 
   return otherPanel;
