@@ -67,8 +67,8 @@
 #postingForm {
   text-align: center;
   margin: 1em auto;
-  display: none;
   margin-bottom: -10px;
+  display: none;
 }
 
 #postingForm button, #qrbutton {
