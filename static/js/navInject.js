@@ -7,7 +7,7 @@ navContent = document.createElement('div');
 //navBarA -- Generic nav bar for something like index.html and various pages that aren't board.html or thread.html
 if (navType == 'A')
 {
-navContent.innerHTML = 
+navContent.innerHTML =
   '<nav>' +
     '<span id="navLinkSpan"> <span>' +
         '[</span> <a ' +
@@ -28,11 +28,17 @@ navContent.innerHTML =
         '/' +
         '<a href="/b">&nbsp;b&nbsp;</a>' +
         '/' +
+	'<a href="/biz">&nbsp;biz&nbsp;</a>' +
+        '/' +
         '<a href="/fit">&nbsp;fit&nbsp;</a>' +
         '/' +
         '<a href="/g">&nbsp;g&nbsp;</a>' +
         '/' +
+	'<a href="/hypno">&nbsp;hypno&nbsp;</a>' +
+        '/' +
 	'<a href="/k">&nbsp;k&nbsp;</a>' +
+        '/' +
+	'<a href="/library">&nbsp;library&nbsp;</a>' +
         '/' +
         '<a href="/meta">&nbsp;meta&nbsp;</a>' +
 	'/' +
@@ -78,15 +84,21 @@ navContent.innerHTML =
         '[&nbsp;<a href="/a">a&nbsp;</a>' +
         '/' +
         '<a href="/b">&nbsp;b&nbsp;</a>' +
-	'/' +
+        '/' +
+	'<a href="/biz">&nbsp;biz&nbsp;</a>' +
+        '/' +
         '<a href="/fit">&nbsp;fit&nbsp;</a>' +
         '/' +
         '<a href="/g">&nbsp;g&nbsp;</a>' +
         '/' +
+	'<a href="/hypno">&nbsp;hypno&nbsp;</a>' +
+        '/' +
 	'<a href="/k">&nbsp;k&nbsp;</a>' +
         '/' +
-        '<a href="/meta">&nbsp;meta&nbsp;</a>' +
+	'<a href="/library">&nbsp;library&nbsp;</a>' +
         '/' +
+        '<a href="/meta">&nbsp;meta&nbsp;</a>' +
+	'/' +
         '<a href="/pol">&nbsp;pol&nbsp;</a>' +
         '/' +
         '<a href="/r9k">&nbsp;r9k&nbsp;</a>' +
@@ -143,14 +155,20 @@ navContent.innerHTML =
         '/' +
         '<a href="/b">&nbsp;b&nbsp;</a>' +
         '/' +
+	'<a href="/biz">&nbsp;biz&nbsp;</a>' +
+        '/' +
         '<a href="/fit">&nbsp;fit&nbsp;</a>' +
         '/' +
         '<a href="/g">&nbsp;g&nbsp;</a>' +
         '/' +
-        '<a href="/k">&nbsp;k&nbsp;</a>' +
+	'<a href="/hypno">&nbsp;hypno&nbsp;</a>' +
+        '/' +
+	'<a href="/k">&nbsp;k&nbsp;</a>' +
+        '/' +
+	'<a href="/library">&nbsp;library&nbsp;</a>' +
         '/' +
         '<a href="/meta">&nbsp;meta&nbsp;</a>' +
-        '/' +	
+	'/' +
         '<a href="/pol">&nbsp;pol&nbsp;</a>' +
         '/' +
         '<a href="/r9k">&nbsp;r9k&nbsp;</a>' +
