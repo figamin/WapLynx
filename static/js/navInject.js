@@ -28,13 +28,13 @@ navContent.innerHTML =
         '/' +
         '<a href="/b">&nbsp;b&nbsp;</a>' +
         '/' +
-	'<a href="/biz">&nbsp;biz&nbsp;</a>' +
-        '/' +
         '<a href="/fit">&nbsp;fit&nbsp;</a>' +
         '/' +
         '<a href="/g">&nbsp;g&nbsp;</a>' +
         '/' +
 	'<a href="/hypno">&nbsp;hypno&nbsp;</a>' +
+        '/' +
+	'<a href="/int">&nbsp;int&nbsp;</a>' +
         '/' +
 	'<a href="/k">&nbsp;k&nbsp;</a>' +
         '/' +
@@ -85,13 +85,13 @@ navContent.innerHTML =
         '/' +
         '<a href="/b">&nbsp;b&nbsp;</a>' +
         '/' +
-	'<a href="/biz">&nbsp;biz&nbsp;</a>' +
-        '/' +
         '<a href="/fit">&nbsp;fit&nbsp;</a>' +
         '/' +
         '<a href="/g">&nbsp;g&nbsp;</a>' +
         '/' +
 	'<a href="/hypno">&nbsp;hypno&nbsp;</a>' +
+        '/' +
+	'<a href="/int">&nbsp;int&nbsp;</a>' +
         '/' +
 	'<a href="/k">&nbsp;k&nbsp;</a>' +
         '/' +
@@ -155,13 +155,13 @@ navContent.innerHTML =
         '/' +
         '<a href="/b">&nbsp;b&nbsp;</a>' +
         '/' +
-	'<a href="/biz">&nbsp;biz&nbsp;</a>' +
-        '/' +
         '<a href="/fit">&nbsp;fit&nbsp;</a>' +
         '/' +
         '<a href="/g">&nbsp;g&nbsp;</a>' +
         '/' +
 	'<a href="/hypno">&nbsp;hypno&nbsp;</a>' +
+        '/' +
+	'<a href="/int">&nbsp;int&nbsp;</a>' +
         '/' +
 	'<a href="/k">&nbsp;k&nbsp;</a>' +
         '/' +
