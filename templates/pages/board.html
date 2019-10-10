@@ -1,287 +1,291 @@
 <!DOCTYPE html>
 <html>
-<head>
-<!-- Matomo -->
-<script type="text/javascript">
-  var _paq = window._paq || [];
-  /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
-  _paq.push(['trackPageView']);
-  _paq.push(['enableLinkTracking']);
-  (function() {
-    var u="//analytics.16chan.xyz/";
-    _paq.push(['setTrackerUrl', u+'matomo.php']);
-    _paq.push(['setSiteId', '1']);
-    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
-    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
-  })();
-</script>
-<noscript><p><img src="//analytics.16chan.xyz/matomo.php?idsite=1&amp;rec=1" style="border:0;" alt="" /></p></noscript>
-<!-- End Matomo Code -->
-<meta charset="UTF-8" />
-<meta
-  name="viewport"
-  content="width=device-width, initial-scale=1.0">
-<link
-  href="/.static/css/global.css"
-  type="text/css"
-  rel="stylesheet" />
-<link
-  href="/.static/css/posting.css"
-  type="text/css"
-  rel="stylesheet" />
-<link
-  href="/.static/css/thread.css"
-  type="text/css"
-  rel="stylesheet" />
-<link
-  href="/.static/css/board.css"
-  type="text/css"
-  rel="stylesheet" />
-<link
-  href="/.static/css/boardContent.css"
-  type="text/css"
-  rel="stylesheet" />
-<link
-  href="/.static/css/watcher.css"
-  type="text/css"
-  rel="stylesheet" />
-<link
-  href="/.static/css/settingsMenu.css"
-  type="text/css"
-  rel="stylesheet" />
-</head>
-<body>
+    <head>
+	<!-- Matomo -->
+	<script type="text/javascript">
+	 var _paq = window._paq || [];
+	 /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+	 _paq.push(['trackPageView']);
+	 _paq.push(['enableLinkTracking']);
+	 (function() {
+	     var u="//analytics.16chan.xyz/";
+	     _paq.push(['setTrackerUrl', u+'matomo.php']);
+	     _paq.push(['setSiteId', '1']);
+	     var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+	     g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+	 })();
+	</script>
+	<noscript><p><img src="//analytics.16chan.xyz/matomo.php?idsite=1&amp;rec=1" style="border:0;" alt="" /></p></noscript>
+	<!-- End Matomo Code -->
+	<meta charset="UTF-8" />
+	<meta
+	    name="viewport"
+	    content="width=device-width, initial-scale=1.0">
+	<link
+	    href="/.static/css/global.css"
+	    type="text/css"
+	    rel="stylesheet" />
+	<link
+	    href="/.static/css/posting.css"
+	    type="text/css"
+	    rel="stylesheet" />
+	<link
+	    href="/.static/css/thread.css"
+	    type="text/css"
+	    rel="stylesheet" />
+	<link
+	    href="/.static/css/board.css"
+	    type="text/css"
+	    rel="stylesheet" />
+	<link
+	    href="/.static/css/boardContent.css"
+	    type="text/css"
+	    rel="stylesheet" />
+	<link
+	    href="/.static/css/watcher.css"
+	    type="text/css"
+	    rel="stylesheet" />
+	<link
+	    href="/.static/css/settingsMenu.css"
+	    type="text/css"
+	    rel="stylesheet" />
+    </head>
+    <body>
 
-  <script src="/.static/js/themeLoader.js"></script>
+	<script src="/.static/js/themeLoader.js"></script>
 
-  <div class="navBar" id="navBarType" value="B"></div>
+	<div class="navBar" id="navBarType" value="B"></div>
 
-  <header class="boardHeader">
-    <img id="bannerImage" />
-    <div>
-      <p id="labelName"></p>
-    </div>
-    <p id="labelDescription"></p>
-  </header>
+	<header class="boardHeader">
+	    <img id="bannerImage" />
+	    <div>
+		<p id="labelName"></p>
+	    </div>
+	    <p id="labelDescription"></p>
+	</header>
 
-  <hr class="belowHeaderBar">
+	<hr class="belowHeaderBar">
 
- <center><div id="newThreadText">
-  [<a href="#" onclick="displayFunction()">Start a New Thread</a>]
- </div></center>
+	<center><div id="newThreadText">
+	    [<a href="#" onclick="displayFunction()">Start a New Thread</a>]
+	</div></center>
 
-  <div id="postingForm">
+	<div id="postingForm">
 
-   <div id="hideThreadOption"><center>[<a onclick="hideDisplayFunction()">Hide</a>]</center></div>
+	    <div id="hideThreadOption"><center>[<a onclick="hideDisplayFunction()">Hide</a>]</center></div>
 
-    <fieldset id="newPostFieldset">
+	    <fieldset id="newPostFieldset">
 
-	<div class="banner">Posting Mode: New Thread</div>
+		<div class="banner">Posting Mode: New Thread</div>
 
-      <form
-        action="/newThread.js"
-        enctype="multipart/form-data"
-        method="post">
+		<form
+		    action="/newThread.js"
+		    enctype="multipart/form-data"
+		    method="post">
 
-        <table id="postingTable">
-        </table>
+		    <table id="postingTable">
+		    </table>
 
-          <p class="small">
-	  <ul>
-            <li>Supported file types: GIF, JPG, PNG, WebM, OGG, and <a href="/.static/pages/about.html#fileTypeRef">more</a></li>
-	    <li>Remember to follow the
-            <a
-              href="rules.html"
-              class="rules">rules</a></li>
-          </p>
+		    <p class="small">
+			<ul>
+			    <li>Supported file types: GIF, JPG, PNG, WebM, OGG, and <a href="/.static/pages/about.html#fileTypeRef">more</a></li>
+			    <li>Remember to follow the
+				<a
+				    href="rules.html"
+				    class="rules">rules</a></li>
+		    </p>
 
-          <button
-              type="submit"
-              id="formButton">Post</button>
-      </form>
-    </fieldset>
-  </div>
+		    <button
+			type="submit"
+			id="formButton">Post</button>
+		</form>
+	    </fieldset>
+	</div>
 
-  <div id="announcementPlacement">
-      <hr class="belowPostFieldset">
-      <center>
-	  <div id="announcementContent">• <font color="red"><b>Janitor and global moderator applications are now open! Please email <a href="mailto:admin@16chan.xyz">admin@16chan.xyz</a> or message 663 on Twitter if you're interested.</a></b></font><br /><br />• The 16chan Android App is now live! Follow the installation guide <b><u><a href="/.static/pages/mobile.html">here</a></u></b></div>
-  </center>
-  <hr class="belowPostFieldset">
-  </div>
+	<div id="announcementPlacement">
+	    <hr class="belowPostFieldset">
+	    <center>
+		<div id="announcementContent">
+		    • <font color="red"><b>Janitor/Global Moderator/Developer applications are now open! Please email <a href="mailto:admin@16chan.xyz">admin@16chan.xyz</a> or message 663 on Twitter if you're interested.</a></b></font>
+		    <br /><br />
+		    • The 16chan Android App is now live! Follow the installation guide <b><u><a href="/.static/pages/mobile.html">here</a></u></b>
+		</div>
+	    </center>
+	    <hr class="belowPostFieldset">
+	</div>
 
-  <div id="panelMessage">
-    <hr>
-    <div id="divMessage"></div>
-  </div>
+	<div id="panelMessage">
+	    <hr>
+	    <div id="divMessage"></div>
+	</div>
 
-  <div id="innerUtility">
-  <hr>
-  &nbsp;[<a href="./catalog.html">Catalog</a>]&nbsp;[<a href="#footer">Bottom</a>]&nbsp;[<a onclick="location.reload()">Refresh</a>]
-  <hr>
-  </div>
+	<div id="innerUtility">
+	    <hr>
+	    &nbsp;[<a href="./catalog.html">Catalog</a>]&nbsp;[<a href="#footer">Bottom</a>]&nbsp;[<a onclick="location.reload()">Refresh</a>]
+	    <hr>
+	</div>
 
-  </div>
+	</div>
 
-  <div id="threadList">
+	<div id="threadList">
 
-    <form
-      action="/contentActions.js"
-      method="post"
-      enctype="multipart/form-data">
+	    <form
+		action="/contentActions.js"
+		method="post"
+		enctype="multipart/form-data">
 
-      <div id="divThreads"></div>
+		<div id="divThreads"></div>
 
-      <hr class="clearer" />
+		<hr class="clearer" />
 
-      <div class="threadPages">
+		<div class="threadPages">
 
-  	<div id="innerUtilityBottom">
-  	<hr>
-  	&nbsp;[<a href="./catalog.html">Catalog</a>]&nbsp;[<a href="#">Top</a>]&nbsp;[<a onclick="location.reload()">Refresh</a>]
-  	<hr>
+  		    <div id="innerUtilityBottom">
+  			<hr>
+  			&nbsp;[<a href="./catalog.html">Catalog</a>]&nbsp;[<a href="#">Top</a>]&nbsp;[<a onclick="location.reload()">Refresh</a>]
+  			<hr>
 
-  </div>
-        <span class="divPages">[ <a id="linkPrevious"></a> <span
-          id="divPages"></span> <a id="linkNext"></a> ]
-        </span>
+		    </div>
+		    <span class="divPages">[ <a id="linkPrevious"></a> <span
+									   id="divPages"></span> <a id="linkNext"></a> ]
+		    </span>
 
-        <div id="boardContentLinks">
-          <span>[</span>
-          <a id="linkManagement">Manage Board</a>
-          <span>/</span>
-          <a id="linkModeration">Moderate Board</a>
-          <span>]</span>
-        </div>
+		    <div id="boardContentLinks">
+			<span>[</span>
+			<a id="linkManagement">Manage Board</a>
+			<span>/</span>
+			<a id="linkModeration">Moderate Board</a>
+			<span>]</span>
+		    </div>
 
-      </div>
+		</div>
 
-      <div id="bottomForms">
+		<div id="bottomForms">
 
-        <fieldset class="reportFieldset">
-          <legend>Delete</legend>
+		    <fieldset class="reportFieldset">
+			<legend>Delete</legend>
 
-          <div class="contentAction">
-            <label>
-              Password
-              <input
-                type="text"
-                class="deletionField"
-                id="deletionFieldPassword"
-                name="password">
-            </label>
-            <label>
-              <input
-                type="checkbox"
-                class="deletionField"
-                id="checkboxOnlyFiles"
-                name="deleteUploads">
-              Delete only files (Removes the file reference to the posts)
-            </label>
-            <label>
-              <input
-                type="checkbox"
-                class="deletionField"
-                id="checkboxMediaDeletion"
-                name="deleteMedia">
-              Delete media (Removes the saved files from the server)
-            </label>
-            <button
-              type="submit"
-              id="deleteFormButton"
-              value="delete"
-              name="action">Delete</button>
+			<div class="contentAction">
+			    <label>
+				Password
+				<input
+				    type="text"
+				    class="deletionField"
+				    id="deletionFieldPassword"
+				    name="password">
+			    </label>
+			    <label>
+				<input
+				    type="checkbox"
+				    class="deletionField"
+				    id="checkboxOnlyFiles"
+				    name="deleteUploads">
+				Delete only files (Removes the file reference to the posts)
+			    </label>
+			    <label>
+				<input
+				    type="checkbox"
+				    class="deletionField"
+				    id="checkboxMediaDeletion"
+				    name="deleteMedia">
+				Delete media (Removes the saved files from the server)
+			    </label>
+			    <button
+				type="submit"
+				id="deleteFormButton"
+				value="delete"
+				name="action">Delete</button>
 
-          </div>
-        </fieldset>
+			</div>
+		    </fieldset>
 
-        <fieldset class="reportFieldset">
-          <legend>Report</legend>
+		    <fieldset class="reportFieldset">
+			<legend>Report</legend>
 
-          <div class="contentAction">
+			<div class="contentAction">
 
-            <label>
-              Reason
-              <input
-                type="text"
-                class="reportField"
-                id="reportFieldReason"
-                name="reason">
-            </label>
-            <label>
-              <input
-                type="checkbox"
-                class="reportField"
-                id="checkboxGlobal"
-                name="global">
-              Global
-            </label>
-            <img
-              class="captchaImage"
-              id="captchaImageReport"
-              src="/captcha.js">
+			    <label>
+				Reason
+				<input
+				    type="text"
+				    class="reportField"
+				    id="reportFieldReason"
+				    name="reason">
+			    </label>
+			    <label>
+				<input
+				    type="checkbox"
+				    class="reportField"
+				    id="checkboxGlobal"
+				    name="global">
+				Global
+			    </label>
+			    <img
+				class="captchaImage"
+				id="captchaImageReport"
+				src="/captcha.js">
 
-            <input
-              type="button"
-              class="hidden reloadCaptchaButton"
-              onclick="captchaUtils.reloadCaptcha()"
-              value="Reload">
-            <span class="captchaTimer"></span>
-            <br>
+			    <input
+				type="button"
+				class="hidden reloadCaptchaButton"
+				onclick="captchaUtils.reloadCaptcha()"
+				value="Reload">
+			    <span class="captchaTimer"></span>
+			    <br>
 
-            <input
-              name="captcha"
-              type="text"
-              class="captchaField reportField"
-              id="fieldCaptchaReport"
-              placeholder="answer">
+			    <input
+				name="captcha"
+				type="text"
+				class="captchaField reportField"
+				id="fieldCaptchaReport"
+				placeholder="answer">
 
-            <a
-              href="/noCookieCaptcha.js"
-              class="small">no cookies?</a>
-            <br>
+			    <a
+				href="/noCookieCaptcha.js"
+				class="small">no cookies?</a>
+			    <br>
 
-            <button
-              type="submit"
-              id="reportFormButton"
-              value="report"
-              name="action">Report</button>
+			    <button
+				type="submit"
+				id="reportFormButton"
+				value="report"
+				name="action">Report</button>
 
-          </div>
+			</div>
 
-        </fieldset>
+		    </fieldset>
 
-      </div>
+		</div>
 
-    </form>
+	    </form>
 
-  </div>
+	</div>
 
-  <div class="footerBar" id="footerBarType" value="B"></div>
+	<div class="footerBar" id="footerBarType" value="B"></div>
 
-</body>
+    </body>
 
-<script src="/.static/js/api.js"></script>
-<script src="/.static/js/navInject.js"></script>
-<script src="/.static/js/footerInject.js"></script>
-<script src="/.static/js/crypt.js"></script>
-<script src="/.static/js/board.js"></script>
-<script src="/.static/js/postCommon.js"></script>
-<script src="/.static/js/captchaModal.js"></script>
-<script src="/.static/js/thumbs.js"></script>
-<script src="/.static/js/tooltips.js"></script>
-<script src="/.static/js/posting.js"></script>
-<script src="/.static/js/captchaUtils.js"></script>
-<script src="/.static/js/themes.js"></script>
-<script src="/.static/js/draggable.js"></script>
-<script src="/.static/js/settingsMenu.js"></script>
-<script src="/.static/js/hiding.js"></script>
-<script src="/.static/js/mediaHiding.js"></script>
-<script src="/.static/js/embed.js"></script>
-<script src="/.static/js/postingMenu.js"></script>
-<script src="/.static/js/watcher.js"></script>
-<script src="/.static/js/favouriteBoards.js"></script>
-<script src="/.static/js/bottomForms.js"></script>
-<script src="/.static/js/hideThread.js"></script>
+    <script src="/.static/js/api.js"></script>
+    <script src="/.static/js/navInject.js"></script>
+    <script src="/.static/js/footerInject.js"></script>
+    <script src="/.static/js/crypt.js"></script>
+    <script src="/.static/js/board.js"></script>
+    <script src="/.static/js/postCommon.js"></script>
+    <script src="/.static/js/captchaModal.js"></script>
+    <script src="/.static/js/thumbs.js"></script>
+    <script src="/.static/js/tooltips.js"></script>
+    <script src="/.static/js/posting.js"></script>
+    <script src="/.static/js/captchaUtils.js"></script>
+    <script src="/.static/js/themes.js"></script>
+    <script src="/.static/js/draggable.js"></script>
+    <script src="/.static/js/settingsMenu.js"></script>
+    <script src="/.static/js/hiding.js"></script>
+    <script src="/.static/js/mediaHiding.js"></script>
+    <script src="/.static/js/embed.js"></script>
+    <script src="/.static/js/postingMenu.js"></script>
+    <script src="/.static/js/watcher.js"></script>
+    <script src="/.static/js/favouriteBoards.js"></script>
+    <script src="/.static/js/bottomForms.js"></script>
+    <script src="/.static/js/hideThread.js"></script>
 
 </html>
