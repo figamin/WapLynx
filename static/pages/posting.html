@@ -1,110 +1,112 @@
 <!DOCTYPE html>
 <html>
-<head>
-<!-- Matomo -->
-<script type="text/javascript">
-  var _paq = window._paq || [];
-  /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
-  _paq.push(['trackPageView']);
-  _paq.push(['enableLinkTracking']);
-  (function() {
-    var u="//analytics.16chan.xyz/";
-    _paq.push(['setTrackerUrl', u+'matomo.php']);
-    _paq.push(['setSiteId', '1']);
-    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
-    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
-  })();
-</script>
-<noscript><p><img src="//analytics.16chan.xyz/matomo.php?idsite=1&amp;rec=1" style="border:0;" alt="" /></p></noscript>
-<!-- End Matomo Code -->
-<title>Posting</title>
-<meta charset="UTF-8">
-<meta
-  name="viewport"
-  content="width=device-width, initial-scale=1.0">
-<link
-  href="/.static/css/global.css"
-  type="text/css"
-  rel="stylesheet" />
-<link
-  href="/.static/css/index.css"
-  type="text/css"
-  rel="stylesheet" />
-<link
-  href="/.static/css/watcher.css"
-  type="text/css"
-  rel="stylesheet" />
-<link
-  href="/.static/css/posting.css"
-  type="text/css"
-  rel="stylesheet" />
-</head>
-<body>
+    <head>
+	<!-- Matomo -->
+	<script type="text/javascript">
+	 var _paq = window._paq || [];
+	 /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+	 _paq.push(['trackPageView']);
+	 _paq.push(['enableLinkTracking']);
+	 (function() {
+	     var u="//analytics.16chan.xyz/";
+	     _paq.push(['setTrackerUrl', u+'matomo.php']);
+	     _paq.push(['setSiteId', '1']);
+	     var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+	     g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+	 })();
+	</script>
+	<noscript><p><img src="//analytics.16chan.xyz/matomo.php?idsite=1&amp;rec=1" style="border:0;" alt="" /></p></noscript>
+	<!-- End Matomo Code -->
+	<title>Posting</title>
+	<meta charset="UTF-8">
+	<meta
+	    name="viewport"
+	    content="width=device-width, initial-scale=1.0">
+	<link
+	    href="/.static/css/global.css"
+	    type="text/css"
+	    rel="stylesheet" />
+	<link
+	    href="/.static/css/index.css"
+	    type="text/css"
+	    rel="stylesheet" />
+	<link
+	    href="/.static/css/watcher.css"
+	    type="text/css"
+	    rel="stylesheet" />
+	<link
+	    href="/.static/css/posting.css"
+	    type="text/css"
+	    rel="stylesheet" />
+    </head>
+    <body>
 
-  <script src="/.static/js/themeLoader.js"></script>
+	<script src="/.static/js/themeLoader.js"></script>
 
-  <div class="navBar" id="navBarType" value="A"></div>
+	<div class="navBar" id="navBarType" value="A"></div>
 
-  <div id="settingsWrapper">
+	<div id="settingsWrapper">
 
-    <div
-      id="logoBox"
-      class="title">
-      <img
-        src="/.static/logo.png"
-        class="logoImg"
-        alt="logo" />
-    </div>
+	    <div
+		id="logoBox"
+		    class="title">
+		<img
+		    src="/.static/logo.png"
+		    class="logoImg"
+		    alt="logo" />
+	    </div>
 
-  <h2>Posting</h2>
-  <div id="divStandardBox">
-      <h3>Tripcodes</h3>
-      <p>To use a tripcode, add a # in your name. After the #, add the
-        password for the tripcode.</p>
-      <p>The server will apply a hash to the password and display the hashed
-        password.</p>
-      <p>To use a secure tripcode, add ## in your name and a password. A
-        secure tripcode will generate a random text to be displayed that will
-        only be used if your password matches.</p>
+	    <h2>Posting</h2>
+	    <div id="divStandardBox">
+		<h3>Tripcodes</h3>
+		<p>To use a tripcode, add a # in your name. After the #, add the
+		    password for the tripcode.</p>
+		<p>The server will apply a hash to the password and display the hashed
+		    password.</p>
+		<p>To use a secure tripcode, add ## in your name and a password. A
+		    secure tripcode will generate a random text to be displayed that will
+		    only be used if your password matches.</p>
 
-	<br />
+		<br />
 
-      <h3>Role signature</h3>
-      <p>If you wish to display your global or board role when posting, you
-        can put #rs in your name, like a tripcode, case insensitive. This will
-        prevent you from using a tripcode.</p>
-      <p>You can also enable an always use role signature rule in your
-        account settings.</p>
+		<h3>Role signature</h3>
+		<p>If you wish to display your global or board role when posting, you
+		    can put #rs in your name, like a tripcode, case insensitive. This will
+		    prevent you from using a tripcode.</p>
+		<p>You can also enable an always use role signature rule in your
+		    account settings.</p>
 
-	<br />
+		<br />
 
-      <h3>Tags</h3>
-       <ul>
-        <li>[spoiler]the game[/spoiler] 🠚 <span class="spoiler">the game</span></li>
-        <li>**this also works** 🠚 <span class="spoiler">this also works</span></li>
-        <li> ==SRZ BIZNIZ== 🠚 <span class="redText">SRZ BIZNIZ</span></li>
-        <li>''italics'' 🠚 <em>italics</em></li>
-        <li>'''bold''' 🠚 <strong>bold</strong></li>
-        <li>__underline__ 🠚 <u>underline</u></li>
-        <li>~~strikethrough~~ 🠚 <s>strikethrough</s></li>
-        <li>[aa] for japanese characters</li>
-        <li>[code] tags if enabled by board owner</li>
-       </ul>
-  </div>
+		<h3>Tags</h3>
+		<ul>
+		    <li>[spoiler]the game[/spoiler] 🠚 <span class="spoiler">the game</span></li>
+		    <li>**this also works** 🠚 <span class="spoiler">this also works</span></li>
+		    <li> ==SRZ BIZNIZ== 🠚 <span class="redText">SRZ BIZNIZ</span></li>
+		    <li> >implying 🠚 <span class="greenText">>implying</span></li>
+		    <li> &lt;omglol 🠚 <span class="orangeText">&lt;omglol</span></li>
+		    <li>''italics'' 🠚 <em>italics</em></li>
+		    <li>'''bold''' 🠚 <strong>bold</strong></li>
+		    <li>__underline__ 🠚 <u>underline</u></li>
+		    <li>~~strikethrough~~ 🠚 <s>strikethrough</s></li>
+		    <li>[aa] for japanese characters</li>
+		    <li>[code] tags if enabled by board owner</li>
+		</ul>
+	    </div>
 
-  </div>
+	</div>
 
-<div class="footerBar" id="footerBarType" value="A"></div>
+	<div class="footerBar" id="footerBarType" value="A"></div>
 
-</body>
+    </body>
 
-<script src="/.static/js/api.js"></script>
-<script src="/.static/js/navInject.js"></script>
-<script src="/.static/js/footerInject.js"></script>
-<script src="/.static/js/themes.js"></script>
-<script src="/.static/js/draggable.js"></script>
-<script src="/.static/js/watcher.js"></script>
-<script src="/.static/js/favouriteBoards.js"></script>
-<script src="/.static/js/footerInject.js"></script>
+    <script src="/.static/js/api.js"></script>
+    <script src="/.static/js/navInject.js"></script>
+    <script src="/.static/js/footerInject.js"></script>
+    <script src="/.static/js/themes.js"></script>
+    <script src="/.static/js/draggable.js"></script>
+    <script src="/.static/js/watcher.js"></script>
+    <script src="/.static/js/favouriteBoards.js"></script>
+    <script src="/.static/js/footerInject.js"></script>
 
 </html>

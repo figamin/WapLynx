@@ -1,27 +1,27 @@
 .topBoards a, .innerPost, .sideCatalogCell, .markedPost, .sideCatalogMarkedCell {
-  background: #282A2E;
+    background: #282A2E;
 }
 
 .floatingMenu, #quick-reply table {
-  background: #1d1f21;
+    background: #1d1f21;
 }
 
 .markedPost, .sideCatalogMarkedCell {
-  background: #1d1d21;
+    background: #1d1d21;
 }
 
 .sideCatalogCell,
-  .markedPost, .sideCatalogMarkedCell {
-  border: 1px solid #000;
+.markedPost, .sideCatalogMarkedCell {
+    border: 1px solid #000;
 }
 
 #quick-reply table, .modalDecorationPanel,
-  .floatingMenu, .reportFieldset {
-  border: 2px solid #282a2e;
+.floatingMenu, .reportFieldset {
+    border: 2px solid #282a2e;
 }
 
 #newPostFieldset {
-  border: 0px solid #282a2e;
+    border: 0px solid #282a2e;
 }
 
 .idLabel {
@@ -39,21 +39,21 @@
 }
 
 #announcementText {
-  margin: auto;
-  padding-top: 3px;
-  padding-bottom: 3px;
+    margin: auto;
+    padding-top: 3px;
+    padding-bottom: 3px;
 }
 
 #divLatestPosts .latestPostCell {
-  border-bottom: 1px solid #4b4d54;
+    border-bottom: 1px solid #4b4d54;
 }
 
 .belowHeaderBar {
-  width: 80%;
+    width: 80%;
 }
 
 .belowPostFieldset {
-  width: 400px;
+    width: 400px;
 }
 
 .labelLastEdit {
@@ -61,45 +61,45 @@
 }
 
 #announcementPlacement {
-  font-size: 80%;
+    font-size: 80%;
 }
 
 #announcementContent {
-  max-width: 450px;
+    max-width: 450px;
 }
 
 #divStandardBox hr {
-  border-color: #c5c8c6;
+    border-color: #c5c8c6;
 }
 
 #archivePage #settingsWrapper input {
-  display: initial;
+    display: initial;
 }
 
 
 
 div.banner {
-  background: #32DD72;
-  color: #000;
-  text-align: center;
-  width: 260px;
-  padding: 4px;
-  padding-left: 12px;
-  padding-right: 12px;
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: 10px;
-  font-size: 12px;
-  font-weight: bold;
+    background: #32DD72;
+    color: #000;
+    text-align: center;
+    width: 260px;
+    padding: 4px;
+    padding-left: 12px;
+    padding-right: 12px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 10px;
+    font-size: 12px;
+    font-weight: bold;
 }
 
 #hideThreadOption {
-  font-size: 80%;
+    font-size: 80%;
 }
 
 #boardsPage .wide {
-  max-width: 100%;
-  min-width: 100%;
+    max-width: 100%;
+    min-width: 100%;
 }
 
 .linkName.noEmailName:hover {
@@ -107,101 +107,101 @@ div.banner {
 }
 
 .unimportant {
-  font-size: 10px;
-  color: #000;
+    font-size: 10px;
+    color: #000;
 }
 
 .unimportant:hover {
-  color: #fff;
+    color: #fff;
 }
 
 .captchaImage {
-  width: 300px;
-  height: 100px;
-  background-color: white;
+    width: 300px;
+    height: 100px;
+    background-color: white;
 }
 
 .small {
-  font-size: 75%;
-  text-decoration: none;
+    font-size: 75%;
+    text-decoration: none;
 }
 
 .clearer {
-  clear: both;
+    clear: both;
 }
 
 .small a {
-  text-decoration: none;
+    text-decoration: none;
 }
 
 #panelReferences a {
-  display: block;
+    display: block;
 }
 
 #boardListIndex {
-  width: 70%;
-  min-width: 60%;
-  margin: auto;
+    width: 70%;
+    min-width: 60%;
+    margin: auto;
 }
 
 .imgLink img, .latestImageCell img, .mediaCell img, .catalogCell img {
-  image-orientation: from-image;
+    image-orientation: from-image;
 }
 
 #federatedText {
-  background: maroon;
-  font-size: 90%;
-  padding: .25em;
-  width: 250px;
-  border-radius: 6px;
-  margin: auto;
-  margin-bottom: auto;
-  margin-bottom: 5px;
-  margin-top: 50px;
-  font-weight: bold;
+    background: maroon;
+    font-size: 90%;
+    padding: .25em;
+    width: 250px;
+    border-radius: 6px;
+    margin: auto;
+    margin-bottom: auto;
+    margin-bottom: 5px;
+    margin-top: 50px;
+    font-weight: bold;
 }
 
 .linkList a {
-  display: table;
+    display: table;
 }
 
 #themeSelector {
-  font-size: 100%;
+    font-size: 100%;
 }
 
 h3, p, label {
-  margin: 0.25em 0;
+    margin: 0.25em 0;
 }
 
 hr {
-  height: 0px;
-  border-width: 1px medium medium;
-  border-style: solid none none;
-  border-color: #282a2e;
+    height: 0px;
+    border-width: 1px medium medium;
+    border-style: solid none none;
+    border-color: #282a2e;
 }
 
 a, .coloredIcon, .unhideButton, .embedButton, .checkedFavouriteButton:before,
-  #selectedTab, #showFormsButton {
-  color: #81a2be;
-  cursor: pointer
+#selectedTab, #showFormsButton {
+    color: #81a2be;
+    cursor: pointer
 }
 
 .coloredIcon::before {
-  font-family: 'Icons';
+    font-family: 'Icons';
 }
 
 #navLinkSpan .coloredIcon:before, #navOptionsSpan .coloredIcon:before,
-  #links .coloredIcon:before {
-  margin-right: 0.25em;
+#links .coloredIcon:before {
+    margin-right: 0.25em;
 }
 
 a {
-  text-decoration: none;
-  color: #81a2be;
+    text-decoration: none;
+    color: #81a2be;
 }
 
 .linkName:hover {
-  text-decoration: none;
+    text-decoration: none;
 }
 
 a:hover,
@@ -209,183 +209,183 @@ a:hover,
 .linkQuote:hover,
 #showFormsButton:hover,
 #counterUids:hover {
-  color: #5f89ac;
+    color: #5f89ac;
 }
 
 u {
-  text-decoration: underline;
+    text-decoration: underline;
 }
 
 s {
-  text-decoration: line-through;
+    text-decoration: line-through;
 }
 
 strong {
-  font-weight: bold;
+    font-weight: bold;
 }
 
 em {
-  font-style: italic;
+    font-style: italic;
 }
 
 input, select, textarea {
-  background: #fff;
-  color: #000;
-  font-family: arial, helvetica, sans-serif;
-  font-size: 80%;
+    background: #fff;
+    color: #000;
+    font-family: arial, helvetica, sans-serif;
+    font-size: 80%;
 }
 
 #newThreadButton {
-  border-color: rgb(25, 27, 31) rgb(25, 27, 31) rgb(10, 12, 16);
-  background: linear-gradient(#37393D, #282A2E) repeat scroll 0% 0% transparent;
+    border-color: rgb(25, 27, 31) rgb(25, 27, 31) rgb(10, 12, 16);
+    background: linear-gradient(#37393D, #282A2E) repeat scroll 0% 0% transparent;
 }
 
 input[type=button], input[type=submit], button, .dropzone, .selectedCell
-  {
-  font-family: arial, helvetica, sans-serif;
-  margin-top: 0.5em;
-  margin-bottom: 0.5em;
-  cursor: pointer;
+{
+    font-family: arial, helvetica, sans-serif;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    cursor: pointer;
 }
 
 #dropzone {
-  font-size: 80%;
-  border: 1px solid #c5c8c6;
-  background: #282a2e;
+    font-size: 80%;
+    border: 1px solid #c5c8c6;
+    background: #282a2e;
 }
 
 .title, .unhideButton {
-  font-weight: normal;
+    font-weight: normal;
 }
 
 .fileBrowser {
-  background: none;
+    background: none;
 }
 
 /* import resources here; external CSS, fonts, etc */
 @font-face {
-  font-family: 'Hack';
-  src: url('../hack-regular-webfont.eot?v=2.018');
-  src: url('../hack-regular-webfont.eot?#iefix&v=2.018')
-    format('embedded-opentype'),
+    font-family: 'Hack';
+    src: url('../hack-regular-webfont.eot?v=2.018');
+    src: url('../hack-regular-webfont.eot?#iefix&v=2.018')
+	    format('embedded-opentype'),
     url('../hack-regular-webfont.woff2?v=2.018') format('woff2'),
     url('../hack-regular-webfont.woff?v=2.018') format('woff'),
     url('../hack-regular-webfont.ttf?v=2.018') format('truetype'),
     url('../hack-regular-webfont.svg?v=2.018#hackregular') format('svg');
-  font-weight: normal;
-  font-style: normal;
+    font-weight: normal;
+    font-style: normal;
 }
 
 @font-face {
-  font-family: 'Icons';
-  src: url('../open-iconic.eot');
-  src: url('../open-iconic.eot?#iconic-sm') format('embedded-opentype'),
+    font-family: 'Icons';
+    src: url('../open-iconic.eot');
+    src: url('../open-iconic.eot?#iconic-sm') format('embedded-opentype'),
     url('../open-iconic.woff') format('woff'), url('../open-iconic.ttf')
-    format('truetype'), url('../open-iconic.otf') format('opentype'),
+						  format('truetype'), url('../open-iconic.otf') format('opentype'),
     url('../open-iconic.svg#iconic-sm') format('svg');
-  font-weight: normal;
-  font-style: normal;
+    font-weight: normal;
+    font-style: normal;
 }
 
 /* body styles, inherited by whole page */
 body {
-  color: #c5c8c6;
-  background: #1D1F21;
-  font-family: arial, helvetica, sans-serif;
-  font-size: 100%;
-  margin: 0px;
+    color: #c5c8c6;
+    background: #1D1F21;
+    font-family: arial, helvetica, sans-serif;
+    font-size: 100%;
+    margin: 0px;
 }
 
 /* header and nav / top of page styles */
 header {
-  margin: 3em auto 0 auto;
-  text-align: center;
+    margin: 3em auto 0 auto;
+    text-align: center;
 }
 
 nav {
-  height: 18px;
-  top: 0;
-  width: 100%;
-  font-size: 80%;
-  text-align: center;
+    height: 18px;
+    top: 0;
+    width: 100%;
+    font-size: 80%;
+    text-align: center;
 }
 
 nav span, nav a {
-  display: inline;
-  text-decoration: none;
-  margin: 0 0.1em;
+    display: inline;
+    text-decoration: none;
+    margin: 0 0.1em;
 }
 
 #navLinkSpan {
-  float: left;
+    float: left;
 }
 
 #favouriteButton {
-  display: none;
+    display: none;
 }
 
 #navOptionsSpan {
-  float: right;
+    float: right;
 }
 
 #navLinkHome:before {
-  content: "\e078";
+    content: "\e078";
 }
 
 #navBoardList:before {
-  content: "\e03a";
+    content: "\e03a";
 }
 
 #linkOverboard:before, #navOverboard:before {
-  content: "\e007";
+    content: "\e007";
 }
 
 #settingsButton:before {
-  content: "\e041";
+    content: "\e041";
 }
 
 #navPosting:before {
-  content: "\e053";
+    content: "\e053";
 }
 
 #navCatalog:before {
-  content: "\e072";
+    content: "\e072";
 }
 
 #linkRss:before {
-  content: "\e0b7";
+    content: "\e0b7";
 }
 
 #linkTop:before {
-  content: "\e012";
+    content: "\e012";
 }
 
 #linkBottom:before {
-  content: "\e00f";
+    content: "\e00f";
 }
 
 #linkBack:before {
-  content: "\e003";
+    content: "\e003";
 }
 
 #showFormsButton::before {
-  content: "[ ";
+    content: "[ ";
 }
 
 #showFormsButton::after {
-  content: " ]";
+    content: " ]";
 }
 
 #showFederatedButton {
-  font-size: 80%;
+    font-size: 80%;
 }
 
 #showFederatedButton::before {
-  content: "[";
+    content: "[";
 }
 
 #showFederatedButton::after {
-  content: "]";
+    content: "]";
 }
 
 #showFormsButton::before,
@@ -393,80 +393,84 @@ nav span, nav a {
 #showFederatedButton::before,
 #showFederatedButton::after,
 #questionBox {
-  color: #c5c8c6;
+    color: #c5c8c6;
 }
 
 #questionBox:hover {
-  color: #5f89ac;
+    color: #5f89ac;
 }
 /* board list */
 #divPages {
-  display: inline-block;
+    display: inline-block;
 }
 
 .divPages {
-  font-size: 80%;
+    font-size: 80%;
 }
 
 #watcherButton span {
-  display: none;
+    display: none;
 }
 
 #boardListLinks {
-  font-size: 110%;
+    font-size: 110%;
 }
 
 #divPages a {
-  text-decoration: none;
-  padding: 0 0.25em;
-  display: inline-block;
+    text-decoration: none;
+    padding: 0 0.25em;
+    display: inline-block;
 }
 
 a.rules:after {
-  font-family: Icons;
-  content: "\e052";
-  margin-right: 0.5em;
-  height: 80%;
-  font-size: 80%;
-  padding-left: 0.25em;
-  vertical-align: middle;
+    font-family: Icons;
+    content: "\e052";
+    margin-right: 0.5em;
+    height: 80%;
+    font-size: 80%;
+    padding-left: 0.25em;
+    vertical-align: middle;
 }
 
 
 #boardsWrapper h2 {
-  text-align: left;
+    text-align: left;
 }
 
 /* markdown */
 .greenText {
-  color: #789922;
+    color: #789922;
+}
+
+.orangeText {
+    color: orange;
 }
 
 .redText {
-  color: #AF0A0F;
-  font-weight: bold;
-  font-size: 125%;
+    color: #AF0A0F;
+    font-weight: bold;
+    font-size: 125%;
 }
 
 span.spoiler {
-  background: #000;
-  color: #000;
-  padding: 0 1px;
+    background: #000;
+    color: #000;
+    padding: 0 1px;
 }
 
 .spoiler:hover {
-  color: #c5c8c6;
-  background: none;
+    color: #c5c8c6;
+    background: none;
 }
 
 .red {
-  color: #117743;
+    color: #117743;
 }
 
 /* CSS for pages that deal with site and account settings and bans */
 #settingsWrapper {
-  max-width: 700px;
-  margin: 2em auto;
+    max-width: 700px;
+    margin: 2em auto;
 }
 
 /* unique id checkbox hide */
@@ -476,113 +480,113 @@ span.spoiler {
 }
 
 #settingsFieldset {
-  text-align: left;
-  border: none;
+    text-align: left;
+    border: none;
 }
 
 #settingsWrapper input {
-  display: block;
-  margin-top: 0.25em;
-  margin-bottom: 0.25em;
+    display: block;
+    margin-top: 0.25em;
+    margin-bottom: 0.25em;
 }
 
 .banners {
-  margin: 1em;
-  width: auto;
-  padding: 0.5em;
+    margin: 1em;
+    width: auto;
+    padding: 0.5em;
 }
 
 #newThreadText {
-  font-size: 22px;
-  font-weight: 700;
-  text-align: center;
+    font-size: 22px;
+    font-weight: 700;
+    text-align: center;
 }
 
 #innerUtility,
 #catalogPage #innerUtilityBottom {
-  margin: 1.3em;
-  font-size: 80%;
+    margin: 1.3em;
+    font-size: 80%;
 }
 
 #catalogPage #divTools {
-  float: right;
-  margin-top: 6px;
+    float: right;
+    margin-top: 6px;
 }
 
 #innerUtilityContent {
-  margin-top: -5px;
-  margin-bottom: -5px;
+    margin-top: -5px;
+    margin-bottom: -5px;
 }
 
 #innerUtilityBottom {
-  font-size: 80%;
+    font-size: 80%;
 }
 
 #settingsFieldset textarea {
-  display: block;
-  height: 5em;
+    display: block;
+    height: 5em;
 }
 
 #settingsFieldset label {
-  display: block;
+    display: block;
 }
 
 #fieldMessage {
-  width: 244px;
+    width: 244px;
 }
 
 #settingsFieldset label input {
-  display: inline-block;
+    display: inline-block;
 }
 
 #settingsWrapper .captchaDiv input {
-  display: inline-block;
+    display: inline-block;
 }
 
 .subCaptchaDiv {
-  text-align: left;
+    text-align: left;
 }
 
 .captchaTimer {
-  font-size: 80%;
+    font-size: 80%;
 }
 
 .wide, #postingForm input[type='text'], .modalTableBody input[type='text'],
-  .modalTableBody select, #fieldPostingPassword {
-  min-width: 244px;
-  max-width: 244px;
+.modalTableBody select, #fieldPostingPassword {
+    min-width: 244px;
+    max-width: 244px;
 }
 
 #redirect, #maint {
-  text-align: center;
+    text-align: center;
 }
 
 #labelCaptchaId {
-  color: #ff0000;
+    color: #ff0000;
 }
 
 #staticPageWrapper {
-  margin: 2em auto;
-  text-align: center;
+    margin: 2em auto;
+    text-align: center;
 }
 
 /* footer styles */
 footer {
-  width: 100%;
-  margin: 3em 0px 2em 0px;
-  text-align: center;
-  font-size: x-small !important;
+    width: 100%;
+    margin: 3em 0px 2em 0px;
+    text-align: center;
+    font-size: x-small !important;
 }
 
 .innerPost, .markedPost {
-  display: inline-block;
-  padding: 0.25em;
-  max-width: 100%;
+    display: inline-block;
+    padding: 0.25em;
+    max-width: 100%;
 }
 
 /* this has to go down here to override anything above it */
 .hidden {
-  display: none;
+    display: none;
 }
 
 .hideFileButton:hover,
@@ -598,129 +602,129 @@ footer {
 .floatingMenu.extraMenu div:hover,
 .floatingMenu.hideMenu div:hover,
 .hideMenu div:hover {
-  color: #5f89ac;
+    color: #5f89ac;
 }
 
 #settingsWrapper input.hidden {
-  display: none;
+    display: none;
 }
 
 .floatingMenu {
-  padding: 0.25em;
+    padding: 0.25em;
 }
 
 .floatingMenu .headerLabel {
-  font-size: 80%;
+    font-size: 80%;
 }
 
 .floatingMenu .header, .floatingMenu .headerLabel {
-  cursor: pointer;
+    cursor: pointer;
 }
 
 #divRemember input {
-  display: inline;
+    display: inline;
 }
 
 #ownedDiv a, #volunteeredDiv a {
-  display: block;
+    display: block;
 }
 
 #navBoardList::after {
-  content: 'Boards';
+    content: 'Boards';
 }
 
 #navOverboard::after, #linkOverboard::after {
-  content: 'Overboard';
+    content: 'Overboard';
 }
 
 #linkSfwOver::after {
-  content: 'Overboard SFW';
+    content: 'Overboard SFW';
 }
 
 #navPosting::after {
-  content: 'Donate';
+    content: 'Donate';
 }
 
 #navLinkHome::after {
-  content: 'Home';
+    content: 'Home';
 }
 
 #watcherButton::after {
-  content: 'Watching';
+    content: 'Watching';
 }
 
 #settingsButton::after {
-  content: 'Settings';
+    content: 'Settings';
 }
 
 #linkLogs::after {
-  content: 'Logs';
+    content: 'Logs';
 }
 
 #linkArchives::after {
-  content: 'archives';
+    content: 'archives';
 }
 
 #linkGraphs::after {
-  content: 'daily graphs';
+    content: 'daily graphs';
 }
 
 #linkGlobalRules::after {
-  content: 'global rules';
+    content: 'global rules';
 }
 
 #linkLinks::after {
-  content: 'links';
+    content: 'links';
 }
 
 #linkAbout::after {
-  content: 'about';
+    content: 'about';
 }
 
 #linkContact::after {
-  content: 'contact';
+    content: 'contact';
 }
 
 #linkAccount::after {
-  content: 'account';
+    content: 'account';
 }
 
 @media only screen and (max-width: 812px) {
-  #navLinkSpan span, #navOptionsSpan span, legend, #settingsButton, #links span,
+    #navLinkSpan span, #navOptionsSpan span, legend, #settingsButton, #links span,
     .hideMobile {
-    display: none;
-  }
-  #navLinkSpan a::after, #navOptionsSpan a::after, #links a::after {
-    content: '';
-  }
-  nav {
-    font-size: 115%;
-    height: auto;
-    padding: 2px 2px;
-  }
-  #themeSelector {
-    max-width: 100px;
-  }
-  .logoImg {
-    margin-top: 10px;
-    height: 75px;
-  }
-  input, select, textarea {
-    font-size: 100%;
-  }
-  body {
-    font-size: 85%;
-    margin-top: 5px;
-    margin-left: 0;
-    margin-right: 0;
-    padding-left: 0;
-    padding-right: 0;
-  }
-  .captchaImage {
-    max-width: 100%;
-    height: auto;
-    max-height: 100px;
-  }
+	display: none;
+    }
+    #navLinkSpan a::after, #navOptionsSpan a::after, #links a::after {
+	content: '';
+    }
+    nav {
+	font-size: 115%;
+	height: auto;
+	padding: 2px 2px;
+    }
+    #themeSelector {
+	max-width: 100px;
+    }
+    .logoImg {
+	margin-top: 10px;
+	height: 75px;
+    }
+    input, select, textarea {
+	font-size: 100%;
+    }
+    body {
+	font-size: 85%;
+	margin-top: 5px;
+	margin-left: 0;
+	margin-right: 0;
+	padding-left: 0;
+	padding-right: 0;
+    }
+    .captchaImage {
+	max-width: 100%;
+	height: auto;
+	max-height: 100px;
+    }
 }
 
 #postingForm input:focus,
@@ -732,44 +736,44 @@ footer {
 #quick-reply textarea:focus,
 #quick-reply input[type="password"]:focus,
 textarea:focus {
-  box-shadow: 0px 0px 5px 2px #2be3ff;
+    box-shadow: 0px 0px 5px 2px #2be3ff;
 }
 
 #postingForm button:active {
-  box-shadow: 0px 0px 5px #117743;
+    box-shadow: 0px 0px 5px #117743;
 }
 
 #newPostFieldset li {
-  font-size: 80%;
-  text-align: left;
+    font-size: 80%;
+    text-align: left;
 }
 
 /* Yotsuba Theme Starts Here */
 
 body.theme_yotsuba {
-  background: #ffe no-repeat;
-  background-image: linear-gradient(to bottom, #fed6af 0, transparent 260px);
-   color: #800000;
+    background: #ffe no-repeat;
+    background-image: linear-gradient(to bottom, #fed6af 0, transparent 260px);
+    color: #800000;
 }
 
 .theme_yotsuba .floatingMenu.extraMenu,
 .theme_yotsuba .floatingMenu.hideMenu,
 .theme_yotsuba .spoiler:hover {
-   color: #800000;  
+    color: #800000;  
 }
 
 .theme_yotsuba .floatingMenu.extraMenu div:hover,
 .theme_yotsuba .floatingMenu.hideMenu div:hover {
-   color: #ff0000;  
+    color: #ff0000;  
 }
 
 .theme_yotsuba .modalDecorationPanel {
-  background: #eef2ff
+    background: #eef2ff
 }
 
 .theme_yotsuba #navLinkSpan,
 .theme_yotsuba #navOptionsSpan {
-  color: #b86;
+    color: #b86;
 }
 
 .theme_yotsuba #navLinkSpan a,
@@ -782,37 +786,37 @@ body.theme_yotsuba {
 .theme_yotsuba a.linkQuote:visited,
 .theme_yotsuba .sideCatalogCellText
 {
-  color: maroon;
+    color: maroon;
 }
 
 .theme_yotsuba #navLinkSpan a:hover,
 .theme_yotsuba #navOptionsSpan a:hover,
 .theme_yotsuba .embedButton.glowOnHover:hover {
-  color: #ff0000;
+    color: #ff0000;
 }
 .theme_yotsuba .innerPost,
 .theme_yotsuba .sideCatalogCell{
-  background: #f0e0d6;
-  border: 1px solid #d9bfb7;
+    background: #f0e0d6;
+    border: 1px solid #d9bfb7;
 }
 
 .theme_yotsuba .linkName.noEmailName,
 .theme_yotsuba .linkName{
-  color: #117743;
+    color: #117743;
 }
 
 .theme_yotsuba .labelRole {
- color: purple; 
+    color: purple; 
 }
 
 .theme_yotsuba .floatingMenu,
 .theme_yotsuba #quick-reply table {
-  background: #ffe no-repeat;
-  background-image: linear-gradient(to bottom, #fed6af 0, transparent 130px);
+    background: #ffe no-repeat;
+    background-image: linear-gradient(to bottom, #fed6af 0, transparent 130px);
 }
 
 .theme_yotsuba nav {
-  background-color: #fed6af;
+    background-color: #fed6af;
 }
 
 .theme_yotsuba a,
@@ -820,43 +824,43 @@ body.theme_yotsuba {
 .theme_yotsuba .embedButton.glowOnHover,
 .theme_yotsuba #showFormsButton,
 .theme_yotsuba #selectedTab {
-  color: #00e;
+    color: #00e;
 }
 
 .theme_yotsuba #showFormsButton::before,
 .theme_yotsuba #showFormsButton::after{
-  color: maroon;
+    color: maroon;
 }
 
 .theme_yotsuba a:hover,
 .theme_yotsuba #counterUids:hover {
-  color: #ff0000!important;
+    color: #ff0000!important;
 }
 
 .theme_yotsuba .panelBacklinks a,
 .theme_yotsuba .quoteLink,
 .theme_yotsuba .quoteLink:visited {
-  color: navy;
+    color: navy;
 }
 
 .theme_yotsuba .markedPost,
 .theme_yotsuba .sideCatalogMarkedCell{
-  background: #f0c0b0;
-  border: 1px solid #d99f91;
+    background: #f0c0b0;
+    border: 1px solid #d99f91;
 }
 
 .theme_yotsuba #postingForm th,
 .theme_yotsuba div.banner,
 .theme_yotsuba .modalTableBody th{
-  color: #800000;
-  background: #ea8;
-  border: 1px solid #800; 
+    color: #800000;
+    background: #ea8;
+    border: 1px solid #800; 
 }
 
 .theme_yotsuba h2 {
-  background: #ea8;
-  border: 1px solid #800;
-  border-bottom: none;
+    background: #ea8;
+    border: 1px solid #800;
+    border-bottom: none;
 }
 
 .theme_yotsuba #divWelcome,
@@ -870,26 +874,26 @@ body.theme_yotsuba {
 .theme_yotsuba #divRules,
 .theme_yotsuba #divStandardPaddedBox
 {
-  background: #f0e0d6;
-  border: 1px solid #800; 
+    background: #f0e0d6;
+    border: 1px solid #800; 
 }
 
 .theme_yotsuba #divLatestPosts .latestPostCell {
-  border-color: #d9bfb7;
+    border-color: #d9bfb7;
 }
 
 .theme_yotsuba .modalDecorationPanel {
-  background: #ffe;
+    background: #ffe;
 }
 
 .theme_yotsuba #labelName,
 .theme_yotsuba #labelDescription,
 .theme_yotsuba .watchedCellLabel a{
-  color: maroon; 
+    color: maroon; 
 }
 
 .theme_yotsuba hr {
-  border-color: #d9bfb7;
+    border-color: #d9bfb7;
 }
 
 .theme_yotsuba #watchedMenu,
@@ -897,8 +901,8 @@ body.theme_yotsuba {
 .theme_yotsuba .floatingMenu.extraMenu,
 .theme_yotsuba .floatingMenu.hideMenu
 {
-  
-  background: #F0E0D6;
+    
+    background: #F0E0D6;
 }
 
 .theme_yotsuba .floatingMenu.extraMenu,
@@ -908,38 +912,38 @@ body.theme_yotsuba {
 .theme_yotsuba #settingsMenu,
 .theme_yotsuba .modalDecorationPanel,
 .theme_yotsuba .quoteTooltip {
-  border: 1px solid #800;
+    border: 1px solid #800;
 }
 
 .theme_yotsuba #federationInfo,
 .theme_yotsuba #federatedText,
 {
-  background: maroon;
+    background: maroon;
 }
 
 .theme_yotsuba #federationInfo,
 .theme_yotsuba #federatedText,
 .theme_yotsuba #mobileInfo {
-  color: white;
+    color: white;
 }
 
 
 .theme_yotsuba #federationInfo a,
 .theme_yotsuba #mobileInfo a,
 .theme_yotsuba #federatedText a {
-  color: white;
+    color: white;
 }
 
 .theme_yotsuba .labelSubject {
-  color: #cc1105;
+    color: #cc1105;
 }
 
 .theme_yotsuba .indicatorSfw {
-  color: white;  
+    color: white;  
 }
 
 .theme_yotsuba .nameLabel  {
-  color: #cc1105;  
+    color: #cc1105;  
 }
 
 .theme_yotsuba .extraMenuButton.glowOnHover.coloredIcon,
@@ -951,13 +955,13 @@ body.theme_yotsuba {
 .theme_yotsuba .cyclicIndicator,
 .theme_yotsuba .bumpLockIndicator
 {
-  color: #000080;
+    color: #000080;
 }
 
 .theme_yotsuba .extraMenuButton.glowOnHover.coloredIcon:hover,
 .theme_yotsuba .hideButton.glowOnHover.coloredIcon:hover,
 .theme_yotsuba .watchButton.glowOnHover.coloredIcon:hover {
-  color: #ff073b;
+    color: #ff073b;
 }
 
 .theme_yotsuba .close-btn.coloredIcon,
@@ -965,7 +969,7 @@ body.theme_yotsuba {
 .theme_yotsuba .watchedCellCloseButton.glowOnHover.coloredIcon,
 .theme_yotsuba #closeSettingsMenuButton,
 .theme_yotsuba #closeSideCatalogButton{
-  color: maroon;
+    color: maroon;
 }
 
 .theme_yotsuba .close-btn.coloredIcon:hover,
@@ -973,12 +977,12 @@ body.theme_yotsuba {
 .theme_yotsuba .watchedCellCloseButton.glowOnHover.coloredIcon:hover,
 .theme_yotsuba #closeSettingsMenuButton:hover,
 .theme_yotsuba #closeSideCatalogButton:hover {
-  color: #ff073b;
+    color: #ff073b;
 }
 
 .theme_yotsuba #dropzone,
 .theme_yotsuba #dropzoneQr{
-  background: white;
+    background: white;
 }
 
 .theme_yotsuba #postingForm input:focus,
@@ -990,7 +994,7 @@ body.theme_yotsuba {
 .theme_yotsuba #quick-reply textarea:focus,
 .theme_yotsuba #quick-reply input[type="password"]:focus,
 .theme_yotsuba textarea:focus {
-  box-shadow: 0px 0px 5px 2px maroon;
+    box-shadow: 0px 0px 5px 2px maroon;
 }
 
 
@@ -998,34 +1002,34 @@ body.theme_yotsuba {
 /* Yotsuba B Theme Starts Here */
 
 body.theme_yotsuba_b {
-  background: #eef2ff no-repeat;
-  background-image: linear-gradient(to bottom, #d1d5ee 0, transparent 260px);
-  color: #000;
+    background: #eef2ff no-repeat;
+    background-image: linear-gradient(to bottom, #d1d5ee 0, transparent 260px);
+    color: #000;
 }
 
 .theme_yotsuba_b .modalDecorationPanel {
-  background: #eef2ff
+    background: #eef2ff
 }
 
 .theme_yotsuba_b .floatingMenu,
 .theme_yotsuba_b #quick-reply table {
-  background: #eef2ff no-repeat;
-  background-image: linear-gradient(to bottom, #d1d5ee 0, transparent 130px);
+    background: #eef2ff no-repeat;
+    background-image: linear-gradient(to bottom, #d1d5ee 0, transparent 130px);
 }
 
 .theme_yotsuba_b nav {
-  background-color: #d1d5ee;
+    background-color: #d1d5ee;
 }
 
 .theme_yotsuba_b hr,
 .theme_yotsuba_b nav {
-  border-color: #b7c5d9;
+    border-color: #b7c5d9;
 }
 
 .theme_yotsuba_b #postingForm th,
 .theme_yotsuba_b .modalTableBody th,
 .theme_yotsuba_b h2{
-  background: #98e;
+    background: #98e;
 }
 
 .theme_yotsuba_b #divWelcome, 
@@ -1039,7 +1043,7 @@ body.theme_yotsuba_b {
 .theme_yotsuba_b #divStandardBox,
 .theme_yotsuba_b #divRules
 {
-  background-color: #d6daf0;
+    background-color: #d6daf0;
 }
 
 
@@ -1048,43 +1052,43 @@ body.theme_yotsuba_b {
 .theme_yotsuba_b .quoteTooltip,
 .theme_yotsuba_b .markedPost,
 .theme_yotsuba_b #divLatestImages img {
-  background: #d6daf0;
+    background: #d6daf0;
 }
 
 .theme_yotsuba_b .markedPost,
 .theme_yotsuba_b .sideCatalogMarkedCell {
-  background: #d6bad0
+    background: #d6bad0
 }
 
 .theme_yotsuba_b .innerPost,
 .theme_yotsuba_b #divLatestPosts .latestPostCell  {
-  border: 1px solid #b7c5d9;
-  border-bottom: none;
+    border: 1px solid #b7c5d9;
+    border-bottom: none;
 }
 
 .theme_yotsuba_b .markedPost,
 .theme_yotsuba_b .quoteTooltip,
 .theme_yotsuba_b .sideCatalogMarkedCell {
-  border: 1px solid #ba9dbf;
+    border: 1px solid #ba9dbf;
 }
 
 .theme_yotsuba_b a:hover,
 .theme_yotsuba_b #counterUids:hover {
-  color: #cc1105;
+    color: #cc1105;
 }
 
 .theme_yotsuba_b .boardHeader p {
-  color: #af0a0f;
+    color: #af0a0f;
 }
 
 .theme_yotsuba_b .noEmailName,
 .theme_yotsuba_b .noEmailName:hover,
 .theme_yotsuba_b .linkName {
-  color: #117743;
+    color: #117743;
 }
 
 .theme_yotsuba_b div.banner {
-  background: #98e;
+    background: #98e;
 }
 
 .theme_yotsuba_b #postingForm input:focus,
@@ -1096,11 +1100,11 @@ body.theme_yotsuba_b {
 .theme_yotsuba_b #quick-reply textarea:focus,
 .theme_yotsuba_b #quick-reply input[type="password"]:focus,
 .theme_yotsuba_b textarea:focus {
-  box-shadow: 0px 0px 5px 2px #98e;
+    box-shadow: 0px 0px 5px 2px #98e;
 }
 
 .theme_yotsuba_b .labelRole {
-  color: purple;
+    color: purple;
 }
 
 .theme_yotsuba_b div.banner,
@@ -1126,19 +1130,19 @@ body.theme_yotsuba_b {
 .theme_yotsuba_b #showFederatedButton::after,
 .theme_yotsuba_b #questionBox
 {
-  color: #000;
+    color: #000;
 }
 
 .theme_yotsuba_b .nameLink,
 .theme_yotsuba_b .hideFileButton.glowOnHover.coloredIcon 
 {
-  color: #000!important;
+    color: #000!important;
 }
 
 .theme_yotsuba_b .nameLink:hover,
 .theme_yotsuba_b .hideFileButton.glowOnHover.coloredIcon:hover 
 {
-  color: #d00!important;
+    color: #d00!important;
 }
 
 
@@ -1176,12 +1180,12 @@ body.theme_yotsuba_b {
 .theme_yotsuba_b #federatedText a:hover,
 .theme_yotsuba_b #mobileInfo a:hover
 {  
-  color: #d00;
+    color: #d00;
 }
 
 .theme_yotsuba_b .floatingMenu.extraMenu div:hover, 
 .theme_yotsuba_b .floatingMenu.hideMenu div:hover {
-  background: #98e;
+    background: #98e;
 }
 
 .theme_yotsuba_b a,
@@ -1203,12 +1207,12 @@ body.theme_yotsuba_b {
 .theme_yotsuba_b #linkRss,
 .theme_yotsuba_b #linkBack,
 .theme_yotsuba_b #navCatalog {
-  color: #34345c;
+    color: #34345c;
 }
 
 .theme_yotsuba_b .sideCatalogCell {
-  background: #d6daf0;
-  border: 1px solid #b7c5d9;
+    background: #d6daf0;
+    border: 1px solid #b7c5d9;
 }
 
 .theme_yotsuba_b .floatingMenu.extraMenu,
@@ -1217,30 +1221,30 @@ body.theme_yotsuba_b {
 .theme_yotsuba_b #watchedMenu,
 .theme_yotsuba_b #settingsMenu,
 .theme_yotsuba_b .modalDecorationPanel {
-  border: 1px solid #000;
+    border: 1px solid #000;
 }
 
 .theme_yotsuba_b #federationInfo,
 .theme_yotsuba_b #federatedText {
-  background: #9370db;
+    background: #9370db;
 }
 
 .theme_yotsuba_b #federationInfo a,
 .theme_yotsuba_b #mobileInfo a,
 .theme_yotsuba_b #federatedText a {
-  color: #34345c;
+    color: #34345c;
 }
 
 .theme_yotsuba_b .labelSubject {
-  color: #0f0c5d;
+    color: #0f0c5d;
 }
 
 .theme_yotsuba_b .indicatorSfw {
-  color: white;  
+    color: white;  
 }
 
 .theme_yotsuba_b .nameLabel  {
-  color: #0f0c5d;  
+    color: #0f0c5d;  
 }
 
 .theme_yotsuba_b .extraMenuButton.glowOnHover.coloredIcon,
@@ -1252,12 +1256,12 @@ body.theme_yotsuba_b {
 .theme_yotsuba_b .cyclicIndicator,
 .theme_yotsuba_b .bumpLockIndicator
 {
-  color: #5d6a99;
+    color: #5d6a99;
 }
 
 .theme_yotsuba_b #dropzone,
 .theme_yotsuba_b #dropzoneQr{
-  background: white;
+    background: white;
 }
 
 
@@ -1274,29 +1278,29 @@ body.theme_yotsuba_b {
 /* Happy Day Theme Starts Here */
 
 body.theme_warosu {
-  background: #eef8f0 no-repeat;
-  background-image: linear-gradient(to bottom,#cfecd1 0,transparent 160px);
-   color: #333;
+    background: #eef8f0 no-repeat;
+    background-image: linear-gradient(to bottom,#cfecd1 0,transparent 160px);
+    color: #333;
 }
 
 .theme_warosu .floatingMenu.extraMenu,
 .theme_warosu .floatingMenu.hideMenu,
 .theme_warosu .spoiler:hover {
-   color: #333;  
+    color: #333;  
 }
 
 .theme_warosu .floatingMenu.extraMenu div:hover,
 .theme_warosu .floatingMenu.hideMenu div:hover {
-   color: #dd0000;  
+    color: #dd0000;  
 }
 
 .theme_warosu .modalDecorationPanel {
-  background: #eef2ff
+    background: #eef2ff
 }
 
 .theme_warosu #navLinkSpan,
 .theme_warosu #navOptionsSpan {
-  color: #333;
+    color: #333;
 }
 
 .theme_warosu #navLinkSpan a,
@@ -1309,38 +1313,38 @@ body.theme_warosu {
 .theme_warosu a.linkQuote:visited,
 .theme_warosu .sideCatalogCellText
 {
-  color: #333;
+    color: #333;
 }
 
 .theme_warosu #navLinkSpan a:hover,
 .theme_warosu #navOptionsSpan a:hover,
 .theme_warosu .embedButton.glowOnHover:hover,
 .theme_warosu #counterUids:hover {
-  color: #dd0000;
+    color: #dd0000;
 }
 .theme_warosu .innerPost,
 .theme_warosu .sideCatalogCell{
-  background: #d6f0da;
-  border: 1px solid #c0d8c4;
+    background: #d6f0da;
+    border: 1px solid #c0d8c4;
 }
 
 .theme_warosu .linkName.noEmailName,
 .theme_warosu .linkName{
-  color: #117743;
+    color: #117743;
 }
 
 .theme_warosu .labelRole {
- color: purple; 
+    color: purple; 
 }
 
 .theme_warosu .floatingMenu,
 .theme_warosu #quick-reply table {
-  background: #eef8f0 no-repeat;
-  background-image: linear-gradient(to bottom,#cfecd1 0,transparent 130px);
+    background: #eef8f0 no-repeat;
+    background-image: linear-gradient(to bottom,#cfecd1 0,transparent 130px);
 }
 
 .theme_warosu nav {
-  background-color: #cfecd1;
+    background-color: #cfecd1;
 }
 
 .theme_warosu a,
@@ -1348,42 +1352,42 @@ body.theme_warosu {
 .theme_warosu .embedButton.glowOnHover,
 .theme_warosu #showFormsButton,
 .theme_warosu #selectedTab {
-  color: #358;
+    color: #358;
 }
 
 .theme_warosu #showFormsButton::before,
 .theme_warosu #showFormsButton::after{
-  color: maroon;
+    color: maroon;
 }
 
 .theme_warosu a:hover {
-  color: #dd0000!important;
+    color: #dd0000!important;
 }
 
 .theme_warosu .panelBacklinks a,
 .theme_warosu .quoteLink,
 .theme_warosu .quoteLink:visited {
-  color: #358;
+    color: #358;
 }
 
 .theme_warosu .markedPost,
 .theme_warosu .sideCatalogMarkedCell{
-  background: #bee4c5;
-  border: 1px solid #000;
+    background: #bee4c5;
+    border: 1px solid #000;
 }
 
 .theme_warosu #postingForm th,
 .theme_warosu div.banner,
 .theme_warosu .modalTableBody th{
-  color: #333;
-  background: #bbe6c2;
-  border: 1px solid #000; 
+    color: #333;
+    background: #bbe6c2;
+    border: 1px solid #000; 
 }
 
 .theme_warosu h2 {
-  background: #bbe6c2;
-  border: 1px solid #000;
-  border-bottom: none;
+    background: #bbe6c2;
+    border: 1px solid #000;
+    border-bottom: none;
 }
 
 .theme_warosu #divWelcome,
@@ -1397,26 +1401,26 @@ body.theme_warosu {
 .theme_warosu #divRules,
 .theme_warosu #divStandardPaddedBox
 {
-  background: #d6f0da;
-  border: 1px solid #000; 
+    background: #d6f0da;
+    border: 1px solid #000; 
 }
 
 .theme_warosu #divLatestPosts .latestPostCell {
-  border-color: #c0d8c4;
+    border-color: #c0d8c4;
 }
 
 .theme_warosu .modalDecorationPanel {
-  background: #eef8f0;
+    background: #eef8f0;
 }
 
 .theme_warosu #labelName,
 .theme_warosu #labelDescription,
 .theme_warosu .watchedCellLabel a{
-  color: #333; 
+    color: #333; 
 }
 
 .theme_warosu hr {
-  border-color: #d4ddd6;
+    border-color: #d4ddd6;
 }
 
 .theme_warosu #watchedMenu,
@@ -1424,8 +1428,8 @@ body.theme_warosu {
 .theme_warosu .floatingMenu.extraMenu,
 .theme_warosu .floatingMenu.hideMenu
 {
-  
-  background: #d6f0da;
+    
+    background: #d6f0da;
 }
 
 .theme_warosu .floatingMenu.extraMenu,
@@ -1435,38 +1439,38 @@ body.theme_warosu {
 .theme_warosu #settingsMenu,
 .theme_warosu .modalDecorationPanel,
 .theme_warosu .quoteTooltip {
-  border: 1px solid #000;
+    border: 1px solid #000;
 }
 
 .theme_warosu #federationInfo,
 .theme_warosu #federatedText,
 {
-  background: maroon;
+    background: maroon;
 }
 
 .theme_warosu #federationInfo,
 .theme_warosu #federatedText,
 .theme_warosu #mobileInfo {
-  color: white;
+    color: white;
 }
 
 
 .theme_warosu #federationInfo a,
 .theme_warosu #mobileInfo a,
 .theme_warosu #federatedText a {
-  color: white;
+    color: white;
 }
 
 .theme_warosu .labelSubject {
-  color: #0f0c5d;
+    color: #0f0c5d;
 }
 
 .theme_warosu .indicatorSfw {
-  color: white;  
+    color: white;  
 }
 
 .theme_warosu .nameLabel  {
-  color: #0f0c5d;  
+    color: #0f0c5d;  
 }
 
 .theme_warosu .extraMenuButton.glowOnHover.coloredIcon,
@@ -1478,13 +1482,13 @@ body.theme_warosu {
 .theme_warosu .cyclicIndicator,
 .theme_warosu .bumpLockIndicator
 {
-  color: #000080;
+    color: #000080;
 }
 
 .theme_warosu .extraMenuButton.glowOnHover.coloredIcon:hover,
 .theme_warosu .hideButton.glowOnHover.coloredIcon:hover,
 .theme_warosu .watchButton.glowOnHover.coloredIcon:hover {
-  color: #dd0000;
+    color: #dd0000;
 }
 
 .theme_warosu .close-btn.coloredIcon,
@@ -1492,7 +1496,7 @@ body.theme_warosu {
 .theme_warosu .watchedCellCloseButton.glowOnHover.coloredIcon,
 .theme_warosu #closeSettingsMenuButton,
 .theme_warosu #closeSideCatalogButton{
-  color: #333;
+    color: #333;
 }
 
 .theme_warosu .close-btn.coloredIcon:hover,
@@ -1500,12 +1504,12 @@ body.theme_warosu {
 .theme_warosu .watchedCellCloseButton.glowOnHover.coloredIcon:hover,
 .theme_warosu #closeSettingsMenuButton:hover,
 .theme_warosu #closeSideCatalogButton:hover {
-  color: #dd0000;
+    color: #dd0000;
 }
 
 .theme_warosu #dropzone,
 .theme_warosu #dropzoneQr{
-  background: white;
+    background: white;
 }
 
 .theme_warosu #postingForm input:focus,
@@ -1517,7 +1521,7 @@ body.theme_warosu {
 .theme_warosu #quick-reply textarea:focus,
 .theme_warosu #quick-reply input[type="password"]:focus,
 .theme_warosu textarea:focus {
-  box-shadow: 0px 0px 5px 2px #bbe6c2;
+    box-shadow: 0px 0px 5px 2px #bbe6c2;
 }
 
 
