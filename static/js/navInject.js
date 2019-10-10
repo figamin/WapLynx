@@ -28,6 +28,8 @@ navContent.innerHTML =
         '/' +
         '<a href="/b">&nbsp;b&nbsp;</a>' +
         '/' +
+        '<a href="/biz">&nbsp;biz&nbsp;</a>' +
+        '/' +
         '<a href="/fit">&nbsp;fit&nbsp;</a>' +
         '/' +
         '<a href="/g">&nbsp;g&nbsp;</a>' +
@@ -64,7 +66,7 @@ navContent.innerHTML =
 //navBarB -- Specific nav bar for board.html
 else if (navType == 'B')
 {
-navContent.innerHTML = 
+navContent.innerHTML =
   '<nav>' +
     '<span id="navLinkSpan"> <span>' +
         '[</span> <a ' +
@@ -84,6 +86,8 @@ navContent.innerHTML =
         '[&nbsp;<a href="/a">a&nbsp;</a>' +
         '/' +
         '<a href="/b">&nbsp;b&nbsp;</a>' +
+        '/' +
+	'<a href="/biz">&nbsp;biz&nbsp;</a>' +
         '/' +
         '<a href="/fit">&nbsp;fit&nbsp;</a>' +
         '/' +
@@ -134,7 +138,7 @@ navContent.innerHTML =
 //navBarC -- Specific nav bar for thread.html
 else if (navType == 'C')
 {
-navContent.innerHTML = 
+navContent.innerHTML =
   '<nav>' +
     '<span id="navLinkSpan"> <span>' +
         '[</span> <a ' +
@@ -154,6 +158,8 @@ navContent.innerHTML =
         '[&nbsp;<a href="/a">a&nbsp;</a>' +
         '/' +
         '<a href="/b">&nbsp;b&nbsp;</a>' +
+        '/' +
+	'<a href="/biz">&nbsp;biz&nbsp;</a>' +
         '/' +
         '<a href="/fit">&nbsp;fit&nbsp;</a>' +
         '/' +
