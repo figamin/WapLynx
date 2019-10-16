@@ -13,13 +13,12 @@ bottomForms.init = function() {
 
   showFormsButton.onclick = function() {
     forms.classList.toggle('hidden');
-    //showFormsButton.remove();
-  	
+
 	if (showFormsButton.innerHTML === "Show Forms") {
   	  showFormsButton.innerHTML = "Hide Forms";
   	} else {
     	  showFormsButton.innerHTML = "Show Forms";
-  	}	
+  	}
   };
 };
 

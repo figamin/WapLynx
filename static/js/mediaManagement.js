@@ -16,7 +16,7 @@ mediaManagement.selectAll = function() {
     checkBoxes[i].checked = true;
   }
 
-}
+};
 
 mediaManagement.deleteMedia = function() {
 

@@ -172,7 +172,7 @@ posting.addRelativeTime = function(time) {
   } else if (delta > 2 * minute) {
     content = Math.ceil(delta / minute) + ' minutes ago';
   } else {
-    content = 'Just now'
+      content = 'Just now';
   }
 
   time.nextSibling.nextSibling.innerHTML = '(' + content + ')';

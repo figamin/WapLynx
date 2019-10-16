@@ -406,7 +406,7 @@ postCommon.setDragAndDrop = function(qr) {
     evt.preventDefault();
 
     for (var i = 0; i < evt.dataTransfer.files.length; i++) {
-      postCommon.addSelectedFile(evt.dataTransfer.files[i])
+	postCommon.addSelectedFile(evt.dataTransfer.files[i]);
     }
 
   }, false);
@@ -526,7 +526,7 @@ postCommon.storeUsedPostingPassword = function(boardUri, threadId, postId) {
 
   var storedData = JSON.parse(localStorage.postingPasswords || '{}');
 
-  var key = boardUri + '/' + threadId
+    var key = boardUri + '/' + threadId;
 
   if (postId) {
     key += '/' + postId;

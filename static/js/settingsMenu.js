@@ -376,7 +376,7 @@ settingsMenu.getOtherContent = function() {
     localStorage.setItem('enableYous', enableYousCheckbox.checked);
     localStorage.setItem('hoverImages', hoverImagesCheckbox.checked);
     location.reload();
-  }
+  };
 
   return otherPanel;
 

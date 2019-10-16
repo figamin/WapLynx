@@ -59,7 +59,7 @@ account.changePassword = function() {
   if (!typedPassword.length) {
     alert('You must provide your current password.');
   } else if (typedConfirmation !== typedNewPassword) {
-    alert('Password confirmation does no match')
+      alert('Password confirmation does no match');
   } else if (!typedNewPassword.length) {
     alert('You cannot provide a blank password.');
   } else {
@@ -99,7 +99,7 @@ account.save = function() {
     alert('Email too long, keep it under 64 characters');
   } else {
 
-    parameters.email = typedEmail
+      parameters.email = typedEmail;
 
     api.formApiRequest('changeAccountSettings', parameters,
         function requestComplete(status, data) {
