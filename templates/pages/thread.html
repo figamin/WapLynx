@@ -1,487 +1,290 @@
 <!DOCTYPE html>
 <html>
     <head>
-	<!-- Matomo -->
-	<script type="text/javascript">
-	 var _paq = window._paq || [];
-	 /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
-	 _paq.push(['trackPageView']);
-	 _paq.push(['enableLinkTracking']);
-	 (function() {
-	     var u="//analytics.16chan.xyz/";
-	     _paq.push(['setTrackerUrl', u+'matomo.php']);
-	     _paq.push(['setSiteId', '1']);
-	     var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
-	     g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
-	 })();
-	</script>
-	<noscript><p><img src="//analytics.16chan.xyz/matomo.php?idsite=1&amp;rec=1" style="border:0;" alt="" /></p></noscript>
-	<!-- End Matomo Code -->
+	<script type="text/javascript" id="dynamicAnalytics"></script>
 	<meta charset="UTF-8" />
-	<meta
-	    name="viewport"
-	    content="width=device-width, initial-scale=1.0">
-	<link
-	    href="/.static/css/global.css"
-	    type="text/css"
-	    rel="stylesheet" />
-	<link
-	    href="/.static/css/posting.css"
-	    type="text/css"
-	    rel="stylesheet" />
-	<link
-	    href="/.static/css/thread.css"
-	    type="text/css"
-	    rel="stylesheet" />
-	<link
-	    href="/.static/css/threadPage.css"
-	    type="text/css"
-	    rel="stylesheet" />
-	<link
-	    href="/.static/css/boardContent.css"
-	    type="text/css"
-	    rel="stylesheet" />
-	<link
-	    href="/.static/css/watcher.css"
-	    type="text/css"
-	    rel="stylesheet" />
-	<link
-	    href="/.static/css/settingsMenu.css"
-	    type="text/css"
-	    rel="stylesheet" />
-	<link
-	    href="/.static/css/sideCatalog.css"
-	    type="text/css"
-	    rel="stylesheet" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="/.static/css/global.css" type="text/css" rel="stylesheet" />
+	<link href="/.static/css/posting.css" type="text/css" rel="stylesheet" />
+	<link href="/.static/css/thread.css" type="text/css" rel="stylesheet" />
+	<link href="/.static/css/threadPage.css" type="text/css" rel="stylesheet" />
+	<link href="/.static/css/board.css" type="text/css" rel="stylesheet" />
+	<link href="/.static/css/boardContent.css" type="text/css" rel="stylesheet" />
+	<link href="/.static/css/watcher.css" type="text/css" rel="stylesheet" />
+	<link href="/.static/css/settingsMenu.css" type="text/css" rel="stylesheet" />
+	<link href="/.static/css/sideCatalog.css" type="text/css" rel="stylesheet" />
     </head>
-    <body id="threadPage">
+
+    <body>
 
 	<script src="/.static/js/themeLoader.js"></script>
 
-	<div class="navBar" id="navBarType" value="C"></div>
+	<nav id="dynamicHeaderThread"></nav>
 
-	<div
-	    class="hidden"
-	    id="sideCatalogDiv">
+	<div class="hidden" id="sideCatalogDiv">
 
-	    <div id="sideCatalogHeader">
+            <div id="sideCatalogHeader">
 
-		<button
-		    id="sideCatalogRefreshButton"
-		    class="catalogLabel"
-		    onclick="sideCatalog.refreshSideCatalog()">Refresh</button>
-		<span
-		    id="closeSideCatalogButton"
-		    class="coloredIcon glowOnHover"></span>
-	    </div>
+		<button id="sideCatalogRefreshButton" class="catalogLabel" onclick="sideCatalog.refreshSideCatalog()">Refresh</button>
+		<span id="closeSideCatalogButton" class="coloredIcon glowOnHover"></span>
+            </div>
 
-	    <div id="sideCatalogBody"></div>
+            <div id="sideCatalogBody"></div>
 
 	</div>
 
 	<div id="mainPanel">
 
-	    <header class="boardHeader">
+            <header class="boardHeader">
 		<img id="bannerImage" />
 		<div>
-		    <p id="labelName"></p>
+                    <p id="labelName"></p>
 		</div>
 		<p id="labelDescription"></p>
-	    </header>
+            </header>
 
-	    <hr class="belowHeaderBar">
+            <hr id="belowHeader">
 
-	    <center><div id="newThreadText">
-		[<a href="#" onclick="displayFunction()">Post a Reply</a>]
-	    </div></center>
+            <center>
+		<div id="newThreadText">
+                    [<a href="#" onclick="displayFunction()">Post a Reply</a>]
+		</div>
+            </center>
 
-	    <div id="postingForm">
+            <div id="postingForm">
 
-		<div id="hideThreadOption"><center>[<a onclick="hideDisplayFunction()">Hide</a>]</center></div>
+		<div id="hideThread">
+                    <center>[<a onclick="hideDisplayFunction()">Hide</a>]</center>
+		</div>
 
 		<fieldset id="newPostFieldset">
+                    <div class="postingTypeBanner">Posting Mode: Reply <a class="returnReplyLink" onclick="goBack()">Return</a></div>
 
-		    <div class="banner">Posting Mode: Reply&nbsp;&nbsp;<a class="unimportant" onclick="goBack()">[Return]</a></div>
+                    <form action="/replyThread.js" enctype="multipart/form-data" method="post">
 
-		    <script>
-		     function goBack() {
-			 window.location=document.referrer;
-		     }
-		    </script>
-
-		    <form
-			action="/replyThread.js"
-			enctype="multipart/form-data"
-			method="post">
-
-			<input
-			    type="hidden"
-			    name="threadId"
-			    id="threadIdentifier">
+			<input type="hidden" name="threadId" id="threadIdentifier">
 
 			<table id="postingTable">
 			</table>
 
-			<p class="small">
-			    <ul>
-				<li>Supported file types: GIF, JPG, PNG, WebM, OGG, and <a href="/.static/pages/about.html#fileTypeRef">more</a></li>
-				<li>Remember to follow the
-				    <a
-					href="../rules.html"
-					class="rules">rules</a></li>
+			<div id="postingInformation"></div>
 
-			</p>
+			<button type="submit" id="formButton">Reply</button>
 
-			<button
-			    type="submit"
-			    id="formButton">Reply</button>
-		    </form>
+                    </form>
+
 		</fieldset>
-	    </div>
 
-	    <div id="announcementPlacement">
-		<hr class="belowPostFieldset">
-		<center>
-		    <div id="announcementContent">
-			• <font color="red"><b>Janitor/Global Moderator/Developer applications are now open! Please email <a href="mailto:admin@16chan.xyz">admin@16chan.xyz</a> or message 663 on Twitter if you're interested.</a></b></font>
-			<br /><br />
-			• The 16chan Android App is now live! Follow the installation guide <b><u><a href="/.static/pages/mobile.html">here</a></u></b>
-		    </div>
-		</center>
-		<hr class="belowPostFieldset">
-	    </div>
+            </div>
 
-	    <div id="divControls">
+            <div id="divControls">
 
-		<form
-		    action="/changeThreadSettings.js"
-		    method="post"
-		    enctype="multipart/form-data">
+		<form action="/changeThreadSettings.js" method="post" enctype="multipart/form-data">
 
-		    <fieldset id="settingsFieldset">
+                    <fieldset id="settingsFieldset">
 			<legend>Thread Settings</legend>
 
 			<label>
-			    <input
-				name="lock"
-				class="threadSettingsField"
-				id="checkboxLock"
-				type="checkbox">
-			    Lock
+                            <input name="lock" class="threadSettingsField" id="checkboxLock" type="checkbox">
+                            Lock
 			</label>
 			<label>
-			    <input
-				class="threadSettingsField"
-				name="pin"
-				id="checkboxPin"
-				type="checkbox">
-			    Pin
+                            <input class="threadSettingsField" name="pin" id="checkboxPin" type="checkbox">
+                            Pin
 			</label>
 			<label>
-			    <input
-				type="checkbox"
-				class="threadSettingsField"
-				name="cyclic"
-				id="checkboxCyclic">
-			    Cyclic
+                            <input type="checkbox" class="threadSettingsField" name="cyclic" id="checkboxCyclic">
+                            Cyclic
 			</label>
 
-			<input
-			    type="hidden"
-			    name="boardUri"
-			    id="controlBoardIdentifier">
-			<input
-			    type="hidden"
-			    name="threadId"
-			    id="controlThreadIdentifier">
-			<button
-			    type="submit"
-			    id="settingsFormButon">Save</button>
+			<input type="hidden" name="boardUri" id="controlBoardIdentifier">
+			<input type="hidden" name="threadId" id="controlThreadIdentifier">
+			<button type="submit" id="settingsFormButon">Save</button>
 
-		    </fieldset>
+                    </fieldset>
 		</form>
 
-	    </div>
-	    <div id="divArchive">
+            </div>
+            <div id="divArchive">
 
-		<form
-		    action="/archiveThread.js"
-		    method="post"
-		    enctype="multipart/form-data">
+		<form action="/archiveThread.js" method="post" enctype="multipart/form-data">
 
-		    <fieldset id="settingsFieldset">
+                    <fieldset id="settingsFieldset">
 			<legend>Archive Thread</legend>
 
 			<label>
-			    <input
-				name="confirmation"
-				class="archiveField"
-				id="checkboxArchive"
-				type="checkbox">
-			    Yes, I wish to lock and archive this thread
+                            <input name="confirmation" class="archiveField" id="checkboxArchive" type="checkbox">
+                            Yes, I wish to lock and archive this thread
 			</label>
 
-			<input
-			    type="hidden"
-			    name="boardUri"
-			    id="archiveBoardIdentifier">
-			<input
-			    type="hidden"
-			    name="threadId"
-			    id="archiveThreadIdentifier">
-			<button
-			    type="submit"
-			    id="archiveFormButon">Archive</button>
+			<input type="hidden" name="boardUri" id="archiveBoardIdentifier">
+			<input type="hidden" name="threadId" id="archiveThreadIdentifier">
+			<button type="submit" id="archiveFormButon">Archive</button>
 
-		    </fieldset>
+                    </fieldset>
 		</form>
 
-	    </div>
+            </div>
 
-	    <div id="transferControls">
+            <div id="transferControls">
 
-		<form
-		    action="/transferThread.js"
-		    enctype="multipart/form-data"
-		    method="post"
-		    id="formTransfer"
-		    class="formTransfer">
+		<form action="/transferThread.js" enctype="multipart/form-data" method="post" id="formTransfer" class="formTransfer">
 
-		    <fieldset id="settingsFieldset">
+                    <fieldset id="settingsFieldset">
 			<legend>Transfer Thread</legend>
 
-			<input
-			    type="hidden"
-			    name="boardUri"
-			    id="transferBoardIdentifier">
+			<input type="hidden" name="boardUri" id="transferBoardIdentifier">
 
-			<input
-			    type="hidden"
-			    name="threadId"
-			    id="transferThreadIdentifier">
+			<input type="hidden" name="threadId" id="transferThreadIdentifier">
 
 			<label>
-			    Destination board:
-			    <input
-				type="text"
-				class="transferField"
-				id="fieldDestinationBoard"
-				name="boardUriDestination">
+                            Destination board:
+                            <input type="text" class="transferField" id="fieldDestinationBoard" name="boardUriDestination">
 			</label>
 
-			<button
-			    type="submit"
-			    id="transferFormButton">Transfer thread</button>
+			<button type="submit" id="transferFormButton">Transfer thread</button>
 
-		    </fieldset>
+                    </fieldset>
 		</form>
 
-	    </div>
+            </div>
 
-	    <div id="ipDelete">
+            <div id="ipDelete">
 
-		<form
-		    id="ipDeletionForm"
-		    method="post"
-		    action="/deleteFromIp.js"
-		    enctype="multipart/form-data">
+		<form id="ipDeletionForm" method="post" action="/deleteFromIp.js" enctype="multipart/form-data">
 
-		    <fieldset id="settingsFieldset">
+                    <fieldset id="settingsFieldset">
 			<legend>Delete from IP</legend>
 
 			<label>
-			    Non-hashed ip:
-			    <input
-				type="text"
-				class="ipDeletionField"
-				name="ip"
-				id="ipField">
+                            Non-hashed ip:
+                            <input type="text" class="ipDeletionField" name="ip" id="ipField">
 			</label>
 			<label>
-			    Delete only from these boards(Ex:"b v", leaving blank will delete
-			    from all boards)
-			    <input
-				type="text"
-				class="ipDeletionField"
-				name="boards"
-				id="fieldBoards">
+                            Delete only from these boards(Ex:"b v", leaving blank will delete
+                            from all boards)
+                            <input type="text" class="ipDeletionField" name="boards" id="fieldBoards">
 			</label>
 
-			<button
-			    type="submit"
-			    id="deleteFromIpFormButton">Delete from IP</button>
-		    </fieldset>
+			<button type="submit" id="deleteFromIpFormButton">Delete from IP</button>
+                    </fieldset>
 		</form>
 
-	    </div>
+            </div>
 
-	    <div id="panelMessage">
+	    <noscript>
+		<style>
+		 #newThreadText {
+		     display: none;
+		 }
+		 #postingForm {
+		     display: block;
+		 }
+		 #archive {
+		     display: none;
+		 }
+		</style>
+	    </noscript>
+
+	    <hr id="belowPost">
+
+	    <div id="dynamicAnnouncement"></div>
+
+            <hr id="belowPost">
+
+            <div id="panelMessage">
 		<hr>
 		<div id="divMessage"></div>
-	    </div>
+            </div>
 
-	    <div id="innerUtility">
+            <div id="innerUtility">
 		<hr>
-  		&nbsp;[<a href="../#">Return</a>]&nbsp;[<a href="../catalog.html">Catalog</a>]&nbsp;[<a href="#footer">Bottom</a>]&nbsp;[<a onclick="location.reload()">Refresh</a>]
-  		<hr>
-  	    </div>
+		<span>
+		    [<a href="../">Index</a>]
+		</span>
 
-	    <div id="threadList">
+		<span>
+		    [<a href="../catalog.html">Catalog</a>]
+		</span>
 
-		<form
-		    method="post"
-		    action="/contentActions.js"
-		    enctype="multipart/form-data">
+		<span id="archive">
+		    [<a id="archiveLinkBoard">Archive</a>]
+		</span>
 
-		    <div id="divThreads"></div>
+		<span>
+		    [<a href="#footer">Bottom</a>]
+		</span>
 
-		    <hr class="clearer" />
+		<span>
+		    [<a onclick="location.reload()">Refresh</a>]
+		</span>
+		<hr>
+            </div>
 
-		    <div id="innerUtilityBottom">
+
+
+            <div id="threadList">
+
+		<form method="post" action="/contentActions.js" enctype="multipart/form-data">
+
+                    <div id="divThreads"></div>
+
+                    <hr class="clearer" />
+
+		    <div id="innerUtility" class="bottom">
 			<hr>
-			&nbsp;[<a href="../#">Return</a>]&nbsp;[<a href="../catalog.html">Catalog</a>]&nbsp;[<a href="#">Top</a>]
+
+			<span>
+			    [<a href="../">Index</a>]
+			</span>
+
+			<span>
+			    [<a href="../catalog.html">Catalog</a>]
+			</span>
+
+			<span id="archive">
+			    [<a id="archiveLinkBoardBottom">Archive</a>]
+			</span>
+
+			<span>
+			    [<a href="#bannerImage">Top</a>]
+			</span>
+
 			<hr>
 		    </div>
 
-		    <div class="divRefresh hidden">
+                    <div class="divRefresh hidden">
 
-			<input
-			    type="button"
-			    id="refreshButton"
-			    onclick="thread.refreshPosts(true)"
-			    value="Refresh">
+			<input type="button" id="refreshButton" onclick="thread.refreshPosts(true)" value="Refresh">
 
 			<label>
-			    <input
-				id="checkboxChangeRefresh"
-				type="checkbox"
-				checked
-				onchange="thread.changeRefresh()">
-			    Auto <span id="labelRefresh"></span>
+                            <input id="checkboxChangeRefresh" type="checkbox" checked onchange="thread.changeRefresh()">
+                            Auto <span id="labelRefresh"></span>
 			</label>
 
-		    </div>
+                    </div>
 
-		    <div id=boardContentLinks>
+                    <div id=boardContentLinks>
 			<span>[</span>
 			<a id="linkManagement">Manage Board</a>
 			<span>/</span>
 			<a id="linkMod">Moderate Thread</a>
 			<span>]</span>
-		    </div>
+                    </div>
 
-		    <div id="bottomForms">
-
-			<fieldset class="reportFieldset">
-			    <legend>Delete</legend>
-
-			    <div class="contentAction">
-				<label>
-				    Password
-				    <input
-					class="deletionField"
-					type="text"
-					id="deletionFieldPassword"
-					name="password">
-				</label>
-				<label>
-				    <input
-					class="deletionField"
-					type="checkbox"
-					id="checkboxOnlyFiles"
-					name="deleteUploads">
-				    Delete only files (Removes the file reference to the posts)
-				</label>
-				<label>
-				    <input
-					class="deletionField"
-					type="checkbox"
-					id="checkboxMediaDeletion"
-					name="deleteMedia">
-				    Delete media (Removes the saved files from the server)
-				</label>
-				<button
-				    type="submit"
-				    id="deleteFormButton"
-				    value="delete"
-				    name="action">Delete</button>
-			    </div>
-			</fieldset>
-
-			<fieldset class="reportFieldset">
-			    <legend>Report/Ban</legend>
-
-			    <div class="contentAction">
-
-				<label>
-				    Reason (used on reports and bans)
-				    <input
-					type="text"
-					id="reportFieldReason"
-					name="reason">
-				</label>
-
-				<label>
-				    <input
-					type="checkbox"
-					id="checkboxGlobal"
-					name="global">
-				    Global (used on reports and bans)
-				</label>
-				<p>Captcha (required for reports and bans by board staff)</p>
-				<img
-				    class="captchaImage"
-				    id="captchaImageReport"
-				    src="/captcha.js">
-
-				<input
-				    type="button"
-				    class="hidden reloadCaptchaButton"
-				    onclick="captchaUtils.reloadCaptcha()"
-				    value="Reload">
-				<span class="captchaTimer"></span>
-				<br>
-
-				<input
-				    name="captcha"
-				    type="text"
-				    id="fieldCaptchaReport"
-				    class="captchaField"
-				    placeholder="answer">
-
-				<a
-				    class="small"
-				    href="/noCookieCaptcha.js">no cookies?</a>
-
-				<br>
-
-				<button
-				    type="submit"
-				    id="reportFormButton"
-				    value="report"
-				    name="action">Report</button>
-
-				<div id="divMod"></div>
-
-			    </div>
-
-			</fieldset>
-
-		    </div>
+                    <div id="actionsForm"></div>
 
 		</form>
 
-	    </div>
+            </div>
 
-	    <div class="footerBar" id="footerBarType" value="B"></div>
+	    <footer id="dynamicFooterAlt"></footer>
 
 	</div>
 
     </body>
 
     <script src="/.static/js/api.js"></script>
-    <script src="/.static/js/navInject.js"></script>
-    <script src="/.static/js/footerInject.js"></script>
     <script src="/.static/js/crypt.js"></script>
     <script src="/.static/js/postCommon.js"></script>
     <script src="/.static/js/captchaModal.js"></script>
@@ -492,7 +295,6 @@
     <script src="/.static/js/captchaUtils.js"></script>
     <script src="/.static/js/draggable.js"></script>
     <script src="/.static/js/qr.js"></script>
-    <script src="/.static/js/sage.js"></script>
     <script src="/.static/js/themes.js"></script>
     <script src="/.static/js/settingsMenu.js"></script>
     <script src="/.static/js/hiding.js"></script>

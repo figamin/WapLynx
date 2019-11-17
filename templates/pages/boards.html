@@ -1,174 +1,150 @@
 <!DOCTYPE html>
 <html>
-<head>
-<!-- Matomo -->
-<script type="text/javascript">
-  var _paq = window._paq || [];
-  /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
-  _paq.push(['trackPageView']);
-  _paq.push(['enableLinkTracking']);
-  (function() {
-    var u="//analytics.16chan.xyz/";
-    _paq.push(['setTrackerUrl', u+'matomo.php']);
-    _paq.push(['setSiteId', '1']);
-    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
-    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
-  })();
-</script>
-<noscript><p><img src="//analytics.16chan.xyz/matomo.php?idsite=1&amp;rec=1" style="border:0;" alt="" /></p></noscript>
-<!-- End Matomo Code -->
-<meta charset="UTF-8" />
-<meta
-  name="viewport"
-  content="width=device-width, initial-scale=1.0">
-<link
-  href="/.static/css/global.css"
-  type="text/css"
-  rel="stylesheet" />
-<link
-  href="/.static/css/boards.css"
-  type="text/css"
-  rel="stylesheet" />
-<link
-  href="/.static/css/watcher.css"
-  type="text/css"
-  rel="stylesheet" />
-<link
-  href="/.static/css/index.css"
-  type="text/css"
-  rel="stylesheet" />
-</head>
-<body id="boardsPage">
+    <head>
+	<script type="text/javascript" id="dynamicAnalytics"></script>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="/.static/css/global.css" type="text/css" rel="stylesheet" />
+	<link href="/.static/css/index.css" type="text/css" rel="stylesheet" />
+	<link href="/.static/css/boards.css" type="text/css" rel="stylesheet" />
+	<link href="/.static/css/watcher.css" type="text/css" rel="stylesheet" />
+	<link href="/.static/css/posting.css" type="text/css" rel="stylesheet" />
+    </head>
+    <body>
+	<script src="/.static/js/themeLoader.js"></script>
 
-  <script src="/.static/js/themeLoader.js"></script>
+	<nav id="dynamicHeader"></nav>
 
-  <div class="navBar" id="navBarType" value="A"></div>
+	<div id="preventErrors">
+	</span> <a class="coloredIcon" id="linkOverboard"></a> <span>/</span> <a id="linkSfwOver"></a>
+	</div>
 
-  <header>
-    <img
-      src="/.static/logo.png"
-      class="logoImg"
-      alt="logo" />
-  </header>
+	<div id="indexWrapper">
 
-  <div id="boardsWrapper">
+            <div id="logoBox" class="title">
+		<a href="/">
+		    <img src="/.static/logo.png" class="logoImg" alt="logo" />
+		</a>
+            </div>
 
-  <h2>Boards</h2>
-   <div id="divStandardBox">
-    <div class="search">
- 
-     <form
-        action="/boards.js"
-        method="get">
-<!--
-        <input
-          type="text"
-          name="boardUri"
-          placeholder="board">
+	    <div id="dynamicLinks"></div>
 
-        <input
-          type="text"
-          name="tags"
-          placeholder="tags"> -->
-        <div id="boardsSort">
-          <select name="sorting">
-            <option value=''>Most popular</option>
-            <option value='1'>Least popular</option>
-            <option value='2'>Most posts first</option>
-            <option value='3'>Least posts first</option>
-            <option value='4'>Highest PPH first</option>
-            <option value='5'>Lowest PPH first</option>
-            <option value='6'>Alphabetic order</option>
-            <option value='7'>Reverse alphabetic order</option>
-          </select>
-        </div>
-<!-- 
-        <input
-          type="checkbox"
-          name="sfw">
-        SFW boards only
-        <br>
-        <input
-          type="checkbox"
-          name="inactive">
-        Abandoned boards only
-        <br>
--->
-        <input
-          type="submit"
-          value="search"
-          id="searchButton">
+	    <div class="contentBox">
+		<h2>Boards</h2>
+		<div id="contentBoxInner" class="boardsPage">
 
-      </form>
-    </div>
+		    <div class="search">
+			<form
+			    action="/boards.js"
+			    method="get">
+			    <div id="boardsSort">
+				<select name="sorting">
+				    <option value=''>Most popular</option>
+				    <option value='1'>Least popular</option>
+				    <option value='2'>Most posts first</option>
+				    <option value='3'>Least posts first</option>
+				    <option value='4'>Highest PPH first</option>
+				    <option value='5'>Lowest PPH first</option>
+				    <option value='6'>Alphabetic order</option>
+				    <option value='7'>Reverse alphabetic order</option>
+				</select>
+			    </div>
 
-    <div
-      id="divBoards"
-      class="wide">
-      <span id="divBoardsLegend"> <span id="legend">
-         <span id="labelName" class="cellComponent">Name</span>
-          <span
-          id="labelPPH"
-          class="cellComponent">PPH</span><span
-          id="labelPosts"
-          class="cellComponent">Posts</span><span
-          id="labelUsers"
-          class="cellComponent">Users</span></span></span>
-    </div>
+			    <input
+				type="submit"
+				      value="search"
+				      id="searchButton">
+			</form>
+		    </div>
 
-    <div>
-      <span class="boardPages"> [
-        <div id="divPages"></div> ]
-      </span>
-    </div>
-  </div>
+		    <div
+			id="divBoards"
+			    class="wide">
+			<span id="divBoardsLegend">
+			    <span
+				id="labelName"
+				    class="cellComponent">Name</span>
+			    <span
+				id="labelPPH"
+				    class="cellComponent">PPH</span>
+			    <span
+				id="labelPosts"
+				    class="cellComponent">Posts</span>
+			</span>
+		    </div>
 
-  <div id="federatedText">Federated Imageboards <a href="/.static/pages/federation.html" id="questionBox">[?]</a></div>
+		    <span class="boardPages"><div id="divPages"></div></span>
 
-  <div id="federatedBoards">
-  <h2>Freech <i>(<a href="https://freech.net/">freech.net</a>)</i></h2>
-  <div id="divStandardBox" style="margin-bottom: 15px; text-align: left">
-   <a href="https://freech.net/fam/">/fam/ - Fam</a><br />
-   <a href="https://freech.net/christian/">/christian/ - Christianity</a>
-  </div>
+		</div>
+	    </div>
 
-  <h2>Oneech <i>(<a href="https://onee.ch/">onee.ch</a>)</i></h2>
-  <div id="divStandardBox" style="margin-bottom: 15px; text-align: left">
-   <a href="https://onee.ch/b/">/b/ - Random</a><br />
-   <a href="https://onee.ch/cyb/">/cyb/ - Cyberpunk</a><br />
-   <a href="https://onee.ch/g/">/g/ - Technology</a><br />
-   <a href="https://onee.ch/w/">/w/ - Wallpaper</a>
-  </div>
+	    <div id="federatedText">Federated Imageboards <a href="https://www.imageboard.net" id="questionBox" class="boardsFederated">?</a></div>
 
-  <h2>Spacechan <i>(<a href="https://spacechan.xyz/">spacechan.xyz</a>)</i></h2>
-  <div id="divStandardBox" style="margin-bottom: 15px; text-align: left">
-   <a href="https://spacechan.xyz/b/">/b/ - Random</a><br />
-   <a href="https://spacechan.xyz/c/">/c/ - Cringe</a><br />
-   <a href="https://spacechan.xyz/hover/">/hover/ - Hovercraft and Advanced Tech</a><br />
-   <a href="https://spacechan.xyz/wanker/">/wanker/ - Porn</a><br />
-   <a href="https://spacechan.xyz/meta/">/meta/ - Meta</a>
-  </div>
+	    <div id="federatedBoards">
 
-  <h2>xchan <i>(<a href="https://xchan.wtf/">xchan.wtf</a>)</i></h2>
-  <div id="divStandardBox" style="margin-bottom: 15px; text-align: left">
-   <a href="https://xchan.wtf/lounge/">/lounge/ - Lounge</a><br />
-   <a href="https://xchan.wtf/religion/">/religion/ - Religion</a><br />
-   <a href="https://xchan.wtf/fringe/">/fringe/ - Fringe</a><br />
-   <a href="https://xchan.wtf/spooky/">/spooky/ - Spooky</a><br />
-   <a href="https://xchan.wtf/NSFW/">/nsfw/ - NSFW</a><br />
-  </div>
-  </div>
-  </div>
-  <div class="footerBar" id="footerBarType" value="B"></div>
-</body>
+		<div class="contentBox spaced federatedBox">
+		    <h2>Freech <i>(<a href="https://freech.net/">freech.net</a>)</i></h2>
+		    <div id="contentBoxInner" class="federatedTable">
+			<a href="https://freech.net/fam/" class="linkFederated">/fam/ - Fam</a>
+			<a href="https://freech.net/christian/" class="linkFederated">/christian/ - Christianity</a>
+		    </div>
+		</div>
 
-<script src="/.static/js/api.js"></script>
-<script src="/.static/js/navInject.js"></script>
-<script src="/.static/js/hideBoards.js"></script>
-<script src="/.static/js/footerInject.js"></script>
-<script src="/.static/js/themes.js"></script>
-<script src="/.static/js/draggable.js"></script>
-<script src="/.static/js/watcher.js"></script>
-<script src="/.static/js/favouriteBoards.js"></script>
+		<div class="contentBox spaced federatedBox">
+		    <h2>Oneech <i>(<a href="https://onee.ch/">onee.ch</a>)</i></h2>
+		    <div id="contentBoxInner" class="federatedTable">
+			<a href="https://onee.ch/b/" class="indicatorSfw linkFederated">/b/ - Random</a>
+			<a href="https://onee.ch/cyb/" class="indicatorSfw linkFederated">/cyb/ - Cyberpunk</a>
+			<a href="https://onee.ch/g/" class="indicatorSfw linkFederated">/g/ - Technology</a>
+			<a href="https://onee.ch/w/" class="indicatorSfw linkFederated">/w/ - Wallpaper</a>
+		    </div>
+		</div>
 
+		<div class="contentBox spaced federatedBox">
+		    <h2>Spacechan <i>(<a href="https://spacechan.xyz/">spacechan.xyz</a>)</i></h2>
+		    <div id="contentBoxInner" class="federatedTable">
+			<a href="https://spacechan.xyz/b/" class="linkFederated">/b/ - Random</a>
+			<a href="https://spacechan.xyz/c/" class="linkFederated">/c/ - Cringe</a>
+			<a href="https://spacechan.xyz/doomer/" class="linkFederated">/doomer/ - Doomers Club</a>
+			<a href="https://spacechan.xyz/wanker/" class="linkFederated">/wanker/ - Porn</a>
+			<a href="https://spacechan.xyz/meta/" class="indicatorSfw linkFederated">/meta/ - Meta</a>
+		    </div>
+		</div>
+
+
+		<div class="contentBox federatedBox">
+		    <h2>xchan <i>(<a href="https://xchan.wtf/">xchan.wtf</a>)</i></h2>
+		    <div id="contentBoxInner" class="federatedTable">
+			<a href="https://xchan.wtf/l/" class="indicatorSfw linkFederated">/l/ - Lounge</a>
+			<a href="https://xchan.wtf/rel/" class="indicatorSfw linkFederated">/rel/ - Religion</a>
+			<a href="https://xchan.wtf/f/" class="indicatorSfw linkFederated">/f/ - Fringe</a>
+			<a href="https://xchan.wtf/spky/" class="indicatorSfw linkFederated">/spky/ - Spooky</a>
+			<a href="https://xchan.wtf/nsfw/" class="linkFederated">/nsfw/ - NSFW</a>
+		    </div>
+		</div>
+
+	    </div>
+
+	</div>
+
+	<noscript>
+	    <style>
+	     #federatedBoards {
+		 display: block;
+	     }
+	     #federatedText {
+		 margin-bottom: 26px;
+	     }
+	    </style>
+	</noscript>
+
+	<footer id="dynamicFooterAlt"></footer>
+    </body>
+    <script src="/.static/js/api.js"></script>
+    <script src="/.static/js/hideBoards.js"></script>
+
+    <script src="/.static/js/themes.js"></script>
+    <script src="/.static/js/draggable.js"></script>
+    <script src="/.static/js/watcher.js"></script>
+    <script src="/.static/js/favouriteBoards.js"></script>
 </html>

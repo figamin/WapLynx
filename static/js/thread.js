@@ -1,873 +1,605 @@
 var thread = {};
 
 thread.init = function() {
-  api.mod = !!document.getElementById("divMod");
 
-  api.hiddenCaptcha = !document.getElementById("captchaDiv");
+    api.mod = !!document.getElementById('divMod');
 
-  document.getElementById("mainPanel").onscroll = function() {
-    if (!thread.unreadPosts) {
-      return;
+    api.hiddenCaptcha = !document.getElementById('captchaDiv');
+
+    document.getElementById('mainPanel').onscroll = function() {
+
+	if (!thread.unreadPosts) {
+	    return;
+	}
+
+	var rect = thread.lastPost.getBoundingClientRect();
+
+	if (rect.bottom < window.innerHeight) {
+	    thread.unreadPosts = 0;
+
+	    document.title = thread.originalTitle;
+	}
+
+    };
+
+    api.boardUri = document.getElementById('boardIdentifier').value;
+    thread.divPosts = document.getElementsByClassName('divPosts')[0];
+
+    thread.initThread();
+
+    document.getElementsByClassName('divRefresh')[0].style.display = 'block';
+
+    thread.messageLimit = +document.getElementById('labelMessageLength').innerHTML;
+    thread.refreshLabel = document.getElementById('labelRefresh');
+
+    thread.refreshButton = document.getElementById('refreshButton');
+
+    if (document.getElementById('divArchive')) {
+	api.convertButton('archiveFormButon', thread.archiveThread, 'archiveField');
     }
 
-    var rect = thread.lastPost.getBoundingClientRect();
+    if (document.getElementById('controlThreadIdentifier')) {
 
-    if (rect.bottom < window.innerHeight) {
-      thread.unreadPosts = 0;
+	api.convertButton('settingsFormButon', thread.saveThreadSettings,
+			  'threadSettingsField');
 
-      document.title = thread.originalTitle;
-    }
-  };
+	if (document.getElementById('ipDeletionForm')) {
+	    api.convertButton('deleteFromIpFormButton', thread.deleteFromIp,
+			      'ipDeletionField');
+	}
 
-  api.boardUri = document.getElementById("boardIdentifier").value;
-  thread.divPosts = document.getElementsByClassName("divPosts")[0];
+	if (document.getElementById('formTransfer')) {
+	    api.convertButton('transferFormButton', thread.transfer, 'transferField');
+	}
 
-  thread.initThread();
+	api.convertButton('inputBan', posting.banPosts, 'banField');
+	api.convertButton('inputIpDelete', posting.deleteFromIpOnBoard);
+	api.convertButton('inputSpoil', posting.spoilFiles);
 
-  document.getElementsByClassName("divRefresh")[0].style.display = "block";
-
-  thread.messageLimit = +document.getElementById("labelMessageLength")
-    .innerHTML;
-  thread.refreshLabel = document.getElementById("labelRefresh");
-
-  thread.refreshButton = document.getElementById("refreshButton");
-
-  if (document.getElementById("divArchive")) {
-    api.convertButton("archiveFormButon", thread.archiveThread, "archiveField");
-  }
-
-  if (document.getElementById("controlThreadIdentifier")) {
-    api.convertButton(
-      "settingsFormButon",
-      thread.saveThreadSettings,
-      "threadSettingsField"
-    );
-
-    if (document.getElementById("ipDeletionForm")) {
-      api.convertButton(
-        "deleteFromIpFormButton",
-        thread.deleteFromIp,
-        "ipDeletionField"
-      );
     }
 
-    if (document.getElementById("formTransfer")) {
-      api.convertButton("transferFormButton", thread.transfer, "transferField");
+    thread.replyButton = document.getElementById('formButton');
+    thread.replyButton.disabled = false;
+
+    api.convertButton(thread.replyButton, thread.postReply);
+
+    var replies = document.getElementsByClassName('postCell');
+
+    if (replies && replies.length) {
+	thread.lastReplyId = replies[replies.length - 1].id;
     }
 
-    api.convertButton("inputBan", thread.banPosts, "banField");
-    api.convertButton("inputIpDelete", thread.deleteFromIpOnBoard);
-    api.convertButton("inputSpoil", posting.spoilFiles);
-  }
+    thread.changeRefresh();
 
-  thread.replyButton = document.getElementById("formButton");
-  thread.replyButton.disabled = false;
+    var postingQuotes = document.getElementsByClassName('linkQuote');
 
-  api.convertButton(thread.replyButton, thread.postReply);
+    for (var i = 0; i < postingQuotes.length; i++) {
+	thread.processPostingQuote(postingQuotes[i]);
+    }
 
-  var replies = document.getElementsByClassName("postCell");
-
-  if (replies && replies.length) {
-    thread.lastReplyId = replies[replies.length - 1].id;
-  }
-
-  thread.changeRefresh();
-
-  var postingQuotes = document.getElementsByClassName("linkQuote");
-
-  for (var i = 0; i < postingQuotes.length; i++) {
-    thread.processPostingQuote(postingQuotes[i]);
-  }
-
-  postCommon.addSubmitShortcut(document.getElementById("fieldMessage"));
-
-  thread.initCounters();
-  thread.initReplyButton();
 };
 
 thread.initThread = function() {
-  thread.lastReplyId = 0;
-  thread.originalTitle = document.title;
-  posting.highLightedIds = [];
-  posting.idsRelation = {};
 
-  var ids = document.getElementsByClassName("labelId");
+    thread.lastReplyId = 0;
+    thread.originalTitle = document.title;
+    posting.highLightedIds = [];
+    posting.idsRelation = {};
 
-  for (i = 0; i < ids.length; i++) {
-    posting.processIdLabel(ids[i]);
-  }
+    var ids = document.getElementsByClassName('labelId');
 
-  thread.unreadPosts = 0;
-  api.threadId = +document.getElementsByClassName("opCell")[0].id;
-  thread.refreshURL = "/" + api.boardUri + "/res/" + api.threadId + ".json";
-  thread.refreshParameters = {
-    boardUri: api.boardUri,
-    threadId: api.threadId
-  };
-};
-
-thread.deleteFromIpOnBoard = function() {
-  var checkBoxes = document.getElementsByClassName("deletionCheckBox");
-
-  for (var i = 0; i < checkBoxes.length; i++) {
-    var checkBox = checkBoxes[i];
-
-    if (checkBox.checked) {
-      var splitName = checkBox.name.split("-")[0];
-      break;
+    for (i = 0; i < ids.length; i++) {
+	posting.processIdLabel(ids[i]);
     }
-  }
 
-  if (!splitName) {
-    return;
-  }
+    thread.unreadPosts = 0;
+    api.threadId = +document.getElementsByClassName('opCell')[0].id;
+    thread.refreshURL = '/' + api.boardUri + '/res/' + api.threadId + '.json';
+    thread.refreshParameters = {
+	boardUri : api.boardUri,
+	threadId : api.threadId
+    };
 
-  var redirect = "/" + splitName + "/";
-
-  var confirmationBox = document.getElementById(
-    "ipDeletionConfirmationCheckbox"
-  );
-
-  var param = {
-    action: "ip-deletion",
-    confirmation: confirmationBox.checked
-  };
-
-  posting.newGetSelectedContent(param);
-
-  api.formApiRequest("contentActions", param, function requestComplete(
-    status,
-    data
-  ) {
-    if (status === "ok") {
-      window.location.pathname = redirect;
-    } else {
-      alert(status + ": " + JSON.stringify(data));
-    }
-  });
-};
-
-thread.applyBans = function(captcha) {
-  var typedReason = document.getElementById("reportFieldReason").value.trim();
-  var typedDuration = document.getElementById("fieldDuration").value.trim();
-  var typedMessage = document.getElementById("fieldbanMessage").value.trim();
-  var banType = document.getElementById("comboBoxBanTypes").selectedIndex;
-
-  var params = {
-    action: "ban",
-    reason: typedReason,
-    captcha: captcha,
-    banType: banType,
-    duration: typedDuration,
-    banMessage: typedMessage,
-    global: document.getElementById("checkboxGlobal").checked
-  };
-
-  posting.newGetSelectedContent(params);
-
-  api.formApiRequest("contentActions", params, function requestComplete(
-    status,
-    data
-  ) {
-    if (status === "ok") {
-      alert("Bans applied");
-    } else {
-      alert(status + ": " + JSON.stringify(data));
-    }
-  });
-};
-
-thread.banPosts = function() {
-  if (!document.getElementsByClassName("panelRange").length) {
-    thread.applyBans();
-    return;
-  }
-
-  var typedCaptcha = document.getElementById("fieldCaptchaReport").value.trim();
-
-  if (typedCaptcha && /\W/.test(typedCaptcha)) {
-    alert("Invalid captcha.");
-    return;
-  }
-
-  if (typedCaptcha.length == 24 || !typedCaptcha) {
-    thread.applyBans(typedCaptcha);
-  } else {
-    var parsedCookies = api.getCookies();
-
-    api.formaApiRequest(
-      "solveCaptcha",
-      {
-        captchaId: parsedCookies.captchaid,
-        answer: typedCaptcha
-      },
-      function solvedCaptcha(status, data) {
-        if (status !== "ok") {
-          alert(status);
-          return;
-        }
-
-        thread.applyBans(parsedCookies.captchaid);
-      }
-    );
-  }
 };
 
 thread.transfer = function() {
-  var informedBoard = document
-    .getElementById("fieldDestinationBoard")
-    .value.trim();
 
-  var originThread = document.getElementById("transferThreadIdentifier").value;
-  var originBoard = document.getElementById("transferBoardIdentifier").value;
+    var informedBoard = document.getElementById("fieldDestinationBoard").value
+	.trim();
 
-  api.formApiRequest(
-    "transferThread",
-    {
-      boardUri: api.boardUri,
-      threadId: api.threadId,
-      boardUriDestination: informedBoard
+    var originThread = document.getElementById("transferThreadIdentifier").value;
+    var originBoard = document.getElementById("transferBoardIdentifier").value;
+
+    api.formApiRequest('transferThread', {
+	boardUri : api.boardUri,
+	threadId : api.threadId,
+	boardUriDestination : informedBoard
     },
-    function setLock(status, data) {
-      if (status === "ok") {
-        window.location.pathname =
-          "/" + informedBoard + "/res/" + data + ".html";
-      } else {
-        alert(status + ": " + JSON.stringify(data));
-      }
-    }
-  );
+		       function setLock(status, data) {
+
+			   if (status === 'ok') {
+			       window.location.pathname = '/' + informedBoard + '/res/' + data
+				   + '.html';
+			   } else {
+			       alert(status + ': ' + JSON.stringify(data));
+			   }
+		       });
+
 };
 
 thread.markPost = function(id) {
-  if (isNaN(id)) {
-    return;
-  }
 
-  if (thread.markedPosting && thread.markedPosting.className === "markedPost") {
-    thread.markedPosting.className = "innerPost";
-  }
+    if (isNaN(id)) {
+	return;
+    }
 
-  var container = document.getElementById(id);
+    if (thread.markedPosting && thread.markedPosting.className === 'markedPost') {
+	thread.markedPosting.className = 'innerPost';
+    }
 
-  if (!container || container.className !== "postCell") {
-    return;
-  }
+    var container = document.getElementById(id);
 
-  thread.markedPosting = container.getElementsByClassName("innerPost")[0];
+    if (!container || container.className !== 'postCell') {
+	return;
+    }
 
-  if (thread.markedPosting) {
-    thread.markedPosting.className = "markedPost";
-  }
+    thread.markedPosting = container.getElementsByClassName('innerPost')[0];
+
+    if (thread.markedPosting) {
+	thread.markedPosting.className = 'markedPost';
+    }
+
 };
 
 thread.processPostingQuote = function(link) {
-  link.onclick = function() {
-    qr.showQr(link.href.match(/#q(\d+)/)[1]);
-  };
+
+    link.onclick = function() {
+	qr.showQr(link.href.match(/#q(\d+)/)[1]);
+	displayFunction();
+    };
+
 };
 
 thread.archiveThread = function() {
-  if (!document.getElementById("checkboxArchive").checked) {
-    alert("You must confirm that you wish to archive this thread.");
-    return;
-  }
 
-  api.formApiRequest(
-    "archiveThread",
-    {
-      confirmation: true,
-      boardUri: api.boardUri,
-      threadId: api.threadId
-    },
-    function archived(status, data) {
-      if (status === "ok") {
-        api.resetIndicators({
-          locked: document.getElementsByClassName("lockIndicator").length,
-          pinned: document.getElementsByClassName("pinIndicator").length,
-          cyclic: document.getElementsByClassName("cyclicIndicator").length,
-          archived: true
-        });
-      } else {
-        alert(status + ": " + JSON.stringify(data));
-      }
+    if (!document.getElementById('checkboxArchive').checked) {
+	alert('You must confirm that you wish to archive this thread.');
+	return;
     }
-  );
+
+    api.formApiRequest('archiveThread', {
+	confirmation : true,
+	boardUri : api.boardUri,
+	threadId : api.threadId
+    }, function archived(status, data) {
+
+	if (status === 'ok') {
+
+	    api.resetIndicators({
+		locked : document.getElementsByClassName('lockIndicator').length,
+		pinned : document.getElementsByClassName('pinIndicator').length,
+		cyclic : document.getElementsByClassName('cyclicIndicator').length,
+		archived : true
+	    });
+
+	} else {
+	    alert(status + ': ' + JSON.stringify(data));
+	}
+
+    });
+
 };
 
 thread.saveThreadSettings = function() {
-  var pinned = document.getElementById("checkboxPin").checked;
-  var locked = document.getElementById("checkboxLock").checked;
-  var cyclic = document.getElementById("checkboxCyclic").checked;
 
-  api.formApiRequest(
-    "changeThreadSettings",
-    {
-      boardUri: api.boardUri,
-      threadId: api.threadId,
-      pin: pinned,
-      lock: locked,
-      cyclic: cyclic
-    },
-    function setLock(status, data) {
-      if (status === "ok") {
-        api.resetIndicators({
-          locked: locked,
-          pinned: pinned,
-          cyclic: cyclic,
-          archived: document.getElementsByClassName("archiveIndicator").length
-        });
-      } else {
-        alert(status + ": " + JSON.stringify(data));
-      }
-    }
-  );
+    var pinned = document.getElementById('checkboxPin').checked;
+    var locked = document.getElementById('checkboxLock').checked;
+    var cyclic = document.getElementById('checkboxCyclic').checked;
+
+    api.formApiRequest('changeThreadSettings', {
+	boardUri : api.boardUri,
+	threadId : api.threadId,
+	pin : pinned,
+	lock : locked,
+	cyclic : cyclic
+    }, function setLock(status, data) {
+
+	if (status === 'ok') {
+
+	    api.resetIndicators({
+		locked : locked,
+		pinned : pinned,
+		cyclic : cyclic,
+		archived : document.getElementsByClassName('archiveIndicator').length
+	    });
+
+	} else {
+	    alert(status + ': ' + JSON.stringify(data));
+	}
+    });
+
 };
 
 thread.replyCallback = function(status, data) {
-  if (status === "ok") {
-    postCommon.storeUsedPostingPassword(api.boardUri, api.threadId, data);
-    postCommon.addYou(api.boardUri, data);
 
-    document.getElementById("fieldMessage").value = "";
-    document.getElementById("fieldSubject").value = "";
-    qr.clearQRAfterPosting();
-    postCommon.clearSelectedFiles();
+    if (status === 'ok') {
 
-    thread.refreshPosts(true);
-  } else {
-    alert(status + ": " + JSON.stringify(data));
-  }
+	postCommon.storeUsedPostingPassword(api.boardUri, api.threadId, data);
+
+	document.getElementById('fieldMessage').value = '';
+	document.getElementById('fieldSubject').value = '';
+	qr.clearQRAfterPosting();
+	postCommon.clearSelectedFiles();
+
+	thread.refreshPosts(true);
+
+    } else {
+	alert(status + ': ' + JSON.stringify(data));
+    }
+
 };
 
 thread.replyCallback.stop = function() {
-  thread.replyButton.innerHTML = thread.originalButtonText;
 
-  qr.setQRReplyText(thread.originalButtonText);
+    thread.replyButton.innerHTML = thread.originalButtonText;
 
-  thread.replyButton.disabled = false;
-  qr.setQRReplyEnabled(true);
+    qr.setQRReplyText(thread.originalButtonText);
+
+    thread.replyButton.disabled = false;
+    qr.setQRReplyEnabled(true);
+
 };
 
 thread.replyCallback.progress = function(info) {
-  if (info.lengthComputable) {
-    var newText =
-      "Uploading " + Math.floor((info.loaded / info.total) * 100) + "%";
-    thread.replyButton.innerHTML = newText;
 
-    qr.setQRReplyText(newText);
-  }
+    if (info.lengthComputable) {
+	var newText = 'Uploading ' + Math.floor((info.loaded / info.total) * 100)
+            + '%';
+	thread.replyButton.innerHTML = newText;
+
+	qr.setQRReplyText(newText);
+    }
+
 };
 
 thread.refreshCallback = function(error, receivedData) {
-  if ((api.mod && error !== "ok") || (!api.mod && error)) {
-    return;
-  }
 
-  if (!api.mod) {
-    receivedData = JSON.parse(receivedData);
-  }
-
-  if (thread.fullRefresh) {
-    thread.lastReplyId = 0;
-    thread.unreadPosts = 0;
-    while (thread.divPosts.firstChild) {
-      thread.divPosts.removeChild(thread.divPosts.firstChild);
+    if ((api.mod && (error !== 'ok')) || (!api.mod && error)) {
+	return;
     }
 
-    document.title = thread.originalTitle;
-  }
-
-  tooltips.cacheData(receivedData);
-
-  var posts = receivedData.posts;
-
-  var foundPosts = false;
-
-  if (posts && posts.length) {
-    var lastReceivedPost = posts[posts.length - 1];
-
-    if (lastReceivedPost.postId > thread.lastReplyId) {
-      foundPosts = true;
-
-      var uids = [];
-
-      for (var i = 0; i < posts.length; i++) {
-        var post = posts[i];
-
-        if (post.postId > thread.lastReplyId) {
-          thread.unreadPosts++;
-
-          var postCell = posting.addPost(post, api.boardUri, api.threadId);
-
-          thread.counters.replies++;
-          thread.counters.files += post.files.length;
-          if (post.id) {
-            uids.push(post.id);
-          }
-
-          postCommon.checkForYou(postCell, post.postId);
-
-          thread.divPosts.appendChild(postCell);
-
-          thread.lastPost = postCell;
-
-          thread.lastReplyId = post.postId;
-        }
-      }
-
-      if (!thread.fullRefresh) {
-        document.title = "(" + thread.unreadPosts + ") " + thread.originalTitle;
-      }
-
-      thread.updateLatestUIDs(uids);
-      thread.updateCounters();
+    if (!api.mod) {
+	receivedData = JSON.parse(receivedData);
     }
-  }
 
-  if (thread.autoRefresh) {
-    thread.startTimer(
-      thread.manualRefresh || foundPosts ? 5 : thread.lastRefresh * 2
-    );
-  }
+    if (receivedData.threadId !== api.threadId) {
+
+	window.location.href = '/' + receivedData.boardUri + '/res/'
+            + receivedData.threadId + '.html';
+
+	return;
+    }
+
+    if (thread.fullRefresh) {
+	thread.lastReplyId = 0;
+	thread.unreadPosts = 0;
+	while (thread.divPosts.firstChild) {
+	    thread.divPosts.removeChild(thread.divPosts.firstChild);
+	}
+
+	document.title = thread.originalTitle;
+
+    }
+
+    tooltips.cacheData(receivedData);
+
+    var posts = receivedData.posts;
+
+    var foundPosts = false;
+
+    if (posts && posts.length) {
+	var lastReceivedPost = posts[posts.length - 1];
+
+	if (lastReceivedPost.postId > thread.lastReplyId) {
+	    foundPosts = true;
+
+	    for (var i = 0; i < posts.length; i++) {
+
+		var post = posts[i];
+
+		if (post.postId > thread.lastReplyId) {
+		    thread.unreadPosts++;
+
+		    var postCell = posting.addPost(post, api.boardUri, api.threadId);
+
+		    thread.divPosts.appendChild(postCell);
+
+		    thread.lastPost = postCell;
+
+		    thread.lastReplyId = post.postId;
+		}
+
+	    }
+
+	    if (!thread.fullRefresh) {
+		document.title = '(' + thread.unreadPosts + ') ' + thread.originalTitle;
+	    }
+
+	}
+    }
+
+    if (thread.autoRefresh) {
+	thread.startTimer(thread.manualRefresh || foundPosts ? 5
+			  : thread.lastRefresh * 2);
+    }
+
 };
 
 thread.refreshCallback.stop = function() {
-  thread.refreshButton.disabled = false;
 
-  thread.refreshingThread = false;
+    thread.refreshButton.disabled = false;
 
-  if (sideCatalog.waitingForRefreshData) {
-    sideCatalog.loadThread(
-      sideCatalog.waitingForRefreshData.cell,
-      sideCatalog.waitingForRefreshData.thread
-    );
-    delete sideCatalog.waitingForRefreshData;
-  }
+    thread.refreshingThread = false;
+
+    if (sideCatalog.waitingForRefreshData) {
+	sideCatalog.loadThread(sideCatalog.waitingForRefreshData.cell,
+			       sideCatalog.waitingForRefreshData.thread);
+	delete sideCatalog.waitingForRefreshData;
+    }
+
 };
 
 thread.refreshPosts = function(manual, full) {
-  if (manual && sideCatalog.loadingThread) {
-    return;
-  }
 
-  thread.manualRefresh = manual;
-  thread.fullRefresh = full;
+    if (manual && sideCatalog.loadingThread) {
+	return;
+    }
 
-  if (thread.autoRefresh && manual) {
-    clearInterval(thread.refreshTimer);
-  }
+    thread.manualRefresh = manual;
+    thread.fullRefresh = full;
 
-  thread.refreshButton.disabled = true;
+    if (thread.autoRefresh && manual) {
+	clearInterval(thread.refreshTimer);
+    }
 
-  thread.refreshingThread = true;
+    thread.refreshButton.disabled = true;
 
-  if (api.mod) {
-    api.formApiRequest(
-      "mod",
-      {},
-      thread.refreshCallback,
-      true,
-      thread.refreshParameters
-    );
-  } else {
-    api.localRequest(thread.refreshURL, thread.refreshCallback);
-  }
+    thread.refreshingThread = true;
+
+    if (api.mod) {
+	api.formApiRequest('mod', {}, thread.refreshCallback, true,
+			   thread.refreshParameters);
+    } else {
+	api.localRequest(thread.refreshURL, thread.refreshCallback);
+    }
+
 };
 
 thread.sendReplyData = function(files, captchaId) {
-  var forcedAnon = !document.getElementById("fieldName");
-  var hiddenFlags = !document.getElementById("flagsDiv");
 
-  if (!hiddenFlags) {
-    var combo = document.getElementById("flagCombobox");
+    var forcedAnon = !document.getElementById('fieldName');
+    var hiddenFlags = !document.getElementById('flagsDiv');
 
-    var selectedFlag = combo.options[combo.selectedIndex].value;
+    if (!hiddenFlags) {
+	var combo = document.getElementById('flagCombobox');
 
-    postCommon.savedSelectedFlag(selectedFlag);
-  }
+	var selectedFlag = combo.options[combo.selectedIndex].value;
 
-  if (!forcedAnon) {
-    var typedName = document.getElementById("fieldName").value.trim();
-    localStorage.setItem("name", typedName);
-  }
+	postCommon.savedSelectedFlag(selectedFlag);
 
-  var typedEmail = document.getElementById("fieldEmail").value.trim();
-  var typedMessage = document.getElementById("fieldMessage").value.trim();
-  var typedSubject = document.getElementById("fieldSubject").value.trim();
-  var typedPassword = document
-    .getElementById("fieldPostingPassword")
-    .value.trim();
+    }
 
-  if (!typedMessage.length && !files.length) {
-    alert("A message or a file is mandatory.");
-    return;
-  } else if (!forcedAnon && typedName.length > 32) {
-    alert("Name is too long, keep it under 32 characters.");
-    return;
-  } else if (typedMessage.length > thread.messageLimit) {
-    alert(
-      "Message is too long, keep it under " +
-        thread.messageLimit +
-        " characters."
-    );
-    return;
-  } else if (typedEmail.length > 64) {
-    alert("E-mail is too long, keep it under 64 characters.");
-    return;
-  } else if (typedSubject.length > 128) {
-    alert("Subject is too long, keep it under 128 characters.");
-    return;
-  } else if (typedPassword.length > 8) {
-    alert("Password is too long, keep it under 8 characters.");
-    return;
-  }
+    if (!forcedAnon) {
+	var typedName = document.getElementById('fieldName').value.trim();
+	localStorage.setItem('name', typedName);
+    }
 
-  if (!typedPassword) {
-    typedPassword = Math.random()
-      .toString(36)
-      .substring(2, 10);
-  }
+    var typedEmail = document.getElementById('fieldEmail').value.trim();
+    var typedMessage = document.getElementById('fieldMessage').value.trim();
+    var typedSubject = document.getElementById('fieldSubject').value.trim();
+    var typedPassword = document.getElementById('fieldPostingPassword').value
+	.trim();
 
-  localStorage.setItem("deletionPassword", typedPassword);
+    if (!typedMessage.length && !files.length) {
+	alert('A message or a file is mandatory.');
+	return;
+    } else if (!forcedAnon && typedName.length > 32) {
+	alert('Name is too long, keep it under 32 characters.');
+	return;
+    } else if (typedMessage.length > thread.messageLimit) {
+	alert('Message is too long, keep it under ' + thread.messageLimit
+              + ' characters.');
+	return;
+    } else if (typedEmail.length > 64) {
+	alert('E-mail is too long, keep it under 64 characters.');
+	return;
+    } else if (typedSubject.length > 128) {
+	alert('Subject is too long, keep it under 128 characters.');
+	return;
+    } else if (typedPassword.length > 8) {
+	alert('Password is too long, keep it under 8 characters.');
+	return;
+    }
 
-  var spoilerCheckBox = document.getElementById("checkboxSpoiler");
+    if (!typedPassword) {
+	typedPassword = Math.random().toString(36).substring(2, 10);
+    }
 
-  var sageCheckBox = document.getElementById("checkboxSage");
+    localStorage.setItem('deletionPassword', typedPassword);
 
-  var noFlagCheckBox = document.getElementById("checkboxNoFlag");
+    var spoilerCheckBox = document.getElementById('checkboxSpoiler');
 
-  thread.originalButtonText = thread.replyButton.innerHTML;
-  thread.replyButton.innerHTML = "Uploading 0%";
-  qr.setQRReplyText(thread.replyButton.innerHTML);
-  thread.replyButton.disabled = false;
-  qr.setQRReplyEnabled(false);
+    var sageCheckBox = document.getElementById("checkboxSage");
 
-  api.formApiRequest(
-    "replyThread",
-    {
-      name: forcedAnon ? null : typedName,
-      sage: sageCheckBox ? sageCheckBox.checked : false,
-      flag: hiddenFlags ? null : selectedFlag,
-      captcha: captchaId,
-      subject: typedSubject,
-      noFlag: noFlagCheckBox ? noFlagCheckBox.checked : false,
-      spoiler: spoilerCheckBox ? spoilerCheckBox.checked : false,
-      password: typedPassword,
-      message: typedMessage,
-      email: typedEmail,
-      files: files,
-      boardUri: api.boardUri,
-      threadId: api.threadId
-    },
-    thread.replyCallback
-  );
+    var noFlagCheckBox = document.getElementById('checkboxNoFlag');
+
+    thread.originalButtonText = thread.replyButton.innerHTML;
+    thread.replyButton.innerHTML = 'Uploading 0%';
+    qr.setQRReplyText(thread.replyButton.innerHTML);
+    thread.replyButton.disabled = true;
+    qr.setQRReplyEnabled(false);
+
+    api.formApiRequest('replyThread', {
+	name : forcedAnon ? null : typedName,
+	sage: sageCheckBox ? sageCheckBox.checked : false,
+	flag : hiddenFlags ? null : selectedFlag,
+	captcha : captchaId,
+	subject : typedSubject,
+	noFlag : noFlagCheckBox ? noFlagCheckBox.checked : false,
+	spoiler : spoilerCheckBox ? spoilerCheckBox.checked : false,
+	password : typedPassword,
+	message : typedMessage,
+	email : typedEmail,
+	files : files,
+	boardUri : api.boardUri,
+	threadId : api.threadId
+    }, thread.replyCallback);
+
 };
 
 thread.processFilesToPost = function(captchaId) {
-  postCommon.newGetFilesToUpload(function gotFiles(files) {
-    thread.sendReplyData(files, captchaId);
-  });
+
+    postCommon.newGetFilesToUpload(function gotFiles(files) {
+	thread.sendReplyData(files, captchaId);
+    });
+
 };
 
 thread.processReplyRequest = function() {
-  if (api.hiddenCaptcha) {
-    thread.processFilesToPost();
-  } else {
-    var typedCaptcha = document.getElementById("fieldCaptcha").value.trim();
 
-    if (typedCaptcha.length !== 6 && typedCaptcha.length !== 24) {
-      alert("Captchas are exactly 6 (24 if no cookies) characters long.");
-      return;
-    } else if (/\W/.test(typedCaptcha)) {
-      alert("Invalid captcha.");
-      return;
-    }
-
-    if (typedCaptcha.length == 24) {
-      thread.processFilesToPost(typedCaptcha);
+    if (api.hiddenCaptcha) {
+	thread.processFilesToPost();
     } else {
-      var parsedCookies = api.getCookies();
+	var typedCaptcha = document.getElementById('fieldCaptcha').value.trim();
 
-      api.formApiRequest(
-        "solveCaptcha",
-        {
-          captchaId: parsedCookies.captchaid,
-          answer: typedCaptcha
-        },
-        function solvedCaptcha(status, data) {
-          if (status !== "ok") {
-            alert(status);
-            return;
-          }
+	if (typedCaptcha.length !== 6 && typedCaptcha.length !== 24) {
+	    alert('Captchas are exactly 6 (24 if no cookies) characters long.');
+	    return;
+	} else if (/\W/.test(typedCaptcha)) {
+	    alert('Invalid captcha.');
+	    return;
+	}
 
-          thread.processFilesToPost(parsedCookies.captchaid);
-        }
-      );
+	if (typedCaptcha.length == 24) {
+	    thread.processFilesToPost(typedCaptcha);
+	} else {
+	    var parsedCookies = api.getCookies();
+
+	    api.formApiRequest('solveCaptcha', {
+
+		captchaId : parsedCookies.captchaid,
+		answer : typedCaptcha
+	    }, function solvedCaptcha(status, data) {
+
+		if (status !== 'ok') {
+		    alert(status);
+		    return;
+		}
+
+		thread.processFilesToPost(parsedCookies.captchaid);
+	    });
+	}
+
     }
-  }
+
 };
 
 thread.postReply = function() {
-  api.formApiRequest("blockBypass", {}, function checked(status, data) {
-    if (status !== "ok") {
-      alert(data);
-      return;
-    }
 
-    var alwaysUseBypass = document.getElementById("alwaysUseBypassCheckBox")
-      .checked;
+    api.formApiRequest('blockBypass', {},
+		       function checked(status, data) {
 
-    if (
-      !data.valid &&
-      (data.mode == 2 || (data.mode == 1 && alwaysUseBypass))
-    ) {
-      postCommon.displayBlockBypassPrompt(function() {
-        thread.processReplyRequest();
-      });
-    } else {
-      thread.processReplyRequest();
-    }
-  });
+			   if (status !== 'ok') {
+			       alert(data);
+			       return;
+			   }
+
+			   var alwaysUseBypass = document
+			       .getElementById('alwaysUseBypassCheckBox').checked;
+
+			   if (!data.valid
+			       && (data.mode == 2 || (data.mode == 1 && alwaysUseBypass))) {
+
+			       postCommon.displayBlockBypassPrompt(function() {
+				   thread.processReplyRequest();
+			       });
+
+			   } else {
+			       thread.processReplyRequest();
+			   }
+
+		       });
+
 };
 
 thread.startTimer = function(time) {
-  if (time > 600) {
-    time = 600;
-  }
 
-  thread.currentRefresh = time;
-  thread.lastRefresh = time;
-  thread.refreshLabel.innerHTML = thread.currentRefresh;
-  thread.refreshTimer = setInterval(function checkTimer() {
-    if (sideCatalog.loadingThread) {
-      return;
+    if (time > 600) {
+	time = 600;
     }
 
-    thread.currentRefresh--;
+    thread.currentRefresh = time;
+    thread.lastRefresh = time;
+    thread.refreshLabel.innerHTML = thread.currentRefresh;
+    thread.refreshTimer = setInterval(function checkTimer() {
 
-    if (!thread.currentRefresh) {
-      clearInterval(thread.refreshTimer);
-      thread.refreshPosts();
-      thread.refreshLabel.innerHTML = "";
-    } else {
-      thread.refreshLabel.innerHTML = thread.currentRefresh;
-    }
-  }, 1000);
+	if (sideCatalog.loadingThread) {
+	    return;
+	}
+
+	thread.currentRefresh--;
+
+	if (!thread.currentRefresh) {
+	    clearInterval(thread.refreshTimer);
+	    thread.refreshPosts();
+	    thread.refreshLabel.innerHTML = '';
+	} else {
+	    thread.refreshLabel.innerHTML = thread.currentRefresh;
+	}
+
+    }, 1000);
 };
 
 thread.changeRefresh = function() {
-  thread.autoRefresh = document.getElementById("checkboxChangeRefresh").checked;
 
-  if (!thread.autoRefresh) {
-    thread.refreshLabel.innerHTML = "";
-    clearInterval(thread.refreshTimer);
-  } else {
-    thread.startTimer(5);
-  }
+    thread.autoRefresh = document.getElementById('checkboxChangeRefresh').checked;
+
+    if (!thread.autoRefresh) {
+	thread.refreshLabel.innerHTML = '';
+	clearInterval(thread.refreshTimer);
+    } else {
+	thread.startTimer(5);
+    }
+
 };
 
 thread.deleteFromIp = function() {
-  var typedIp = document.getElementById("ipField").value.trim();
-  var typedBoards = document.getElementById("fieldBoards").value.trim();
 
-  if (!typedIp.length) {
-    alert("An ip is mandatory");
-    return;
-  }
+    var typedIp = document.getElementById('ipField').value.trim();
+    var typedBoards = document.getElementById('fieldBoards').value.trim();
 
-  api.formApiRequest(
-    "deleteFromIp",
-    {
-      ip: typedIp,
-      boards: typedBoards
-    },
-    function requestComplete(status, data) {
-      if (status === "ok") {
-        document.getElementById("ipField").value = "";
-        document.getElementById("fieldBoards").value = "";
-
-        alert("Postings deleted.");
-      } else {
-        alert(status + ": " + JSON.stringify(data));
-      }
+    if (!typedIp.length) {
+	alert('An ip is mandatory');
+	return;
     }
-  );
-};
 
-thread.getRepliesCount = function(x) {
-  return "" + x + " " + (x === 1 ? "reply" : "replies");
-};
-thread.getFilesCount = function(x) {
-  return "" + x + " " + (x === 1 ? "file" : "files");
-};
-thread.getUIDsCount = function(x) {
-  return "" + x + " " + (x === 1 ? "UID" : "UIDs");
-};
+    api.formApiRequest('deleteFromIp', {
+	ip : typedIp,
+	boards : typedBoards
+    }, function requestComplete(status, data) {
 
-thread.generateUid = function(uid) {
-  return (
-    "<span class='labelId' style='background-color: #" +
-    uid +
-    ";'>" +
-    uid +
-    "</span>"
-  );
-};
+	if (status === 'ok') {
 
-thread.activateUid = function(uid) {
-  var uidText = uid.textContent;
+	    document.getElementById('ipField').value = '';
+	    document.getElementById('fieldBoards').value = '';
 
-  uid.addEventListener(
-    "mouseover",
-    function() {
-      uid.textContent =
-        uidText + " (" + posting.idsRelation[uidText].length + ")";
-    },
-    false
-  );
+	    alert('Postings deleted.');
 
-  uid.addEventListener(
-    "mouseout",
-    function() {
-      uid.textContent = uidText;
-    },
-    false
-  );
+	} else {
+	    alert(status + ': ' + JSON.stringify(data));
+	}
+    });
 
-  uid.addEventListener(
-    "click",
-    function() {
-      // taken from posting.js
-      var index = posting.highLightedIds.indexOf(uidText);
-      var array = posting.idsRelation[uidText];
-
-      if (index > -1) {
-        posting.highLightedIds.splice(index, 1);
-      } else {
-        posting.highLightedIds.push(uidText);
-      }
-
-      for (var i = 0; i < array.length; i++) {
-        var cellToChange = array[i];
-
-        if (cellToChange.className === "innerOP") {
-          continue;
-        }
-
-        cellToChange.className = index > -1 ? "innerPost" : "markedPost";
-      }
-    },
-    false
-  );
-};
-
-thread.initCounters = function() {
-  var replies = document.querySelectorAll(".postCell").length;
-  var files = document.querySelectorAll(".uploadCell").length;
-  var uidSet = new Set(
-    Array.from(document.querySelectorAll(".labelId"))
-      .map(function processId(id) {
-        return id.textContent;
-      })
-      .reverse()
-  );
-
-  var counterEl = document.createElement("div");
-  counterEl.id = "divCounters";
-  counterEl.innerHTML =
-    "<span id='counterReplies'>" +
-    thread.getRepliesCount(replies) +
-    "</span>" +
-    "<span id='counterFiles'>" +
-    thread.getFilesCount(files) +
-    "</span>" +
-    (uidSet.size
-      ? "<input type='checkbox' class='control-checkbox' id='uidbox-checkbox' />" +
-        "<label for='uidbox-checkbox'><span id='counterUids' title='View latest UIDs'>" +
-        thread.getUIDsCount(uidSet.size) +
-        "</span></label>" +
-        "<div class='uidBox floatingMenu'><p class='header'>Latest UIDs " +
-        "<label for='uidbox-checkbox'>&times;</label></p>" +
-        "<div class='uids'>" +
-        Array.from(uidSet.values())
-          .map(thread.generateUid)
-          .join("") +
-        "</div></div>"
-      : "");
-
-  thread.counters = {
-    replies: replies,
-    files: files,
-    uidSet: uidSet,
-
-    counterEl: counterEl,
-    repliesEl: counterEl.querySelector("#counterReplies"),
-    filesEl: counterEl.querySelector("#counterFiles"),
-    uidsEl: counterEl.querySelector("#counterUids"),
-    uidBox: counterEl.querySelector(".uidBox")
-  };
-
-  // posting.processIdLabel doesn't work here.
-  if (thread.counters.uidBox) {
-    Array.from(thread.counters.uidBox.querySelectorAll(".labelId")).forEach(
-      thread.activateUid
-    );
-  }
-
-  document.querySelector(".divRefresh").appendChild(counterEl);
-};
-
-thread.updateCounters = function() {
-  thread.counters.repliesEl.textContent = thread.getRepliesCount(
-    thread.counters.replies
-  );
-  thread.counters.filesEl.textContent = thread.getFilesCount(
-    thread.counters.files
-  );
-
-  if (thread.counters.uidSet.size)
-    thread.counters.uidsEl.textContent = thread.getUIDsCount(
-      thread.counters.uidSet.size
-    );
-};
-
-var __uid_container = document.createElement("div");
-thread.updateLatestUIDs = function(uids) {
-  if (!thread.counters.uidBox) return;
-
-  uids.forEach(function(uid) {
-    var uids = thread.counters.uidBox.querySelector(".uids");
-    if (!thread.counters.uidSet.has(uid)) {
-      // add to the front
-      thread.counters.uidSet.add(uid);
-      __uid_container.innerHTML = thread.generateUid(uid);
-      var uidEl = __uid_container.firstElementChild;
-      thread.activateUid(uidEl);
-      uids.insertBefore(uidEl, uids.firstChild);
-    } else {
-      // bump the uid to the top
-      // lol this qs
-      var myUid = uids.querySelector('.labelId[style$="' + uid + ';"]');
-      uids.insertBefore(myUid, uids.firstChild);
-    }
-  });
-};
-
-thread.initReplyButton = function() {
-  var replyButton = document.createElement("a");
-  replyButton.className = "replyToThread";
-  replyButton.href = "javascript:void(0)";
-
-  replyButton.addEventListener(
-    "click",
-    function() {
-      qr.showQr("", true);
-    },
-    false
-  );
-
-  document.querySelector(".divRefresh").appendChild(replyButton);
 };
 
 thread.init();

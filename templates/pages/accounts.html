@@ -1,106 +1,80 @@
 <!DOCTYPE html>
 <html>
-<head>
-<!-- Matomo -->
-<script type="text/javascript">
-  var _paq = window._paq || [];
-  /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
-  _paq.push(['trackPageView']);
-  _paq.push(['enableLinkTracking']);
-  (function() {
-    var u="//analytics.16chan.xyz/";
-    _paq.push(['setTrackerUrl', u+'matomo.php']);
-    _paq.push(['setSiteId', '1']);
-    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
-    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
-  })();
-</script>
-<noscript><p><img src="//analytics.16chan.xyz/matomo.php?idsite=1&amp;rec=1" style="border:0;" alt="" /></p></noscript>
-<!-- End Matomo Code -->
-<meta charset="UTF-8">
-<meta
-  name="viewport"
-  content="width=device-width, initial-scale=1.0">
-<link
-  rel="stylesheet"
-  type="text/css"
-  href="/.static/css/global.css">
-<link
-  href="/.static/css/watcher.css"
-  type="text/css"
-  rel="stylesheet" />
-</head>
+    <head>
+	<script type="text/javascript" id="dynamicAnalytics"></script>
+	<meta charset="UTF-8">
+	<meta
+	    name="viewport"
+	    content="width=device-width, initial-scale=1.0">
+	<link
+	    rel="stylesheet"
+	    type="text/css"
+	    href="/.static/css/global.css">
+    </head>
 
-<body>
+    <body>
 
-  <script src="/.static/js/themeLoader.js"></script>
+	<script src="/.static/js/themeLoader.js"></script>
 
-  <div class="navBar" id="navBarType" value="A"></div>
+	<nav id="dynamicHeader"></nav>
 
-  <header>
-    <img
-      src="/.static/logo.png"
-      class="logoImg"
-      alt="logo" />
-  </header>
+	<header>
+	    <img
+		src="/.static/logo.png"
+		class="logoImg"
+		alt="logo" />
+	</header>
 
-  <div id="settingsWrapper">
-    <fieldset id="settingsFieldset">
+	<div id="settingsWrapper">
+	    <fieldset id="settingsFieldset">
 
-      <legend>Accounts</legend>
-      <form
-        action="/addAccount.js"
-        method="post"
-        enctype="multipart/form-data">
+		<legend>Accounts</legend>
+		<form
+		    action="/addAccount.js"
+		    method="post"
+		    enctype="multipart/form-data">
 
-        <h3>Add account</h3>
+		    <h3>Add account</h3>
 
-        <input
-          type="text"
-          id="fieldLogin"
-          name="login"
-          class="addAccountField"
-          placeholder="login">
+		    <input
+			type="text"
+			id="fieldLogin"
+			name="login"
+			class="addAccountField"
+			placeholder="login">
 
-        <input
-          type="text"
-          id="fieldEmail"
-          class="addAccountField"
-          name="email"
-          placeholder="e-mail">
+		    <input
+			type="text"
+			id="fieldEmail"
+			class="addAccountField"
+			name="email"
+			placeholder="e-mail">
 
-        <input
-          type="password"
-          id="fieldPassword"
-          class="addAccountField"
-          name="password"
-          placeholder="password">
+		    <input
+			type="password"
+			id="fieldPassword"
+			class="addAccountField"
+			name="password"
+			placeholder="password">
 
-        <button
-          id="addAccountFormButton"
-          type="submit">Add Account</button>
+		    <button
+			id="addAccountFormButton"
+			type="submit">Add Account</button>
 
-      </form>
-      <hr>
-      <h3>Existing Accounts</h3>
-      <div
-        id="divAccounts"
-        class="linkList"></div>
+		</form>
+		<hr>
+		<h3>Existing Accounts</h3>
+		<div
+		    id="divAccounts"
+		    class="linkList"></div>
 
-    </fieldset>
-  </div>
+	    </fieldset>
+	</div>
+    </body>
 
-<div class="footerBar" id="footerBarType" value="A"></div>
-
-</body>
-
-<script src="/.static/js/api.js"></script>
-<script src="/.static/js/navInject.js"></script>
-<script src="/.static/js/footerInject.js"></script>
-<script src="/.static/js/accounts.js"></script>
-<script src="/.static/js/themes.js"></script>
-<script src="/.static/js/draggable.js"></script>
-<script src="/.static/js/watcher.js"></script>
+    <script src="/.static/js/api.js"></script>
+    <script src="/.static/js/accounts.js"></script>
+    <script src="/.static/js/themes.js"></script>
 <script src="/.static/js/favouriteBoards.js"></script>
 
 </html>

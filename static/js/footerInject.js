@@ -7,7 +7,7 @@ footerContent = document.createElement('div');
 //footerBarA - For non board pages, used on index.html, faq.html, etc...
 if (footerType == 'A')
 {
-footerContent.innerHTML = 
+footerContent.innerHTML =
 '<footer>' +
 '<div class = "footerBar">' +
 '<a href="/.static/pages/about.html">About</a> ' +
@@ -23,7 +23,7 @@ footerContent.innerHTML =
 //footerBarB - For board pages, used on board.html, thread.html, catalog.html, etc...
 else if (footerType == 'B')
 {
-footerContent.innerHTML = 
+footerContent.innerHTML =
 '<footer id="footer">' +
 'All trademarks and copyrights on this page are owned by their respective parties. Images uploaded are the responsibility of the Poster. Comments are owned by the Poster.' +
 '<br />' +

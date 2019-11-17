@@ -1,89 +1,61 @@
 <!DOCTYPE html>
 <html>
-<head>
-<!-- Matomo -->
-<script type="text/javascript">
-  var _paq = window._paq || [];
-  /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
-  _paq.push(['trackPageView']);
-  _paq.push(['enableLinkTracking']);
-  (function() {
-    var u="//analytics.16chan.xyz/";
-    _paq.push(['setTrackerUrl', u+'matomo.php']);
-    _paq.push(['setSiteId', '1']);
-    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
-    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
-  })();
-</script>
-<noscript><p><img src="//analytics.16chan.xyz/matomo.php?idsite=1&amp;rec=1" style="border:0;" alt="" /></p></noscript>
-<!-- End Matomo Code -->
-<title>Donate</title>
-<meta charset="UTF-8">
-<meta
-  name="viewport"
-  content="width=device-width, initial-scale=1.0">
-<link
-  href="/.static/css/global.css"
-  type="text/css"
-  rel="stylesheet" />
-<link
-  href="/.static/css/index.css"
-  type="text/css"
-  rel="stylesheet" />
-<link
-  href="/.static/css/watcher.css"
-  type="text/css"
-  rel="stylesheet" />
-<link
-  href="/.static/css/posting.css"
-  type="text/css"
-  rel="stylesheet" />
-</head>
-<body>
+    <head>
+	<script type="text/javascript" id="dynamicAnalytics"></script>
+	<title>Donate</title>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="/.static/css/global.css" type="text/css" rel="stylesheet" />
+	<link href="/.static/css/index.css" type="text/css" rel="stylesheet" />
+	<link href="/.static/css/watcher.css" type="text/css" rel="stylesheet" />
+	<link href="/.static/css/posting.css" type="text/css" rel="stylesheet" />
+    </head>
 
-  <script src="/.static/js/themeLoader.js"></script>
+    <body>
 
-  <div class="navBar" id="navBarType" value="A"></div>
+	<script src="/.static/js/themeLoader.js"></script>
 
-  <div id="settingsWrapper">
+	<nav id="dynamicHeader"></nav>
 
-    <div
-      id="logoBox"
-      class="title">
-      <img
-        src="/.static/logo.png"
-        class="logoImg"
-        alt="logo" />
-    </div>
+	<div id="indexWrapper">
 
-  <h2>Donate</h2>
+            <div id="logoBox" class="title">
+		<a href="/">
+		    <img src="/.static/logo.png" class="logoImg" alt="logo" />
+		</a>
+            </div>
 
-  <div id="divStandardBox">
-  If you would like to support 16chan and our infrastructure costs (currenty $30 USD a month) you can feel free to send
-  funds via bitcoin. Donations are by no means expected, they are however greatly appreciated.
-  <br />
-  <br />
-  <center><img src="/.static/1HwrtSxy2DwB2mpEnuUrGjJjTu2LEuFB5U.png" width="125px" height="125px"></center>
-  <br />
-  <br />
-  Bitcoin Address: <a href="bitcoin:1HwrtSxy2DwB2mpEnuUrGjJjTu2LEuFB5U">1HwrtSxy2DwB2mpEnuUrGjJjTu2LEuFB5U</a>
-  <br />
-  <br />
-  <i>I'm considering making some 16chan style merch, maybe stickers or T-shirts or something, if that's something you'd be interested in post on /meta/.</i>
-  </div>
+	    <div id="dynamicLinks"></div>
 
-  </div>
+	    <div class="contentBox">
+		<h2>Donates</h2>
+		<div id="contentBoxInner">
 
-<div class="footerBar" id="footerBarType" value="A"></div>
+		    If you would like to support 16chan and our infrastructure costs (currenty $30 USD a month) you can feel free to send
+		    funds via bitcoin. Donations are by no means expected, they are however greatly appreciated.
+		    <br />
+		    <br />
+		    <center><img src="/.static/1HwrtSxy2DwB2mpEnuUrGjJjTu2LEuFB5U.png" width="125px" height="125px"></center>
+		    <br />
+		    <br />
+		    Bitcoin Address: <a href="bitcoin:1HwrtSxy2DwB2mpEnuUrGjJjTu2LEuFB5U">1HwrtSxy2DwB2mpEnuUrGjJjTu2LEuFB5U</a>
+		    <br />
+		    <br />
+		    <i>I'm considering making some 16chan style merch, maybe stickers or T-shirts or something, if that's something you'd be interested in post on /meta/.</i>
 
-</body>
+		</div>
+	    </div>
 
-<script src="/.static/js/api.js"></script>
-<script src="/.static/js/navInject.js"></script>
-<script src="/.static/js/footerInject.js"></script>
-<script src="/.static/js/themes.js"></script>
-<script src="/.static/js/draggable.js"></script>
-<script src="/.static/js/watcher.js"></script>
-<script src="/.static/js/favouriteBoards.js"></script>
+	</div>
+
+	<footer id="dynamicFooter"></footer>
+
+    </body>
+
+    <script src="/.static/js/api.js"></script>
+    <script src="/.static/js/themes.js"></script>
+    <script src="/.static/js/draggable.js"></script>
+    <script src="/.static/js/watcher.js"></script>
+    <script src="/.static/js/favouriteBoards.js"></script>
 
 </html>

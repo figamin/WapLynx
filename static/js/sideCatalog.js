@@ -20,11 +20,18 @@ sideCatalog.init = function() {
   var catalogButton = document.getElementById('navCatalog');
 
   var sideCatalogButton = document.createElement('a');
-  sideCatalogButton.className = 'coloredIcon';
-  sideCatalogButton.id = 'navSideCatalog';
-  sideCatalogButton.onclick = function() {
-    sideCatalog.sideCatalogDiv.style.display = 'block';
-    localStorage.removeItem('hideSideCatalog');
+    sideCatalogButton.className = 'coloredIcon';
+    sideCatalogButton.id = 'navSideCatalog';
+    sideCatalog.sideCatalogDiv.style.display = 'none';
+
+    //Added ability to reclick on Side Catalog in order to toggle the view
+    sideCatalogButton.onclick = function() {
+	if (sideCatalog.sideCatalogDiv.style.display === 'none') {
+	    sideCatalog.sideCatalogDiv.style.display = 'block';
+	} else {
+	    	sideCatalog.sideCatalogDiv.style.display = 'none';
+	}
+	localStorage.removeItem('hideSideCatalog');
   };
 
   catalogButton.parentNode.insertBefore(sideCatalogButton,
@@ -218,6 +225,23 @@ sideCatalog.transitionThread = function(cell, threadData, data) {
     panelIp.insertBefore(sideCatalog.getRangePanel(), panelIp.childNodes[0]);
   }
 
+  var panelASN = opCell.getElementsByClassName('panelASN')[0];
+
+  if (!panelASN) {
+
+    panelASN = document.createElement('div');
+    panelASN.className = 'panelASN';
+
+    var labelASN = document.createElement('span');
+    labelASN.className = 'labelASN';
+
+    panelASN.appendChild(document.createTextNode('ASN: '));
+    panelASN.appendChild(labelASN);
+
+    panelIp.parentNode.insertBefore(panelASN, panelIp);
+
+  }
+
   if (!opCell.getElementsByClassName('imgFlag').length) {
 
     var newFlagImage = document.createElement('img');
@@ -257,7 +281,7 @@ sideCatalog.transitionThread = function(cell, threadData, data) {
     var newSpanId = document.createElement('span');
     newSpanId.className = 'spanId';
 
-    newSpanId.innerHTML = 'Id:';
+    newSpanId.innerHTML = 'ID:';
 
     var newLabelId = document.createElement('span');
     newLabelId.className = 'labelId';
@@ -294,6 +318,21 @@ sideCatalog.transitionThread = function(cell, threadData, data) {
   sideCatalog.removeAllFromClass('watchButton');
   sideCatalog.removeAllFromClass('relativeTime');
   sideCatalog.removeAllFromClass('unhideButton');
+  sideCatalog.removeAllFromClass('linkHistory');
+
+  if (api.mod) {
+
+    var newLinkHistory = document.createElement('a');
+    newLinkHistory.innerHTML = '[History]';
+    newLinkHistory.className = 'linkHistory';
+
+    var editLink = document.getElementsByClassName('linkEdit')[0];
+
+    editLink.parentNode.insertBefore(newLinkHistory, editLink.nextSibling);
+    editLink.parentNode.insertBefore(document.createTextNode(' '),
+        editLink.nextSibling);
+
+  }
 
   api.resetIndicators(data);
 
@@ -320,6 +359,8 @@ sideCatalog.transitionThread = function(cell, threadData, data) {
     }
 
   }
+
+  hiding.checkFilters();
 
 };
 
@@ -358,8 +399,11 @@ sideCatalog.addSideCatalogThread = function(thread) {
   linkContent.className = 'sideCatalogCellText';
   cell.appendChild(linkContent);
 
-  var upperText = document.createElement('span');
-  var lowerText = document.createElement('span');
+    var upperText = document.createElement('span');
+    var lowerText = document.createElement('span');
+
+    upperText.setAttribute("class", "labelSubject");
+    lowerText.setAttribute("class", "labelStats")
 
   linkContent.appendChild(upperText);
   linkContent.appendChild(lowerText);
@@ -369,8 +413,8 @@ sideCatalog.addSideCatalogThread = function(thread) {
         return api.htmlReplaceTable[match];
       }).substring(0, 128) || thread.threadId));
 
-  lowerText.innerHTML = 'R: ' + (thread.postCount || 0) + ' / F: '
-      + (thread.fileCount || 0);
+  lowerText.innerHTML = 'R: ' + '<span class="labelReplies">' + (thread.postCount || 0) + '</span>' + ' / F: ' + '<span class="labelFiles">' +
+      + (thread.fileCount || 0) + '</span>';
 
   sideCatalog.sideCatalogBody.appendChild(cell);
 

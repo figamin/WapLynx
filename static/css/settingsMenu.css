@@ -16,7 +16,10 @@
 
 #closeSettingsMenuButton::before, .filterDeleteButton::before,
   #closeSideCatalogButton::before {
-  content: '\e0db';
+    content: '[X]';
+    font-family: monospace;
+    font-weight: bold;
+    font-size: 14px;
 }
 
 .settingsTab {

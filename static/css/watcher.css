@@ -8,9 +8,13 @@
 }
 
 #closeWatcherMenuButton::before, .close-btn::before,
-  .watchedCellCloseButton::before {
-  content: '\e0db';
+.watchedCellCloseButton::before {
+    content: '[X]';
+    font-family: monospace;
+    font-weight: bold;
+    font-size: 14px;
 }
+
 
 .watchedCell {
   display: table;
@@ -39,5 +43,10 @@
 #watchedMenu label {
   font-size: 80%;
   cursor: pointer;
-  margin: 0.5em;
+}
+
+@media only screen and (max-width: 812px) {
+  .mobileAlert {
+    color: #A00;
+  }
 }

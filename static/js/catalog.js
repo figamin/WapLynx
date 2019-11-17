@@ -144,20 +144,6 @@ catalog.initCatalog = function() {
 
   });
 
-  var postingForm = document.getElementById('newPostFieldset');
-
-  if (postingForm) {
-
-    var toggleLink = document.getElementById('togglePosting');
-    toggleLink.style.display = 'inline-block';
-    postingForm.style.display = 'none';
-
-    toggleLink.onclick = function() {
-      toggleLink.style.display = 'none';
-      postingForm.style.display = 'inline-block';
-    };
-  }
-
   var links = document.getElementsByClassName('linkThumb');
 
   for (var i = 0; i < links.length; i++) {

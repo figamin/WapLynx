@@ -1,123 +1,148 @@
 /*Elements used exclusively on the board listing*/
-#boardsWrapper {
-  max-width: 700px;
-  margin: 1em auto;
-  text-align: center;
-}
-
-#boardsWrapper #divBoards {
-  display: inline-block;
-  text-align: left;
+.boardsCell {
+    display: table-row;
 }
 
 .boardsCell span {
-  text-overflow: ellipsis;
-}
-
-.search {
-  margin: .25em 0 .25em .25em;
-  margin-bottom: -2px;
-  float: left;
+    text-overflow: ellipsis;
+    padding-left: 5px;
 }
 
 .search form {
-  display: inline-block;
-}
-
-#searchButton {
-  float: left;
-  margin-left: 8px;
-  margin-top: 1px;
-  margin-bottom: 15px;
-}
-
-.indicatorSfw {
-  border-radius: 6px;
-  background: green;
-  font-weight: bold;
-  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
-  padding-left: 3px;
-  padding-right: 4px;
+    display: inline-block;
 }
 
 #boardsSort {
-  float: left;
-}
-
-hr {
-  border: none;
-}
-
-#labelPPH, #labelPosts, #labelUsers {
-    width: 45px;
-}
-
-.boardPages {
-  padding: 0.1em 0.25em;
-  display: none;
+    display: contents;
 }
 
 #divBoardsLegend {
-  width: 100%;
-  text-align: right;
-  display: inline-block;
+    display: table-row;
+    font-weight: bold;
+    background: #1D1F21;
 }
 
-#legend {
-  text-align: left;
-  display: table-row;
-  font-weight: bold;
+#divBoardsLegend .cellComponent {
+    border: 1px solid #111;
 }
 
-#labelName {
-  width: 85%;
-  text-align: left;
+#divBoards {
+    padding-top: 10px;
 }
 
 .boardsCellHeader {
-  width: 82%;
-  display: table-row;
-  float: left;
+    width: 80%;
+    display: table-cell;
+}
+
+.indicatorSfw {
+    content: '';
+}
+
+.labelUniqueIps.cellComponent {
+    display: none;
 }
 
 .boardsCellStats {
-  display: table-row;
+    display: contents;
+    text-align: center;
 }
 
 .boardsCellTags, .divDescription {
-  display: block;
-}
-
-.divDescription {
-  display: none;
+    display: none;
 }
 
 .cellComponent {
-  text-align: left;
-  display: table-cell;
-  padding-left: 4px;
-  padding-right: 5px;
-  width: 30px;
+    display: table-cell;
+    width: 10%;
+    text-align: left;
+    padding-left: 5px;
 }
 
-.linkBoard {
-  padding-left: 5px;
+#divPages, #divPages a {
+    display: none;
 }
+
+/* Additions */
+
+#federatedText {
+    font-size: 90%;
+    margin: 40px auto 0px auto;
+    width: 200px;
+    text-align: center;
+    font-weight: bold;
+    border: 1px solid #111;
+    background: #282A2E;
+    padding: 4px;
+}
+
+#showFederatedButton {
+    font-size: 80%;
+    text-align: center;
+    padding: 5px 0 8px 0;
+}
+
+#showFederatedButton:before, #questionBox:before {
+    content: '[';
+}
+
+#showFederatedButton:after, #questionBox:after {
+    content: ']';
+}
+
+#showFederatedButton:before, #showFederatedButton:after, #questionBox:before, #questionBox:after {
+    color: #c5c8c6;
+}
+
+#divBoards .boardsCell:nth-child(2n),
+#contentBoxInner.federatedTable .linkFederated:nth-child(2n+1) {
+    background-color: rgba(255,255,255,.1);
+}
+
+#contentBoxInner.federatedTable {
+    display: table;
+}
+
+.linkFederated {
+    display: inline-block;
+    width: 100%;
+}
+
+.contentBox.federatedBox {
+    width: 99%;
+    display: table;
+}
+
+#contentBoxInner.federatedTable {
+    display: block;
+}
+
+.linkFederated {
+    padding-left: 5px;
+}
+
+#divBoards {
+    border-spacing: 1px;
+    display: table;
+    width: 100%;
+}
+
+#preventErrors {
+    display: none;
+}
+
+/* End */
 
 @media only screen and (max-width: 812px) {
-  #boardsWrapper #divBoards {
-    display: inline;
-  }
-  .boardsCellHeader {
-    width: 100%;
-    display: inline-table;
-    text-align: center;
-  }
-  .boardsCellStats, #divBoardsLegend, .labelTags {
-    display: none;
-  }
-  #divStandardBox {
-    display: inline-table;
-    width: 100%;
-  }
+    #boardsWrapper #divBoards {
+	display: inline;
+    }
+    .boardsCellHeader {
+	width: 100%;
+	display: inline-table;
+	text-align: center;
+    }
+    .boardsCellStats, #divBoardsLegend, .labelTags {
+	display: none;
+    }
 }

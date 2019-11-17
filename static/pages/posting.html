@@ -1,112 +1,166 @@
 <!DOCTYPE html>
 <html>
     <head>
-	<!-- Matomo -->
-	<script type="text/javascript">
-	 var _paq = window._paq || [];
-	 /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
-	 _paq.push(['trackPageView']);
-	 _paq.push(['enableLinkTracking']);
-	 (function() {
-	     var u="//analytics.16chan.xyz/";
-	     _paq.push(['setTrackerUrl', u+'matomo.php']);
-	     _paq.push(['setSiteId', '1']);
-	     var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
-	     g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
-	 })();
-	</script>
-	<noscript><p><img src="//analytics.16chan.xyz/matomo.php?idsite=1&amp;rec=1" style="border:0;" alt="" /></p></noscript>
-	<!-- End Matomo Code -->
+	<script type="text/javascript" id="dynamicAnalytics"></script>
 	<title>Posting</title>
-	<meta charset="UTF-8">
-	<meta
-	    name="viewport"
-	    content="width=device-width, initial-scale=1.0">
-	<link
-	    href="/.static/css/global.css"
-	    type="text/css"
-	    rel="stylesheet" />
-	<link
-	    href="/.static/css/index.css"
-	    type="text/css"
-	    rel="stylesheet" />
-	<link
-	    href="/.static/css/watcher.css"
-	    type="text/css"
-	    rel="stylesheet" />
-	<link
-	    href="/.static/css/posting.css"
-	    type="text/css"
-	    rel="stylesheet" />
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="/.static/css/global.css" type="text/css" rel="stylesheet" />
+	<link href="/.static/css/index.css" type="text/css" rel="stylesheet" />
+	<link href="/.static/css/watcher.css" type="text/css" rel="stylesheet" />
+	<link href="/.static/css/posting.css" type="text/css" rel="stylesheet" />
     </head>
+
     <body>
 
 	<script src="/.static/js/themeLoader.js"></script>
 
-	<div class="navBar" id="navBarType" value="A"></div>
+	<nav id="dynamicHeader"></nav>
 
-	<div id="settingsWrapper">
+	<div id="indexWrapper">
 
-	    <div
-		id="logoBox"
-		    class="title">
-		<img
-		    src="/.static/logo.png"
-		    class="logoImg"
-		    alt="logo" />
+            <div id="logoBox" class="title">
+		<a href="/">
+		    <img src="/.static/logo.png" class="logoImg" alt="logo" />
+		</a>
+            </div>
+
+	    <div id="dynamicLinks"></div>
+
+	    <div class="contentBox">
+		<h2>Posting</h2>
+		<div id="contentBoxInner">
+		    <h3>Tripcodes</h3>
+		    <p>To use a tripcode, add a # in your name. After the #, add the
+			password for the tripcode.</p>
+		    <p>The server will apply a hash to the password and display the hashed
+			password.</p>
+		    <p>To use a secure tripcode, add ## in your name and a password. A
+			secure tripcode will generate a random text to be displayed that will
+			only be used if your password matches.</p>
+
+		    <hr id="postingHr">
+
+		    <h3>Role signature</h3>
+		    <p>If you wish to display your global or board role when posting, you
+			can put #rs in your name, like a tripcode, case insensitive. This will
+			prevent you from using a tripcode.</p>
+		    <p>You can also enable an always use role signature rule in your
+			account settings.</p>
+
+		    <hr id="postingHr">
+
+		    <h3>Markdown</h3>
+		    <p>When posting you can use some tools that will enhance its text in
+			HTML.</p>
+		    <br>
+		    <h3>Greentext and Pinktext</h3>
+		    <p>If you add a > or < in the start of a
+			line, it will either greentext or pinktext the text
+			until it finds a new line.</p>
+		    <br>
+		    <p><b>Example:</p></b></p>
+		    <p>
+			>le ebin upboat :^) -> <span class="greenText">>le ebin upboat
+			:^)</span>
+		    </p>
+
+		    <p>
+			&lt;omglol -> <span class="orangeText">&lt;omglol
+			:^)</span>
+		    </p>
+
+		    <br>
+
+		    <h3>Quote</h3>
+		    <p>If you write >> and then a number to a posting, it will create a
+			link to this post in the board you are posting and add a tooltip with
+			the post preview if you have javascript enabled.</p>
+		    <br>
+		    <p><b>Example:</b></p>
+		    <p>
+			>>50 ->
+			<a href="">>>50</a>
+		    </p>
+
+		    <br>
+
+		    <h3>Board link</h3>
+		    <p>If you write >>> and then add a board name between slashes, it will
+			create a link to the board.</p>
+		    <br>
+		    <p><b>Example:</b></p>
+		    <p>
+			>>>/cancer/ ->
+			<a
+			    href=""
+			    class="quoteLink">>>>/cancer/</a>
+		    </p>
+
+		    <br>
+
+		    <h3>Cross-quote</h3>
+		    <p>It is also possible to quote posts from another boards. Just add
+			the posting number after the board name.</p>
+		    <br>
+		    <p><b>Example:</b></p>
+		    <p>
+			>>>/cancer/50 ->
+			<a
+			    href=""
+			    class="quoteLink">>>>/cancer/50</a>
+		    </p>
+
+		    <br>
+
+		    <h3>Tags</h3>
+		    <p>
+			[spoiler]the game[/spoiler] -> <span class="spoiler">the game</span>
+		    </p>
+		    <p>
+			**this also works** -> <span class="spoiler">this also works</span>
+		    </p>
+		    <p>
+			==SRZ BIZNIZ== -> <span class="redText">SRZ BIZNIZ</span>
+		    </p>
+		    <p>
+			''italics'' -> <em>italics</em>
+		    </p>
+		    <p>
+			'''bold''' -> <strong>bold</strong>
+		    </p>
+		    <p>
+			__underline__ -> <u>underline</u>
+		    </p>
+		    <p>
+			~~strikethrough~~ -> <s>strikethrough</s>
+			<p>
+			    <p>[aa] for japanese characters</p>
+			    <p>[code] tags if enabled by board owner</p>
+
+			    <br>
+
+			    <h3>Urls</h3>
+			    <p>If you post a url starting with either http or https, it will
+				automatically be linked.</p>
+			    <br>
+			    <p><b>Example:</b></p>
+			    <p>
+				http://bot.net ->
+				<a href="">http://bot.net</a>
+			    </p>
+
+		</div>
 	    </div>
 
-	    <h2>Posting</h2>
-	    <div id="divStandardBox">
-		<h3>Tripcodes</h3>
-		<p>To use a tripcode, add a # in your name. After the #, add the
-		    password for the tripcode.</p>
-		<p>The server will apply a hash to the password and display the hashed
-		    password.</p>
-		<p>To use a secure tripcode, add ## in your name and a password. A
-		    secure tripcode will generate a random text to be displayed that will
-		    only be used if your password matches.</p>
-
-		<br />
-
-		<h3>Role signature</h3>
-		<p>If you wish to display your global or board role when posting, you
-		    can put #rs in your name, like a tripcode, case insensitive. This will
-		    prevent you from using a tripcode.</p>
-		<p>You can also enable an always use role signature rule in your
-		    account settings.</p>
-
-		<br />
-
-		<h3>Tags</h3>
-		<ul>
-		    <li>[spoiler]the game[/spoiler] 🠚 <span class="spoiler">the game</span></li>
-		    <li>**this also works** 🠚 <span class="spoiler">this also works</span></li>
-		    <li> ==SRZ BIZNIZ== 🠚 <span class="redText">SRZ BIZNIZ</span></li>
-		    <li> >implying 🠚 <span class="greenText">>implying</span></li>
-		    <li> &lt;omglol 🠚 <span class="orangeText">&lt;omglol</span></li>
-		    <li>''italics'' 🠚 <em>italics</em></li>
-		    <li>'''bold''' 🠚 <strong>bold</strong></li>
-		    <li>__underline__ 🠚 <u>underline</u></li>
-		    <li>~~strikethrough~~ 🠚 <s>strikethrough</s></li>
-		    <li>[aa] for japanese characters</li>
-		    <li>[code] tags if enabled by board owner</li>
-		</ul>
-	    </div>
-
-	</div>
-
-	<div class="footerBar" id="footerBarType" value="A"></div>
+	    <footer id="dynamicFooter"></footer>
 
     </body>
 
     <script src="/.static/js/api.js"></script>
-    <script src="/.static/js/navInject.js"></script>
-    <script src="/.static/js/footerInject.js"></script>
     <script src="/.static/js/themes.js"></script>
     <script src="/.static/js/draggable.js"></script>
     <script src="/.static/js/watcher.js"></script>
     <script src="/.static/js/favouriteBoards.js"></script>
-    <script src="/.static/js/footerInject.js"></script>
 
 </html>

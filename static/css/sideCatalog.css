@@ -1,61 +1,64 @@
 #mainPanel, #sideCatalogDiv {
-  overflow-y: auto;
-  margin-top: 22px;
+    overflow-y: auto;
+    height: calc(100vh - 22px);
+    margin-top: 22px;
 }
 
 #navSideCatalog:before {
-  content: "\e088";
+    content: "\e088";
+}
+
+#navSideCatalog:after {
+    content: "Side Catalog";
 }
 
 #sideCatalogDiv {
-  float: right;
-  padding: 0 10px 0 10px;
-  margin-top: 0;
-  max-width: 20%;
-  min-width: 15%;
-  min-height: 800px;
-  max-height: 1000px;
-  overflow-y: scroll;
+    float: right;
+    padding: 0 10px 0 10px;
+    max-width: 20%;
+    margin-top: 0;
 }
 
 #sideCatalogBody hr {
-  clear: both;
+    clear: both;
 }
 
 header {
-  margin-top: 36px;
+    margin-top: 36px;
 }
 
 #closeSideCatalogButton {
-  display: table-cell;
-  text-align: right;
+    display: table-cell;
+    text-align: right;
 }
 
 #sideCatalogHeader {
-  display: table;
-  width: 100%;
+    display: table;
+    width: 100%;
 }
 
 .sideCatalogCell, .sideCatalogMarkedCell {
-  display: block;
-  cursor: pointer;
-  padding: 0.5em;
-  font-size: 75%;
-  overflow: hidden;
-  margin-bottom: 10px;
+    display: block;
+    cursor: pointer;
+    padding: 0.5em;
+    font-size: 75%;
+    overflow: hidden;
+    margin-bottom: 10px;
 }
 
 #sideCatalogBody img {
-  float: left;
-  margin-right: 10px;
-  max-width: 125px;
-  max-height: 125px;
+    float: left;
+    margin-right: 10px;
+    max-width: 125px;
+    max-height: 125px;
 }
 
 .sideCatalogCellText {
-  vertical-align: top;
+    vertical-align: top;
+    display: block;
+    text-align: center;
 }
 
-.sideCatalogCellText span {
-  display: block;
+.labelStats {
+    display: block;
 }

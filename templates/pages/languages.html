@@ -1,105 +1,80 @@
 <!DOCTYPE html>
 <html>
-<head>
-<!-- Matomo -->
-<script type="text/javascript">
-  var _paq = window._paq || [];
-  /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
-  _paq.push(['trackPageView']);
-  _paq.push(['enableLinkTracking']);
-  (function() {
-    var u="//analytics.16chan.xyz/";
-    _paq.push(['setTrackerUrl', u+'matomo.php']);
-    _paq.push(['setSiteId', '1']);
-    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
-    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
-  })();
-</script>
-<noscript><p><img src="//analytics.16chan.xyz/matomo.php?idsite=1&amp;rec=1" style="border:0;" alt="" /></p></noscript>
-<!-- End Matomo Code -->
-<meta charset="UTF-8">
-<meta
-  name="viewport"
-  content="width=device-width, initial-scale=1.0">
-<link
-  rel="stylesheet"
-  type="text/css"
-  href="/.static/css/global.css">
-<link
-  href="/.static/css/watcher.css"
-  type="text/css"
-  rel="stylesheet" />
-</head>
-<body>
+    <head>
+	<script type="text/javascript" id="dynamicAnalytics"></script>
+	<meta charset="UTF-8">
+	<meta
+	    name="viewport"
+	    content="width=device-width, initial-scale=1.0">
+	<link
+	    rel="stylesheet"
+	    type="text/css"
+	    href="/.static/css/global.css">
+    </head>
+    <body>
 
-  <script src="/.static/js/themeLoader.js"></script>
+	<script src="/.static/js/themeLoader.js"></script>
 
-  <div class="navBar" id="navBarType" value="A"></div>
+	<nav id="dynamicHeader"></nav>
 
-  <header>
-    <img
-      src="/.static/logo.png"
-      class="logoImg"
-      alt="logo" />
-  </header>
+	<header>
+	    <img
+		src="/.static/logo.png"
+		class="logoImg"
+		alt="logo" />
+	</header>
 
-  <div id="settingsWrapper">
+	<div id="settingsWrapper">
 
-    <fieldset id="settingsFieldset">
+	    <fieldset id="settingsFieldset">
 
-      <legend>Languages</legend>
-      <h3>New language</h3>
-      <form
-        action="/addLanguage.js"
-        method="post"
-        enctype="multipart/form-data">
+		<legend>Languages</legend>
+		<h3>New language</h3>
+		<form
+		    action="/addLanguage.js"
+		    method="post"
+		    enctype="multipart/form-data">
 
-        <input
-          type="text"
-          name="headerValues"
-          class="newLanguageField"
-          id="fieldHeaderValues"
-          placeholder="header values*">
-        <input
-          type="text"
-          name="frontEnd"
-          class="newLanguageField"
-          id="fieldFrontEnd"
-          placeholder="front-end">
-        <input
-          type="text"
-          class="newLanguageField"
-          name="languagePack"
-          id="fieldLanguagePack"
-          placeholder="language pack">
-        <br>
+		    <input
+			type="text"
+			name="headerValues"
+			class="newLanguageField"
+			id="fieldHeaderValues"
+			placeholder="header values*">
+		    <input
+			type="text"
+			name="frontEnd"
+			class="newLanguageField"
+			id="fieldFrontEnd"
+			placeholder="front-end">
+		    <input
+			type="text"
+			class="newLanguageField"
+			name="languagePack"
+			id="fieldLanguagePack"
+			placeholder="language pack">
+		    <br>
 
-        <button
-          type="submit"
-          id="addFormButton">Add language</button>
-        <br>
+		    <button
+			type="submit"
+			id="addFormButton">Add language</button>
+		    <br>
 
-      </form>
-      <hr>
-      <h3>Existing languages</h3>
-      <div id="languagesDiv"></div>
-      <br>
-      *: separate values by commas, spaces will be ignored (a, b,c)
-    </fieldset>
+		</form>
+		<hr>
+		<h3>Existing languages</h3>
+		<div id="languagesDiv"></div>
+		<br>
+		*: separate values by commas, spaces will be ignored (a, b,c)
+	    </fieldset>
 
-  </div>
+	</div>
 
-<div class="footerBar" id="footerBarType" value="A"></div>
+    </body>
 
-</body>
-
-<script src="/.static/js/api.js"></script>
-<script src="/.static/js/navInject.js"></script>
-<script src="/.static/js/footerInject.js"></script>
-<script src="/.static/js/languages.js"></script>
-<script src="/.static/js/themes.js"></script>
-<script src="/.static/js/draggable.js"></script>
-<script src="/.static/js/watcher.js"></script>
+    <script src="/.static/js/api.js"></script>
+    <script src="/.static/js/languages.js"></script>
+    <script src="/.static/js/themes.js"></script>
 <script src="/.static/js/favouriteBoards.js"></script>
 
 </html>

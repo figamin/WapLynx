@@ -1,118 +1,92 @@
 <!DOCTYPE html>
 <html>
-<head>
-<!-- Matomo -->
-<script type="text/javascript">
-  var _paq = window._paq || [];
-  /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
-  _paq.push(['trackPageView']);
-  _paq.push(['enableLinkTracking']);
-  (function() {
-    var u="//analytics.16chan.xyz/";
-    _paq.push(['setTrackerUrl', u+'matomo.php']);
-    _paq.push(['setSiteId', '1']);
-    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
-    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
-  })();
-</script>
-<noscript><p><img src="//analytics.16chan.xyz/matomo.php?idsite=1&amp;rec=1" style="border:0;" alt="" /></p></noscript>
-<!-- End Matomo Code -->
-<meta charset="UTF-8">
-<meta
-  name="viewport"
-  content="width=device-width, initial-scale=1.0">
-<link
-  rel="stylesheet"
-  type="text/css"
-  href="/.static/css/global.css">
-<link
-  rel="stylesheet"
-  type="text/css"
-  href="/.static/css/posting.css">
-<link
-  href="/.static/css/watcher.css"
-  type="text/css"
-  rel="stylesheet" />
-</head>
-<body>
+    <head>
+	<script type="text/javascript" id="dynamicAnalytics"></script>
+	<meta charset="UTF-8">
+	<meta
+	    name="viewport"
+	    content="width=device-width, initial-scale=1.0">
+	<link
+	    rel="stylesheet"
+	    type="text/css"
+	    href="/.static/css/global.css">
+	<link
+	    rel="stylesheet"
+	    type="text/css"
+	    href="/.static/css/posting.css">
+    </head>
+    <body>
 
-  <script src="/.static/js/themeLoader.js"></script>
+	<script src="/.static/js/themeLoader.js"></script>
 
-  <div class="navBar" id="navBarType" value="A"></div>
+	<nav id="dynamicHeader"></nav>
 
-  <header>
-    <img
-      src="/.static/logo.png"
-      class="logoImg"
-      alt="logo" />
-  </header>
+	<header>
+	    <img
+		src="/.static/logo.png"
+		class="logoImg"
+		alt="logo" />
+	</header>
 
-  <div id="settingsWrapper">
+	<div id="settingsWrapper">
 
-    <fieldset id="settingsFieldset">
-      <legend>Account management</legend>
-      <h3>Account information</h3>
-      Login: <span id="loginLabel"></span>
-      <br>
-      E-mail: <span id="emailLabel"></span>
-      <br>
-      Last seen: <span id="lastSeenLabel"></span>
-      <br>
-      Global role: <span id="globalRoleLabel"></span>
-      <hr>
-      <h3>Owned boards</h3>
-      <div
-        id="ownedBoardsDiv"
-        class="linkList"></div>
-      <hr>
-      <h3>Volunteered boards</h3>
-      <div
-        id="volunteeredBoardsDiv"
-        class="linkList"></div>
-      <hr>
-      <div id="deletionForm">
-        <h3>Delete account</h3>
+	    <fieldset id="settingsFieldset">
+		<legend>Account management</legend>
+		<h3>Account information</h3>
+		Login: <span id="loginLabel"></span>
+		<br>
+		E-mail: <span id="emailLabel"></span>
+		<br>
+		Last seen: <span id="lastSeenLabel"></span>
+		<br>
+		Global role: <span id="globalRoleLabel"></span>
+		<hr>
+		<h3>Owned boards</h3>
+		<div
+		    id="ownedBoardsDiv"
+		    class="linkList"></div>
+		<hr>
+		<h3>Volunteered boards</h3>
+		<div
+		    id="volunteeredBoardsDiv"
+		    class="linkList"></div>
+		<hr>
+		<div id="deletionForm">
+		    <h3>Delete account</h3>
 
-        <form
-          action="/deleteAccount.js"
-          method="post"
-          enctype="multipart/form-data">
+		    <form
+			action="/deleteAccount.js"
+			method="post"
+			enctype="multipart/form-data">
 
-          <label>
-            <input
-              id="confirmationCheckbox"
-              type="checkbox"
-              class="deleteAccountField"
-              name="confirmation">
-            Yes, I wish to transfer all this user's boards to me and then delete
-            his account.
-          </label>
+			<label>
+			    <input
+				id="confirmationCheckbox"
+				type="checkbox"
+				class="deleteAccountField"
+				name="confirmation">
+			    Yes, I wish to transfer all this user's boards to me and then delete
+			    his account.
+			</label>
 
-          <input
-            type="hidden"
-            id="userIdentifier"
-            name="account">
+			<input
+			    type="hidden"
+			    id="userIdentifier"
+			    name="account">
 
-          <button
-            id="deleteAccountFormButton"
-            type="submit">Delete account</button>
+			<button
+			    id="deleteAccountFormButton"
+			    type="submit">Delete account</button>
 
-        </form>
-      </div>
-    </fieldset>
+		    </form>
+		</div>
+	    </fieldset>
 
-  </div>
-
-<div class="footerBar" id="footerBarType" value="A"></div>
-
-</body>
-<script src="/.static/js/api.js"></script>
-<script src="/.static/js/navInject.js"></script>
-<script src="/.static/js/footerInject.js"></script>
-<script src="/.static/js/accountManagement.js"></script>
-<script src="/.static/js/themes.js"></script>
-<script src="/.static/js/draggable.js"></script>
-<script src="/.static/js/watcher.js"></script>
+	</div>
+    </body>
+    <script src="/.static/js/api.js"></script>
+    <script src="/.static/js/accountManagement.js"></script>
+    <script src="/.static/js/themes.js"></script>
 <script src="/.static/js/favouriteBoards.js"></script>
 
 </html>

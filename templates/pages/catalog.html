@@ -1,22 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-	<!-- Matomo -->
-	<script type="text/javascript">
-	 var _paq = window._paq || [];
-	 /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
-	 _paq.push(['trackPageView']);
-	 _paq.push(['enableLinkTracking']);
-	 (function() {
-	     var u="//analytics.16chan.xyz/";
-	     _paq.push(['setTrackerUrl', u+'matomo.php']);
-	     _paq.push(['setSiteId', '1']);
-	     var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
-	     g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
-	 })();
-	</script>
-	<noscript><p><img src="//analytics.16chan.xyz/matomo.php?idsite=1&amp;rec=1" style="border:0;" alt="" /></p></noscript>
-	<!-- End Matomo Code -->
+	<script type="text/javascript" id="dynamicAnalytics"></script>
 	<meta charset="UTF-8" />
 	<meta
 	    name="viewport"
@@ -49,21 +34,25 @@
 	    href="/.static/css/settingsMenu.css"
 	    type="text/css"
 	    rel="stylesheet" />
+	<link
+	    href="/.static/css/board.css"
+	    type="text/css"
+	    rel="stylesheet" />
     </head>
     <body id="catalogPage">
 
 	<script src="/.static/js/themeLoader.js"></script>
 
-	<div class="navBar" id="navBarType" value="A"></div>
+	<nav id="dynamicHeader"></nav>
 
 	<p id="catalogId">
 	    <span class="title">Catalog of </span>
 	    <a
 		href="."
-		id="labelBoard"></a>
+		      id="labelBoard"></a>
 	</p>
 
-	<hr class="belowHeaderBar">
+	<hr id="belowHeader">
 
 	<center><div id="newThreadText">
 	    [<a href="#" onclick="displayFunction()">Start a New Thread</a>]
@@ -71,10 +60,10 @@
 
 	<div id="postingForm">
 
-	    <div id="hideThreadOption"><center>[<a onclick="hideDisplayFunction()">Hide</a>]</center></div>
+	    <div id="hideThread"><center>[<a onclick="hideDisplayFunction()">Hide</a>]</center></div>
 
 	    <fieldset id="newPostFieldset">
-		<div class="banner">Posting Mode: New Thread&nbsp;&nbsp;<a class="unimportant" href="./#">[Return]</a></div>
+		<div class="postingTypeBanner">Posting Mode: New Thread&nbsp;&nbsp;<a class="unimportant" href="./#">[Return]</a></div>
 
 		<form
 		    action="/newThread.js"
@@ -84,102 +73,120 @@
 		    <table id="postingTable">
 		    </table>
 
-		    <p class="small">
-			<ul>
-			    <li>Supported file types: GIF, JPG, PNG, WebM, OGG, and <a href="/.static/pages/about.html#fileTypeRef">more</a></li>
-			    <li>Remember to follow the
-				<a
-				    href="rules.html"
-				    class="rules">rules</a></li>
-		    </p>
+		    <div id="postingInformation"></div>
 
 		    <button
 			type="submit"
-			id="formButton">Post</button>
+			      id="formButton">Post</button>
 
 		</form>
 	    </fieldset>
 	</div>
 
-	<div id="announcementPlacement">
-	    <hr class="belowPostFieldset">
-	    <center>
-		<div id="announcementContent">
-		    • <font color="red"><b>Janitor/Global Moderator/Developer applications are now open! Please email <a href="mailto:admin@16chan.xyz">admin@16chan.xyz</a> or message 663 on Twitter if you're interested.</a></b></font>
-		    <br /><br />
-		    • The 16chan Android App is now live! Follow the installation guide <b><u><a href="/.static/pages/mobile.html">here</a></u></b>
-		</div>
-	    </center>
-	    <hr class="belowPostFieldset">
-	</div>
+	<hr id="belowPost">
+
+	<div id="dynamicAnnouncement"></div>
+
+	<noscript>
+	    <style>
+             #newThreadText {
+		 display: none;
+             }
+             #postingForm {
+		 display: block;
+             }
+	     #archive {
+		 display: none;
+	     }
+	    </style>
+	</noscript>
+
+	<hr id="belowPost">
 
 	<div id="innerUtility">
 	    <hr>
-	    <div id="innerUtilityContent">
-		&nbsp;[<a href="./#">Index</a>]&nbsp;[<a href="#footer">Bottom</a>]&nbsp;[<a onclick="location.reload()">Refresh</a>]
-		&nbsp;<button
-			  id="catalogRefreshButton"
-			  class="catalogLabel"
-			  onclick="catalog.refreshCatalog(true)">Refresh</button>
+
+	    <span>
+		[<a href="./#">Index</a>]
+	    </span>
+
+	    <span id="archive">
+		[<a id="archiveLinkBoard">Archive</a>]
+	    </span>
+
+	    <span>
+		[<a href="#footer">Bottom</a>]
+	    </span>
+
+	    <span>
+		<button
+		    id="catalogRefreshButton"
+			class="catalogLabel"
+			onclick="catalog.refreshCatalog(true)">Refresh</button>
 		<input
 		    type="checkbox"
 		    id="autoCatalogRefreshCheckBox"
-		    onchange="catalog.changeCatalogRefresh()">
-		<span
-		    class="catalogLabel"
-		    id="catalogRefreshLabel">Auto</span>
+		    onchange="catalog.changeCatalogRefresh()" checked>
+	    </span>
 
-		<div
-		    id="divTools"
-		    class="hidden">
+	    <span
+		class="catalogLabel"
+		       id="catalogRefreshLabel">Auto</span>
 
-		    <span class="catalogLabel">Search :</span>
-		    <input
-			type="text"
-			id="catalogSearchField">
-		</div>
+	    <div
+		id="divTools"
+		class="hidden">
+
+		<span class="catalogLabel">Search :</span>
+		<input
+		    type="text"
+		    id="catalogSearchField">
 	    </div>
 	    <hr>
 	</div>
 
 	<div
 	    id="divThreads"
-	    class="catalogDiv"></div>
+		class="catalogDiv"></div>
 
-	<div id="innerUtilityBottom">
+	<div id="innerUtility">
 	    <hr>
-	    &nbsp;[<a href="./#">Index</a>]&nbsp;[<a href="#">Top</a>]&nbsp;[<a onclick="location.reload()">Refresh</a>]
+
+	    <span>
+		[<a href="./#">Index</a>]
+	    </span>
+
+	    <span id="archive">
+		[<a id="archiveLinkBoardBottom">Archive</a>]
+	    </span>
+
+	    <span>
+		[<a href="#">Top</a>]
+	    </span>
+
+	    <span>
+		[<a onclick="location.reload()">Refresh</a>]
+	    </span>
+
 	    <hr>
 	</div>
 
-	<div class="footerBar" id="footerBarType" value="B"></div>
+	<footer id="dynamicFooterAlt"></footer>
 
     </body>
 
     <script src="/.static/js/api.js"></script>
-    <script src="/.static/js/navInject.js"></script>
-    <script src="/.static/js/footerInject.js"></script>
     <script src="/.static/js/crypt.js"></script>
     <script src="/.static/js/board.js"></script>
     <script src="/.static/js/postCommon.js"></script>
     <script src="/.static/js/captchaModal.js"></script>
-    <script src="/.static/js/catalog.js"></script>
-    <script src="/.static/js/thumbs.js"></script>
-    <script src="/.static/js/tooltips.js"></script>
-    <script src="/.static/js/posting.js"></script>
     <script src="/.static/js/captchaUtils.js"></script>
+    <script src="/.static/js/catalog.js"></script>
+    <script src="/.static/js/catalogSorting.js"></script>
     <script src="/.static/js/themes.js"></script>
     <script src="/.static/js/draggable.js"></script>
-    <script src="/.static/js/settingsMenu.js"></script>
-    <script src="/.static/js/hiding.js"></script>
-    <script src="/.static/js/mediaHiding.js"></script>
-    <script src="/.static/js/embed.js"></script>
-    <script src="/.static/js/postingMenu.js"></script>
     <script src="/.static/js/watcher.js"></script>
     <script src="/.static/js/favouriteBoards.js"></script>
-    <script src="/.static/js/bottomForms.js"></script>
     <script src="/.static/js/hideThread.js"></script>
 
 </html>
-
-

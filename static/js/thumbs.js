@@ -135,51 +135,6 @@ thumbs.setPlayer = function(link, mime) {
 
 };
 
-thumbs.generateHoverEvents = function(link) {
-  var floatingImage = null;
-
-  function linkMouseEnter(e) {
-    if (link.parentElement.classList.contains("expandedCell"))
-      return;
-
-    floatingImage = document.createElement("img");
-    floatingImage.className = "floatingImage";
-    floatingImage.src = link.href;
-    document.body.appendChild(floatingImage);
-
-    // trigger positioning of the image to the cursor
-    linkMouseMove(e);
-  }
-
-  function linkMouseMove(e) {
-    if (!floatingImage) return;
-    var top = e.pageY,
-        left = e.pageX,
-        // this is recalculated on hover, because the page might resize.
-        pageBottom = window.innerHeight,
-        pageRight = window.innerWidth,
-        box = floatingImage.getBoundingClientRect();
-
-    floatingImage.style.top = Math.min(top, pageBottom - box.height) + "px";
-    floatingImage.style.left = Math.min(left, pageRight - box.width) + "px";
-  }
-
-  function linkMouseLeave(e) {
-    document.body.removeChild(floatingImage);
-    floatingImage = null;
-  }
-
-  function linkHoverClick(e) {
-    if (floatingImage && link.parentElement.classList.contains("expandedCell"))
-      linkMouseLeave(e);
-  }
-
-  link.addEventListener("mouseenter", linkMouseEnter, false);
-  link.addEventListener("mousemove", linkMouseMove, false);
-  link.addEventListener("mouseleave", linkMouseLeave, false);
-  link.addEventListener("click", linkHoverClick, false);
-};
-
 thumbs.processImageLink = function(link) {
 
   var mime = link.dataset.filemime;
@@ -189,10 +144,6 @@ thumbs.processImageLink = function(link) {
     link.onclick = function(mouseEvent) {
       return thumbs.expandImage(mouseEvent, link, mime);
     };
-
-    if (localStorage.getItem("hoverImages") === "true") {
-      thumbs.generateHoverEvents(link);
-    }
 
   } else if (thumbs.playableTypes.indexOf(mime) > -1) {
     thumbs.setPlayer(link, mime);

@@ -1,98 +1,68 @@
 <!DOCTYPE html>
 <html>
-<head>
-<!-- Matomo -->
-<script type="text/javascript">
-  var _paq = window._paq || [];
-  /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
-  _paq.push(['trackPageView']);
-  _paq.push(['enableLinkTracking']);
-  (function() {
-    var u="//analytics.16chan.xyz/";
-    _paq.push(['setTrackerUrl', u+'matomo.php']);
-    _paq.push(['setSiteId', '1']);
-    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
-    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
-  })();
-</script>
-<noscript><p><img src="//analytics.16chan.xyz/matomo.php?idsite=1&amp;rec=1" style="border:0;" alt="" /></p></noscript>
-<!-- End Matomo Code -->
-<title>Global Rules</title>
-<meta charset="UTF-8">
-<meta
-  name="viewport"
-  content="width=device-width, initial-scale=1.0">
-<link
-  href="/.static/css/global.css"
-  type="text/css"
-  rel="stylesheet" />
-<link
-  href="/.static/css/index.css"
-  type="text/css"
-  rel="stylesheet" />
-<link
-  href="/.static/css/watcher.css"
-  type="text/css"
-  rel="stylesheet" />
-<link
-  href="/.static/css/posting.css"
-  type="text/css"
-  rel="stylesheet" />
-</head>
-<body>
+    <head>
+	<script type="text/javascript" id="dynamicAnalytics"></script>
+	<title>Global Rules</title>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="/.static/css/global.css" type="text/css" rel="stylesheet" />
+	<link href="/.static/css/index.css" type="text/css" rel="stylesheet" />
+	<link href="/.static/css/watcher.css" type="text/css" rel="stylesheet" />
+	<link href="/.static/css/posting.css" type="text/css" rel="stylesheet" />
+    </head>
 
-  <script src="/.static/js/themeLoader.js"></script>
+    <body>
 
-  <div class="navBar" id="navBarType" value="A"></div>
+	<script src="/.static/js/themeLoader.js"></script>
 
-  <div id="settingsWrapper">
+	<nav id="dynamicHeader"></nav>
 
-    <div
-      id="logoBox"
-      class="title">
-      <img
-        src="/.static/logo.png"
-        class="logoImg"
-        alt="logo" />
-    </div>
+	<div id="indexWrapper">
 
-  <h2>Global Rules</h2>
+            <div id="logoBox" class="title">
+		<a href="/">
+		    <img src="/.static/logo.png" class="logoImg" alt="logo" />
+		</a>
+            </div>
 
-  <div id="divStandardBox">
-    <ol style="padding-left: 20px;">
-      <li>In order to view any of the content on 16chan, you must be 18 years old.</li>
-      <li>Illegal content is not allowed 16chan, this includes but is not limited to:</li>
-	<ol style="padding-left: 20px;">
-	    <li>Serious threats of violence.</li>
-	    <li>Pornography of people under the age of 18. Which includes but is not limited to:</li>
-	        <ol style="padding-left: 20px;">
-                   <li>Cunny.</li>
-                   <li>Loli/Shota.</li>
-                </ol>
-            <li>Doxxing (releasing <b>private</b> information through illegal methods). 
-            Congregating <b>public</b> information is not considered doxxing.</li>
-            <li>Anything that breaks US law.</li>
-        </ol>
-      <li>Do not post off topic replies or threads, in addition, keep <b>slide threads</b> to a minimum. <b>Low quality threads will be transferred to /b/.
-      </b></li>
-      <li>Do not post suspicious links, this includes but is not limited to: IP grabbing services, and URL shortening services.
-      <li>Do not advertise.</li>
-      <li>Do not spam.</li>
-    </ol>
-  </div>
+	    <div id="dynamicLinks"></div>
 
-  </div>
+	    <div class="contentBox">
+		<h2>Global Rules</h2>
+		<div id="contentBoxInner">
+		    <ol>
+			<li>In order to view any of the content on 16chan, you must be 18 years old.</li>
+			<li>Illegal content is not allowed 16chan, this includes but is not limited to:</li>
+			<ol>
+			    <li>Serious threats of violence.</li>
+			    <li>Pornography of people under the age of 18. Which includes but is not limited to:</li>
+			    <ol>
+				<li>Cunny.</li>
+				<li>Loli/Shota.</li>
+			    </ol>
+			    <li>Doxxing (releasing <b>private</b> information through illegal methods).
+				Congregating <b>public</b> information is not considered doxxing.</li>
+			    <li>Anything that breaks US law.</li>
+			</ol>
+			<li>Do not post off topic replies or threads, in addition, keep <b>slide threads</b> to a minimum. <b>Low quality threads will be transferred to /b/.
+			</b></li>
+			<li>Do not post suspicious links, this includes but is not limited to: IP grabbing services, and URL shortening services.
+			    <li>Do not advertise.</li>
+			    <li>Do not spam.</li>
+		    </ol>
+		</div>
+	    </div>
 
-<div class="footerBar" id="footerBarType" value="A"></div>
+	</div>
 
-</body>
+	<footer id="dynamicFooter"></footer>
 
-<script src="/.static/js/api.js"></script>
-<script src="/.static/js/navInject.js"></script>
-<script src="/.static/js/footerInject.js"></script>
-<script src="/.static/js/themes.js"></script>
-<script src="/.static/js/draggable.js"></script>
-<script src="/.static/js/watcher.js"></script>
-<script src="/.static/js/favouriteBoards.js"></script>
+    </body>
+
+    <script src="/.static/js/api.js"></script>
+    <script src="/.static/js/themes.js"></script>
+    <script src="/.static/js/draggable.js"></script>
+    <script src="/.static/js/watcher.js"></script>
+    <script src="/.static/js/favouriteBoards.js"></script>
 
 </html>

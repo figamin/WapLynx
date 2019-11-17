@@ -1,193 +1,207 @@
 /*Elements shown on board and thread pages*/
 .selectedCell, .dropzone {
-  top: 5px;
-  text-align: center;
-  margin-bottom: 5px;
-  padding: 5px 0px;
+    top: 5px;
+    text-align: center;
+    margin-bottom: 5px;
+    padding: 5px 0px;
 }
 
 .selectedCell {
-  margin-top: 10px;
-  cursor: default;
+    margin-top: 10px;
+    cursor: default;
 }
 
 #bannerImage {
-  max-width: 100%;
+    max-width: 100%;
 }
 
 .dropzone {
-  cursor: pointer;
-  transition: all 0.2s ease 0s;
-  border: 1px solid #c5c8c6;
-  background: #282a2e;
-  font-size: 80%;
+    cursor: pointer;
+    transition: all 0.2s ease 0s;
 }
 
 .dragAndDropThumb {
-  max-height: 100px;
-  max-width: 85px;
+    max-height: 100px;
+    max-width: 85px;
+}
+
+#filesWrapper {
+    clear: both;
 }
 
 .removeButton {
-  cursor: pointer;
-  color: rgba(125, 125, 125, 0.5);
-  display: inline-block;
-  margin-right: 5px;
-  font-size: 20px;
+    cursor: pointer;
+    color: rgba(125, 125, 125, 0.5);
+    display: inline-block;
+    margin-right: 5px;
+    font-size: 20px;
 }
 
 .removeButton:hover {
-  color: #7D7D7D;
+    color: #7D7D7D;
 }
 
 #panelMessage {
-  margin: 1em;
+    margin: 1em;
 }
 
 #flagCombobox {
-  width: 85%;
+    width: 85%;
 }
 
 .flagPreview {
-  display: inline-block;
-  max-width: 10%;
-  height: 16px;
+    display: inline-block;
+    max-width: 10%;
+    height: 16px;
 }
 
 #divUpload, .centered {
-  text-align: center;
+    text-align: center;
 }
 
 #newPostFieldset {
-  display: inline-block;
-  padding-right: 0.75em;
-  width: 25em;
+    display: inline-block;
+    padding-right: 0.75em;
+    width: 25em;
+}
+
+div.postingTypeBanner {
+    background: #282a2e;
+    border: 1px solid #111;
+    text-align: center;
+    width: 260px;
+    padding: 4px;
+    padding-left: 12px;
+    padding-right: 12px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    font-size: 12px;
+    font-weight: bold;
 }
 
 #postingForm {
-  text-align: center;
-  margin: 1em auto;
-  margin-bottom: -10px;
-  display: none;
+    text-align: center;
+    margin: 1em auto;
+    margin-top: 0;
+    display: none;
 }
 
 #postingForm button, #qrbutton {
-  width: 8em;
-  margin: 0.5em auto;
-  font-size: 125%;
+    width: 8em;
+    margin: 0.5em auto;
+    font-size: 125%;
 }
 
 #postingForm label {
-  font-size: 80%;
-  clear: both;
-  display: inline-block;
-  vertical-align: text-bottom;
+    font-size: 80%;
+    vertical-align: middle;
 }
 
 #postingForm td, .modalTableBody td {
-  text-align: left;
+    text-align: left;
 }
 
 #postingForm th, .modalTableBody th {
-  font-weight: bold;
-  text-align: left;
-  width: 100px;
-  font-size: 80%;
-  padding-left: 0.1em;
-  cursor: default;
-  border: 1px solid #000;
-  padding: 0 5px;
-  background: #282a2e;
+    font-weight: bold;
+    text-align: left;
+    width: 100px;
+    font-size: 80%;
+    padding-left: 0.1em;
+    cursor: default;
+    border: 1px solid #000;
+    padding: 0 5px;
+    background: #282A2E;
 }
 
-.theme_clear #postingForm th, .theme_clear  .modalTableBody th {
-  background: #dddddd;
+.theme_clear #postingForm th, .theme_clear .modalTableBody th {
+    background: #dddddd;
 }
 
-input[type=checkbox].postingCheckbox {
-  display: true;
+#checkboxSpoiler+label:after {
+    content: "Spoiler";
+}
+
+#alwaysUseBypassCheckBox+label:after {
+    content: "Bypass check";
 }
 
 #checkboxNoFlag+label:after {
-  content: "No location";
+    content: "No location";
 }
 
-#boardContentLinks,
-#showFormsButton {
-  font-size: 80%;
-  float: right;
-}
-
-#showFormsButton {
-  clear: both;
+#boardContentLinks {
+    margin-top: 0.5em;
+    font-size: 80%;
+    float: right;
 }
 
 .modalPanel {
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  z-index: 200;
-  display: table;
-  text-align: center;
-  background: rgba(29, 31, 33, 0.66);
-  right: 0;
-  top: 0;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: 200;
+    display: table;
+    text-align: center;
+    background: rgba(29, 31, 33, 0.66);
+    right: 0;
+    top: 0;
 }
 
 .modalInnerPanel {
-  vertical-align: middle;
-  display: table-cell;
+    vertical-align: middle;
+    display: table-cell;
 }
 
 .modalDecorationPanel {
-  background: #1D1F21;
-  padding: 10px;
-  display: inline-block;
+    background: #1D1F21;
+    padding: 10px;
+    display: inline-block;
 }
 
 .theme_clear .modalDecorationPanel {
-  background: #cccccc;
+    background: #cccccc;
 }
 
 .modalHeader {
-  display: block;
-  margin-bottom: 5px;
-  font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
 }
 
 .modalCaptchaControls {
-  display: block;
-  text-align: left;
+    display: block;
+    text-align: left;
 }
 
 .modalCaptchaControls input, .modalOkButton {
-  margin-right: 10px;
+    margin-right: 10px;
 }
 
 #favouriteButton:before {
-  font-family: Icons;
-  content: "\e0c2";
-  margin-left: 0.5em;
-  cursor: pointer;
+    font-family: Icons;
+    content: "\e0c2";
+    margin-left: 0.5em;
+    cursor: pointer;
 }
 
 @media only screen and (max-width: 812px) {
-  .boardHeader p#labelDescription {
-    display: none;
-  }
-  #fieldMessage {
-    width: 100%;
-  }
-  .reportFieldset {
-    padding: 0;
-  }
-  #newPostFieldset {
-    width: unset;
-    padding: 0;
-    border: unset;
-  }
-  #postingForm th {
-    font-size: 80%;
-    width: 60px;
-  }
+    .boardHeader p#labelDescription {
+	display: none;
+    }
+    #fieldMessage {
+	width: 100%;
+    }
+    .reportFieldset {
+	padding: 0;
+    }
+    #newPostFieldset {
+	width: unset;
+	padding: 0;
+	border: unset;
+    }
+    #postingForm th {
+	font-size: 80%;
+	width: 60px;
+    }
 }

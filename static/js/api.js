@@ -2,6 +2,40 @@ var api = {};
 
 api.mobile = window.innerWidth < 812;
 
+api.padDateField = function(value) {
+
+  if (value < 10) {
+    value = '0' + value;
+  }
+
+  return value;
+
+};
+
+api.formatDateToDisplay = function(d, local) {
+
+  var day = api.padDateField(d[local ? 'getDate' : 'getUTCDate']());
+
+  var weekDays = [ 'Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat' ];
+
+  var month = api.padDateField(d[local ? 'getMonth' : 'getUTCMonth']() + 1);
+
+  var year = d[local ? 'getFullYear' : 'getUTCFullYear']();
+
+  var weekDay = weekDays[d[local ? 'getDay' : 'getUTCDay']()];
+
+  var hour = api.padDateField(d[local ? 'getHours' : 'getUTCHours']());
+
+  var minute = api.padDateField(d[local ? 'getMinutes' : 'getUTCMinutes']());
+
+  var second = api.padDateField(d.getUTCSeconds());
+
+  var toReturn = month + '/' + day + '/' + year;
+
+  return toReturn + ' (' + weekDay + ') ' + hour + ':' + minute + ':' + second;
+
+};
+
 api.htmlReplaceTable = {
   '<' : '&lt;',
   '>' : '&gt;',
@@ -147,8 +181,6 @@ api.handleConnectionResponse = function(xhr, callback, silent) {
       alert(response.data);
     }
 
-  } else if (response.status === 'fileTooLarge') {
-    alert('Maximum file size exceeded for a file.');
   } else if (response.status === 'hashBan') {
 
     var desc = '';
@@ -168,66 +200,79 @@ api.handleConnectionResponse = function(xhr, callback, silent) {
     }
 
     alert(desc);
-  } else if (response.status === 'formatNotAllowed') {
-    alert('A file had a format that is not allowed by the server.');
-  } else if (response.status === 'blank') {
-    alert('Parameter ' + response.data + ' was sent in blank.');
   } else if (response.status === 'bypassable') {
 
     postCommon.displayBlockBypassPrompt(function() {
       alert('You may now post');
     });
 
-  } else if (response.status === 'tooLarge') {
-    alert('Request refused because it was too large');
   } else if (response.status === 'maintenance') {
 
     if (!silent) {
       alert('The site is going under maintenance and all of it\'s functionalities are disabled temporarily.');
     }
 
-  } else if (response.status === 'fileParseError') {
-    alert('An uploaded file could not be parsed.');
-  } else if (response.status === 'parseError') {
-    alert('Your request could not be parsed.');
   } else if (response.status === 'banned') {
+
+    var message;
+
     if (response.data.range) {
-      alert('Your ip range ' + response.data.range + ' has been banned from '
-          + response.data.board + '.');
+      message = 'Your ip range ' + response.data.range
+          + ' has been banned from ' + response.data.board + '.';
+    } else if (response.data.asn) {
+      message = 'Your ASN ' + response.data.asn + ' has been banned from '
+          + response.data.board + '.';
+    } else if (response.data.warning) {
+      message = 'You have been warned on ' + response.data.board + '.';
     } else {
+      message = 'You are banned from ' + response.data.board + '.';
+    }
 
-      var message = 'You are banned from ' + response.data.board + ' until '
-          + new Date(response.data.expiration).toString() + '.\nReason: '
-          + response.data.reason + '.\nYour ban id: ' + response.data.banId
-          + '.';
+    if (response.data.reason) {
+      message += '\nReason: "' + response.data.reason + '".';
+    }
 
-      if (!response.data.appealled) {
-        message += '\nYou may appeal this ban.';
+    if (response.data.warning) {
+      return alert(message);
+    }
 
-        var appeal = prompt(message, 'Write your appeal');
+    if (response.data.expiration) {
 
-        if (appeal) {
+      message += '\nThis ban will expire at '
+          + new Date(response.data.expiration).toString() + '.';
 
-          api.formApiRequest('appealBan', {
-            appeal : appeal,
-            banId : response.data.banId
-          }, function appealed(status, data) {
+    } else {
+      message += '\nThis ban will not expire.'
+    }
 
-            if (status !== 'ok') {
-              alert(data);
-            } else {
-              alert('Ban appealed');
-            }
+    message += '\nYour ban id: ' + response.data.banId + '.';
 
-          });
+    if (!response.data.appealled) {
+      message += '\nYou may appeal this ban.';
 
-        }
+      var appeal = prompt(message, 'Write your appeal');
 
-      } else {
-        alert(message);
+      if (appeal) {
+
+        api.formApiRequest('appealBan', {
+          appeal : appeal,
+          banId : response.data.banId
+        }, function appealed(status, data) {
+
+          if (status !== 'ok') {
+            alert(data);
+          } else {
+            alert('Ban appealed');
+          }
+
+        });
+
       }
 
+    } else {
+      alert(message);
     }
+
   } else {
     callback(response.status, response.data);
   }

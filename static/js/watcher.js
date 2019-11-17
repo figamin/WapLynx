@@ -33,7 +33,7 @@ watcher.init = function() {
   watcher.watchedMenu = document.createElement('div');
 
   var watchedMenuLabel = document.createElement('label');
-  watchedMenuLabel.innerHTML = 'Watched Threads';
+  watchedMenuLabel.innerHTML = 'Watched threads';
 
   watcher.watchedMenu.appendChild(watchedMenuLabel);
 
@@ -63,7 +63,14 @@ watcher.init = function() {
 
   document.body.appendChild(watcher.watchedMenu);
 
+    //Added ability to reclick on Watching in order to toggle the view
   watcherButton.onclick = function() {
+
+      if (watcher.watchedMenu.style.display === 'none') {
+	  watcher.watchedMenu.style.display = 'block';
+      } else {
+	  watcher.watchedMenu.style.display = 'none';
+      }
 
     if (showingWatched) {
       return;
@@ -113,6 +120,15 @@ watcher.init = function() {
 };
 
 watcher.updateWatcherCounter = function() {
+
+  var classList = watcherButton.classList;
+
+  if (watcher.watcherAlertCounter) {
+    classList.add('mobileAlert');
+  } else {
+    classList.remove('mobileAlert');
+  }
+
   watcher.watcherCounter.innerHTML = watcher.watcherAlertCounter ? '('
       + watcher.watcherAlertCounter + ')' : '';
 };

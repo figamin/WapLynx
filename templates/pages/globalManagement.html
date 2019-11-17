@@ -1,249 +1,244 @@
 <!DOCTYPE html>
 <html>
-<head>
-<!-- Matomo -->
-<script type="text/javascript">
-  var _paq = window._paq || [];
-  /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
-  _paq.push(['trackPageView']);
-  _paq.push(['enableLinkTracking']);
-  (function() {
-    var u="//analytics.16chan.xyz/";
-    _paq.push(['setTrackerUrl', u+'matomo.php']);
-    _paq.push(['setSiteId', '1']);
-    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
-    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
-  })();
-</script>
-<noscript><p><img src="//analytics.16chan.xyz/matomo.php?idsite=1&amp;rec=1" style="border:0;" alt="" /></p></noscript>
-<!-- End Matomo Code -->
-<meta charset="UTF-8" />
-<meta
-  name="viewport"
-  content="width=device-width, initial-scale=1.0">
-<link
-  href="/.static/css/global.css"
-  type="text/css"
-  rel="stylesheet" />
-<link
-  href="/.static/css/posting.css"
-  type="text/css"
-  rel="stylesheet" />
-<link
-  href="/.static/css/watcher.css"
-  type="text/css"
-  rel="stylesheet" />
-</head>
-<body>
+    <head>
+	<script type="text/javascript" id="dynamicAnalytics"></script>
+	<meta charset="UTF-8" />
+	<meta
+	    name="viewport"
+	    content="width=device-width, initial-scale=1.0">
+	<link
+	    href="/.static/css/global.css"
+	    type="text/css"
+	    rel="stylesheet" />
+	<link
+	    href="/.static/css/posting.css"
+	    type="text/css"
+	    rel="stylesheet" />
+    </head>
+    <body>
 
-  <script src="/.static/js/themeLoader.js"></script>
+	<script src="/.static/js/themeLoader.js"></script>
 
-  <div class="navBar" id="navBarType" value="A"></div>
+	<nav id="dynamicHeader"></nav>
 
-  <header>
-    <img
-      src="/.static/logo.png"
-      class="logoImg"
-      alt="logo" />
-  </header>
+	<header>
+	    <img
+		src="/.static/logo.png"
+		     class="logoImg"
+		     alt="logo" />
+	</header>
 
-  <div id="settingsWrapper">
+	<div id="settingsWrapper">
 
-    <fieldset id="settingsFieldset">
+	    <fieldset id="settingsFieldset">
 
-      <legend>Global Management</legend>
+		<legend>Global Management</legend>
 
-      <form
-        id="addStaffForm"
-        method="post"
-        enctype="multipart/form-data"
-        action="/setGlobalRole.js">
-        <hr />
-        <h3>Add user to global staff</h3>
+		<form
+		    id="addStaffForm"
+		    method="post"
+		    enctype="multipart/form-data"
+		    action="/setGlobalRole.js">
+		    <hr />
+		    <h3>Add user to global staff</h3>
 
-        <label>
-          Username:
-          <input
-            type="text"
-            name="login"
-            class="addUserField"
-            id="fieldLogin">
-        </label>
-        <label>
-          Role:
-          <select
-            name="role"
-            id="newStaffCombo"></select>
-        </label>
+		    <label>
+			Username:
+			<input
+			    type="text"
+			    name="login"
+			    class="addUserField"
+			    id="fieldLogin">
+		    </label>
+		    <label>
+			Role:
+			<select
+			    name="role"
+			    id="newStaffCombo"></select>
+		    </label>
 
-        <button
-          type="submit"
-          id="addFormButton">Add user</button>
+		    <button
+			type="submit"
+			      id="addFormButton">Add user</button>
 
-      </form>
+		</form>
 
-      <div id="divStaff">
-        <hr />
-        <h3>Global Staff</h3>
-      </div>
-      <hr>
+		<div id="divStaff">
+		    <hr />
+		    <h3>Global staff</h3>
+		</div>
+		<hr>
 
-      <a
-        id="globalSettingsLink"
-        href="/globalSettings.js">
-        Global Settings
-        <br>
-      </a>
-      <a
-        id="socketLink"
-        href="/socketControl.js">
-        Unix socket
-        <br>
-      </a>
-      <a
-        id="languagesLink"
-        href="/languages.js">
-        Alternative languages
-        <br>
-      </a>
-      <a
-        id="accountsLink"
-        href="/accounts.js">
-        Manage User Accounts
-        <br>
-      </a>
-      <a
-        id="globalBannersLink"
-        href="/bannerManagement.js">
-        Global Banners
-        <br>
-      </a>
-      <a
-        id="bansLink"
-        href="/bans.js">
-        Bans
-        <br>
-      </a>
-      <a
-        id="rangeBansLink"
-        href="/rangeBans.js">
-        Range Bans
-        <br>
-      </a>
-      <a
-        id="hashBansLink"
-        href="/hashBans.js">
-        Hash Bans
-        <br>
-      </a>
-      <a href="/mediaManagement.js">Media management</a>
-      <br>
-      <a href="/closedReports.js">Closed Reports</a>
-      <hr>
-      <h3>Open reports</h3>
-      <form
-        method="post"
-        action="/closeReports.js"
-        enctype="multipart/form-data">
-        <div id="reportDiv"></div>
+		<a
+		    id="globalSettingsLink"
+		    href="/globalSettings.js">
+		    Global settings
+		    <br>
+		</a>
+		<a
+		    id="globalFiltersLink"
+		    href="/filterManagement.js">
+		    Global filters
+		    <br>
+		</a>
+		<a
+		    id="socketLink"
+		    href="/socketControl.js">
+		    Unix socket
+		    <br>
+		</a>
+		<a
+		    id="languagesLink"
+		    href="/languages.js">
+		    Alternative languages
+		    <br>
+		</a>
+		<a
+		    id="accountsLink"
+		    href="/accounts.js">
+		    Manage user accounts
+		    <br>
+		</a>
+		<a
+		    id="globalBannersLink"
+		    href="/bannerManagement.js">
+		    Global banners
+		    <br>
+		</a>
+		<a
+		    id="bansLink"
+		    href="/bans.js">
+		    Bans
+		    <br>
+		</a>
+		<a
+		    id="rangeBansLink"
+		    href="/rangeBans.js">
+		    Range bans
+		    <br>
+		</a>
+		<a
+		    id="asnBansLink"
+		    href="/asnBans.js">
+		    ASN bans
+		    <br>
+		</a>
+		<a
+		    id="hashBansLink"
+		    href="/hashBans.js">
+		    Hash bans
+		    <br>
+		</a>
+		<a href="/mediaManagement.js">Media management</a>
+		<br>
+		<a href="/closedReports.js">Closed Reports</a>
+		<hr>
+		<h3>Open reports</h3>
+		<form
+		    method="post"
+		    action="/closeReports.js"
+		    enctype="multipart/form-data">
+		    <div id="reportDiv"></div>
 
-        <label>
-          <input
-            type="checkbox"
-            class="closeReportsField"
-            name="deleteContent"
-            id="deleteContentCheckbox">
-          Delete reported content after closing the reports
-        </label>
-        <label>
-          <input
-            type="checkbox"
-            name="banReporter"
-            class="closeReportsField"
-            id="banReporterCheckbox">
-          Ban reporters
-        </label>
-        <label>
-          Ban duration:
-          <input
-            type="text"
-            class="closeReportsField"
-            id="fieldBanDuration"
-            name="duration">
-        </label>
-        <button
-          type="submit"
-          id="closeReportsFormButton">Close selected reports</button>
+		    <label>
+			<input
+			    type="checkbox"
+			    class="closeReportsField"
+			    name="deleteContent"
+			    id="deleteContentCheckbox">
+			Delete reported content after closing the reports
+		    </label>
+		    <label>
+			<input
+			    type="checkbox"
+			    name="banReporter"
+			    class="closeReportsField"
+			    id="banReporterCheckbox">
+			Ban reporters
+		    </label>
+		    <label>
+			Ban duration:
+			<input
+			    type="text"
+			    class="closeReportsField"
+			    id="fieldBanDuration"
+			    name="duration">
+		    </label>
+		    <label>
+			Ban reason:
+			<input
+			    type="text"
+			    class="closeReportsField"
+			    id="fieldBanReason"
+			    name="banReason">
+		    </label>
+		    <button
+			type="submit"
+			      id="closeReportsFormButton">Close selected reports</button>
 
-      </form>
+		</form>
 
-      <hr />
+		<hr />
 
-      <div id="appealedBansPanel">
-        <h3>Appealed Bans</h3>
-      </div>
+		<div id="appealedBansPanel">
+		    <h3>Appealed Bans</h3>
+		</div>
 
-      <div id="massBanPanel">
-        <form
-          method="post"
-          action="/massBan.js"
-          enctype="multipart/form-data">
-          <h3>Mass bans</h3>
+		<div id="massBanPanel">
+		    <form
+			method="post"
+				action="/massBan.js"
+				enctype="multipart/form-data">
+			<h3>Mass bans</h3>
 
-          <label>
-            Clear text ips, separated by commas:
-            <input
-              type="text"
-              name="ips"
-              class="massBanField"
-              id="fieldIps">
-          </label>
+			<label>
+			    Clear text ips, separated by commas:
+			    <input
+				type="text"
+				      name="ips"
+				      class="massBanField"
+				      id="fieldIps">
+			</label>
 
-          <label>
-            Ban duration:
-            <input
-              type="text"
-              name="duration"
-              class="massBanField"
-              id="fieldDuration">
-          </label>
+			<label>
+			    Ban duration:
+			    <input
+				type="text"
+				      name="duration"
+				      class="massBanField"
+				      id="fieldDuration">
+			</label>
 
-          <label>
-            Ban reason:
-            <input
-              type="text"
-              class="massBanField"
-              name="reason"
-              id="fieldReason">
-          </label>
+			<label>
+			    Ban reason:
+			    <input
+				type="text"
+				      class="massBanField"
+				      name="reason"
+				      id="fieldReason">
+			</label>
 
-          <label>
-            <button
-              type="submit"
-              id="massBanFormButton">Ban</button>
-          </label>
-        </form>
-      </div>
+			<label>
+			    <button
+				type="submit"
+				      id="massBanFormButton">Ban</button>
+			</label>
+		    </form>
+		</div>
 
-    </fieldset>
+	    </fieldset>
 
-  </div>
+	</div>
 
-<div class="footerBar" id="footerBarType" value="A"></div>
+    </body>
 
-</body>
-
-<script src="/.static/js/api.js"></script>
-<script src="/.static/js/navInject.js"></script>
-<script src="/.static/js/footerInject.js"></script>
-<script src="/.static/js/reports.js"></script>
-<script src="/.static/js/globalManagement.js"></script>
-<script src="/.static/js/bans.js"></script>
-<script src="/.static/js/themes.js"></script>
-<script src="/.static/js/draggable.js"></script>
-<script src="/.static/js/watcher.js"></script>
-<script src="/.static/js/thumbs.js"></script>
-<script src="/.static/js/embed.js"></script>
+    <script src="/.static/js/api.js"></script>
+    <script src="/.static/js/reports.js"></script>
+    <script src="/.static/js/globalManagement.js"></script>
+    <script src="/.static/js/bans.js"></script>
+    <script src="/.static/js/themes.js"></script>
+    <script src="/.static/js/thumbs.js"></script>
+    <script src="/.static/js/embed.js"></script>
 <script src="/.static/js/favouriteBoards.js"></script>
 
 </html>

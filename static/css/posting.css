@@ -1,43 +1,38 @@
 /*Used for places where posts are displayed*/
 .hideButton, .embedButton, #closeWatcherMenuButton, .watchButton,
-  .watchedCellCloseButton, .hideFileButton, .extraMenuButton,
-  #closeSettingsMenuButton {
-  margin-left: 0.5em;
+.watchedCellCloseButton, .hideFileButton, .extraMenuButton,
+#closeSettingsMenuButton {
+    margin-left: 0.5em;
 }
 
 .imgExpanded {
-  max-width: 100%;
+    max-width: 100%;
 }
 
 video {
-  max-width: 100%;
+    max-width: 100%;
 }
 
 code {
-  white-space: pre;
-}
-
-code br {
-  display: none;
+    white-space: pre;
 }
 
 .imgLink, #selectedDivQr .selectedCell, #selectedDiv .selectedCell {
-  float: left;
+    float: left;
 }
 
 #selectedDivQr .nameLabel, #selectedDiv .nameLabel {
-  display: inline-block;
-  max-width: 70px;
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
+    display: inline-block;
+    max-width: 70px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
 
 .reportFieldset {
-  margin-top: 1em;
-  padding: 0.5em;
-  margin-bottom: 1em;
-  width: max-content;
+    margin-top: 1em;
+    padding: 0.5em;
+    margin-bottom: 1em;
 }
 
 .labelId {
@@ -46,350 +41,344 @@ code br {
     padding: 1px 4px;
     border-radius: 2px;
     text-shadow: 1px 1px 2px #000;
-    background-image: linear-gradient(-45deg,rgba(0,0,0,0.2),rgba(255,255,255,0.2));
+    background-image: linear-gradient(-45deg, rgba(0,0,0,0.2), rgba(255,255,255,0.2));
     color: #fff;
     border: 1px solid rgba(0,0,0,0.1);
-}
-
-.labelId:hover {
-  color: #c5c8c6;
+    font-weight: bold;
 }
 
 .quoteTooltip {
-  position: absolute;
-  display: none;
-  border: 1px solid #000;
+    position: absolute;
+    display: none
 }
 
 #formMore {
-  cursor: pointer;
+    cursor: pointer;
 }
 
 .unhideButton, .embedButton {
-  font-size: 80%;
+    font-size: 80%;
 }
 
 .extraMenu, .hideMenu {
-  position: absolute;
-  top: 0;
-  left: 100%;
-  margin-left: 10px;
-  z-index: 1;
-  font-weight: normal;
-  white-space: nowrap;
-  cursor: default;
-  color: #c5c8c6;
-  text-shadow: none;
+    position: absolute;
+    top: 0;
+    left: 100%;
+    margin-left: 10px;
+    z-index: 1;
+    font-weight: normal;
+    white-space: nowrap;
+    cursor: default;
+    color: #ACACAC;
+    text-shadow: none;
+}
+
+.floatingMenu.extraMenu div:hover {
+    color: #81a2be;
 }
 
 .hideMenu div, .extraMenu div {
-  cursor: pointer;
+    cursor: pointer;
 }
 
 .extraMenuButton, .hideButton {
-  position: relative;
+    position: relative;
 }
 
 .hideButton::before {
-  content: '\e017';
+    content: '\e017';
 }
 
 .postInfo, .opHead, .divMessage, .panelUploads, .panelIp, .panelProxyIp,
-  .contentOmissionIndicator, .labelOmission, .labelId {
-  font-size: 80%;
+.contentOmissionIndicator, .labelOmission, .labelId, .panelASN {
+    font-size: 80%;
 }
 
 .postInfo {
-  margin-right: 5px;
+    margin-right: 5px;
 }
 
 .divPosts {
-  margin: 1em 0;
+    margin: 1em 0;
 }
 
 .postCell {
-  margin: 0.25em 0;
+    margin: 0.25em 0;
 }
 
 .linkName {
-  font-weight: bold;
-  color: #c5c8c6;
+    font-weight: bold;
+    color: #c5c8c6;
+}
+
+.linkName:hover {
+    color: #c5c8c6;
 }
 
 .noEmailName, .noEmailName:hover {
-  color: #c5c8c6;
-  text-shadow: none;
+    color: #c5c8c6;
+    text-shadow: none;
 }
 
 .quoteLink {
-  text-decoration: underline;
+    color: #81a2be;
+}
+
+a.quoteLink {
+    text-decoration: underline;
 }
 
 .linkSelf {
-  color: #c5c8c6;
-  text-decoration: none;
+    color: #ACACAC;
+    text-decoration: none;
+}
+
+.linkSelf:hover {
+    color: #81a2be;
 }
 
 .linkQuote {
-  color: #c5c8c6;
-  text-decoration: none;
+    color: #ACACAC;
+    text-decoration: none;
+}
+
+.linkQuote:hover {
+    color: #5f89ac;
 }
 
 .labelSubject {
-  color: #b294bb;
-  font-weight: bold;
+    color: #b294bb;
+    font-weight: bold;
 }
 
 .labelRole {
-  color: #81a2be;
-  font-weight: bold;
+    color: #81a2be;
+    font-weight: bold;
 }
 
 .labelRole:before {
-  font-family: Icons;
-  content: "\e020";
+    font-family: Icons;
+    content: "\e020";
+    color: #81a2be;
 }
 
 .divMessage {
-  margin: 1em 1em 1em 3em;
-  word-wrap: break-word;
-}
-
-.multipleUploads .innerPost .divMessage, .multipleUploads .markedPost .divMessage
-  {
-  clear: both;
+    margin: 1em 1em 1em 3em;
+    white-space: pre-wrap;
+    word-wrap: break-word;
 }
 
 .divBanMessage {
-  color: #ff0000;
-  font-weight: bold;
-  margin: 1em;
-  font-size: 100%;
+    color: #ff0000;
+    font-weight: bold;
+    margin: 1em;
+    font-size: 100%;
 }
 
 .divBanMessage:before {
-  font-family: Icons;
-  content: "\e0d8";
-  color: #A00;
+    font-family: Icons;
+    content: "\e0d8";
+    color: #A00;
 }
 
 .uploadCell {
-  margin: 0.25em 1em 0.25em 0.5em;
-  float: none;
+    margin: 0.25em 1em 0.25em 0.5em;
+    float: none;
 }
 
 .uploadCell img {
-  float: left;
-  margin-right: 1em;
-  margin-bottom: 1em;
+    float: left;
+    margin-right: 1em;
+    margin-bottom: 1em;
 }
 
 /*Change the dimensions if you wish for larger thumbs*/
 .uploadCell img:not(.imgExpanded) {
-  max-width: 125px;
-  height: 125px;
-  object-fit: contain;
+    max-width: 128px;
+    height: auto;
+    object-fit: contain;
 }
 
-.multipleUploads .opUploadPanel, .multipleUploads .panelUploads {
-  float: left;
-  width: 100%;
+.multipleUploads {
+    float: left;
+    width: 100%;
 }
 
 .multipleUploads .uploadCell:not(.expandedCell) {
-  max-width: 150px;
-  float: left;
+    max-width: 150px;
+    float: left;
 }
 
 .uploadDetails {
-  margin-bottom: 0.5em;
+    margin-bottom: 0.5em;
 }
 
 .originalNameLink {
-  display: inline-block;
-  vertical-align: top;
-  max-width: 155px;
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  text-decoration: underline;
+    display: inline-block;
+    vertical-align: top;
+    max-width: 155px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
 
 .originalNameLink:hover {
-  max-width: 100%;
+    max-width: 100%;
 }
 
 .opCell {
-  clear: left;
+    clear: left;
 }
 
 .panelBacklinks a {
-  padding-left: 0.5em;
-  color: #81a2be;
-  text-decoration: underline;
+    padding-left: 0.15em;
+    color: #81a2be;
+    text-decoration: none;
+}
+
+.panelBacklinks a:hover {
+    color: #5f89ac;
 }
 
 .hideLink {
-  vertical-align: top;
-  padding-right: 3px;
-  color: #c5c8c6;
+    vertical-align: top;
+    color: #c5c8c6;
 }
 
 .aa {
-  font-family: Mona, "MS PGothic", "ＭＳ Ｐゴシック", sans-serif;
-  display: block !important;
-  font-size: 12pt;
-  line-height: 1.1;
+    font-family: Mona, "MS PGothic", "ＭＳ Ｐゴシック", sans-serif;
+    display: block !important;
+    font-size: 12pt;
+    line-height: 1.1;
 }
 
 .labelLastEdit {
-  font-size: 80%;
-  margin-top: 0.75em;
-  margin-left: 0.75em;
+    font-size: 80%;
+    margin-top: 0.75em;
+    margin-left: 0.75em;
+    color: #707070;
 }
 
 .contentOmissionIndicator {
-  margin: 1em 0;
+    margin: 1em 0;
 }
 
 .labelOmission {
-  margin-top: 0.5em;
-  margin-left: 0.5em;
-  color: #707070;
+    margin-top: 0.5em;
+    margin-left: 0.5em;
+    color: #707070;
 }
 
 .imgFlag {
-  max-width: 16px;
-  max-height: 16px;
+    max-width: 16px;
+    max-height: 16px;
 }
 
 /*Board header*/
-.boardHeader p {
-  color: #c5c8c6;
+
+.boardHeader #labelDescription {
+    text-shadow: none;
 }
 
 .boardHeader p#labelName {
-  font-size: 200%;
-  display: inline-block;
-  font-weight: bold;
+    display: inline-block;
 }
 
 .boardHeader #favouriteButton {
-  font-size: 200%;
-  display: none;
+    font-size: 125%;
+    vertical-align: text-bottom;
 }
 
 .boardHeader p#labelDescription {
-  font-size: 100%;
+    font-size: 100%;
 }
 
 .boardHeader a {
-  font-size: 75%;
-  display: inline-block;
-  text-decoration: none;
+    font-size: 75%;
+    display: inline-block;
+    text-decoration: none;
 }
 
 .unhideButton {
-  clear: left;
-}
-
-
-/* hovering images */
-.floatingImage {
-  position: fixed;
-  max-height: 100%;
-  max-width: 100%;
-  pointer-events: none;
-}
-
-/* you css */
-
-.labelYou {
-  color: #34ED97;
-  font-weight: normal;
-  padding: 0 3px;
-}
-
-.quoteLink.you:after {
-  content: " (You)";
-  color: #ACACAC;
+    clear: left;
 }
 
 
 /*Actions form*/
 #threadList {
-  margin: 1em;
+    margin: 1em;
+    margin-top: 0;
 }
 
 #divMessage {
-  text-align: center;
+    text-align: center;
 }
 
 .multipleUploads .labelHash {
-  word-wrap: anywhere;
+    word-wrap: anywhere;
 }
 
 .contentAction label, #divControls label, #transferControls label,
-  #ipDelete label, #divArchive label {
-  font-size: 80%;
+#ipDelete label, #divArchive label {
+    font-size: 80%;
 }
 
 .extraMenuButton::before {
-  content: '\e02f';
+    content: '\e034';
 }
 
 .nameLink::after {
-  content: 'Open file';
+    content: 'Open file';
 }
 
 .hideFileButton::after {
-  content: '(Hide file)';
+    content: '(Hide file)';
 }
 
 .hiddenFile::after {
-  content: '(Show file)';
+    content: '(Show file)';
 }
 
 @media only screen and (max-width: 812px) {
-  .uploadCell img:not(.imgExpanded) {
-    max-width: 75px;
-    max-height: 75px;
-    object-fit: cover;
-  }
-  .multipleUploads .opUploadPanel, .multipleUploads .panelUploads {
-    display: inline-flex;
-  }
-  .postInfo, .opHead, .divMessage, .panelUploads, .panelIp, .panelProxyIp,
+    .uploadCell img:not(.imgExpanded) {
+	max-width: 75px;
+	max-height: 75px;
+	object-fit: cover;
+    }
+    .multipleUploads {
+	display: block;
+    }
+    .postInfo, .opHead, .divMessage, .panelUploads, .panelIp, .panelProxyIp,
     .contentOmissionIndicator, .labelOmission, .labelId {
-    font-size: 100%;
-  }
-  .innerPost, .markedPost {
-    width: 100%;
-    padding: 0;
-  }
-  #threadList {
-    margin: 0;
-  }
-  iframe {
-    display: block;
-    width: 100%;
-  }
-  .divPosts {
-    margin: .25em;
-  }
-  .nameLink::after {
-    content: 'Open';
-  }
-  .hideFileButton::after {
-    content: '(Hide)';
-  }
-  .hiddenFile::after {
-    content: '(Show)';
-  }
-  .originalNameLink, .labelCreated, .sizeLabel, .dimensionLabel {
-    display: none;
-  }
-  .divMessage {
-    margin-left: 1em;
-  }
+	font-size: 100%;
+    }
+    .innerPost, .markedPost {
+	width: 100%;
+	padding: 0;
+    }
+    #threadList {
+	margin: 0;
+    }
+    iframe {
+	display: block;
+	width: 100%;
+    }
+    .divPosts {
+	margin: .25em;
+    }
+    .nameLink::after {
+	content: 'Open';
+    }
+    .hideFileButton::after {
+	content: '(Hide)';
+    }
+    .hiddenFile::after {
+	content: '(Show)';
+    }
+    .originalNameLink, .labelCreated, .sizeLabel, .dimensionLabel {
+	display: none;
+    }
+    .divMessage {
+	margin-left: 1em;
+    }
 }

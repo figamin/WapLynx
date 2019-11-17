@@ -28,6 +28,10 @@ function toggleBoxes() {
     }
 }
 
-function returnToPage() {
-    window.history.back();
+function goBack() {
+    window.location = document.referrer;
 }
+
+//Simple way to get the Uri of the board and direct to archives
+document.getElementById("archiveLinkBoard").href = ("/archives.js?boards=" + document.getElementById("boardIdentifier").getAttribute('value'));
+document.getElementById("archiveLinkBoardBottom").href = ("/archives.js?boards=" + document.getElementById("boardIdentifier").getAttribute('value'));

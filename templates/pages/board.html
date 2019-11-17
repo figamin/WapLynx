@@ -1,280 +1,178 @@
 <!DOCTYPE html>
 <html>
     <head>
-	<!-- Matomo -->
-	<script type="text/javascript">
-	 var _paq = window._paq || [];
-	 /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
-	 _paq.push(['trackPageView']);
-	 _paq.push(['enableLinkTracking']);
-	 (function() {
-	     var u="//analytics.16chan.xyz/";
-	     _paq.push(['setTrackerUrl', u+'matomo.php']);
-	     _paq.push(['setSiteId', '1']);
-	     var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
-	     g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
-	 })();
-	</script>
-	<noscript><p><img src="//analytics.16chan.xyz/matomo.php?idsite=1&amp;rec=1" style="border:0;" alt="" /></p></noscript>
-	<!-- End Matomo Code -->
+	<script type="text/javascript" id="dynamicAnalytics"></script>
 	<meta charset="UTF-8" />
-	<meta
-	    name="viewport"
-	    content="width=device-width, initial-scale=1.0">
-	<link
-	    href="/.static/css/global.css"
-	    type="text/css"
-	    rel="stylesheet" />
-	<link
-	    href="/.static/css/posting.css"
-	    type="text/css"
-	    rel="stylesheet" />
-	<link
-	    href="/.static/css/thread.css"
-	    type="text/css"
-	    rel="stylesheet" />
-	<link
-	    href="/.static/css/board.css"
-	    type="text/css"
-	    rel="stylesheet" />
-	<link
-	    href="/.static/css/boardContent.css"
-	    type="text/css"
-	    rel="stylesheet" />
-	<link
-	    href="/.static/css/watcher.css"
-	    type="text/css"
-	    rel="stylesheet" />
-	<link
-	    href="/.static/css/settingsMenu.css"
-	    type="text/css"
-	    rel="stylesheet" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="/.static/css/global.css" type="text/css" rel="stylesheet" />
+	<link href="/.static/css/posting.css" type="text/css" rel="stylesheet" />
+	<link href="/.static/css/thread.css" type="text/css" rel="stylesheet" />
+	<link href="/.static/css/board.css" type="text/css" rel="stylesheet" />
+	<link href="/.static/css/boardContent.css" type="text/css" rel="stylesheet" />
+	<link href="/.static/css/watcher.css" type="text/css" rel="stylesheet" />
+	<link href="/.static/css/settingsMenu.css" type="text/css" rel="stylesheet" />
     </head>
+
     <body>
 
 	<script src="/.static/js/themeLoader.js"></script>
 
-	<div class="navBar" id="navBarType" value="B"></div>
+	<nav id="dynamicHeaderAlt"></nav>
 
 	<header class="boardHeader">
-	    <img id="bannerImage" />
-	    <div>
+            <img id="bannerImage" />
+            <div>
 		<p id="labelName"></p>
-	    </div>
-	    <p id="labelDescription"></p>
+            </div>
+            <p id="labelDescription"></p>
 	</header>
 
-	<hr class="belowHeaderBar">
+	<hr id="belowHeader">
 
-	<center><div id="newThreadText">
-	    [<a href="#" onclick="displayFunction()">Start a New Thread</a>]
-	</div></center>
+	<center>
+            <div id="newThreadText">
+		[<a href="#" onclick="displayFunction()">Start a New Thread</a>]
+            </div>
+	</center>
 
 	<div id="postingForm">
 
-	    <div id="hideThreadOption"><center>[<a onclick="hideDisplayFunction()">Hide</a>]</center></div>
+            <div id="hideThread">
+		<center>[<a onclick="hideDisplayFunction()">Hide</a>]</center>
+            </div>
 
-	    <fieldset id="newPostFieldset">
+            <fieldset id="newPostFieldset">
 
-		<div class="banner">Posting Mode: New Thread</div>
+		<div class="postingTypeBanner">Posting Mode: New Thread</div>
 
-		<form
-		    action="/newThread.js"
-		    enctype="multipart/form-data"
-		    method="post">
+		<form action="/newThread.js" enctype="multipart/form-data" method="post">
 
-		    <table id="postingTable">
-		    </table>
+                    <table id="postingTable">
+                    </table>
 
-		    <p class="small">
-			<ul>
-			    <li>Supported file types: GIF, JPG, PNG, WebM, OGG, and <a href="/.static/pages/about.html#fileTypeRef">more</a></li>
-			    <li>Remember to follow the
-				<a
-				    href="rules.html"
-				    class="rules">rules</a></li>
-		    </p>
+		    <div id="postingInformation"></div>
 
-		    <button
-			type="submit"
-			id="formButton">Post</button>
+                    <button type="submit" id="formButton">Post</button>
+
 		</form>
-	    </fieldset>
+
+            </fieldset>
 	</div>
+	    </div>
 
-	<div id="announcementPlacement">
-	    <hr class="belowPostFieldset">
-	    <center>
-		<div id="announcementContent">
-		    • <font color="red"><b>Janitor/Global Moderator/Developer applications are now open! Please email <a href="mailto:admin@16chan.xyz">admin@16chan.xyz</a> or message 663 on Twitter if you're interested.</a></b></font>
-		    <br /><br />
-		    • The 16chan Android App is now live! Follow the installation guide <b><u><a href="/.static/pages/mobile.html">here</a></u></b>
-		</div>
-	    </center>
-	    <hr class="belowPostFieldset">
-	</div>
+	    <noscript>
+		<style>
+		 #newThreadText {
+		     display: none;
+		 }
+		 #postingForm {
+		     display: block;
+		 }
+		 #archive {
+		     display: none;
+		 }
+		</style>
+	    </noscript>
 
-	<div id="panelMessage">
-	    <hr>
-	    <div id="divMessage"></div>
-	</div>
+	    <hr id="belowPost">
 
-	<div id="innerUtility">
-	    <hr>
-	    &nbsp;[<a href="./catalog.html">Catalog</a>]&nbsp;[<a href="#footer">Bottom</a>]&nbsp;[<a onclick="location.reload()">Refresh</a>]
-	    <hr>
-	</div>
+	    <div id="dynamicAnnouncement"></div>
 
-	</div>
+	    <hr id="belowPost">
 
-	<div id="threadList">
+	    <div id="panelMessage">
+		<hr>
+		<div id="divMessage"></div>
+	    </div>
 
-	    <form
-		action="/contentActions.js"
-		method="post"
-		enctype="multipart/form-data">
+	    <div id="innerUtility">
+		<hr>
 
-		<div id="divThreads"></div>
+		<span>
+		    [<a href="./catalog.html">Catalog</a>]
+		</span>
 
-		<hr class="clearer" />
+		<span id="archive">
+		    [<a id="archiveLinkBoard">Archive</a>]
+		</span>
 
-		<div class="threadPages">
+		<span>
+		    [<a href="#footer">Bottom</a>]
+		</span>
 
-  		    <div id="innerUtilityBottom">
-  			<hr>
-  			&nbsp;[<a href="./catalog.html">Catalog</a>]&nbsp;[<a href="#">Top</a>]&nbsp;[<a onclick="location.reload()">Refresh</a>]
-  			<hr>
+		<span>
+		    [<a onclick="location.reload()">Refresh</a>]
+		</span>
 
-		    </div>
-		    <span class="divPages">[ <a id="linkPrevious"></a> <span
-									   id="divPages"></span> <a id="linkNext"></a> ]
-		    </span>
+		<hr>
+	    </div>
 
-		    <div id="boardContentLinks">
-			<span>[</span>
-			<a id="linkManagement">Manage Board</a>
-			<span>/</span>
-			<a id="linkModeration">Moderate Board</a>
-			<span>]</span>
-		    </div>
+	    <div id="threadList">
 
-		</div>
+		<form action="/contentActions.js" method="post" enctype="multipart/form-data">
 
-		<div id="bottomForms">
+		    <div id="divThreads"></div>
 
-		    <fieldset class="reportFieldset">
-			<legend>Delete</legend>
+		    <hr class="clearer" />
 
-			<div class="contentAction">
-			    <label>
-				Password
-				<input
-				    type="text"
-				    class="deletionField"
-				    id="deletionFieldPassword"
-				    name="password">
-			    </label>
-			    <label>
-				<input
-				    type="checkbox"
-				    class="deletionField"
-				    id="checkboxOnlyFiles"
-				    name="deleteUploads">
-				Delete only files (Removes the file reference to the posts)
-			    </label>
-			    <label>
-				<input
-				    type="checkbox"
-				    class="deletionField"
-				    id="checkboxMediaDeletion"
-				    name="deleteMedia">
-				Delete media (Removes the saved files from the server)
-			    </label>
-			    <button
-				type="submit"
-				id="deleteFormButton"
-				value="delete"
-				name="action">Delete</button>
+		    <div class="threadPages">
 
-			</div>
-		    </fieldset>
+			<div id="innerUtility" class="bottom">
+			    <hr>
 
-		    <fieldset class="reportFieldset">
-			<legend>Report</legend>
+			    <span>
+				[<a href="./catalog.html">Catalog</a>]
+			    </span>
 
-			<div class="contentAction">
+			    <span id="archive">
+				[<a id="archiveLinkBoardBottom">Archive</a>]
+			    </span>
 
-			    <label>
-				Reason
-				<input
-				    type="text"
-				    class="reportField"
-				    id="reportFieldReason"
-				    name="reason">
-			    </label>
-			    <label>
-				<input
-				    type="checkbox"
-				    class="reportField"
-				    id="checkboxGlobal"
-				    name="global">
-				Global
-			    </label>
-			    <img
-				class="captchaImage"
-				id="captchaImageReport"
-				src="/captcha.js">
+			    <span>
+				[<a href="#">Top</a>]
+			    </span>
 
-			    <input
-				type="button"
-				class="hidden reloadCaptchaButton"
-				onclick="captchaUtils.reloadCaptcha()"
-				value="Reload">
-			    <span class="captchaTimer"></span>
-			    <br>
+			    <span>
+				[<a onclick="location.reload()">Refresh</a>]
+			    </span>
 
-			    <input
-				name="captcha"
-				type="text"
-				class="captchaField reportField"
-				id="fieldCaptchaReport"
-				placeholder="answer">
-
-			    <a
-				href="/noCookieCaptcha.js"
-				class="small">no cookies?</a>
-			    <br>
-
-			    <button
-				type="submit"
-				id="reportFormButton"
-				value="report"
-				name="action">Report</button>
-
+			    <hr>
 			</div>
 
-		    </fieldset>
+			<span class="divPages"><a id="linkPrevious">Previous</a><span id="divPages"></span><a id="linkNext">Next</a>
+			    <div id="divPagesSpacer">|</div><div id="divCatalog"> <a href="catalog.html">Catalog</a></div>
+			</span>
 
-		</div>
+			<div id="boardContentLinks">
+			    <span></span>
+			    [<a id="linkManagement">Manage Board</a>
+			    <span>/</span>
+			    <a id="linkModeration">Moderate Board</a>
+			    <span>/</span>
+			    <a id="linkMod">Moderate Threads</a>]
+			    <span></span>
+			</div>
 
-	    </form>
+		    </div>
 
-	</div>
+		    <div id="actionsForm"></div>
 
-	<div class="footerBar" id="footerBarType" value="B"></div>
+		</form>
+
+	    </div>
+
+	    <footer id="dynamicFooterAlt"></footer>
 
     </body>
 
     <script src="/.static/js/api.js"></script>
-    <script src="/.static/js/navInject.js"></script>
-    <script src="/.static/js/footerInject.js"></script>
     <script src="/.static/js/crypt.js"></script>
-    <script src="/.static/js/board.js"></script>
     <script src="/.static/js/postCommon.js"></script>
     <script src="/.static/js/captchaModal.js"></script>
     <script src="/.static/js/thumbs.js"></script>
     <script src="/.static/js/tooltips.js"></script>
     <script src="/.static/js/posting.js"></script>
+    <script src="/.static/js/board.js"></script>
     <script src="/.static/js/captchaUtils.js"></script>
     <script src="/.static/js/themes.js"></script>
     <script src="/.static/js/draggable.js"></script>

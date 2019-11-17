@@ -3,7 +3,7 @@ var postingMenu = {};
 postingMenu.init = function() {
 
   postingMenu.banLabels = [ 'Regular ban', 'Range ban (1/2 octects)',
-      'Range ban (3/4 octects)' ];
+      'Range ban (3/4 octects)', 'ASN ban', 'Warning' ];
   postingMenu.deletionOptions = [ 'Do not delete', 'Delete post',
       'Delete post and media', 'Delete by ip' ];
   postingMenu.threadSettingsList = [ {
@@ -727,15 +727,26 @@ postingMenu.buildMenu = function(linkSelf, extraMenu) {
 
   var href = linkSelf.href;
 
-  var parts = href.split('/');
+  if (!api.mod) {
 
-  var board = parts[3];
+    var parts = href.split('/');
 
-  var finalParts = parts[5].split('.');
+    var board = parts[3];
 
-  var thread = finalParts[0];
+    var finalParts = parts[5].split('.');
 
-  var post = finalParts[1].split('#')[1];
+    var thread = finalParts[0];
+
+  } else {
+
+    var urlParams = new URLSearchParams(href.split('?')[1]);
+
+    board = urlParams.get('boardUri');
+    thread = urlParams.get('threadId').split('#')[0];
+
+  }
+
+  var post = href.split('#')[1];
 
   if (post === thread) {
     post = undefined;

@@ -1,84 +1,53 @@
 <!DOCTYPE html>
 <html>
-<head>
-<!-- Matomo -->
-<script type="text/javascript">
-  var _paq = window._paq || [];
-  /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
-  _paq.push(['trackPageView']);
-  _paq.push(['enableLinkTracking']);
-  (function() {
-    var u="//analytics.16chan.xyz/";
-    _paq.push(['setTrackerUrl', u+'matomo.php']);
-    _paq.push(['setSiteId', '1']);
-    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
-    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
-  })();
-</script>
-<noscript><p><img src="//analytics.16chan.xyz/matomo.php?idsite=1&amp;rec=1" style="border:0;" alt="" /></p></noscript>
-<!-- End Matomo Code -->
-<meta charset="UTF-8" />
-<meta
-  name="viewport"
-  content="width=device-width, initial-scale=1.0">
-<link
-  href="/.static/css/global.css"
-  type="text/css"
-  rel="stylesheet" />
-<link
-  href="/.static/css/index.css"
-  type="text/css"
-  rel="stylesheet" />
-<link
-  href="/.static/css/watcher.css"
-  type="text/css"
-  rel="stylesheet" />
-<link
-  href="/.static/css/posting.css"
-  type="text/css"
-  rel="stylesheet" />
-</head>
-<body>
+    <head>
+	<script type="text/javascript" id="dynamicAnalytics"></script>
+	<title>Rules</title>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="/.static/css/global.css" type="text/css" rel="stylesheet" />
+	<link href="/.static/css/index.css" type="text/css" rel="stylesheet" />
+	<link href="/.static/css/watcher.css" type="text/css" rel="stylesheet" />
+	<link href="/.static/css/posting.css" type="text/css" rel="stylesheet" />
+    </head>
 
-  <script src="/.static/js/themeLoader.js"></script>
+    <body>
 
-  <div class="navBar" id="navBarType" value="A"></div>
+	<script src="/.static/js/themeLoader.js"></script>
 
-  <div id="settingsWrapper">
+	<nav id="dynamicHeader"></nav>
 
-    <div
-      id="logoBox"
-      class="title">
-      <img
-        src="/.static/logo.png"
-        class="logoImg"
-        alt="logo" />
-    </div>
+	<div id="indexWrapper">
 
-    <fieldset id="settingsFieldset">
+            <div id="logoBox" class="title">
+		<img src="/.static/logo.png" class="logoImg" alt="logo" />
+            </div>
 
-      <h2>
-      Rules of /<span id="boardLabel"></span>/
-      </h2>
+	    <div id="dynamicLinks"></div>
 
-      <div id="divRules">
-        Remember that no matter the rules of the board, all
-        <a href="/.static/pages/globalRules.html">global rules</a>
-        apply
-      </div>
-    </div>
+	    <div class="contentBox">
+		<h2>Rules of /<span id="boardLabel"></span>/</h2>
+		<div id="contentBoxInner">
+		    <div id="divRules"></div>
 
-<div class="footerBar" id="footerBarType" value="A"></div>
+		    <p>
+			Remember that no matter the rules of the board, all
+			<a href="/.static/pages/globalRules.html">global rules</a>
+			apply
+		    </p>
+		</div>
+	    </div>
 
-</body>
+	</div>
 
-<script src="/.static/js/api.js"></script>
-<script src="/.static/js/navInject.js"></script>
-<script src="/.static/js/footerInject.js"></script>
-<script src="/.static/js/themes.js"></script>
-<script src="/.static/js/favouriteBoards.js"></script>
-<script src="/.static/js/draggable.js"></script>
-<script src="/.static/js/watcher.js"></script>
-<script src="/.static/js/favouriteBoards.js"></script>
+	<footer id="dynamicFooter"></footer>
+
+    </body>
+
+    <script src="/.static/js/api.js"></script>
+    <script src="/.static/js/themes.js"></script>
+    <script src="/.static/js/draggable.js"></script>
+    <script src="/.static/js/watcher.js"></script>
+    <script src="/.static/js/favouriteBoards.js"></script>
 
 </html>

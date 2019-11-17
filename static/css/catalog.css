@@ -3,10 +3,14 @@
   font-size: 80%;
 }
 
+#favouriteButton {
+    font-size: 60%;
+    vertical-align: middle;
+}
+
 #catalogId {
   text-align: center;
-  margin: 1.5em 0 1em 0;
-  font-size: 150%;
+  margin: 1.5em 0 0.5em 0;
 }
 
 .catalogCell {
@@ -18,6 +22,8 @@
   overflow: hidden;
   overflow-y: hidden;
   margin: 0.1em;
+  background: none;
+  border: none;
 }
 
 .catalogLabel {
@@ -44,6 +50,7 @@
 }
 
 .catalogDiv {
+  width: 95%;
   margin: 1em auto;
   text-align: center;
 }

@@ -122,6 +122,8 @@ tooltips.addBackLink = function(quoteUrl, quote) {
 
       knownBackLink.container.appendChild(backLink);
 
+      knownBackLink.container.appendChild(document.createTextNode(' '));
+
       tooltips.processQuote(backLink, true);
 
     }

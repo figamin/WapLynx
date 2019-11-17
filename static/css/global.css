@@ -1,118 +1,87 @@
-.topBoards a, .innerPost, .sideCatalogCell, .markedPost, .sideCatalogMarkedCell {
+.topBoards a, #divLatestImages img, #divLatestPosts .latestPostCell,
+.innerPost, .sideCatalogCell, .markedPost, .sideCatalogMarkedCell,
+.catalogCell {
     background: #282A2E;
+}
+
+.theme_clear .topBoards a, .theme_clear #divLatestImages img,
+.theme_clear #divLatestPosts .latestPostCell, .theme_clear .innerPost,
+.theme_clear .sideCatalogCell, .theme_clear .markedPost, .theme_clear .sideCatalogMarkedCell,
+.theme_clear .catalogCell {
+    background-color: #dddddd
 }
 
 .floatingMenu, #quick-reply table {
     background: #1d1f21;
 }
 
-.markedPost, .sideCatalogMarkedCell {
-    background: #1d1d21;
+.theme_clear .floatingMenu, .theme_clear #quick-reply table {
+    background: #cccccc;
 }
 
-.sideCatalogCell,
 .markedPost, .sideCatalogMarkedCell {
-    border: 1px solid #000;
+    background: rgba(0, 0, 0, .14);
+    border: 1px solid #111;
+}
+
+.theme_clear .markedPost, .theme_clear .sideCatalogMarkedCell {
+    background: #868686;
+}
+
+#divLatestPosts .latestPostCell, .innerPost, .sideCatalogCell, .catalogCell {
+    border: 1px solid #282a2e;
 }
 
 #quick-reply table, .modalDecorationPanel,
-.floatingMenu, .reportFieldset {
-    border: 2px solid #282a2e;
+.floatingMenu, #settingsFieldset, .reportFieldset {
+    border: 1px solid #282a2e;
 }
 
 #newPostFieldset {
-    border: 0px solid #282a2e;
+    border: none;
 }
 
-.idLabel {
-    font-weight: bold;
+#newPostFieldset li {
+    font-size: 80%;
+    text-align: left;
 }
 
-.nameLabel {
-    font-weight: bold;
-    color: #b294bb;
+#newPostFieldset ul {
+    padding-left: 15px;
 }
 
 .logoImg {
-    min-width: 1px;
-    max-width: 150px;
+    width: 250px;
+    height: auto;
+    margin: 50px 0 25px 0;
 }
 
-#announcementText {
-    margin: auto;
-    padding-top: 3px;
-    padding-bottom: 3px;
+#newThreadText {
+    font-size: 22px;
+    font-weight: 700;
+    text-align: center;
 }
 
-#divLatestPosts .latestPostCell {
-    border-bottom: 1px solid #4b4d54;
+#hideThread {
+    font-size: 80%;
 }
 
-.belowHeaderBar {
+#belowHeader {
     width: 80%;
 }
 
-.belowPostFieldset {
-    width: 400px;
+#belowPost {
+    width: 450px;
 }
 
-.labelLastEdit {
-    color: #707070;
-}
-
-#announcementPlacement {
+#innerUtility {
+    margin: 1.3em;
+    margin-bottom: 0;
     font-size: 80%;
 }
 
-#announcementContent {
-    max-width: 450px;
-}
-
-#divStandardBox hr {
-    border-color: #c5c8c6;
-}
-
-#archivePage #settingsWrapper input {
-    display: initial;
-}
-
-
-
-div.banner {
-    background: #32DD72;
-    color: #000;
-    text-align: center;
-    width: 260px;
-    padding: 4px;
-    padding-left: 12px;
-    padding-right: 12px;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 10px;
-    font-size: 12px;
-    font-weight: bold;
-}
-
-#hideThreadOption {
-    font-size: 80%;
-}
-
-#boardsPage .wide {
-    max-width: 100%;
-    min-width: 100%;
-}
-
-.linkName.noEmailName:hover {
-    color: #5f89ac;
-}
-
-.unimportant {
-    font-size: 10px;
-    color: #000;
-}
-
-.unimportant:hover {
-    color: #fff;
+#innerUtility.bottom {
+    margin: 0;
 }
 
 .captchaImage {
@@ -130,6 +99,23 @@ div.banner {
     clear: both;
 }
 
+.returnReplyLink {
+    font-size: 10px;
+}
+
+.returnReplyLink::before,
+.returnReplyLink::after {
+    color: #c5c8c6;
+}
+
+.returnReplyLink::before {
+    content: '['
+}
+
+.returnReplyLink::after {
+    content: ']'
+}
+
 .small a {
     text-decoration: none;
 }
@@ -138,31 +124,12 @@ div.banner {
     display: block;
 }
 
-#boardListIndex {
-    width: 70%;
-    min-width: 60%;
-    margin: auto;
-}
-
 .imgLink img, .latestImageCell img, .mediaCell img, .catalogCell img {
     image-orientation: from-image;
 }
 
-#federatedText {
-    background: maroon;
-    font-size: 90%;
-    padding: .25em;
-    width: 250px;
-    border-radius: 6px;
-    margin: auto;
-    margin-bottom: auto;
-    margin-bottom: 5px;
-    margin-top: 50px;
-    font-weight: bold;
-}
-
 .linkList a {
-    display: table;
+    display: block;
 }
 
 #themeSelector {
@@ -186,6 +153,30 @@ a, .coloredIcon, .unhideButton, .embedButton, .checkedFavouriteButton:before,
     cursor: pointer
 }
 
+#showFormsButton {
+    font-size: 80%;
+    float: right;
+    clear: both;
+}
+
+#showFormsButton::before {
+    content: '[';
+}
+
+#showFormsButton::after {
+    content: ']';
+}
+
+#showFormsButton::before, #showFormsButton::after {
+    color: #c5c8c6;
+}
+
+.theme_clear a, .theme_clear .coloredIcon, .theme_clear .unhideButton,
+.theme_clear .embedButton, .theme_clear .checkedFavouriteButton:before,
+.theme_clear #selectedTab, .theme_clear #showFormsButton {
+    color: #000
+}
+
 .coloredIcon::before {
     font-family: 'Icons';
 }
@@ -197,18 +188,9 @@ a, .coloredIcon, .unhideButton, .embedButton, .checkedFavouriteButton:before,
 
 a {
     text-decoration: none;
-    color: #81a2be;
 }
 
-.linkName:hover {
-    text-decoration: none;
-}
-
-a:hover,
-.linkSelf:hover,
-.linkQuote:hover,
-#showFormsButton:hover,
-#counterUids:hover {
+a:hover, .glowOnHover:hover {
     color: #5f89ac;
 }
 
@@ -229,49 +211,56 @@ em {
 }
 
 input, select, textarea {
-    background: #fff;
-    color: #000;
+    border: 1px solid #aaa;
     font-family: arial, helvetica, sans-serif;
     font-size: 80%;
 }
 
-#newThreadButton {
-    border-color: rgb(25, 27, 31) rgb(25, 27, 31) rgb(10, 12, 16);
-    background: linear-gradient(#37393D, #282A2E) repeat scroll 0% 0% transparent;
+.theme_clear input, .theme_clear select, .theme_clear textarea {
+    background: #dddddd;
+    color: #000;
 }
 
 input[type=button], input[type=submit], button, .dropzone, .selectedCell
 {
+    border: 1px double #282a2e;
+    background: #16171A;
+    color: #c5c8c6;
     font-family: arial, helvetica, sans-serif;
+    font-size: 80%;
+    font-weight: bold;
     margin-top: 0.5em;
     margin-bottom: 0.5em;
     cursor: pointer;
 }
 
-#dropzone {
-    font-size: 80%;
-    border: 1px solid #c5c8c6;
-    background: #282a2e;
+.theme_clear input[type=button], .theme_clear input[type=submit],
+.theme_clear button, .theme_clear .dropzone, .theme_clear .selectedCell
+{
+    background: #a7a7a7;
+    color: #000;
 }
 
-.title, .unhideButton {
-    font-weight: normal;
-}
+/* DO NOT NEED */
+/* .title, .unhideButton { */
+/*     font-weight: bold; */
+/* } */
 
 .fileBrowser {
     background: none;
 }
 
+/* TODO IMPORT ARIAL AND ALL OTHER FONTS */
 /* import resources here; external CSS, fonts, etc */
 @font-face {
     font-family: 'Hack';
     src: url('../hack-regular-webfont.eot?v=2.018');
     src: url('../hack-regular-webfont.eot?#iefix&v=2.018')
 	    format('embedded-opentype'),
-    url('../hack-regular-webfont.woff2?v=2.018') format('woff2'),
-    url('../hack-regular-webfont.woff?v=2.018') format('woff'),
-    url('../hack-regular-webfont.ttf?v=2.018') format('truetype'),
-    url('../hack-regular-webfont.svg?v=2.018#hackregular') format('svg');
+	 url('../hack-regular-webfont.woff2?v=2.018') format('woff2'),
+	 url('../hack-regular-webfont.woff?v=2.018') format('woff'),
+	 url('../hack-regular-webfont.ttf?v=2.018') format('truetype'),
+	 url('../hack-regular-webfont.svg?v=2.018#hackregular') format('svg');
     font-weight: normal;
     font-style: normal;
 }
@@ -280,9 +269,9 @@ input[type=button], input[type=submit], button, .dropzone, .selectedCell
     font-family: 'Icons';
     src: url('../open-iconic.eot');
     src: url('../open-iconic.eot?#iconic-sm') format('embedded-opentype'),
-    url('../open-iconic.woff') format('woff'), url('../open-iconic.ttf')
-						  format('truetype'), url('../open-iconic.otf') format('opentype'),
-    url('../open-iconic.svg#iconic-sm') format('svg');
+	 url('../open-iconic.woff') format('woff'), url('../open-iconic.ttf')
+						       format('truetype'), url('../open-iconic.otf') format('opentype'),
+	 url('../open-iconic.svg#iconic-sm') format('svg');
     font-weight: normal;
     font-style: normal;
 }
@@ -296,6 +285,11 @@ body {
     margin: 0px;
 }
 
+body.theme_clear {
+    background-color: #cccccc;
+    color: #000
+}
+
 /* header and nav / top of page styles */
 header {
     margin: 3em auto 0 auto;
@@ -304,24 +298,27 @@ header {
 
 nav {
     height: 18px;
+    position: fixed;
     top: 0;
     width: 100%;
-    font-size: 80%;
+    background-color: #282a2e;
+    border-bottom: 1px solid #111;
+    font-size: 70%;
     text-align: center;
+    z-index: 1;
+}
+
+.theme_clear nav {
+    background-color: #acacac
 }
 
 nav span, nav a {
-    display: inline;
+    display: inline-block;
     text-decoration: none;
-    margin: 0 0.1em;
 }
 
 #navLinkSpan {
     float: left;
-}
-
-#favouriteButton {
-    display: none;
 }
 
 #navOptionsSpan {
@@ -344,8 +341,20 @@ nav span, nav a {
     content: "\e041";
 }
 
-#navPosting:before {
+#navDonate:before {
     content: "\e053";
+}
+
+#navPosting:before {
+    content: "\e0b0";
+}
+
+#navMod:before {
+    content: "\e020";
+}
+
+#navBlog:before {
+    content: "\e056";
 }
 
 #navCatalog:before {
@@ -368,52 +377,154 @@ nav span, nav a {
     content: "\e003";
 }
 
-#showFormsButton::before {
-    content: "[ ";
+/* board list */
+.divPages {
+    display: -webkit-inline-box;
+    padding: 4px 8px 6px 8px;
+    border: 1px solid #111;
+    background: #282a2e;
 }
 
-#showFormsButton::after {
-    content: " ]";
+/* Testing */
+
+/* index.html and various page box customizations  */
+
+.contentBox {
+    border: 1px solid #111;
 }
 
-#showFederatedButton {
-    font-size: 80%;
+.contentBox.spaced {
+    margin-bottom: 16px;
 }
 
-#showFederatedButton::before {
-    content: "[";
+h2 {
+    margin: 0;
+    padding: 3px 7px;
+    font-size: 14px;
+    background: #1D1F21;
 }
 
-#showFederatedButton::after {
-    content: "]";
+#contentBoxInner {
+    padding: 10px;
+    font-size: 13px;
+    background: #282A2E;
 }
 
-#showFormsButton::before,
-#showFormsButton::after,
-#showFederatedButton::before,
-#showFederatedButton::after,
-#questionBox {
+.contentBox.left {
+    float: left;
+    width: 330px;
+}
+
+.contentBox.right {
+    float: right;
+    width: 330px;
+}
+
+.labelReplies, .labelImages, .labelPage, .labelFiles {
+    font-weight: bold;
+}
+
+#logoBox {
+    width: 100%;
+    margin: 0 auto 0 auto;
+    text-align: center;
+}
+
+/* end */
+
+/* Login Page */
+
+.contentBox.login {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.login tr {
+    display: table-cell;
+}
+
+.login button {
+    font-size: 100%;
+}
+
+/* move me */
+.contentBox.other {
+    width: min-content;
+    margin-left: auto;
+    margin-right: auto;
+}
+/* move end */
+
+#labelContent {
+    background: #1D1F21;
+    border: 1px solid #111;
+    text-align: left;
+    padding: 0 5px 0 5px;
+    width: 55px;
+}
+
+#divRemember input {
+    vertical-align: sub;
+}
+
+#contentBoxInner input[type="button"],
+#contentBoxInner input[type="submit"],
+#contentBoxInner button {
+    margin-left: 4px;
+}
+
+
+#postingHr.loginPage {
+    margin: 5px auto 8px auto;
+}
+
+#contentBoxInner .small {
+    font-size: 85%;
+    font-weight: initial;
+    padding-left: 3px;
+}
+
+#contentBoxInner button,
+#contentBoxInner .hidden.reloadCaptchaButton,
+#contentBoxInner input[type="submit"] {
+    border: 1px solid #111;
+    background: #1D1F21;
+}
+
+#contentBoxInner #registerFormButton,
+#contentBoxInner #recoverFormButton {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+/* end login */
+
+/* Latest Postings Page */
+
+#settingsWrapper.latestPostings input {
+    display: inline;
+}
+
+/* end latestPostings */
+
+.quoteTooltip {
+    border: 1px solid #111;
+}
+
+#divPages, .divPages a {
+    font-size: 90%;
+}
+
+#divPages a::before, #divPages a::after, #threadOpen:after, #threadOpen:before, .labelStats {
     color: #c5c8c6;
 }
 
-#questionBox:hover {
-    color: #5f89ac;
-}
-/* board list */
-#divPages {
-    display: inline-block;
+#divPages a::before {
+    content: '[';
 }
 
-.divPages {
-    font-size: 80%;
-}
-
-#watcherButton span {
-    display: none;
-}
-
-#boardListLinks {
-    font-size: 110%;
+#divPages a::after {
+    content: ']';
 }
 
 #divPages a {
@@ -422,24 +533,26 @@ nav span, nav a {
     display: inline-block;
 }
 
+#actionsForm {
+    width: max-content;
+}
+
+/* End testing */
+
 a.rules:after {
     font-family: Icons;
     content: "\e052";
     margin-right: 0.5em;
+    color: #81a2be;
     height: 80%;
     font-size: 80%;
     padding-left: 0.25em;
     vertical-align: middle;
 }
 
-
-#boardsWrapper h2 {
-    text-align: left;
-}
-
 /* markdown */
 .greenText {
-    color: #789922;
+    color: #b5bd68;
 }
 
 .orangeText {
@@ -469,19 +582,15 @@ span.spoiler {
 
 /* CSS for pages that deal with site and account settings and bans */
 #settingsWrapper {
-    max-width: 700px;
+    text-align: center;
+    width: 80%;
     margin: 2em auto;
 }
 
-/* unique id checkbox hide */
-
-#uidbox-checkbox {
-    display: none;
-}
-
 #settingsFieldset {
+    padding: 1em;
+    display: inline-block;
     text-align: left;
-    border: none;
 }
 
 #settingsWrapper input {
@@ -496,32 +605,6 @@ span.spoiler {
     padding: 0.5em;
 }
 
-#newThreadText {
-    font-size: 22px;
-    font-weight: 700;
-    text-align: center;
-}
-
-#innerUtility,
-#catalogPage #innerUtilityBottom {
-    margin: 1.3em;
-    font-size: 80%;
-}
-
-#catalogPage #divTools {
-    float: right;
-    margin-top: 6px;
-}
-
-#innerUtilityContent {
-    margin-top: -5px;
-    margin-bottom: -5px;
-}
-
-#innerUtilityBottom {
-    font-size: 80%;
-}
-
 #settingsFieldset textarea {
     display: block;
     height: 5em;
@@ -529,10 +612,6 @@ span.spoiler {
 
 #settingsFieldset label {
     display: block;
-}
-
-#fieldMessage {
-    width: 244px;
 }
 
 #settingsFieldset label input {
@@ -552,10 +631,67 @@ span.spoiler {
 }
 
 .wide, #postingForm input[type='text'], .modalTableBody input[type='text'],
-.modalTableBody select, #fieldPostingPassword {
+.modalTableBody select {
+    width: 100%;
+}
+
+/* ADDITIONS */
+
+#fieldMessage {
+    width: 244px;
+}
+
+#postingForm input[type="text"], #fieldPostingPassword {
     min-width: 244px;
     max-width: 244px;
 }
+
+#catalogPage #divTools {
+    float: right;
+    margin-top: 6px;
+}
+
+#catalogPage input {
+    vertical-align: top;
+}
+
+#catalogPage #innerUtilityBottom {
+    margin: 1.3em;
+}
+
+.boardHeader p, #catalogId, #overboardId {
+    color: #c5c8c6;
+    text-shadow: 1px 1px 1px rgba(167,170,168,0.6);
+    font-size: 200%;
+}
+
+.indicatorSfw::after {
+    content: '[SFW]';
+    font-size: 70%;
+    color: white;
+    font-weight: bold;
+    padding-left: 2px;
+    position: absolute;
+}
+
+#postingHr {
+    border-color: #c5c8c61a;
+    margin: 20px 0 14px 0;
+}
+
+#linkOverboard {
+    display: none;
+}
+
+#navBoardsSpan {
+    vertical-align: sub;
+}
+
+.linkLast {
+    display: none;
+}
+
+/* END ADDITIONS */
 
 #redirect, #maint {
     text-align: center;
@@ -587,22 +723,6 @@ footer {
 /* this has to go down here to override anything above it */
 .hidden {
     display: none;
-}
-
-.hideFileButton:hover,
-.hideFileButton.glowOnHover.coloredIcon:hover,
-.extraMenuButton.glowOnHover.coloredIcon:hover,
-.hideButton.glowOnHover.coloredIcon:hover,
-.watchButton.glowOnHover.coloredIcon:hover,
-#closeWatcherMenuButton:hover,
-.watchedCellCloseButton.glowOnHover.coloredIcon:hover,
-#closeSettingsMenuButton:hover,
-#closeSideCatalogButton:hover,
-.close-btn.coloredIcon:hover,
-.floatingMenu.extraMenu div:hover,
-.floatingMenu.hideMenu div:hover,
-.hideMenu div:hover {
-    color: #5f89ac;
 }
 
 #settingsWrapper input.hidden {
@@ -641,8 +761,11 @@ footer {
     content: 'Overboard SFW';
 }
 
-#navPosting::after {
+#navDonate::after {
     content: 'Donate';
+}
+#navPosting::after {
+    content: 'Posting';
 }
 
 #navLinkHome::after {
@@ -657,36 +780,68 @@ footer {
     content: 'Settings';
 }
 
-#linkLogs::after {
+#linkGlobalLogs::after {
     content: 'Logs';
 }
 
 #linkArchives::after {
-    content: 'archives';
+    content: 'Archive';
 }
 
 #linkGraphs::after {
-    content: 'daily graphs';
+    content: 'Daily Graphs';
 }
 
 #linkGlobalRules::after {
-    content: 'global rules';
+    content: 'Global Rules';
 }
 
 #linkLinks::after {
-    content: 'links';
+    content: 'Links';
 }
 
 #linkAbout::after {
-    content: 'about';
+    content: 'About';
+}
+
+#linkBoards::after {
+    content: 'Boards';
+}
+
+#navOptionsSpan a{
+    margin-top: 2px;
+}
+
+#linkBack::after {
+    content: 'Return';
 }
 
 #linkContact::after {
-    content: 'contact';
+    content: 'Contact';
 }
 
 #linkAccount::after {
-    content: 'account';
+    content: 'Account';
+}
+
+#linkLogs::after {
+    content: 'Logs';
+}
+
+#linkTop::after {
+    content: 'Top';
+}
+
+#linkBottom::after {
+    content: 'Bottom';
+}
+
+#navCatalog::after {
+    content: 'Catalog';
+}
+
+#linkRss::after {
+    content: 'RSS';
 }
 
 @media only screen and (max-width: 812px) {
@@ -697,6 +852,10 @@ footer {
     #navLinkSpan a::after, #navOptionsSpan a::after, #links a::after {
 	content: '';
     }
+    #navBoards {
+	display: none;
+    }
+
     nav {
 	font-size: 115%;
 	height: auto;
@@ -707,7 +866,6 @@ footer {
     }
     .logoImg {
 	margin-top: 10px;
-	height: 75px;
     }
     input, select, textarea {
 	font-size: 100%;
@@ -717,6 +875,7 @@ footer {
 	margin-top: 5px;
 	margin-left: 0;
 	margin-right: 0;
+	padding-top: 10px;
 	padding-left: 0;
 	padding-right: 0;
     }
@@ -726,802 +885,3 @@ footer {
 	max-height: 100px;
     }
 }
-
-#postingForm input:focus,
-#postingForm textarea:focus,
-.modalDecorationPanel input[type='text']:focus,
-#settingsMenu input[type='text']:focus,
-#settingsMenu textarea:focus,
-#quick-reply input[type="text"]:focus,
-#quick-reply textarea:focus,
-#quick-reply input[type="password"]:focus,
-textarea:focus {
-    box-shadow: 0px 0px 5px 2px #2be3ff;
-}
-
-#postingForm button:active {
-    box-shadow: 0px 0px 5px #117743;
-}
-
-#newPostFieldset li {
-    font-size: 80%;
-    text-align: left;
-}
-
-/* Yotsuba Theme Starts Here */
-
-body.theme_yotsuba {
-    background: #ffe no-repeat;
-    background-image: linear-gradient(to bottom, #fed6af 0, transparent 260px);
-    color: #800000;
-}
-
-.theme_yotsuba .floatingMenu.extraMenu,
-.theme_yotsuba .floatingMenu.hideMenu,
-.theme_yotsuba .spoiler:hover {
-    color: #800000;  
-}
-
-.theme_yotsuba .floatingMenu.extraMenu div:hover,
-.theme_yotsuba .floatingMenu.hideMenu div:hover {
-    color: #ff0000;  
-}
-
-.theme_yotsuba .modalDecorationPanel {
-    background: #eef2ff
-}
-
-.theme_yotsuba #navLinkSpan,
-.theme_yotsuba #navOptionsSpan {
-    color: #b86;
-}
-
-.theme_yotsuba #navLinkSpan a,
-.theme_yotsuba #navOptionsSpan a,
-.theme_yotsuba #navLinkSpan a:visited,
-.theme_yotsuba #navOptionsSpan a:visited,
-.theme_yotsuba a.linkSelf,
-.theme_yotsuba a.linkSelf:visited,
-.theme_yotsuba a.linkQuote,
-.theme_yotsuba a.linkQuote:visited,
-.theme_yotsuba .sideCatalogCellText
-{
-    color: maroon;
-}
-
-.theme_yotsuba #navLinkSpan a:hover,
-.theme_yotsuba #navOptionsSpan a:hover,
-.theme_yotsuba .embedButton.glowOnHover:hover {
-    color: #ff0000;
-}
-.theme_yotsuba .innerPost,
-.theme_yotsuba .sideCatalogCell{
-    background: #f0e0d6;
-    border: 1px solid #d9bfb7;
-}
-
-.theme_yotsuba .linkName.noEmailName,
-.theme_yotsuba .linkName{
-    color: #117743;
-}
-
-.theme_yotsuba .labelRole {
-    color: purple; 
-}
-
-.theme_yotsuba .floatingMenu,
-.theme_yotsuba #quick-reply table {
-    background: #ffe no-repeat;
-    background-image: linear-gradient(to bottom, #fed6af 0, transparent 130px);
-}
-
-.theme_yotsuba nav {
-    background-color: #fed6af;
-}
-
-.theme_yotsuba a,
-.theme_yotsuba a:visited,
-.theme_yotsuba .embedButton.glowOnHover,
-.theme_yotsuba #showFormsButton,
-.theme_yotsuba #selectedTab {
-    color: #00e;
-}
-
-.theme_yotsuba #showFormsButton::before,
-.theme_yotsuba #showFormsButton::after{
-    color: maroon;
-}
-
-.theme_yotsuba a:hover,
-.theme_yotsuba #counterUids:hover {
-    color: #ff0000!important;
-}
-
-.theme_yotsuba .panelBacklinks a,
-.theme_yotsuba .quoteLink,
-.theme_yotsuba .quoteLink:visited {
-    color: navy;
-}
-
-.theme_yotsuba .markedPost,
-.theme_yotsuba .sideCatalogMarkedCell{
-    background: #f0c0b0;
-    border: 1px solid #d99f91;
-}
-
-.theme_yotsuba #postingForm th,
-.theme_yotsuba div.banner,
-.theme_yotsuba .modalTableBody th{
-    color: #800000;
-    background: #ea8;
-    border: 1px solid #800; 
-}
-
-.theme_yotsuba h2 {
-    background: #ea8;
-    border: 1px solid #800;
-    border-bottom: none;
-}
-
-.theme_yotsuba #divWelcome,
-.theme_yotsuba #divBoardsList,
-.theme_yotsuba #divLatestImages,
-.theme_yotsuba #divStats,
-.theme_yotsuba #divLatestPosts,
-.theme_yotsuba #divStandardBox,
-.theme_yotsuba #divPrivacyBox,
-.theme_yotsuba #divFAQBox,
-.theme_yotsuba #divRules,
-.theme_yotsuba #divStandardPaddedBox
-{
-    background: #f0e0d6;
-    border: 1px solid #800; 
-}
-
-.theme_yotsuba #divLatestPosts .latestPostCell {
-    border-color: #d9bfb7;
-}
-
-.theme_yotsuba .modalDecorationPanel {
-    background: #ffe;
-}
-
-.theme_yotsuba #labelName,
-.theme_yotsuba #labelDescription,
-.theme_yotsuba .watchedCellLabel a{
-    color: maroon; 
-}
-
-.theme_yotsuba hr {
-    border-color: #d9bfb7;
-}
-
-.theme_yotsuba #watchedMenu,
-.theme_yotsuba #settingsMenu,
-.theme_yotsuba .floatingMenu.extraMenu,
-.theme_yotsuba .floatingMenu.hideMenu
-{
-    
-    background: #F0E0D6;
-}
-
-.theme_yotsuba .floatingMenu.extraMenu,
-.theme_yotsuba .floatingMenu.hideMenu,
-.theme_yotsuba #quick-reply table,
-.theme_yotsuba #watchedMenu,
-.theme_yotsuba #settingsMenu,
-.theme_yotsuba .modalDecorationPanel,
-.theme_yotsuba .quoteTooltip {
-    border: 1px solid #800;
-}
-
-.theme_yotsuba #federationInfo,
-.theme_yotsuba #federatedText,
-{
-    background: maroon;
-}
-
-.theme_yotsuba #federationInfo,
-.theme_yotsuba #federatedText,
-.theme_yotsuba #mobileInfo {
-    color: white;
-}
-
-
-.theme_yotsuba #federationInfo a,
-.theme_yotsuba #mobileInfo a,
-.theme_yotsuba #federatedText a {
-    color: white;
-}
-
-.theme_yotsuba .labelSubject {
-    color: #cc1105;
-}
-
-.theme_yotsuba .indicatorSfw {
-    color: white;  
-}
-
-.theme_yotsuba .nameLabel  {
-    color: #cc1105;  
-}
-
-.theme_yotsuba .extraMenuButton.glowOnHover.coloredIcon,
-.theme_yotsuba .hideButton.glowOnHover.coloredIcon,
-.theme_yotsuba .watchButton.glowOnHover.coloredIcon,
-.theme_yotsuba .archiveIndicator,
-.theme_yotsuba .lockIndicator,
-.theme_yotsuba .pinIndicator,
-.theme_yotsuba .cyclicIndicator,
-.theme_yotsuba .bumpLockIndicator
-{
-    color: #000080;
-}
-
-.theme_yotsuba .extraMenuButton.glowOnHover.coloredIcon:hover,
-.theme_yotsuba .hideButton.glowOnHover.coloredIcon:hover,
-.theme_yotsuba .watchButton.glowOnHover.coloredIcon:hover {
-    color: #ff073b;
-}
-
-.theme_yotsuba .close-btn.coloredIcon,
-.theme_yotsuba #closeWatcherMenuButton,
-.theme_yotsuba .watchedCellCloseButton.glowOnHover.coloredIcon,
-.theme_yotsuba #closeSettingsMenuButton,
-.theme_yotsuba #closeSideCatalogButton{
-    color: maroon;
-}
-
-.theme_yotsuba .close-btn.coloredIcon:hover,
-.theme_yotsuba #closeWatcherMenuButton:hover,
-.theme_yotsuba .watchedCellCloseButton.glowOnHover.coloredIcon:hover,
-.theme_yotsuba #closeSettingsMenuButton:hover,
-.theme_yotsuba #closeSideCatalogButton:hover {
-    color: #ff073b;
-}
-
-.theme_yotsuba #dropzone,
-.theme_yotsuba #dropzoneQr{
-    background: white;
-}
-
-.theme_yotsuba #postingForm input:focus,
-.theme_yotsuba #postingForm textarea:focus,
-.theme_yotsuba .modalDecorationPanel input[type='text']:focus,
-.theme_yotsuba #settingsMenu input[type='text']:focus,
-.theme_yotsuba #settingsMenu textarea:focus,
-.theme_yotsuba #quick-reply input[type="text"]:focus,
-.theme_yotsuba #quick-reply textarea:focus,
-.theme_yotsuba #quick-reply input[type="password"]:focus,
-.theme_yotsuba textarea:focus {
-    box-shadow: 0px 0px 5px 2px maroon;
-}
-
-
-
-/* Yotsuba B Theme Starts Here */
-
-body.theme_yotsuba_b {
-    background: #eef2ff no-repeat;
-    background-image: linear-gradient(to bottom, #d1d5ee 0, transparent 260px);
-    color: #000;
-}
-
-.theme_yotsuba_b .modalDecorationPanel {
-    background: #eef2ff
-}
-
-.theme_yotsuba_b .floatingMenu,
-.theme_yotsuba_b #quick-reply table {
-    background: #eef2ff no-repeat;
-    background-image: linear-gradient(to bottom, #d1d5ee 0, transparent 130px);
-}
-
-.theme_yotsuba_b nav {
-    background-color: #d1d5ee;
-}
-
-.theme_yotsuba_b hr,
-.theme_yotsuba_b nav {
-    border-color: #b7c5d9;
-}
-
-.theme_yotsuba_b #postingForm th,
-.theme_yotsuba_b .modalTableBody th,
-.theme_yotsuba_b h2{
-    background: #98e;
-}
-
-.theme_yotsuba_b #divWelcome, 
-.theme_yotsuba_b #divFAQBox, 
-.theme_yotsuba_b #divPrivacyBox, 
-.theme_yotsuba_b #divStandardPaddedBox,
-.theme_yotsuba_b #divBoardsList,
-.theme_yotsuba_b #divLatestPosts,
-.theme_yotsuba_b #divLatestImages,
-.theme_yotsuba_b #divStats,
-.theme_yotsuba_b #divStandardBox,
-.theme_yotsuba_b #divRules
-{
-    background-color: #d6daf0;
-}
-
-
-.theme_yotsuba_b .innerPost,
-.theme_yotsuba_b .innerCell,
-.theme_yotsuba_b .quoteTooltip,
-.theme_yotsuba_b .markedPost,
-.theme_yotsuba_b #divLatestImages img {
-    background: #d6daf0;
-}
-
-.theme_yotsuba_b .markedPost,
-.theme_yotsuba_b .sideCatalogMarkedCell {
-    background: #d6bad0
-}
-
-.theme_yotsuba_b .innerPost,
-.theme_yotsuba_b #divLatestPosts .latestPostCell  {
-    border: 1px solid #b7c5d9;
-    border-bottom: none;
-}
-
-.theme_yotsuba_b .markedPost,
-.theme_yotsuba_b .quoteTooltip,
-.theme_yotsuba_b .sideCatalogMarkedCell {
-    border: 1px solid #ba9dbf;
-}
-
-.theme_yotsuba_b a:hover,
-.theme_yotsuba_b #counterUids:hover {
-    color: #cc1105;
-}
-
-.theme_yotsuba_b .boardHeader p {
-    color: #af0a0f;
-}
-
-.theme_yotsuba_b .noEmailName,
-.theme_yotsuba_b .noEmailName:hover,
-.theme_yotsuba_b .linkName {
-    color: #117743;
-}
-
-.theme_yotsuba_b div.banner {
-    background: #98e;
-}
-
-.theme_yotsuba_b #postingForm input:focus,
-.theme_yotsuba_b #postingForm textarea:focus,
-.theme_yotsuba_b .modalDecorationPanel input[type='text']:focus,
-.theme_yotsuba_b #settingsMenu input[type='text']:focus,
-.theme_yotsuba_b #settingsMenu textarea:focus,
-.theme_yotsuba_b #quick-reply input[type="text"]:focus,
-.theme_yotsuba_b #quick-reply textarea:focus,
-.theme_yotsuba_b #quick-reply input[type="password"]:focus,
-.theme_yotsuba_b textarea:focus {
-    box-shadow: 0px 0px 5px 2px #98e;
-}
-
-.theme_yotsuba_b .labelRole {
-    color: purple;
-}
-
-.theme_yotsuba_b div.banner,
-.theme_yotsuba_b .linkSelf,
-.theme_yotsuba_b .linkSelf:visited,
-.theme_yotsuba_b .linkQuote,
-.theme_yotsuba_b .linkQuote:visited,
-.theme_yotsuba_b .unimportant,
-.theme_yotsuba_b #navPosting,
-.theme_yotsuba_b #watcherButton,
-.theme_yotsuba_b #settingsButton,
-.theme_yotsuba_b #galleryLink,
-.theme_yotsuba_b #linkTop,
-.theme_yotsuba_b #linkBottom,
-.theme_yotsuba_b #navSideCatalog,
-.theme_yotsuba_b .extraMenu, 
-.theme_yotsuba_b .hideMenu,
-.theme_yotsuba_b .hideFileButton.glowOnHover.coloredIcon a,
-.theme_yotsuba_b .linkSelf a,
-.theme_yotsuba_b #showFormsButton::before, 
-.theme_yotsuba_b #showFormsButton::after,
-.theme_yotsuba_b #showFederatedButton::before,
-.theme_yotsuba_b #showFederatedButton::after,
-.theme_yotsuba_b #questionBox
-{
-    color: #000;
-}
-
-.theme_yotsuba_b .nameLink,
-.theme_yotsuba_b .hideFileButton.glowOnHover.coloredIcon 
-{
-    color: #000!important;
-}
-
-.theme_yotsuba_b .nameLink:hover,
-.theme_yotsuba_b .hideFileButton.glowOnHover.coloredIcon:hover 
-{
-    color: #d00!important;
-}
-
-
-.theme_yotsuba_b .panelBacklinks a,
-.theme_yotsuba_b a:visited:hover,
-.theme_yotsuba_b .coloredIcon,
-.theme_yotsuba_b .quoteLink,
-.theme_yotsuba_b #selectedTab,
-.theme_yotsuba_b #navPosting:hover,
-.theme_yotsuba_b #watcherButton:hover,
-.theme_yotsuba_b #settingsButton:hover,
-.theme_yotsuba_b .hideFileButton.glowOnHover.coloredIcon:hover,
-.theme_yotsuba_b #galleryLink:hover,
-.theme_yotsuba_b #linkTop:hover,
-.theme_yotsuba_b #navSideCatalog:hover,
-.theme_yotsuba_b #closeWatcherMenuButton:hover,
-.theme_yotsuba_b .watchedCellCloseButton.glowOnHover.coloredIcon:hover,
-.theme_yotsuba_b #closeSettingsMenuButton:hover,
-.theme_yotsuba_b .close-btn.coloredIcon:hover,
-.theme_yotsuba_b .extraMenuButton.glowOnHover.coloredIcon:hover,
-.theme_yotsuba_b .hideButton.glowOnHover.coloredIcon:hover,
-.theme_yotsuba_b .watchButton.glowOnHover.coloredIcon:hover,
-.theme_yotsuba_b .linkQuote:visited:hover,
-.theme_yotsuba_b #linkBack:hover,
-.theme_yotsuba_b #linkBottom:hover,
-.theme_yotsuba_b #navCatalog:hover,
-.theme_yotsuba_b .floatingMenu.extraMenu div:hover,
-.theme_yotsuba_b .floatingMenu.hideMenu div:hover,
-.theme_yotsuba_b .hideMenu div:hover,
-.theme_yotsuba_b .postCell .quoteLink,
-.theme_yotsuba_b #showFormsButton:hover,
-.theme_yotsuba_b .linkName.noEmailName:hover,
-.theme_yotsuba_b #closeSideCatalogButton:hover,
-.theme_yotsuba_b #federationInfo a:hover,
-.theme_yotsuba_b #federatedText a:hover,
-.theme_yotsuba_b #mobileInfo a:hover
-{  
-    color: #d00;
-}
-
-.theme_yotsuba_b .floatingMenu.extraMenu div:hover, 
-.theme_yotsuba_b .floatingMenu.hideMenu div:hover {
-    background: #98e;
-}
-
-.theme_yotsuba_b a,
-.theme_yotsuba_b a:visited,
-.theme_yotsuba_b #navBoardList,
-.theme_yotsuba_b #navLinkHome,
-.theme_yotsuba_b .hideFileButton,
-.theme_yotsuba_b .hideFileButton.glowOnHover.coloredIcon,
-.theme_yotsuba_b .extraMenuButton.glowOnHover.coloredIcon,
-.theme_yotsuba_b .hideButton.glowOnHover.coloredIcon,
-.theme_yotsuba_b .watchButton.glowOnHover.coloredIcon,
-.theme_yotsuba_b #closeWatcherMenuButton,
-.theme_yotsuba_b .watchedCellCloseButton.glowOnHover.coloredIcon,
-.theme_yotsuba_b #closeSettingsMenuButton,
-.theme_yotsuba_b #closeSideCatalogButton,
-.theme_yotsuba_b .close-btn.coloredIcon,
-.theme_yotsuba_b .embedButton.glowOnHover,
-.theme_yotsuba_b #showFormsButton,
-.theme_yotsuba_b #linkRss,
-.theme_yotsuba_b #linkBack,
-.theme_yotsuba_b #navCatalog {
-    color: #34345c;
-}
-
-.theme_yotsuba_b .sideCatalogCell {
-    background: #d6daf0;
-    border: 1px solid #b7c5d9;
-}
-
-.theme_yotsuba_b .floatingMenu.extraMenu,
-.theme_yotsuba_b .floatingMenu.hideMenu,
-.theme_yotsuba_b #quick-reply table,
-.theme_yotsuba_b #watchedMenu,
-.theme_yotsuba_b #settingsMenu,
-.theme_yotsuba_b .modalDecorationPanel {
-    border: 1px solid #000;
-}
-
-.theme_yotsuba_b #federationInfo,
-.theme_yotsuba_b #federatedText {
-    background: #9370db;
-}
-
-.theme_yotsuba_b #federationInfo a,
-.theme_yotsuba_b #mobileInfo a,
-.theme_yotsuba_b #federatedText a {
-    color: #34345c;
-}
-
-.theme_yotsuba_b .labelSubject {
-    color: #0f0c5d;
-}
-
-.theme_yotsuba_b .indicatorSfw {
-    color: white;  
-}
-
-.theme_yotsuba_b .nameLabel  {
-    color: #0f0c5d;  
-}
-
-.theme_yotsuba_b .extraMenuButton.glowOnHover.coloredIcon,
-.theme_yotsuba_b .hideButton.glowOnHover.coloredIcon,
-.theme_yotsuba_b .watchButton.glowOnHover.coloredIcon,
-.theme_yotsuba_b .archiveIndicator,
-.theme_yotsuba_b .lockIndicator,
-.theme_yotsuba_b .pinIndicator,
-.theme_yotsuba_b .cyclicIndicator,
-.theme_yotsuba_b .bumpLockIndicator
-{
-    color: #5d6a99;
-}
-
-.theme_yotsuba_b #dropzone,
-.theme_yotsuba_b #dropzoneQr{
-    background: white;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-/* Happy Day Theme Starts Here */
-
-body.theme_warosu {
-    background: #eef8f0 no-repeat;
-    background-image: linear-gradient(to bottom,#cfecd1 0,transparent 160px);
-    color: #333;
-}
-
-.theme_warosu .floatingMenu.extraMenu,
-.theme_warosu .floatingMenu.hideMenu,
-.theme_warosu .spoiler:hover {
-    color: #333;  
-}
-
-.theme_warosu .floatingMenu.extraMenu div:hover,
-.theme_warosu .floatingMenu.hideMenu div:hover {
-    color: #dd0000;  
-}
-
-.theme_warosu .modalDecorationPanel {
-    background: #eef2ff
-}
-
-.theme_warosu #navLinkSpan,
-.theme_warosu #navOptionsSpan {
-    color: #333;
-}
-
-.theme_warosu #navLinkSpan a,
-.theme_warosu #navOptionsSpan a,
-.theme_warosu #navLinkSpan a:visited,
-.theme_warosu #navOptionsSpan a:visited,
-.theme_warosu a.linkSelf,
-.theme_warosu a.linkSelf:visited,
-.theme_warosu a.linkQuote,
-.theme_warosu a.linkQuote:visited,
-.theme_warosu .sideCatalogCellText
-{
-    color: #333;
-}
-
-.theme_warosu #navLinkSpan a:hover,
-.theme_warosu #navOptionsSpan a:hover,
-.theme_warosu .embedButton.glowOnHover:hover,
-.theme_warosu #counterUids:hover {
-    color: #dd0000;
-}
-.theme_warosu .innerPost,
-.theme_warosu .sideCatalogCell{
-    background: #d6f0da;
-    border: 1px solid #c0d8c4;
-}
-
-.theme_warosu .linkName.noEmailName,
-.theme_warosu .linkName{
-    color: #117743;
-}
-
-.theme_warosu .labelRole {
-    color: purple; 
-}
-
-.theme_warosu .floatingMenu,
-.theme_warosu #quick-reply table {
-    background: #eef8f0 no-repeat;
-    background-image: linear-gradient(to bottom,#cfecd1 0,transparent 130px);
-}
-
-.theme_warosu nav {
-    background-color: #cfecd1;
-}
-
-.theme_warosu a,
-.theme_warosu a:visited,
-.theme_warosu .embedButton.glowOnHover,
-.theme_warosu #showFormsButton,
-.theme_warosu #selectedTab {
-    color: #358;
-}
-
-.theme_warosu #showFormsButton::before,
-.theme_warosu #showFormsButton::after{
-    color: maroon;
-}
-
-.theme_warosu a:hover {
-    color: #dd0000!important;
-}
-
-.theme_warosu .panelBacklinks a,
-.theme_warosu .quoteLink,
-.theme_warosu .quoteLink:visited {
-    color: #358;
-}
-
-.theme_warosu .markedPost,
-.theme_warosu .sideCatalogMarkedCell{
-    background: #bee4c5;
-    border: 1px solid #000;
-}
-
-.theme_warosu #postingForm th,
-.theme_warosu div.banner,
-.theme_warosu .modalTableBody th{
-    color: #333;
-    background: #bbe6c2;
-    border: 1px solid #000; 
-}
-
-.theme_warosu h2 {
-    background: #bbe6c2;
-    border: 1px solid #000;
-    border-bottom: none;
-}
-
-.theme_warosu #divWelcome,
-.theme_warosu #divBoardsList,
-.theme_warosu #divLatestImages,
-.theme_warosu #divStats,
-.theme_warosu #divLatestPosts,
-.theme_warosu #divStandardBox,
-.theme_warosu #divPrivacyBox,
-.theme_warosu #divFAQBox,
-.theme_warosu #divRules,
-.theme_warosu #divStandardPaddedBox
-{
-    background: #d6f0da;
-    border: 1px solid #000; 
-}
-
-.theme_warosu #divLatestPosts .latestPostCell {
-    border-color: #c0d8c4;
-}
-
-.theme_warosu .modalDecorationPanel {
-    background: #eef8f0;
-}
-
-.theme_warosu #labelName,
-.theme_warosu #labelDescription,
-.theme_warosu .watchedCellLabel a{
-    color: #333; 
-}
-
-.theme_warosu hr {
-    border-color: #d4ddd6;
-}
-
-.theme_warosu #watchedMenu,
-.theme_warosu #settingsMenu,
-.theme_warosu .floatingMenu.extraMenu,
-.theme_warosu .floatingMenu.hideMenu
-{
-    
-    background: #d6f0da;
-}
-
-.theme_warosu .floatingMenu.extraMenu,
-.theme_warosu .floatingMenu.hideMenu,
-.theme_warosu #quick-reply table,
-.theme_warosu #watchedMenu,
-.theme_warosu #settingsMenu,
-.theme_warosu .modalDecorationPanel,
-.theme_warosu .quoteTooltip {
-    border: 1px solid #000;
-}
-
-.theme_warosu #federationInfo,
-.theme_warosu #federatedText,
-{
-    background: maroon;
-}
-
-.theme_warosu #federationInfo,
-.theme_warosu #federatedText,
-.theme_warosu #mobileInfo {
-    color: white;
-}
-
-
-.theme_warosu #federationInfo a,
-.theme_warosu #mobileInfo a,
-.theme_warosu #federatedText a {
-    color: white;
-}
-
-.theme_warosu .labelSubject {
-    color: #0f0c5d;
-}
-
-.theme_warosu .indicatorSfw {
-    color: white;  
-}
-
-.theme_warosu .nameLabel  {
-    color: #0f0c5d;  
-}
-
-.theme_warosu .extraMenuButton.glowOnHover.coloredIcon,
-.theme_warosu .hideButton.glowOnHover.coloredIcon,
-.theme_warosu .watchButton.glowOnHover.coloredIcon,
-.theme_warosu .archiveIndicator,
-.theme_warosu .lockIndicator,
-.theme_warosu .pinIndicator,
-.theme_warosu .cyclicIndicator,
-.theme_warosu .bumpLockIndicator
-{
-    color: #000080;
-}
-
-.theme_warosu .extraMenuButton.glowOnHover.coloredIcon:hover,
-.theme_warosu .hideButton.glowOnHover.coloredIcon:hover,
-.theme_warosu .watchButton.glowOnHover.coloredIcon:hover {
-    color: #dd0000;
-}
-
-.theme_warosu .close-btn.coloredIcon,
-.theme_warosu #closeWatcherMenuButton,
-.theme_warosu .watchedCellCloseButton.glowOnHover.coloredIcon,
-.theme_warosu #closeSettingsMenuButton,
-.theme_warosu #closeSideCatalogButton{
-    color: #333;
-}
-
-.theme_warosu .close-btn.coloredIcon:hover,
-.theme_warosu #closeWatcherMenuButton:hover,
-.theme_warosu .watchedCellCloseButton.glowOnHover.coloredIcon:hover,
-.theme_warosu #closeSettingsMenuButton:hover,
-.theme_warosu #closeSideCatalogButton:hover {
-    color: #dd0000;
-}
-
-.theme_warosu #dropzone,
-.theme_warosu #dropzoneQr{
-    background: white;
-}
-
-.theme_warosu #postingForm input:focus,
-.theme_warosu #postingForm textarea:focus,
-.theme_warosu .modalDecorationPanel input[type='text']:focus,
-.theme_warosu #settingsMenu input[type='text']:focus,
-.theme_warosu #settingsMenu textarea:focus,
-.theme_warosu #quick-reply input[type="text"]:focus,
-.theme_warosu #quick-reply textarea:focus,
-.theme_warosu #quick-reply input[type="password"]:focus,
-.theme_warosu textarea:focus {
-    box-shadow: 0px 0px 5px 2px #bbe6c2;
-}
-
-

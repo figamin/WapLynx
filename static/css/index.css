@@ -1,252 +1,239 @@
 /*Elements exclusive to the front-page*/
 #indexWrapper {
-  max-width: 700px;
-  margin: 2em auto;
+    width: 670px;
+    margin: 2em auto;
+    overflow: hidden;
 }
-
-#logoBox {
-  width: 100%;
-  margin: 0 auto 1em auto;
-  text-align: center;
-}
-
-#federationInfo,
-#mobileInfo {
-    font-size: 90%;
-    padding: .25em;
-    width: 500px;
-    border-radius: 6px;
-    margin: auto;
-    margin-bottom: auto;
-    margin-bottom: 15px;
-}
-
-#federationInfo {
-    background: maroon;
-}
-
-#mobileInfo {
-   background: green;
-}
-
-#federationInfo a,
-#mobileInfo a {
-  color: #c5c8c6;
-}
-
-
 
 #infoBox {
-  text-align: center;
-  width: 100%;
-  padding: 0.5em;
-  margin: 1em auto 2em;
-  font-size: 120%;
-  display: none;
+    text-align: center;
+    width: 100%;
+    padding: 0.5em;
+    margin: 1em auto 2em;
+    font-size: 120%;
+    display: none;
 }
 
-#divStats {
-  padding: 0.5em;
-  font-size: 80%;
-  background: #282A2E;
-  border: 1px solid #000;
-  border-top: none;
+.contentRow {
+    text-align: center;
 }
 
-#irrelevantStats {
-  display: none;
+.contentColumn {
+  float: left;
+  width: 25%;
 }
 
-#topLinks {
-  text-align: center;
-  margin-bottom: 10px;
-  font-size: 80%;
+.nonBoard {
+    margin: 0;
 }
 
-#topLinks a {
-  margin: 5px;
-  text-decoration: underline;
+.contentRow:after {
+  content: "";
+  display: table;
+  clear: both;
 }
 
 #links {
-  text-align: center;
-  font-size: 90%;
-  padding: 0.5em;
-  display: none;
+    font-size: 75%;
+    text-align: center;
 }
 
 #links a {
-  text-decoration: none;
-}
-
-#linkLogs:before {
-  content: "\e069";
-}
-
-#linkArchives:before {
-  content: "\e023";
-}
-
-#linkGraphs:before {
-  content: "\e018";
-}
-
-#linkAccount:before {
-  content: "\e081";
-}
-
-#linkGlobalRules:before {
-  content: "\e0c9";
-}
-
-#linkAbout:before {
-  content: "\e06c";
-}
-
-#linkEngine:before {
-  content: "\e064";
-}
-
-#linkLinks:before {
-  content: "\e06a";
-}
-
-#linkContact:before {
-  content: "\e05c";
+    text-decoration: none;
 }
 
 .topBoards {
-  width: 100%;
-  text-align: center;
-  margin: 1em 0px;
+    width: 100%;
+    text-align: center;
+    margin: 1em 0px;
 }
 
 .topBoards a {
-  padding: 0.25em 0.5em;
-  text-decoration: none;
-  margin: 0.5em 0.25em;
-  display: inline-block;
-  font-size: 90%;
+    padding: 0.25em 0.5em;
+    text-decoration: none;
+    margin: 0.5em 0.25em;
+    display: inline-block;
+    font-size: 90%;
 }
 
 #divLatestPosts {
-  width: 100%;
-  overflow-y: scroll;
-  height: 150px;
+    width: 100%;
+    text-align: center;
 }
 
 #divLatestPosts .latestPostCell {
-  padding: 0.5em;
-  font-size: 80%;
-}
-
-.latestPostCell a {
-  display: block;
-}
-
-#divWelcome,
-#divLatestImages,
-#divBoardsList,
-#divLatestPosts,
-#divFAQBox,
-#divPrivacyBox,
-#divStandardPaddedBox {
-  margin: 0;
-  margin-bottom: 15px;
-  background: #282A2E;
-  border: 1px solid #000;
-  border-top: none;
-}
-
-#divStandardBox,
-#divRules {
-  margin: 0;
-  background: #282A2E;
-  border: 1px solid #000;
-  border-top: none;
-  padding: 0.5em;
-  font-size: 80%;
-}
-
-#divWelcome,
-#divFAQBox,
-#divPrivacyBox,
-#divStandardPaddedBox {
-    font-size: 80%;
-    padding: 0.5em;
+    padding-bottom: 0.25em;
+    text-align: left;
+    overflow: hidden;
+    max-width: 100%;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
 
 #divLatestImages {
-  text-align: center;
+    margin: 0 auto;
+    text-align: center;
 }
 
 #divLatestImages .latestImageCell {
-  display: inline-block;
-  max-width: 15%;
-  margin: 0 0.5em;
-  vertical-align: middle;
+    display: inline-block;
+    max-width: 15%;
+    margin: 0 0.5em;
+    vertical-align: middle;
 }
 
 #divLatestImages img {
-  max-width: 125px;
-  max-height: 125px;
-  padding: 5px;
+    max-width: 256px;
+    max-height: 256px;
+    display: grid;
+    padding: 5px;
+    margin: auto;
 }
 
-#divBoardsList {
-    font-size: 80%;
-    padding: 0.5em;
+#links {
+    padding: 3em 0.5em 16px 0.5em;
+    font-size: 75%;
     text-align: center;
-    display: flex;
 }
 
-#divBoardsList .column {
-    float: left;
-    width: 50%;
-    height: auto;
-}
-
-#divBoardsList .row:after {
-    content: "";
-    display: table;
+#divStats {
     clear: both;
 }
 
-#boardListCategory {
-    font-weight: bold;
-    text-decoration: underline;
+#irrelevantStats {
+    display: none;
 }
 
-#boardListContent {
+#dynamicAnnouncement {
+    margin: auto;
+    font-size: 75%;
+    line-height: 13px;
+    text-align: left;
+    border-top: 1px solid #282a2e;
+    border-bottom: 1px solid #282a2e;
+    padding: 0.25em 0 0.25em 0;
+}
+
+#announcementWrapper {
+    padding-bottom: 16px;
+}
+
+#contentBoxInner ol {
+    padding-left: 20px;
+    margin: 0;
+}
+
+#contentBoxInner ul {
+    margin-bottom: 0;
+}
+
+#labelBoard {
+    display: none;
+}
+
+/* Archive Page */
+
+#divThreads {
+    display: table;
+    width: 100%;
+    border-spacing: 1px;
+}
+
+#divThreads, #divDates {
+    padding: 5px 0 5px 0;
+}
+
+.archiveCell {
+    display: table-row;
     text-align: center;
-    padding: 5px;
 }
 
-h2 {
-  margin: 0;
-  font-size: 80%;
-  border: 1px solid #000;
-  padding-left: 5px;
-  border-top-right-radius: 5px;
-  border-top-left-radius: 5px;
+#divLegend {
+    display: table-row;
+    background: #1D1F21;
+    padding: 3px 7px;
 }
+
+#threadI, #threadN, #threadD, #threadV {
+    display: table-cell;
+    font-weight: bold;
+    text-align: center;
+    border: 1px solid #111;
+}
+
+.Idlabel {
+    display: table-cell;
+    width: 15%;
+}
+
+.nameLabel {
+    display: table-cell;
+    width: 55%;
+    text-align: left;
+    max-width: 200px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.dateLabel {
+    display: table-cell;
+    width: 20%;
+}
+
+.threadLink {
+    display: table-cell;
+    width: 10%;
+}
+
+#divThreads div:nth-child(2n) {
+    background-color: rgba(255,255,255,.1);
+}
+
+#divPages {
+    font-size: 100%;
+    text-align: center;
+}
+
+#threadOpen:before {
+    content: '[';
+}
+
+#threadOpen:after {
+    content: ']';
+}
+
+#torLink {
+    text-align: center;
+}
+
+#torLink img {
+    vertical-align: bottom;
+    padding-right: 3px;
+    max-width: 12px;
+}
+
+/* End Archive */
 
 @media only screen and (max-width: 812px) {
-  .topBoards, #divLatestPosts {
-    margin: 0;
-  }
-  #indexWrapper {
-    width: 99%;
-  }
-  #linkEngine {
-    display: none;
-  }
-  #federationInfo,
-  #mobileInfo,
-  #topLinks {
-    width: auto;
-  }
-
-
-
+    .topBoards, #divLatestPosts {
+	margin: 0;
+    }
+    #indexWrapper {
+	width: 99%;
+    }
+    #links a, #divStats {
+	font-size: 153%;
+    }
+    #linkEngine {
+	display: none;
+    }
+    .contentBox.left, .contentBox.right {
+	width: inherit;
+	float: none;
+    }
+    .contentColumn {
+	float: none;
+	margin: auto;
+    }
 }

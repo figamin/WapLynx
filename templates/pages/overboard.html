@@ -1,192 +1,229 @@
 <!DOCTYPE html>
 <html>
-<head>
-<!-- Matomo -->
-<script type="text/javascript">
-  var _paq = window._paq || [];
-  /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
-  _paq.push(['trackPageView']);
-  _paq.push(['enableLinkTracking']);
-  (function() {
-    var u="//analytics.16chan.xyz/";
-    _paq.push(['setTrackerUrl', u+'matomo.php']);
-    _paq.push(['setSiteId', '1']);
-    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
-    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
-  })();
-</script>
-<noscript><p><img src="//analytics.16chan.xyz/matomo.php?idsite=1&amp;rec=1" style="border:0;" alt="" /></p></noscript>
-<!-- End Matomo Code -->
-<meta charset="UTF-8" />
-<meta
-  name="viewport"
-  content="width=device-width, initial-scale=1.0">
-<link
-  href="/.static/css/global.css"
-  type="text/css"
-  rel="stylesheet" />
-<link
-  href="/.static/css/posting.css"
-  type="text/css"
-  rel="stylesheet" />
-<link
-  href="/.static/css/thread.css"
-  type="text/css"
-  rel="stylesheet" />
-<link
-  href="/.static/css/boardContent.css"
-  type="text/css"
-  rel="stylesheet" />
-<link
-  href="/.static/css/watcher.css"
-  type="text/css"
-  rel="stylesheet" />
-<link
-  href="/.static/css/settingsMenu.css"
-  type="text/css"
-  rel="stylesheet" />
-</head>
-<body>
+    <head>
+	<script type="text/javascript" id="dynamicAnalytics"></script>
+	<title>Overboard</title>
+	<meta charset="UTF-8" />
+	<meta
+	    name="viewport"
+	    content="width=device-width, initial-scale=1.0">
+	<link
+	    href="/.static/css/global.css"
+	    type="text/css"
+	    rel="stylesheet" />
+	<link
+	    href="/.static/css/posting.css"
+	    type="text/css"
+	    rel="stylesheet" />
+	<link
+	    href="/.static/css/thread.css"
+	    type="text/css"
+	    rel="stylesheet" />
+	<link href="/.static/css/board.css"
+	      type="text/css"
+	      rel="stylesheet" />
+	<link
+	    href="/.static/css/boardContent.css"
+	    type="text/css"
+	    rel="stylesheet" />
+	<link
+	    href="/.static/css/watcher.css"
+	    type="text/css"
+	    rel="stylesheet" />
+	<link
+	    href="/.static/css/settingsMenu.css"
+	    type="text/css"
+	    rel="stylesheet" />
+    </head>
+    <body>
 
-  <script src="/.static/js/themeLoader.js"></script>
+	<script src="/.static/js/themeLoader.js"></script>
 
-  <div class="navBar" id="navBarType" value="A"></div>
+	<nav id="dynamicHeaderOverboard"></nav>
 
-  <header class="boardHeader">
-    <img
-      id="bannerImage"
-      src="/randomBanner.js" />
-  </header>
+	<header class="boardHeader">
+	    <img
+		id="bannerImage"
+		    src="/randomBanner.js" />
+	    <br>
+	    <p id="overboardId">Overboard</p>
+	    <p id="labelDescription">50 of the latest bumped threads</p>
+	</header>
 
-    <form
-      action="/contentActions.js"
-      method="post"
-      enctype="multipart/form-data">
+	<hr id="belowPost">
 
-      <div id="divThreads"></div>
+	<div id="dynamicAnnouncement"></div>
 
-    </form>
+	<hr id="belowPost">
 
-    <div id="bottomForms">
+	<div id="innerUtility">
+	    <hr>
 
-      <fieldset class="reportFieldset">
-        <legend>Delete</legend>
+	    <span>
+		[<a href="/archives.js" id="linkArchives"></a>]
+	    </span>
 
-        <div class="contentAction">
-          <label>
-            Password
-            <input
-              type="text"
-              class="deletionField"
-              id="deletionFieldPassword"
-              name="password">
-          </label>
-          <label>
-            <input
-              type="checkbox"
-              class="deletionField"
-              id="checkboxOnlyFiles"
-              name="deleteUploads">
-            Delete only files (Removes the file reference to the posts)
-          </label>
-          <label>
-            <input
-              type="checkbox"
-              class="deletionField"
-              id="checkboxMediaDeletion"
-              name="deleteMedia">
-            Delete media (Removes the saved files from the server)
-          </label>
-          <button
-            type="submit"
-            id="deleteFormButton"
-            value="delete"
-            name="action">Delete</button>
+	    <span>
+		[<a href="#footer">Bottom</a>]
+	    </span>
 
-        </div>
-      </fieldset>
+	    <span>
+		[<a href="/overboard/">Refresh</a>]
+	    </span>
 
-      <fieldset class="reportFieldset">
-        <legend>Report</legend>
+	    <hr>
+	</div>
 
-        <div class="contentAction">
+	<div id="threadList">
 
-          <label>
-            Reason
-            <input
-              type="text"
-              class="reportField"
-              id="reportFieldReason"
-              name="reason">
-          </label>
-          <label>
-            <input
-              type="checkbox"
-              class="reportField"
-              id="checkboxGlobal"
-              name="global">
-            Global
-          </label>
-          <img
-            class="captchaImage"
-            id="captchaImageReport"
-            src="/captcha.js">
+	    <form
+		action="/contentActions.js"
+			method="post"
+			enctype="multipart/form-data">
 
-          <input
-            type="button"
-            class="hidden reloadCaptchaButton"
-            onclick="captchaUtils.reloadCaptcha()"
-            value="Reload">
-          <span class="captchaTimer"></span>
-          <br>
+		<div id="divThreads"></div>
 
-          <input
-            name="captcha"
-            type="text"
-            class="captchaField reportField"
-            id="fieldCaptchaReport"
-            placeholder="answer">
+	    </form>
 
-          <a
-            href="/noCookieCaptcha.js"
-            class="small">no cookies?</a>
-          <br>
+	    <hr class="clearer">
 
-          <button
-            type="submit"
-            id="reportFormButton"
-            value="report"
-            name="action">Report</button>
+	    <div id="innerUtility" class="bottom">
+		<hr>
 
-        </div>
+		<span>
+		    [<a href="/archives.js" id="linkArchives"></a>]
+		</span>
 
-      </fieldset>
-    </div>
+		<span>
+		    [<a href="#">Top</a>]
+		</span>
 
-  </div>
+		<span>
+		    [<a onclick="/overboard/">Refresh</a>]
+		</span>
 
-<div class="footerBar" id="footerBarType" value="A"></div>
+		<hr>
+	    </div>
 
-</body>
+	    <div id="bottomForms">
 
-<script src="/.static/js/api.js"></script>
-<script src="/.static/js/navInject.js"></script>
-<script src="/.static/js/footerInject.js"></script>
-<script src="/.static/js/overboard.js"></script>
-<script src="/.static/js/thumbs.js"></script>
-<script src="/.static/js/tooltips.js"></script>
-<script src="/.static/js/posting.js"></script>
-<script src="/.static/js/themes.js"></script>
-<script src="/.static/js/draggable.js"></script>
-<script src="/.static/js/settingsMenu.js"></script>
-<script src="/.static/js/hiding.js"></script>
-<script src="/.static/js/mediaHiding.js"></script>
-<script src="/.static/js/embed.js"></script>
-<script src="/.static/js/board.js"></script>
-<script src="/.static/js/captchaUtils.js"></script>
-<script src="/.static/js/postingMenu.js"></script>
-<script src="/.static/js/watcher.js"></script>
-<script src="/.static/js/captchaModal.js"></script>
-<script src="/.static/js/favouriteBoards.js"></script>
-<script src="/.static/js/bottomForms.js"></script>
+		<fieldset class="reportFieldset">
+		    <legend>Delete</legend>
+
+		    <div class="contentAction">
+			<label>
+			    Password
+			    <input
+				type="text"
+				class="deletionField"
+				id="deletionFieldPassword"
+				name="password">
+			</label>
+			<label>
+			    <input
+				type="checkbox"
+				class="deletionField"
+				id="checkboxOnlyFiles"
+				name="deleteUploads">
+			    Delete only files (Removes the file reference to the posts)
+			</label>
+			<label>
+			    <input
+				type="checkbox"
+				class="deletionField"
+				id="checkboxMediaDeletion"
+				name="deleteMedia">
+			    Delete media (Removes the saved files from the server)
+			</label>
+			<button
+			    type="submit"
+			    id="deleteFormButton"
+			    value="delete"
+			    name="action">Delete</button>
+
+		    </div>
+		</fieldset>
+
+		<fieldset class="reportFieldset">
+		    <legend>Report</legend>
+
+		    <div class="contentAction">
+
+			<label>
+			    Reason
+			    <input
+				type="text"
+				class="reportField"
+				id="reportFieldReason"
+				name="reason">
+			</label>
+			<label>
+			    <input
+				type="checkbox"
+				class="reportField"
+				id="checkboxGlobal"
+				name="global">
+			    Global
+			</label>
+			<img
+			    class="captchaImage"
+			    id="captchaImageReport"
+			    src="/captcha.js">
+
+			<input
+			    type="button"
+			    class="hidden reloadCaptchaButton"
+			    onclick="captchaUtils.reloadCaptcha()"
+			    value="Reload">
+			<span class="captchaTimer"></span>
+			<br>
+
+			<input
+			    name="captcha"
+			    type="text"
+			    class="captchaField reportField"
+			    id="fieldCaptchaReport"
+			    placeholder="answer">
+
+			<a
+			    href="/noCookieCaptcha.js"
+			    class="small">no cookies?</a>
+			<br>
+
+			<button
+			    type="submit"
+			    id="reportFormButton"
+			    value="report"
+			    name="action">Report</button>
+
+		    </div>
+
+		</fieldset>
+	    </div>
+
+	</div>
+
+	<footer id="dynamicFooterAlt"></footer>
+
+    </body>
+
+    <script src="/.static/js/api.js"></script>
+    <script src="/.static/js/overboard.js"></script>
+    <script src="/.static/js/thumbs.js"></script>
+    <script src="/.static/js/tooltips.js"></script>
+    <script src="/.static/js/posting.js"></script>
+    <script src="/.static/js/themes.js"></script>
+    <script src="/.static/js/draggable.js"></script>
+    <script src="/.static/js/settingsMenu.js"></script>
+    <script src="/.static/js/hiding.js"></script>
+    <script src="/.static/js/mediaHiding.js"></script>
+    <script src="/.static/js/embed.js"></script>
+    <script src="/.static/js/board.js"></script>
+    <script src="/.static/js/captchaUtils.js"></script>
+    <script src="/.static/js/postingMenu.js"></script>
+    <script src="/.static/js/watcher.js"></script>
+    <script src="/.static/js/captchaModal.js"></script>
+    <script src="/.static/js/favouriteBoards.js"></script>
+    <script src="/.static/js/bottomForms.js"></script>
+
 </html>

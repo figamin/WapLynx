@@ -1,89 +1,56 @@
 <!DOCTYPE html>
 <html>
-<head>
-<!-- Matomo -->
-<script type="text/javascript">
-  var _paq = window._paq || [];
-  /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
-  _paq.push(['trackPageView']);
-  _paq.push(['enableLinkTracking']);
-  (function() {
-    var u="//analytics.16chan.xyz/";
-    _paq.push(['setTrackerUrl', u+'matomo.php']);
-    _paq.push(['setSiteId', '1']);
-    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
-    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
-  })();
-</script>
-<noscript><p><img src="//analytics.16chan.xyz/matomo.php?idsite=1&amp;rec=1" style="border:0;" alt="" /></p></noscript>
-<!-- End Matomo Code -->
-<title>Links</title>
-<meta charset="UTF-8">
-<meta
-  name="viewport"
-  content="width=device-width, initial-scale=1.0">
-<link
-  href="/.static/css/global.css"
-  type="text/css"
-  rel="stylesheet" />
-<link
-  href="/.static/css/index.css"
-  type="text/css"
-  rel="stylesheet" />
-<link
-  href="/.static/css/watcher.css"
-  type="text/css"
-  rel="stylesheet" />
-<link
-  href="/.static/css/posting.css"
-  type="text/css"
-  rel="stylesheet" />
-</head>
-<body id="linksPage">
+    <head>
+	<script type="text/javascript" id="dynamicAnalytics"></script>
+	<title>Links</title>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="/.static/css/global.css" type="text/css" rel="stylesheet" />
+	<link href="/.static/css/index.css" type="text/css" rel="stylesheet" />
+	<link href="/.static/css/watcher.css" type="text/css" rel="stylesheet" />
+	<link href="/.static/css/posting.css" type="text/css" rel="stylesheet" />
+    </head>
 
-  <script src="/.static/js/themeLoader.js"></script>
+    <body>
 
-  <div class="navBar" id="navBarType" value="A"></div>
+	<script src="/.static/js/themeLoader.js"></script>
 
-  <div id="settingsWrapper">
+	<nav id="dynamicHeader"></nav>
 
-    <div
-      id="logoBox"
-      class="title">
-      <img
-        src="/.static/logo.png"
-        class="logoImg"
-        alt="logo" />
-    </div>
+	<div id="indexWrapper">
 
-  <h2>Source</h2>
+            <div id="logoBox" class="title">
+		<a href="/">
+		    <img src="/.static/logo.png" class="logoImg" alt="logo" />
+		</a>
+            </div>
 
-  <div id="divStandardBox">
-      <p class="title">16chan is made possible because of the LynxChan project. A fully opensource imageboard engine.</p>
-      <ul>
-       <li><a href="https://gitgud.io/LynxChan">LynxChan</a>, the repository for the backend utilized by 16chan.</li>
-       <li><a href="https://gitgud.io/663/16chan-fe">16chan Front End</a>, the repository for the 16chan front end.</li>
-       <li><a href="https://matomo.org/">Matomo</a>, the libre analytics platform that 16chan uses.
-       <li><a href="https://github.com/maksrago/Dashchan-Extensions-ACF">16chan Mobile App Source</a>, the official extension for the Dashchan mobile app.
-      </ul>
-	<hr>
-      <ul>
-       <li><a href="https://twitter.com/spectralninja">@SpectralNinja</a>, the artist of the 16chan logo.</li>
-      </ul>
-  </div>
+	    <div id="dynamicLinks"></div>
 
-  </div>
+	    <div class="contentBox">
+		<h2>Links</h2>
+		<div id="contentBoxInner">
+		    <p class="title">16chan is made possible because of the LynxChan project. A fully opensource imageboard engine.</p>
+		    <ul>
+			<li><a href="https://gitgud.io/LynxChan">LynxChan</a>, the repository for the backend utilized by 16chan.</li>
+			<li><a href="https://gitgud.io/663/16lynx">16chan Front End</a>, the repository for the 16chan front end.</li>
+			<li><a href="https://im663.com/">im663.com</a>, blog featuring all of the latest news and updates related to 16chan.</li>
+			<li><a href="https://matomo.org/">Matomo</a>, the libre analytics platform that 16chan uses.</li>
+			<li><a href="https://github.com/maksrago/Dashchan-Extensions-ACF">16chan Mobile App Source</a>, the official extension for the Dashchan mobile app.</li>
+		    </ul>
+		</div>
+	    </div>
 
-<div class="footerBar" id="footerBarType" value="A"></div>
+	</div>
 
-</body>
+	<footer id="dynamicFooter"></footer>
 
-<script src="/.static/js/api.js"></script>
-<script src="/.static/js/navInject.js"></script>
-<script src="/.static/js/footerInject.js"></script>
-<script src="/.static/js/themes.js"></script>
-<script src="/.static/js/draggable.js"></script>
-<script src="/.static/js/watcher.js"></script>
-<script src="/.static/js/favouriteBoards.js"></script>
+    </body>
+
+    <script src="/.static/js/api.js"></script>
+    <script src="/.static/js/themes.js"></script>
+    <script src="/.static/js/draggable.js"></script>
+    <script src="/.static/js/watcher.js"></script>
+    <script src="/.static/js/favouriteBoards.js"></script>
 
 </html>

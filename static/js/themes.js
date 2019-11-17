@@ -3,17 +3,9 @@ var themes = {};
 themes.init = function() {
 
   themes.themes = [ {
-    label : 'Yotsuba',
-    id : 'yotsuba'
-  },
-  {
-    label : 'Yotsuba B',
-    id : 'yotsuba_b'
-  },
-  {
-    label : 'Warosu',
-    id : 'warosu'
-  }];
+    label : 'Clear',
+    id : 'clear'
+  } ];
 
   var postingLink = document.getElementById('navPosting');
 
