@@ -4,28 +4,13 @@
     background: #282A2E;
 }
 
-.theme_clear .topBoards a, .theme_clear #divLatestImages img,
-.theme_clear #divLatestPosts .latestPostCell, .theme_clear .innerPost,
-.theme_clear .sideCatalogCell, .theme_clear .markedPost, .theme_clear .sideCatalogMarkedCell,
-.theme_clear .catalogCell {
-    background-color: #dddddd
-}
-
 .floatingMenu, #quick-reply table {
     background: #1d1f21;
-}
-
-.theme_clear .floatingMenu, .theme_clear #quick-reply table {
-    background: #cccccc;
 }
 
 .markedPost, .sideCatalogMarkedCell {
     background: rgba(0, 0, 0, .14);
     border: 1px solid #111;
-}
-
-.theme_clear .markedPost, .theme_clear .sideCatalogMarkedCell {
-    background: #868686;
 }
 
 #divLatestPosts .latestPostCell, .innerPost, .sideCatalogCell, .catalogCell {
@@ -171,12 +156,6 @@ a, .coloredIcon, .unhideButton, .embedButton, .checkedFavouriteButton:before,
     color: #c5c8c6;
 }
 
-.theme_clear a, .theme_clear .coloredIcon, .theme_clear .unhideButton,
-.theme_clear .embedButton, .theme_clear .checkedFavouriteButton:before,
-.theme_clear #selectedTab, .theme_clear #showFormsButton {
-    color: #000
-}
-
 .coloredIcon::before {
     font-family: 'Icons';
 }
@@ -216,11 +195,6 @@ input, select, textarea {
     font-size: 80%;
 }
 
-.theme_clear input, .theme_clear select, .theme_clear textarea {
-    background: #dddddd;
-    color: #000;
-}
-
 input[type=button], input[type=submit], button, .dropzone, .selectedCell
 {
     border: 1px double #282a2e;
@@ -233,18 +207,6 @@ input[type=button], input[type=submit], button, .dropzone, .selectedCell
     margin-bottom: 0.5em;
     cursor: pointer;
 }
-
-.theme_clear input[type=button], .theme_clear input[type=submit],
-.theme_clear button, .theme_clear .dropzone, .theme_clear .selectedCell
-{
-    background: #a7a7a7;
-    color: #000;
-}
-
-/* DO NOT NEED */
-/* .title, .unhideButton { */
-/*     font-weight: bold; */
-/* } */
 
 .fileBrowser {
     background: none;
@@ -285,11 +247,6 @@ body {
     margin: 0px;
 }
 
-body.theme_clear {
-    background-color: #cccccc;
-    color: #000
-}
-
 /* header and nav / top of page styles */
 header {
     margin: 3em auto 0 auto;
@@ -306,10 +263,6 @@ nav {
     font-size: 70%;
     text-align: center;
     z-index: 1;
-}
-
-.theme_clear nav {
-    background-color: #acacac
 }
 
 nav span, nav a {
@@ -884,4 +837,457 @@ footer {
 	height: auto;
 	max-height: 100px;
     }
+}
+
+/* Yotsuba theme */
+.theme_yotsuba {
+    background: #ffe no-repeat;
+    color: maroon;
+    background-image: linear-gradient(to bottom,#fed6af 0,transparent 260px);
+}
+
+/* .theme_yotsuba #divLatestImages img */
+
+.theme_yotsuba .topBoards a,
+.theme_yotsuba .innerPost,
+.theme_yotsuba .sideCatalogCell,
+.theme_yotsuba .markedPost,
+.theme_yotsuba .sideCatalogMarkedCell,
+.theme_yotsuba .divPages {
+    background: #f0e0d6;
+}
+
+.theme_yotsuba .floatingMenu,
+.theme_yotsuba #quick-reply table,
+.theme_yotsuba .modalDecorationPanel {
+    background: #f0e0d6;
+    color: maroon;
+    border: 1px solid #800;
+}
+
+.theme_yotsuba .floatingMenu hr,
+.theme_yotsuba #quick-reply table hr {
+    color: #b86;
+}
+
+.theme_yotsuba .markedPost, .theme_yotsuba .sideCatalogMarkedCell {
+    background: #f0c0b0;
+    border: 1px solid #d99f91;
+}
+
+.theme_yotsuba .boardHeader p,
+.theme_yotsuba #catalogId,
+.theme_yotsuba #overboardId {
+    color: maroon;
+    text-shadow: 1px 1px 1px rgba(100,0,0,0.6);
+}
+
+.theme_yotsuba #labelDescription,
+.theme_yotsuba .linkSelf,
+.theme_yotsuba .linkQuote,
+.theme_yotsuba .labelStats,
+.theme_yotsuba .spoiler:hover {
+    color: maroon;
+}
+
+.theme_yotsuba hr {
+    border-top: 1px solid #d9bfb7;
+}
+
+.theme_yotsuba a,
+.theme_yotsuba .panelBacklinks a,
+.theme_yotsuba .coloredIcon,
+.theme_yotsuba .unhideButton,
+.theme_yotsuba .embedButton,
+.theme_yotsuba .checkedFavouriteButton::before,
+.theme_yotsuba #selectedTab,
+.theme_yotsuba #showFormsButton {
+    color: #00e
+}
+
+.theme_yotsuba a:hover,
+.theme_yotsuba .glowOnHover:hover,
+.theme_yotsuba .floatingMenu.extraMenu div:hover,
+.theme_yotsuba .floatingMenu.hideMenu div:hover {
+    color: #ff0000 !important;
+}
+
+.theme_yotsuba .labelSubject {
+    color: #cc1105;
+}
+
+.theme_yotsuba .noEmailName,
+.theme_yotsuba .noEmailName:hover {
+    color: #117743 !important;
+}
+
+.theme_yotsuba .labelRole,
+.theme_yotsuba .labelRole:before{
+    color: purple;
+}
+
+.theme_yotsuba nav {
+    background-color: rgba(240,224,214,0.98);
+    border-bottom: 1px solid #B86;
+}
+
+.theme_yotsuba #postingForm th,
+.theme_yotsuba .modalTableBody th,
+.theme_yotsuba .postingTypeBanner,
+.theme_yotsuba #quick-reply th {
+    background: #ea8;
+    border: 1px solid #800;
+}
+
+/* Work on this?*/
+.theme_yotsuba input[type="button"],
+.theme_yotsuba input[type="submit"],
+.theme_yotsuba button,
+.theme_yotsuba .dropzone,
+.theme_yotsuba selectedCell,
+.theme_yotsuba #contentBoxInner button,
+.theme_yotsuba #contentBoxInner .hidden.reloadCaptchaButton,
+.theme_yotsuba #contentBoxInner input[type="submit"] {
+    border: 1px double #800;
+    background: #fed;
+    color: maroon;
+}
+
+/* front page */
+.theme_yotsuba h2,
+.theme_yotsuba #divBoardsLegend,
+.theme_yotsuba #federatedText,
+.theme_yotsuba #labelContent,
+.theme_yotsuba #threadI,
+.theme_yotsuba #threadN,
+.theme_yotsuba #threadD,
+.theme_yotsuba #threadV
+{
+    background: #fca;
+}
+
+.theme_yotsuba #contentBoxInner {
+    background: #fff;
+}
+
+.theme_yotsuba .contentBox,
+.theme_yotsuba #divBoardsLegend .cellComponent,
+.theme_yotsuba #federatedText,
+.theme_yotsuba #labelContent,
+.theme_yotsuba #threadI,
+.theme_yotsuba #threadN,
+.theme_yotsuba #threadD,
+.theme_yotsuba #threadV,
+.theme_yotsuba #settingsFieldset {
+    border: 1px solid #800;
+}
+
+.theme_yotsuba #divLatestImages img,
+.theme_yotsuba #divLatestPosts .latestPostCell{
+    background: white;
+    border: 1px solid transparent;
+}
+/* end front page */
+
+.theme_yotsuba #contentBoxInner #labelName {
+    text-shadow: none;
+}
+
+.theme_yotsuba #divBoards .boardsCell:nth-child(2n),
+.theme_yotsuba #contentBoxInner.federatedTable .linkFederated:nth-child(2n+1),
+.theme_yotsuba #contentBoxInner #divThreads div:nth-child(2n) {
+    background-color: #ede2d4;
+}
+
+.theme_yotsuba #dynamicAnnouncement {
+    border-color: #d9bfb7;
+}
+
+.theme_yotsuba .indicatorSfw:after {
+    color: maroon;
+}
+
+.theme_yotsuba .innerPost,
+.theme_yotsuba .divPages,
+.theme_yotsuba .reportFieldset,
+.theme_yotsuba .sideCatalogCell {
+    border: 1px solid #d9bfb7;
+}
+
+.theme_yotsuba .quoteTooltip {
+    border: none;
+    border-top: 1px solid #d9bfb7;
+    border-left: 1px solid #d9bfb7;
+}
+
+.theme_yotsuba .innerPost {
+    border-top: none;
+    border-left: none;
+}
+
+.theme_yotsuba #divPages a::before,
+.theme_yotsuba #divPages a::after,
+.theme_yotsuba #linkNext::before,
+.theme_yotsuba #linkNext::after,
+.theme_yotsuba #linkPrevious::before,
+.theme_yotsuba #linkPrevious::after,
+.theme_yotsuba #divPagesSpacer,
+.theme_yotsuba #navLinkSpan,
+.theme_yotsuba #navOptionsSpan {
+    color: #b86;
+}
+
+.theme_yotsuba nav .coloredIcon,
+.theme_yotsuba #questionBox:before,
+.theme_yotsuba #questionBox:after,
+.theme_yotsuba #showFederatedButton:before,
+.theme_yotsuba #showFederatedButton:after,
+.theme_yotsuba .returnReplyLink:before,
+.theme_yotsuba .returnReplyLink:after,
+.theme_yotsuba #showFormsButton:before,
+.theme_yotsuba #showFormsButton:after,
+.theme_yotsuba #threadOpen:before,
+.theme_yotsuba #threadOpen:after,
+.theme_yotsuba .opHead .coloredIcon,
+.theme_yotsuba .postInfo .coloredIcon {
+    color: maroon;
+}
+
+.theme_yotsuba .selectedCell {
+    background: #ea8;
+    color: maroon;
+    border: 1px solid #800;
+}
+
+.theme_yotsuba .removeButton {
+    color: maroon;
+}
+
+/* Yotsuba B theme */
+.theme_yotsuba_b {
+    background: #eef2ff no-repeat;
+    color: #000;
+    background-image: linear-gradient(to bottom, #d1d5ee 0, transparent 260px);
+}
+
+/* .theme_yotsuba_b #divLatestImages img */
+
+.theme_yotsuba_b .topBoards a,
+.theme_yotsuba_b .innerPost,
+.theme_yotsuba_b .sideCatalogCell,
+.theme_yotsuba_b .markedPost,
+.theme_yotsuba_b .sideCatalogMarkedCell,
+.theme_yotsuba_b .divPages {
+    background: #d6daf0;
+}
+
+.theme_yotsuba_b .floatingMenu,
+.theme_yotsuba_b #quick-reply table,
+.theme_yotsuba_b .modalDecorationPanel {
+    background: #eef2ff;
+    color: #000;
+    border: 1px solid #000;
+}
+
+.theme_yotsuba_b .floatingMenu hr,
+.theme_yotsuba_b #quick-reply table hr {
+    color: #000;
+}
+
+.theme_yotsuba_b .markedPost, .theme_yotsuba_b .sideCatalogMarkedCell {
+    background: #d6bad0;
+    border: 1px solid #ba9dbf;
+}
+
+.theme_yotsuba_b .boardHeader p,
+.theme_yotsuba_b #catalogId,
+.theme_yotsuba_b #overboardId {
+    color: #af0a0f;
+    text-shadow: 1px 1px 1px rgba(105,10,15,0.6);
+}
+
+.theme_yotsuba_b #favouriteButton {
+    color: #af0a0f;
+}
+
+.theme_yotsuba_b .linkSelf,
+.theme_yotsuba_b .linkQuote,
+.theme_yotsuba_b .labelStats,
+.theme_yotsuba_b .spoiler:hover,
+.theme_yotsuba_b .returnReplyLink:before,
+.theme_yotsuba_b .returnReplyLink:after {
+    color: #000;
+}
+
+.theme_yotsuba_b hr {
+    border-top: 1px solid #b7c5d9;
+}
+
+.theme_yotsuba_b a,
+.theme_yotsuba_b .panelBacklinks a,
+.theme_yotsuba_b .coloredIcon,
+.theme_yotsuba_b .unhideButton,
+.theme_yotsuba_b .embedButton,
+.theme_yotsuba_b .checkedFavouriteButton::before,
+.theme_yotsuba_b #selectedTab,
+.theme_yotsuba_b #showFormsButton {
+    color: #34345C;
+}
+
+.theme_yotsuba_b a:hover,
+.theme_yotsuba_b .glowOnHover:hover,
+.theme_yotsuba_b .floatingMenu.extraMenu div:hover,
+.theme_yotsuba_b .floatingMenu.hideMenu div:hover {
+    color: #ff0000 !important;
+}
+
+.theme_yotsuba_b .labelSubject {
+    color: #0f0c5d;
+}
+
+.theme_yotsuba_b .noEmailName,
+.theme_yotsuba_b .noEmailName:hover {
+    color: #117743 !important;
+}
+
+.theme_yotsuba_b .labelRole,
+.theme_yotsuba_b .labelRole:before{
+    color: purple;
+}
+
+.theme_yotsuba_b nav {
+    background-color: #d1d5ee;
+    border-bottom: 1px solid #89A;
+}
+
+.theme_yotsuba_b #postingForm th,
+.theme_yotsuba_b .modalTableBody th,
+.theme_yotsuba_b .postingTypeBanner,
+.theme_yotsuba_b #quick-reply th {
+    background: #98e;
+    border: 1px solid #000;
+}
+
+/* Work on this?*/
+.theme_yotsuba_b input[type="button"],
+.theme_yotsuba_b input[type="submit"],
+.theme_yotsuba_b button,
+.theme_yotsuba_b .dropzone,
+.theme_yotsuba_b selectedCell,
+.theme_yotsuba_b #contentBoxInner button,
+.theme_yotsuba_b #contentBoxInner .hidden.reloadCaptchaButton,
+.theme_yotsuba_b #contentBoxInner input[type="submit"] {
+    border: 1px double #000;
+    background: #eceff6;
+    color: #000;
+}
+
+/* front page */
+.theme_yotsuba_b h2,
+.theme_yotsuba_b #divBoardsLegend,
+.theme_yotsuba_b #federatedText,
+.theme_yotsuba_b #labelContent,
+.theme_yotsuba_b #threadI,
+.theme_yotsuba_b #threadN,
+.theme_yotsuba_b #threadD,
+.theme_yotsuba_b #threadV
+{
+    background: #98e;
+}
+
+.theme_yotsuba_b #contentBoxInner {
+    background: white;
+}
+
+.theme_yotsuba_b .contentBox,
+.theme_yotsuba_b #divBoardsLegend .cellComponent,
+.theme_yotsuba_b #federatedText,
+.theme_yotsuba_b #labelContent,
+.theme_yotsuba_b #threadI,
+.theme_yotsuba_b #threadN,
+.theme_yotsuba_b #threadD,
+.theme_yotsuba_b #threadV,
+.theme_yotsuba_b #settingsFieldset {
+    border: 1px solid #000;
+}
+
+.theme_yotsuba_b #divLatestImages img,
+.theme_yotsuba_b #divLatestPosts .latestPostCell{
+    background: white;
+    border: 1px solid transparent;
+}
+/* end front page */
+
+.theme_yotsuba_b #contentBoxInner #labelName {
+    text-shadow: none;
+}
+
+.theme_yotsuba_b #divBoards .boardsCell:nth-child(2n),
+.theme_yotsuba_b #contentBoxInner.federatedTable .linkFederated:nth-child(2n+1),
+.theme_yotsuba_b #contentBoxInner #divThreads div:nth-child(2n) {
+    background-color: #e0e5f6;
+}
+
+.theme_yotsuba_b #dynamicAnnouncement {
+    border-color: #b7c5d9;
+}
+
+.theme_yotsuba_b .indicatorSfw:after {
+    color: navy;
+}
+
+.theme_yotsuba_b .innerPost,
+.theme_yotsuba_b .divPages,
+.theme_yotsuba_b .reportFieldset,
+.theme_yotsuba_b .sideCatalogCell {
+    border: 1px solid #b7c5d9;
+}
+
+.theme_yotsuba_b .quoteTooltip {
+    border: none;
+    border-top: 1px solid #b7c5d9;
+    border-left: 1px solid #b7c5d9;
+}
+
+.theme_yotsuba_b .innerPost {
+    border-top: none;
+    border-left: none;
+}
+
+.theme_yotsuba_b #divPages a::before,
+.theme_yotsuba_b #divPages a::after,
+.theme_yotsuba_b #linkNext::before,
+.theme_yotsuba_b #linkNext::after,
+.theme_yotsuba_b #linkPrevious::before,
+.theme_yotsuba_b #linkPrevious::after,
+.theme_yotsuba_b #divPagesSpacer,
+.theme_yotsuba_b #navLinkSpan,
+.theme_yotsuba_b #navOptionsSpan {
+    color: #89A;
+}
+
+.theme_yotsuba_b nav .coloredIcon,
+.theme_yotsuba_b #questionBox:before,
+.theme_yotsuba_b #questionBox:after,
+.theme_yotsuba_b #showFederatedButton:before,
+.theme_yotsuba_b #showFederatedButton:after,
+.theme_yotsuba_b .returnReplyLink:before,
+.theme_yotsuba_b .returnReplyLink:after,
+.theme_yotsuba_b #showFormsButton:before,
+.theme_yotsuba_b #showFormsButton:after,
+.theme_yotsuba_b #threadOpen:before,
+.theme_yotsuba_b #threadOpen:after,
+.theme_yotsuba_b .opHead .coloredIcon,
+.theme_yotsuba_b .Postinfo .coloredIcon {
+    color: #34345C;
+}
+
+.theme_yotsuba_b .selectedCell {
+    background: #98e;
+    color: #000;
+    border: 1px solid #000;
+}
+
+.theme_yotsuba_b .removeButton {
+    color: #000;
 }

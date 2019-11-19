@@ -96,7 +96,7 @@ div.postingTypeBanner {
 
 #postingForm label {
     font-size: 80%;
-    vertical-align: middle;
+    vertical-align: text-top;
 }
 
 #postingForm td, .modalTableBody td {
@@ -167,6 +167,7 @@ div.postingTypeBanner {
 .modalHeader {
     display: block;
     margin-bottom: 5px;
+    font-weight: bold;
 }
 
 .modalCaptchaControls {

@@ -3,8 +3,11 @@ var themes = {};
 themes.init = function() {
 
   themes.themes = [ {
-    label : 'Clear',
-    id : 'clear'
+    label : 'Yotsuba',
+    id : 'yotsuba'
+  }, {
+    label : 'Yotsuba B',
+    id : 'yotsuba_b'
   } ];
 
   var postingLink = document.getElementById('navPosting');
