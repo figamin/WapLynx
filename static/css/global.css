@@ -1138,7 +1138,7 @@ footer {
 .theme_yotsuba_b .glowOnHover:hover,
 .theme_yotsuba_b .floatingMenu.extraMenu div:hover,
 .theme_yotsuba_b .floatingMenu.hideMenu div:hover {
-    color: #ff0000 !important;
+    color: #d00 !important;
 }
 
 .theme_yotsuba_b .labelSubject {
