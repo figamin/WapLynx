@@ -36,47 +36,60 @@ catalog.sortByField = function(a, b, field) {
   if (a.pinned) return -1;
   else if (b.pinned) return 1;
 
-  if (a[field] > b[field]) return -1;
-  if (a[field] < b[field]) return 1;
+  if ((a[field] || 0) > (b[field] || 0)) return -1;
+  if ((a[field] || 0) < (b[field] || 0)) return 1;
   return 0;
-}
+};
 
 // A list of methods to sort.
 catalogSorting.methods = new Map([
-  ['Bump order', function() {
-    catalog.catalogThreads.sort(function(a, b) {
-      return catalog.sortByField(a, b, "lastBump");
-    });
-  }],
-  ['Last reply', function() {
-    catalog.catalogThreads.sort(function(a, b) {
-      return catalog.sortByField(a, b, "lastReply");
-    });
-  }],
-  ['Creation date', function() {
-    catalog.catalogThreads.sort(function(a, b) {
-      return catalog.sortByField(a, b, "creation");
-    });
-  }],
-  ['Reply count', function() {
-    catalog.catalogThreads.sort(function(a, b) {
-      return catalog.sortByField(a, b, "postCount");
-    });
-  }]
+  [
+    "Bump order",
+    function() {
+      catalog.catalogThreads.sort(function(a, b) {
+        return catalog.sortByField(a, b, "lastBump");
+      });
+    }
+  ],
+  [
+    "Last reply",
+    function() {
+      catalog.catalogThreads.sort(function(a, b) {
+        return catalog.sortByField(a, b, "lastReply");
+      });
+    }
+  ],
+  [
+    "Creation date",
+    function() {
+      catalog.catalogThreads.sort(function(a, b) {
+        return catalog.sortByField(a, b, "creation");
+      });
+    }
+  ],
+  [
+    "Reply count",
+    function() {
+      catalog.catalogThreads.sort(function(a, b) {
+        return catalog.sortByField(a, b, "postCount");
+      });
+    }
+  ]
 ]);
 // The current sorting method. Restored from persistence if possible.
-catalogSorting.currentMethod = localStorage.getItem("catalogSort") || 'Bump order';
+catalogSorting.currentMethod =
+  localStorage.getItem("catalogSort") || "Bump order";
 
 // Updates the current sorting method, also persists it.
 catalogSorting.updateMethod = function(value) {
   localStorage.setItem("catalogSort", value);
   catalogSorting.currentMethod = value;
-}
+};
 
 // Uses the current sorting method to sort the threads.
 catalogSorting.sortThreads = function() {
   catalogSorting.methods.get(catalogSorting.currentMethod)();
-}
+};
 
 // Initializes the sorting menu.
 catalogSorting.initSort = function() {

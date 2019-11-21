@@ -1291,3 +1291,217 @@ footer {
 .theme_yotsuba_b .removeButton {
     color: #000;
 }
+
+
+/* Yotsuba theme */
+.theme_warosu {
+    background: #eef8f0 no-repeat;
+    color: #333;
+    background-image: linear-gradient(to bottom,#cfecd1 0,transparent 260px);
+}
+
+/* .theme_warosu #divLatestImages img */
+
+.theme_warosu .topBoards a,
+.theme_warosu .innerPost,
+.theme_warosu .sideCatalogCell,
+.theme_warosu .markedPost,
+.theme_warosu .sideCatalogMarkedCell,
+.theme_warosu .divPages {
+    background: #d6f0da;
+}
+
+.theme_warosu .floatingMenu,
+.theme_warosu #quick-reply table,
+.theme_warosu .modalDecorationPanel {
+    background: #cfecd1;
+    color: #333;
+    border: 1px solid #333;
+}
+
+.theme_warosu .floatingMenu hr,
+.theme_warosu #quick-reply table hr {
+    color: #b86;
+}
+
+.theme_warosu .markedPost, .theme_warosu .sideCatalogMarkedCell {
+    background: #bbe6c2;
+    border: 1px solid rgba(154,163,159,0.8);
+}
+
+.theme_warosu .boardHeader p,
+.theme_warosu #catalogId,
+.theme_warosu #overboardId {
+    color: maroon;
+    text-shadow: 1px 1px 1px rgba(100,0,0,0.6);
+}
+
+.theme_warosu .linkSelf,
+.theme_warosu .linkQuote,
+.theme_warosu .labelStats,
+.theme_warosu .spoiler:hover {
+    color: #333;
+}
+
+.theme_warosu hr {
+    border-top: 1px solid rgba(0,0,0,0.11);
+}
+
+.theme_warosu a,
+.theme_warosu .panelBacklinks a,
+.theme_warosu .coloredIcon,
+.theme_warosu .unhideButton,
+.theme_warosu .embedButton,
+.theme_warosu .checkedFavouriteButton::before,
+.theme_warosu #selectedTab,
+.theme_warosu #showFormsButton {
+    color: #358;
+}
+
+.theme_warosu a:hover,
+.theme_warosu .glowOnHover:hover,
+.theme_warosu .floatingMenu.extraMenu div:hover,
+.theme_warosu .floatingMenu.hideMenu div:hover {
+    color: #DD0000 !important;
+}
+
+.theme_warosu .labelSubject {
+    color: #0f0c5d;
+}
+
+.theme_warosu .noEmailName,
+.theme_warosu .noEmailName:hover {
+    color: #117743 !important;
+}
+
+.theme_warosu .labelRole,
+.theme_warosu .labelRole:before{
+    color: purple;
+}
+
+.theme_warosu nav {
+    background-color: #cfecd1;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+
+.theme_warosu #postingForm th,
+.theme_warosu .modalTableBody th,
+.theme_warosu .postingTypeBanner,
+.theme_warosu #quick-reply th {
+    background: #bbe6c2;
+    border: 1px solid #333;
+}
+
+/* Work on this?*/
+.theme_warosu input[type="button"],
+.theme_warosu input[type="submit"],
+.theme_warosu button,
+.theme_warosu .dropzone,
+.theme_warosu selectedCell,
+.theme_warosu #contentBoxInner button,
+.theme_warosu #contentBoxInner .hidden.reloadCaptchaButton,
+.theme_warosu #contentBoxInner input[type="submit"] {
+    border: 1px solid #333;
+    background: rgba(255,255,255,0.9);
+    color: #333;
+}
+
+/* front page */
+.theme_warosu h2,
+.theme_warosu #divBoardsLegend,
+.theme_warosu #federatedText,
+.theme_warosu #labelContent,
+.theme_warosu #threadI,
+.theme_warosu #threadN,
+.theme_warosu #threadD,
+.theme_warosu #threadV
+{
+    background: #bbe6c2;
+}
+
+.theme_warosu #contentBoxInner {
+    background: #fff;
+}
+
+.theme_warosu .contentBox,
+.theme_warosu #divBoardsLegend .cellComponent,
+.theme_warosu #federatedText,
+.theme_warosu #labelContent,
+.theme_warosu #threadI,
+.theme_warosu #threadN,
+.theme_warosu #threadD,
+.theme_warosu #threadV,
+.theme_warosu #settingsFieldset {
+    border: 1px solid #333;
+}
+
+.theme_warosu #divLatestImages img,
+.theme_warosu #divLatestPosts .latestPostCell{
+    background: white;
+    border: 1px solid transparent;
+}
+/* end front page */
+
+.theme_warosu #contentBoxInner #labelName {
+    text-shadow: none;
+}
+
+.theme_warosu #divBoards .boardsCell:nth-child(2n),
+.theme_warosu #contentBoxInner.federatedTable .linkFederated:nth-child(2n+1),
+.theme_warosu #contentBoxInner #divThreads div:nth-child(2n) {
+    background-color: #d6f0da;
+}
+
+.theme_warosu #dynamicAnnouncement {
+    border-color: rgba(0,0,0,0.11);
+}
+
+.theme_warosu .indicatorSfw:after {
+    color: #117743;
+}
+
+.theme_warosu .innerPost,
+.theme_warosu .divPages,
+.theme_warosu .reportFieldset,
+.theme_warosu .sideCatalogCell {
+    border: 1px solid rgba(154,163,159,0.2);
+}
+
+.theme_warosu .quoteTooltip {
+    border: none;
+    border-top: 1px solid rgba(154,163,159,0.2);
+    border-left: 1px solid rgba(154,163,159,0.2);
+}
+
+.theme_warosu .innerPost {
+    border-top: none;
+    border-left: none;
+}
+
+.theme_warosu #divPages a::before,
+.theme_warosu #divPages a::after,
+.theme_warosu #linkNext::before,
+.theme_warosu #linkNext::after,
+.theme_warosu #linkPrevious::before,
+.theme_warosu #linkPrevious::after,
+.theme_warosu #divPagesSpacer,
+.theme_warosu #navLinkSpan,
+.theme_warosu #navOptionsSpan {
+    color: rgba(51, 51, 51, 0.5);
+}
+
+.theme_warosu nav .coloredIcon,
+.theme_warosu #questionBox:before,
+.theme_warosu #questionBox:after,
+.theme_warosu #showFederatedButton:before,
+.theme_warosu #showFederatedButton:after,
+.theme_warosu .returnReplyLink:before,
+.theme_warosu .returnReplyLink:after,
+.theme_warosu #showFormsButton:before,
+.theme_warosu #showFormsButton:after,
+.theme_warosu #threadOpen:before,
+.theme_warosu #threadOpen:after,
+.theme_warosu .opHead .coloredIcon,
+.theme_warosu .postInfo .coloredIcon {
+    color: #358;
+}
