@@ -644,6 +644,10 @@ span.spoiler {
     display: none;
 }
 
+#paypal {
+    border: none;
+}
+
 /* END ADDITIONS */
 
 #redirect, #maint {
@@ -747,6 +751,10 @@ footer {
 
 #linkGlobalRules::after {
     content: 'Global Rules';
+}
+
+#linkDonate::after {
+    content: 'Donate';
 }
 
 #linkLinks::after {
