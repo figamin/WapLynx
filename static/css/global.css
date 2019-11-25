@@ -648,6 +648,14 @@ span.spoiler {
     border: none;
 }
 
+#dynamicAnnouncement td {
+    vertical-align: top;
+}
+
+.important {
+    color: #ff0000;
+}
+
 /* END ADDITIONS */
 
 #redirect, #maint {
