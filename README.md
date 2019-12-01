@@ -1,5 +1,3 @@
-#16Lynx
-
 **Project Blog Post:** [im663.com](https://im663.com/projects/16Lynx)
 
 **Live site:** [16chan.xyz](https://16chan.xyz)
