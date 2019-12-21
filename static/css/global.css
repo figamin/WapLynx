@@ -665,6 +665,19 @@ span.spoiler {
     display: none;
 }
 
+.labelYou {
+  color: #117743;
+  font-style: italic;
+  margin-right: 0.125rem;
+}
+
+.quoteLink.you:after {
+  content: " (You)";
+  font-size: 75%;
+  color: #000;
+  text-decoration: none;
+}
+
 /* END ADDITIONS */
 
 #redirect, #maint {

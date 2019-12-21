@@ -351,6 +351,21 @@ settingsMenu.getOtherContent = function() {
   noAutoLoopLabel.innerHTML = 'No Autoloop';
   noAutoLoopiv.appendChild(noAutoLoopLabel);
 
+  // Begin (you)s
+
+  if (localStorage.getItem("enableYous") === null) {
+    localStorage.setItem("enableYous", "true");
+  }
+
+  var enableYousDiv = document.createElement('div');
+  enableYousDiv.innerHTML = "<input type='checkbox' id='enableYous' " +
+    (localStorage.getItem("enableYous") === "true" ? "checked" : "") +
+    " /><label class='small' for='enableYous'>Enable (You)s</label>";
+  var enableYousCheckbox = enableYousDiv.querySelector("[type=checkbox]");
+  otherPanel.appendChild(enableYousDiv);
+
+  // End (you)s
+
   var saveButton = document.createElement('button');
   otherPanel.appendChild(saveButton);
   saveButton.innerHTML = 'Save';
@@ -359,6 +374,7 @@ settingsMenu.getOtherContent = function() {
       localStorage.setItem('localTime', localCheckBox.checked);
       localStorage.setItem('relativeTime', relativeCheckBox.checked);
       localStorage.setItem('noAutoLoop', noAutoLoopCheckBox.checked);
+      localStorage.setItem('enableYous', enableYousCheckbox.checked);
       location.reload();
   }
 
