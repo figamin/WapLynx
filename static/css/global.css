@@ -674,7 +674,6 @@ span.spoiler {
 .quoteLink.you:after {
   content: " (You)";
   font-size: 75%;
-  color: #000;
   text-decoration: none;
 }
 
