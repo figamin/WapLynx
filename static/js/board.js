@@ -44,6 +44,7 @@ board.postCallback = function(status, data) {
   if (status === 'ok') {
 
     postCommon.storeUsedPostingPassword(api.boardUri, data);
+    postCommon.addYou(api.boardUri, data);
 
     window.location.pathname = '/' + api.boardUri + '/res/' + data + '.html';
   } else {

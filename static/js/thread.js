@@ -224,7 +224,8 @@ thread.replyCallback = function(status, data) {
 
     if (status === 'ok') {
 
-	postCommon.storeUsedPostingPassword(api.boardUri, api.threadId, data);
+    postCommon.storeUsedPostingPassword(api.boardUri, api.threadId, data);
+    postCommon.addYou(api.boardUri, data);
 
 	document.getElementById('fieldMessage').value = '';
 	document.getElementById('fieldSubject').value = '';
@@ -311,6 +312,8 @@ thread.refreshCallback = function(error, receivedData) {
 		    thread.unreadPosts++;
 
 		    var postCell = posting.addPost(post, api.boardUri, api.threadId);
+			
+            postCommon.checkForYou(postCell, post.postId);
 
 		    thread.divPosts.appendChild(postCell);
 
