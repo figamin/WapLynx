@@ -302,12 +302,24 @@ nav span, nav a {
     content: "\e0b0";
 }
 
+#navMobile:before {
+    content: "\e0a6";
+}
+
 #navMod:before {
     content: "\e020";
 }
 
 #navBlog:before {
     content: "\e056";
+}
+
+#navIrc:before {
+    content: "\e032";
+}
+
+#navTwitter:before {
+    content: "\e0ca";
 }
 
 #navCatalog:before {
@@ -784,6 +796,14 @@ footer {
 
 #linkDonate::after {
     content: 'Donate';
+}
+
+#linkIrc::after {
+    content: 'IRC';
+}
+
+#linkMobile::after {
+    content: 'Mobile App';
 }
 
 #linkLinks::after {
