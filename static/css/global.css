@@ -254,14 +254,13 @@ header {
 }
 
 nav {
-    height: 18px;
+    height: 24px;
     position: fixed;
     top: 0;
     width: 100%;
     background-color: #282a2e;
     border-bottom: 1px solid #111;
     font-size: 70%;
-    text-align: center;
     z-index: 1;
 }
 
@@ -270,13 +269,7 @@ nav span, nav a {
     text-decoration: none;
 }
 
-#navLinkSpan {
-    float: left;
-}
-
-#navOptionsSpan {
-    float: right;
-}
+#navLinkSpan {}
 
 #navLinkHome:before {
     content: "\e078";

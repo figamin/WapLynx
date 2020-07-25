@@ -3,15 +3,19 @@ var themes = {};
 themes.init = function() {
 
   themes.themes = [ {
-      label : 'Yotsuba',
-      id : 'yotsuba'
-  }, {
       label : 'Yotsuba B',
       id : 'yotsuba_b'
   }, {
+      label : 'Yotsuba',
+      id : 'yotsuba'
+  }, {
       label : 'Warosu',
       id : 'warosu'
-  } ];
+  }, {
+      label : 'Tomorrow',
+      id : 'tomorrow'
+  }];
+  localStorage.selectedTheme = localStorage.selectedTheme || themes.themes[0]
 
   var postingLink = document.getElementById('navPosting');
 
@@ -32,10 +36,6 @@ themes.init = function() {
     var themeSelector = document.createElement('select');
     themeSelector.id = 'themeSelector';
 
-    var vanillaOption = document.createElement('option');
-    vanillaOption.innerHTML = 'Tomorrow';
-    themeSelector.appendChild(vanillaOption);
-
     for (var i = 0; i < themes.themes.length; i++) {
 
       var theme = themes.themes[i];
@@ -53,17 +53,7 @@ themes.init = function() {
 
     themeSelector.onchange = function() {
 
-      if (!themeSelector.selectedIndex) {
-
-        if (localStorage.selectedTheme) {
-          delete localStorage.selectedTheme;
-          themeLoader.load();
-        }
-
-        return;
-      }
-
-      var selectedTheme = themes.themes[themeSelector.selectedIndex - 1];
+      var selectedTheme = themes.themes[themeSelector.selectedIndex];
 
       if (selectedTheme.id === localStorage.selectedTheme) {
         return;
@@ -78,7 +68,7 @@ themes.init = function() {
     postingLink.parentNode.insertBefore(themeSelector, referenceNode);
 
   }
-
+  themeLoader.load()
 };
 
 themes.init();

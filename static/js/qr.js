@@ -32,6 +32,10 @@ qr.showQr = function(quote) {
 
 	qrPanel.style.display = 'block';
 
+	if (quote === undefined) {
+		return;
+	}
+
 	if (qrPanel.getBoundingClientRect().top < 0) {
 	    qrPanel.style.top = '25px';
 	}
@@ -40,6 +44,8 @@ qr.showQr = function(quote) {
 
 	var selectedText = window.getSelection();
 	if (selectedText != '') {
+		//TODO shouldn't each line be preceded by >? 
+		//i.e. explode selected text, prepend >, and implode on newline?
 	    document.getElementById('qrbody').value += '>' + selectedText + '\n';
 	}
 
