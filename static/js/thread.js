@@ -336,19 +336,6 @@ thread.refreshCallback = function(error, receivedData) {
 			  : thread.lastRefresh * 2);
     }
 
-    var counts = posts.reduce((red,v) => {
-		if (red.ids.indexOf(v.id) === -1)
-			red.ids.push(v.id);
-		red.files += v.files.length;
-		return red;
-	}, {files:	0
-		ids: 	[]
-    })
-
-	document.getElementById('postCount').innerHTML = posts.length;
-	document.getElementById('idCount').innerHTML = counts.ids.length;
-	document.getElementById('fileCount').innerHTML = counts.files;
-
 };
 
 thread.refreshCallback.stop = function() {
