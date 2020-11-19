@@ -8,7 +8,6 @@
 	"dynamicFooterAlt": "content/footerAlt.html",
 	"dynamicAnnouncement": "content/announcement.html",
 	"dynamicLinks": "content/links.html",
-	"dynamicAnalytics": "content/matomo.html",
 	"postingInformation": "content/postingInformation.html",
 	"postingTable": "content/postingForm.html",
 	"actionsForm": "content/actionsForm.html"

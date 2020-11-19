@@ -668,15 +668,6 @@ span.spoiler {
     color: #ff0000;
 }
 
-#navLive .coloredIcon {
-    text-shadow: 0 0 5px;
-    animation: livebutton-rainbow 3s linear infinite;
-}
-
-#navLive {
-    display: none;
-}
-
 .labelYou {
   color: #117743;
   font-style: italic;
