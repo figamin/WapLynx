@@ -682,6 +682,11 @@ span.spoiler {
 
 /* END ADDITIONS */
 
+#maint {
+    font-size: 18pt;
+    font-weight: bold;
+}
+
 #redirect, #maint {
     text-align: center;
 }
