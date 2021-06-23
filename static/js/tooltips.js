@@ -145,9 +145,18 @@ tooltips.checkHeight = function(tooltip) {
 
 tooltips.processQuote = function(quote, backLink) {
 
-  var tooltip;
+    var tooltip;
 
-  var quoteUrl = quote.href;
+    var quoteUrl = quote.href;
+
+    // add (OP) link if anchor ID == thread ID
+    var urlSegments = quoteUrl.split("/");
+    var finalSegment = urlSegments[urlSegments.length - 1];
+    var ids = finalSegment.split(".html#");
+    if (ids[0] === ids[1]) {
+	quote.classList.add("op");
+    }
+
 
   if (!backLink) {
     tooltips.addBackLink(quoteUrl, quote);

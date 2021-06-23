@@ -1,48 +1,45 @@
 /*Used only on catalog*/
-.linkThumb {
-  font-size: 80%;
-}
+/* .linkThumb { */
+/*   font-size: 80%; */
+/* } */
 
-#favouriteButton {
-    font-size: 60%;
-    vertical-align: middle;
-}
-
-#catalogId {
-  text-align: center;
-  margin: 1.5em 0 0.5em 0;
-}
+/* #catalogId { */
+/*   text-align: center; */
+/*   margin: 1.5em 0 1em 0; */
+/*   font-size: 150%; */
+/* } */
 
 .catalogCell {
   display: inline-block;
   width: 12em;
   text-align: center;
   padding: 0.25em;
-  height: 14em;
+  height: 18em;
   overflow: hidden;
-  overflow-y: hidden;
   margin: 0.1em;
-  background: none;
-  border: none;
 }
 
-.catalogLabel {
-  font-size: 80%;
-}
+/* .catalogLabel { */
+/*   font-size: 80%; */
+/* } */
 
 .catalogCell .divMessage {
   margin: 0;
-  font-size: 75%;
+  /* font-size: 75%; */
+
+  font-size: 10pt;
 }
 
 #divTools {
   text-align: left;
   margin-left: 15px;
+
+  float: right;
 }
 
-.catalogCell .labelSubject {
-  font-size: 75%;
-}
+/* .catalogCell .labelSubject { */
+/*   font-size: 75%; */
+/* } */
 
 .linkThumb img {
   max-height: 128px;
@@ -50,13 +47,30 @@
 }
 
 .catalogDiv {
+  width: 95%;
   margin: 1em auto;
   text-align: center;
 }
 
 .threadStats {
-  font-size: 75%;
+    /* font-size: 75%; */
+
+    font-size: 11px;
 }
+
+/* ADDITION */
+#autoCatalogRefreshCheckBox {
+    vertical-align: middle;
+}
+
+.labelReplies, .labelImages, .labelPage, .labelFiles {
+    font-weight: bold;
+}
+
+#divTools {
+    display: inline-block;
+}
+/* END ADDITION */
 
 @media only screen and (max-width: 812px) {
   .linkThumb img {

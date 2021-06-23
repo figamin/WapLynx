@@ -33,7 +33,9 @@ board.init = function() {
 
   if (api.mod) {
     api.convertButton('inputBan', posting.banPosts, 'banField');
+    api.convertButton('inputBanDelete', posting.banDeletePosts, 'banField');
     api.convertButton('inputIpDelete', posting.deleteFromIpOnBoard);
+    api.convertButton('inputThreadIpDelete', posting.deleteFromIpOnThread);
     api.convertButton('inputSpoil', posting.spoilFiles);
   }
 
@@ -43,8 +45,8 @@ board.postCallback = function(status, data) {
 
   if (status === 'ok') {
 
-    postCommon.storeUsedPostingPassword(api.boardUri, data);
-    postCommon.addYou(api.boardUri, data);
+      postCommon.storeUsedPostingPassword(api.boardUri, data);
+      postCommon.addYou(api.boardUri, data);      
 
     window.location.pathname = '/' + api.boardUri + '/res/' + data + '.html';
   } else {
@@ -152,69 +154,43 @@ board.processFilesToPost = function(captchaId) {
 
 };
 
-board.processThreadRequest = function() {
-
-  if (api.hiddenCaptcha) {
-    board.processFilesToPost();
-  } else {
-    var typedCaptcha = document.getElementById('fieldCaptcha').value.trim();
-
-    if (typedCaptcha.length !== 6 && typedCaptcha.length !== 24) {
-      alert('Captchas are exactly 6 (24 if no cookies) characters long.');
-      return;
-    } else if (/\W/.test(typedCaptcha)) {
-      alert('Invalid captcha.');
-      return;
-    }
-
-    if (typedCaptcha.length == 24) {
-      board.processFilesToPost(typedCaptcha);
-    } else {
-      var parsedCookies = api.getCookies();
-
-      api.formApiRequest('solveCaptcha', {
-        captchaId : parsedCookies.captchaid,
-        answer : typedCaptcha
-      }, function solvedCaptcha(status, data) {
-
-        if (status !== 'ok') {
-          alert(status);
-          return;
-        }
-
-        board.processFilesToPost(parsedCookies.captchaid);
-      });
-    }
-
-  }
-
-};
-
 board.postThread = function() {
 
-  api.formApiRequest('blockBypass', {},
-      function checked(status, data) {
+  if (api.hiddenCaptcha) {
+    return bypassUtils.checkPass(board.processFilesToPost);
+  }
 
-        if (status !== 'ok') {
-          alert(data);
-          return;
-        }
+  var typedCaptcha = document.getElementById('fieldCaptcha').value.trim();
 
-        var alwaysUseBypass = document
-            .getElementById('alwaysUseBypassCheckBox').checked;
+  if (typedCaptcha.length !== 6 && typedCaptcha.length !== 112) {
+    return alert('Captchas are exactly 6 (112 if no cookies) characters long.');
+  }
 
-        if (!data.valid
-            && (data.mode == 2 || (data.mode == 1 && alwaysUseBypass))) {
+  if (typedCaptcha.length == 112) {
 
-          postCommon.displayBlockBypassPrompt(function() {
-            board.processThreadRequest();
-          });
+    bypassUtils.checkPass(function() {
+      board.processFilesToPost(typedCaptcha);
+    });
 
-        } else {
-          board.processThreadRequest();
-        }
+  } else {
+    var parsedCookies = api.getCookies();
 
+    api.formApiRequest('solveCaptcha', {
+      captchaId : parsedCookies.captchaid,
+      answer : typedCaptcha
+    }, function solvedCaptcha(status, data) {
+
+      if (status !== 'ok') {
+        alert(status);
+        return;
+      }
+
+      bypassUtils.checkPass(function() {
+        board.processFilesToPost(parsedCookies.captchaid);
       });
+
+    });
+  }
 
 };
 

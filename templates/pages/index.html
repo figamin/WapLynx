@@ -1,139 +1,157 @@
 <!DOCTYPE html>
 <html>
-    <head>
-	<script type="text/javascript" id="dynamicAnalytics"></script>
-	<title>16chan</title>
-	<meta charset="UTF-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link href="/.static/css/global.css" type="text/css" rel="stylesheet" />
-	<link href="/.static/css/index.css" type="text/css" rel="stylesheet" />
-	<link href="/.static/css/watcher.css" type="text/css" rel="stylesheet" />
-	<link href="/.static/css/posting.css" type="text/css" rel="stylesheet" />
-    </head>
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0">
+    <link
+      href="/.static/css/global.css"
+      type="text/css"
+      rel="stylesheet" />
+    <link
+      href="/.static/css/index.css"
+      type="text/css"
+      rel="stylesheet" />
+    <link
+      href="/.static/css/watcher.css"
+      type="text/css"
+      rel="stylesheet" />
+    <link
+      href="/.static/css/posting.css"
+      type="text/css"
+      rel="stylesheet" />
+    <link
+      href="/.static/css/settingsMenu.css"
+      type="text/css"
+      rel="stylesheet" />
+  </head>
+  <body>
 
-    <body>
+    <script src="/.static/js/themeLoader.js"></script>
 
-	<script src="/.static/js/themeLoader.js"></script>
+    <nav id="dynamicHeader"></nav>
 
-	<nav id="dynamicHeader"></nav>
+    <div id="indexWrapper">
 
-	<div id="indexWrapper">
+      <div
+	id="logoBox"
+	class="title">
+	<img
+          src="/.static/logo.png"
+          class="logoImg"
+          alt="logo" />
+      </div>
 
-            <div id="logoBox" class="title">
-		<a href="/">
-		    <img src="/.static/logo.png" class="logoImg" alt="logo" />
-		</a>
-            </div>
+      <div
+	id="divBoards"
+	class="topBoards title"></div>
 
-            <div id="infoBox" class="title">
-		<p></p>
-            </div>
+      <div id="dynamicAnnouncement" class="alt"></div>
 
-	    <div id="dynamicLinks"></div>
+      <fieldset class="titleFieldset">
+	<div id="dynamicLinks"><a href="/logs.js" class="coloredIcon" id="linkGlobalLogs"></a>
+	  <span>•</span>
+	  <a href="/archives.js" class="coloredIcon" id="linkArchives"></a>
+	  <span>•</span>
+	  <a href="/graphs.js" class="coloredIcon" id="linkGraphs"></a>
+	  <span>•</span>
+	  <a href="/.static/pages/globalRules.html" class="coloredIcon" id="linkGlobalRules"></a>
+	  <span>•</span>
+	  <a href="/.static/pages/links.html" class="coloredIcon" id="linkLinks"></a>
+	  <span>•</span>
+	  <a href="/.static/pages/about.html" class="coloredIcon" id="linkAbout"></a>
+	  <span>•</span>
+	  <a href="/.static/pages/contact.html" class="coloredIcon" id="linkContact"></a>
+	  <span>•</span>
+	  <a href="/.static/pages/donate.html" class="coloredIcon" id="linkDonate"></a>
+	  <span>•</span>
+	  <a href="/account.js" class="coloredIcon" id="linkAccount"></a>
+	</div>
+      </fieldset>
 
-	    <div id="announcementWrapper">
-		<div id="dynamicAnnouncement"></div>
-	    </div>
+      <fieldset class="titleFieldset">
+	<legend>Welcome</legend>
+	<p>
+	  16chan is a simple imageboard where anyone can post comments and share images. There are boards dedicated to a variety of topics. Users do not need to register an account before participating in the community.<br /><br />
 
-	    <div class="contentBox spaced">
-		<h2>Welcome</h2>
-		<div id="contentBoxInner">
-		    <p>
-			16chan is a simple imageboard where anyone can post comments and share images. There are boards dedicated to a variety of topics. Users do not need to register an account before participating in the community.<br /><br />
+	  Be sure to familiarize yourself with the <a href="/.static/pages/globalRules.html">global rules</a> before posting, and read the <a href="/.static/pages/about.html">FAQ</a> if you wish to learn about how to use the site.
+	</p>
 
-			Be sure to familiarize yourself with the <a href="/.static/pages/globalRules.html">global rules</a> before posting, and read the <a href="/.static/pages/about.html#divFAQBox">FAQ</a> if you wish to learn about how to use the site.
-		    </p> <br />
+      	<br />
 
-		    <div id="torLink">
-			<img src="/.static/onion.png"><b>Tor:</b> <a href="http://47s7obvdgdpj6fkc.onion/">47s7obvdgdpj6fkc.onion</a>
-		    </div>
+	<div id="torLink">
+	  <img src="/.static/onion.png"><b>Tor v3:</b> <a href="http://mbv5a7cc6756lkpqts6si5zcpxwvd43cyb4atbqzjqypktsdoftphyqd.onion">mbv5a7cc6756lkpqts6si5zcpxwvd43cyb4atbqzjqypktsdoftphyqd.onion</a>
 
-		</div>
-	    </div>
-
-	    <div class="contentBox spaced">
-		<h2>Boards</h2>
-		<div id="contentBoxInner">
-		    <div class="contentRow">
-		      <div class="contentColumn">
-			<a href="/200acres" class="indicatorSfw">200acres</a>
-			<br>
-			<a href="/ausneets">Ausneets</a>
-			<br>
-			<a href="/b">Random</a>
-			<br>
-			<a href="/fascist">Fascism</a>
-		      </div>
-		      <div class="contentColumn">
-			<a href="/culture" class="indicatorSfw">Culture</a>
-			<br>
-			<a href="/g" class="indicatorSfw">Technology</a>
-			<br>
-			<a href="/k">Weapons</a>
-		      </div>
-		      <div class="contentColumn">
-			<a href="/library" class="indicatorSfw">Library</a>
-			<br>
-			<a href="/mde">Million Dollar Extreme</a>
-			<br>
-			<a href="/meta" class="indicatorSfw">16chan Discussion</a>
-		      </div>
-		      <div class="contentColumn">
-			<a href="/pol">Politically Incorrect</a>
-			<br>
-			<a href="/r9k">ROBOT9001</a>
-			<br>
-			<a href="/v" class="indicatorSfw">Video Games</a>
-		      </div>
-		    </div>
-		</div>
-	    </div>
-
-	    <div class="contentBox left spaced">
-		<h2>Latest Images</h2>
-		<div id="contentBoxInner">
-		    <div id="divLatestImages">
-		    </div>
-		</div>
-	    </div>
-
-	    <div class="contentBox right spaced">
-		<h2>Latest Posts</h2>
-		<div id="contentBoxInner">
-		    <div id="divLatestPosts">
-		    </div>
-		</div>
-	    </div>
-
-	    <div id="divStats">
-		<div class="contentBox">
-		    <h2>Stats</h2>
-		    <div id="contentBoxInner">
-			<span><b>Total Posts:</b> <span id="labelTotalPosts"></span></span><br>
-			<span><b>Active Content:</b> <span id="labelTotalSize"></span></span>
-			<div id="irrelevantStats">
-			  <span><b>Posts in Last Hour:</b> <span id="labelTotalPPH"></span></span><br>
-			    <span>/</span> <span>Unique recent IPs: <span id="labelTotalIps"></span></span>
-			    <span>/</span> <span>Total boards: <span id="labelTotalBoards"></span></span>
-			    <span>/</span> <span>Media files stored: <span id="labelTotalFiles"></span></span>
-			    <span>]</span>
-			</div>
-		    </div>
-		</div>
-	    </div>
-
-            <div id="divBoards" class="topBoards title"></div>
-
+	  <br />
+	  
+	  <sup>We have retired our old v2 onion address since the upcoming version of Tor will no longer support it.</sub>
 	</div>
 
-	<footer id="dynamicFooter"></footer>
+	<br />
+	
+      </fieldset>
 
-    </body>
+      <fieldset class="titleFieldset">
+	<legend>Boards</legend>
 
-    <script src="/.static/js/api.js"></script>
-    <script src="/.static/js/themes.js"></script>
-    <script src="/.static/js/draggable.js"></script>
-    <script src="/.static/js/watcher.js"></script>
-    <script src="/.static/js/favouriteBoards.js"></script>
+	<div id="divBoards" class="topBoards title">
+	    <a href="/200acres">/200acres/ - 200acres</a>
+	    <a href="/ausneets">/ausneets/ - Aussie NEETs</a>
+	    <a href="/b">/b/ - Random</a>
+	    <a href="/culture">/culture/ - Kultur</a>
+	    <a href="/fascist">/fascist/ - Surf the Kali Yuga</a>
+	    <a href="/g">/g/ - Technology</a>
+	    <a href="/k">/k/ - Weapons</a>
+	    <a href="/library">/library/ - Library</a>
+	    <a href="/mde">/mde/ - Million Dollar Extreme</a>
+	    <a href="/meta">/meta/ - 16chan Discussion</a>
+	    <a href="/pol">/pol/ - Politically Incorrect</a>
+	    <a href="/r9k">/r9k/ - ROBOT9001</a>
+	    <a href="/v">/v/ - Video Games</a>
+	</div>
+
+      </fieldset>
+      
+      <div class="splitField">
+	<fieldset class="titleFieldset">
+	  <legend>Latest Images</legend>
+	  <div id="divLatestImages"></div>
+	</fieldset>
+	<fieldset class="titleFieldset">
+	  <legend>Latest Posts</legend>
+	  <div id="divLatestPosts"></div>
+	</fieldset>
+      </div>
+
+      <fieldset class="titleFieldset">
+	<legend>Stats</legend>
+	<div id="divStats">
+	  <span></span> <b><span>Total posts:</b> <span id="labelTotalPosts"></span></span>
+	  <br>
+	  <span><span> <b><span>Total media size:</b> <span id="labelTotalSize"></span></span>
+	      <div class="hidden">
+		<span>/</span> <span>Posts in last hour: <span id="labelTotalPPH"></span></span>
+		<span>/</span> <span>Unique recent IPs: <span id="labelTotalIps"></span></span>
+		<span>/</span> <span>Total boards: <span id="labelTotalBoards"></span></span>
+		<span>/</span> <span>Media files stored: <span id="labelTotalFiles"></span></span>
+		<span>]</span>
+	      </div>
+	</div>
+      </fieldset>
+
+    </div>
+
+    <footer id="dynamicFooter"></footer>
+
+  </body>
+
+  <script src="/.static/js/api.js"></script>
+  <script src="/.static/js/themes.js"></script>
+  <script src="/.static/js/draggable.js"></script>
+  <script src="/.static/js/settingsMenu.js"></script>
+  <script src="/.static/js/hiding.js"></script>
+  <script src="/.static/js/watcher.js"></script>
+  <script src="/.static/js/favouriteBoards.js"></script>
 
 </html>

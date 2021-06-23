@@ -9,8 +9,10 @@ reports.closeReports = function() {
   var params = {
     duration : document.getElementById('fieldBanDuration').value,
     banReason : document.getElementById('fieldBanReason').value,
-    banReporter : document.getElementById('banReporterCheckbox').checked,
-    deleteContent : document.getElementById('deleteContentCheckbox').checked
+    banTarget : document.getElementById('banTargetCombo').selectedIndex,
+    deleteContent : document.getElementById('deleteContentCheckbox').checked,
+    closeAllFromReporter : document
+        .getElementById('closeAllFromReporterCheckbox').checked
   };
 
   for (var i = 0; i < reportDiv.childNodes.length; i++) {
@@ -40,3 +42,6 @@ reports.closeReports = function() {
   });
 
 };
+
+api.convertButton('closeReportsFormButton', reports.closeReports,
+    'closeReportsField');

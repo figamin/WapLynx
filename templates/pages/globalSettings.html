@@ -9,6 +9,14 @@
   href="/.static/css/global.css"
   type="text/css"
   rel="stylesheet" />
+<link
+  href="/.static/css/watcher.css"
+  type="text/css"
+  rel="stylesheet" />
+<link
+  href="/.static/css/settingsMenu.css"
+  type="text/css"
+  rel="stylesheet" />
 </head>
 <body>
 
@@ -16,6 +24,8 @@
 
   <nav id="dynamicHeader"></nav>
 
+  <div id="settingsWrapper">
+  
   <header>
     <img
       src="/.static/logo.png"
@@ -23,8 +33,7 @@
       alt="logo" />
   </header>
 
-  <div id="settingsWrapper">
-    <fieldset id="settingsFieldset">
+    <fieldset id="settingsFieldset" class="shorten">
       <legend>Global Settings</legend>
 
       <form
@@ -57,7 +66,8 @@
             id="fieldSslPass">
         </label>
         <label>
-          CSP directives (e.g: "default-src 'self'", without the quotations):
+          CSP directives (e.g: "default-src 'self'", without the double
+          quotations):
           <input
             type="text"
             class="globalSettingsField"
@@ -71,6 +81,22 @@
             class="globalSettingsField"
             name="port"
             id="fieldPort">
+        </label>
+        <label>
+          WS Port<sup>2</sup>:
+          <input
+            type="number"
+            class="globalSettingsField"
+            name="wsPort"
+            id="fieldWsPort">
+        </label>
+        <label>
+          WSS Port<sup>2</sup>:
+          <input
+            type="number"
+            class="globalSettingsField"
+            name="wssPort"
+            id="fieldWssPort">
         </label>
         <label>
           Tor Port<sup>2</sup>:
@@ -125,6 +151,14 @@
           <input
             type="checkbox"
             class="globalSettingsField"
+            id="checkboxUseCacheControl"
+            name="useCacheControl">
+          Use cache-control header instead of expires.
+        </label>
+        <label>
+          <input
+            type="checkbox"
+            class="globalSettingsField"
             id="checkboxSendmail"
             name="useSendmail">
           Use sendmail
@@ -135,7 +169,7 @@
             class="globalSettingsField"
             id="checkboxHttp2"
             name="useHttp2">
-          Use HTTP2 for SSL(Might be unstable due to node's implementation)
+          Use HTTP2 for SSL (Might be unstable due to node's implementation)
         </label>
         <label>
           SSL<sup>2</sup> (Make sure you have the proper files)
@@ -148,7 +182,7 @@
 
         <p class="title">System settings</p>
         <label>
-          Master Ip:
+          Master IP:
           <input
             type="text"
             class="globalSettingsField"
@@ -156,7 +190,7 @@
             id="fieldMaster">
         </label>
         <label>
-          Slaves ips<sup>1</sup>:
+          Slaves IPs<sup>1</sup>:
           <input
             type="text"
             class="globalSettingsField"
@@ -172,7 +206,7 @@
             id="fieldFePath">
         </label>
         <label>
-          DNSBL TOR detection:
+          DNSBL Tor detection:
           <input
             type="url"
             class="globalSettingsField"
@@ -180,7 +214,7 @@
             id="fieldTorDNSL">
         </label>
         <label>
-          Url for the list of TOR exit node ips:
+          URL for the list of Tor exit node IPs:
           <input
             type="url"
             class="globalSettingsField"
@@ -188,7 +222,7 @@
             id="fieldTorSource">
         </label>
         <label>
-          Url for the list of spammer ips(Requirements for the file format are
+          URL for the list of spammer IPs (Requirements for the file format are
           specified on src/be/readme):
           <input
             type="url"
@@ -197,7 +231,7 @@
             id="fieldSpamIpsSource">
         </label>
         <label>
-          Url for the list of incremental spammer ips(Requirements for the file
+          URL for the list of incremental spammer IPs (Requirements for the file
           format are specified on src/be/readme):
           <input
             type="url"
@@ -230,8 +264,7 @@
             id="fieldLanguagePack">
         </label>
         <label>
-          Extension used for thumbnails (Will make all gif thumbs do not
-          animate):
+          Extension used for thumbnails (Will make all gif thumbs not animate):
           <input
             type="text"
             class="globalSettingsField"
@@ -245,6 +278,22 @@
             class="globalSettingsField"
             name="tempDirectory"
             id="fieldTempDir">
+        </label>
+        <label>
+          <input
+            type="checkbox"
+            class="globalSettingsField"
+            id="checkboxDiskMedia"
+            name="diskMedia">
+          Store media files on disk
+        </label>
+        <label>
+          <input
+            type="checkbox"
+            class="globalSettingsField"
+            id="checkboxDisableEmail"
+            name="disableEmail">
+          Disable sending e-mails to users
         </label>
 
         <hr>
@@ -266,7 +315,7 @@
             id="fieldMaxFileSize">
         </label>
         <label>
-          Allowed mime-types<sup>1</sup>:
+          Allowed MIME types<sup>1</sup>:
           <input
             type="text"
             class="globalSettingsField"
@@ -290,7 +339,7 @@
             id="fieldFileLimit">
         </label>
         <label>
-          Minimum amount of seconds between posts from the same ip:
+          Minimum amount of seconds between posts from the same IP:
           <input
             type="number"
             class="globalSettingsField"
@@ -367,7 +416,15 @@
             class="globalSettingsField"
             id="checkboxAllowTorFiles"
             name="allowTorFiles">
-          Allow TOR users to post files
+          Allow Tor users to post files
+        </label>
+        <label>
+          <input
+            type="checkbox"
+            class="globalSettingsField"
+            id="checkboxDisableBanCaptcha"
+            name="disableBanCaptcha">
+          Disable captcha for bans
         </label>
         <label>
           <input
@@ -375,7 +432,7 @@
             class="globalSettingsField"
             id="checkboxDisableSpamCheck"
             name="disableSpamCheck">
-          Disable check on spammer ips (Use it if you can't obtain the spam ip
+          Disable check on spammer IPs (Use it if you can't obtain the spam IP
           list, so users are still able to post)
         </label>
         <label>
@@ -392,11 +449,18 @@
             class="globalSettingsField"
             id="checkboxVersatileBlockBypass"
             name="allowVersatileBlockBypass">
-          Allow ips caught on the spammer list or range bans to use the block
+          Allow IPs caught on the spammer list or range bans to use the block
           bypass if block bypass is not disabled
         </label>
         <label>
-          TOR posting permission level:
+          Captcha security level:
+          <select
+            id="comboCaptchaMode"
+            name="captchaMode">
+          </select>
+        </label>
+        <label>
+          Tor posting permission level:
           <select
             id="comboTorPostingLevel"
             name="torPostingLevel">
@@ -412,7 +476,7 @@
 
         <hr>
 
-        <p class="title">Display Limits</p>
+        <p class="title">Display limits</p>
         <label>
           Amount of latest posts to show on front-page:
           <input
@@ -452,6 +516,14 @@
             class="globalSettingsField"
             name="latestPostCount"
             id="fieldLatestPostsCount">
+        </label>
+        <label>
+          Number of preview posts on pinned threads:
+          <input
+            type="number"
+            class="globalSettingsField"
+            name="latestPostPinned"
+            id="fieldLatestPostPinned">
         </label>
         <label>
           Maximum amount of threads per board:
@@ -529,7 +601,7 @@
             id="fieldMaxBoardHashBans">
         </label>
         <label>
-          Maximum number of board range and ASN bans(they are counted
+          Maximum number of board range and ASN bans (they are counted
           separately):
           <input
             type="number"
@@ -552,6 +624,14 @@
             class="globalSettingsField"
             name="maxFilters"
             id="fieldMaxFilters">
+        </label>
+        <label>
+          Maximum filter length:
+          <input
+            type="number"
+            class="globalSettingsField"
+            name="maxFilterLength"
+            id="fieldMaxFilterLength">
         </label>
         <label>
           Maximum number of banners in boards:
@@ -601,11 +681,19 @@
             id="checkboxVolunteerSettings">
           Allow board volunteers to change board settings
         </label>
+        <label>
+          <input
+            type="checkbox"
+            class="globalSettingsField"
+            name="lowercaseBoardUris"
+            id="checkboxLowercaseBoardUris">
+          Force new boards to use lowercase uris
+        </label>
         <hr>
 
         <p class="title">Variables</p>
         <label>
-          Amount of days before removing ips from posts (any value below 1 or
+          Amount of days before removing IPs from posts (any value below 1 or
           null means to never remove):
           <input
             type="number"
@@ -638,7 +726,7 @@
             id="fieldFlagNameLength">
         </label>
         <label>
-          Mark accounts after these many days of inactivity:
+          Mark accounts after this many days of inactivity:
           <input
             type="number"
             class="globalSettingsField"
@@ -720,6 +808,30 @@
             class="globalSettingsField"
             name="addons"
             id="fieldAddons">
+        </label>
+        <label>
+          Report categories<sup>1</sup>:
+          <input
+            type="text"
+            class="globalSettingsField"
+            name="reportCategories"
+            id="fieldReportCategories">
+        </label>
+        <label>
+          How many days posts stay in the trash bin:
+          <input
+            type="text"
+            class="globalSettingsField"
+            name="trashLimitDays"
+            id="fieldTrashLimitDays">
+        </label>
+        <label>
+          E-mail domain whitelist<sup>1</sup>:
+          <input
+            type="text"
+            class="globalSettingsField"
+            name="emailDomainWhiteList"
+            id="fieldEmailDomainWhiteList">
         </label>
         <label>
           <input
@@ -822,6 +934,15 @@
           <input
             type="checkbox"
             class="globalSettingsField"
+            id="checkboxUnlockHistory"
+            name="unlockHistory">
+          Unlock poster history across boards for users without access to
+          clear-text ips
+        </label>
+        <label>
+          <input
+            type="checkbox"
+            class="globalSettingsField"
             id="checkboxGlobalBanners"
             name="useGlobalBanners">
           Make boards use global banners
@@ -838,6 +959,14 @@
           <input
             type="checkbox"
             class="globalSettingsField"
+            id="checkboxNoReportCaptcha"
+            name="noReportCaptcha">
+          Disable captcha for reporting
+        </label>
+        <label>
+          <input
+            type="checkbox"
+            class="globalSettingsField"
             id="checkboxMediaThumb"
             name="mediaThumb">
           Generate thumbnails from media files (requires ffmpeg installed)
@@ -848,7 +977,7 @@
             class="globalSettingsField"
             id="checkboxFrontPageStats"
             name="frontPageStats">
-          Display total post count and total unique ips on front-page
+          Display total post count and total unique IPs on front-page
         </label>
         <label>
           <input
@@ -856,7 +985,7 @@
             class="globalSettingsField"
             id="checkboxMaintenance"
             name="maintenance">
-          Maintenance mode (Disables input to the server and let users know it
+          Maintenance mode (Disables input to the server and lets users know it
           is under maintenance)
         </label>
         <label>
@@ -905,8 +1034,8 @@
             class="globalSettingsField"
             id="checkboxValidateMimes"
             name="validateMimes">
-          Validate mimetypes using 'file', fallback to the informed mime if none
-          is found
+          Validate MIME types using 'file', fall back to the informed MIME if
+          none is found
         </label>
         <label>
           <input
@@ -920,12 +1049,20 @@
           <input
             type="checkbox"
             class="globalSettingsField"
+            id="checkboxRequireConfirmationForBoardCreation"
+            name="requireConfirmationForBoardCreation">
+          Require e-mail confirmation for board creation
+        </label>
+        <label>
+          <input
+            type="checkbox"
+            class="globalSettingsField"
             id="checkboxMultipleReports"
             name="multipleReports">
           Allow multiple reports at once
         </label>
         <label>
-          Minimum global role for users to be able to see poster's clear ips:
+          Minimum global role for users to be able to see posters' clear IPs:
           <select
             id="comboMinClearIpRole"
             name="clearIpMinRole">
@@ -943,6 +1080,14 @@
             id="comboBoardCreationRequirement"
             name="boardCreationRequirement">
           </select>
+        </label>
+        <label>
+          Bypass validation range:
+          <input
+            type="text"
+            class="globalSettingsField"
+            name="bypassValidationRange"
+            id="fieldBypassValidationRange">
         </label>
         <button
           type="submit"
@@ -963,11 +1108,16 @@
     </fieldset>
   </div>
 
+  <footer id="dynamicFooter"></footer>
+
 </body>
 
 <script src="/.static/js/api.js"></script>
 <script src="/.static/js/globalSettings.js"></script>
 <script src="/.static/js/themes.js"></script>
 <script src="/.static/js/favouriteBoards.js"></script>
-
+<script src="/.static/js/draggable.js"></script>
+<script src="/.static/js/settingsMenu.js"></script>
+<script src="/.static/js/hiding.js"></script>
+<script src="/.static/js/watcher.js"></script>
 </html>

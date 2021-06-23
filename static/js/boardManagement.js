@@ -2,8 +2,6 @@ var boardManagement = {};
 
 boardManagement.init = function() {
 
-  api.management = true;
-
   var volunteerCellTemplate = '<span class="userLabel"></span> ';
   volunteerCellTemplate += '<input ';
   volunteerCellTemplate += 'type="hidden" ';
@@ -21,6 +19,12 @@ boardManagement.init = function() {
   volunteerCellTemplate += 'type="submit" ';
   volunteerCellTemplate += 'class="removeFormButton" ';
   volunteerCellTemplate += '>Remove Volunteer</button';
+
+  var messageLenghtLabel = document.getElementById('messageLengthLabel');
+
+  if (messageLenghtLabel) {
+    boardManagement.messageLimit = +messageLenghtLabel.innerHTML;
+  }
 
   boardManagement.volunteerCellTemplate = volunteerCellTemplate;
 
@@ -53,10 +57,13 @@ boardManagement.init = function() {
     }
   }
 
-  api.boardUri = document.getElementById('boardSettingsIdentifier').value;
+  var settingsIdentifier = document.getElementById('boardSettingsIdentifier');
 
-  api.convertButton('closeReportsFormButton', reports.closeReports,
-      'closeReportsField');
+  if (!settingsIdentifier) {
+    return;
+  }
+
+  api.boardUri = settingsIdentifier.value;
 
   api.convertButton('saveSettingsFormButton', boardManagement.saveSettings,
       'boardSettingsField');
@@ -192,6 +199,8 @@ boardManagement.setCss = function() {
 
 boardManagement.saveSettings = function() {
 
+  var typedAutoFullCaptcha = document
+      .getElementById('autoFullCaptchaThresholdField').value.trim();
   var typedName = document.getElementById('boardNameField').value.trim();
   var typedDescription = document.getElementById('boardDescriptionField').value
       .trim();
@@ -221,11 +230,15 @@ boardManagement.saveSettings = function() {
   } else if (typedAutoCaptcha.length && isNaN(typedAutoCaptcha)) {
     alert('Invalid auto captcha treshold.');
     return;
+  } else if (typedAutoFullCaptcha.length && isNaN(typedAutoFullCaptcha)) {
+    alert('Invalid auto full captcha treshold.');
+    return;
   } else if (!typedName) {
     alert('Name is mandatory.');
     return;
-  } else if (typedMessage.length > 256) {
-    alert('Message too long, keep it under 256 characters.');
+  } else if (typedMessage.length > boardManagement.messageLimit) {
+    alert('Message too long, keep it under ' + boardManagement.messageLimit
+        + ' characters.');
     return;
   }
 
@@ -242,6 +255,7 @@ boardManagement.saveSettings = function() {
     preferredLanguage : langCombo[langCombo.selectedIndex].value,
     captchaMode : combo.options[combo.selectedIndex].value,
     boardMessage : typedMessage,
+    autoFullCaptchaLimit : typedAutoFullCaptcha,
     autoCaptchaLimit : typedAutoCaptcha,
     locationFlagMode : locationCombo.options[locationCombo.selectedIndex].value,
     hourlyThreadLimit : typedHourlyLimit,

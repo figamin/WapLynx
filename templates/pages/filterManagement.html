@@ -1,82 +1,98 @@
 <!DOCTYPE html>
+<html>
 <head>
-    <script type="text/javascript" id="dynamicAnalytics"></script>
-    <head>
-	<meta charset="UTF-8" />
-	<meta
-	    name="viewport"
-	    content="width=device-width, initial-scale=1.0">
-	<link
-	    href="/.static/css/global.css"
-	    type="text/css"
-	    rel="stylesheet" />
-    </head>
-    <body>
+<meta charset="UTF-8" />
+<meta
+  name="viewport"
+  content="width=device-width, initial-scale=1.0">
+<link
+  href="/.static/css/global.css"
+  type="text/css"
+  rel="stylesheet" />
+<link
+  href="/.static/css/watcher.css"
+  type="text/css"
+  rel="stylesheet" />
+<link
+  href="/.static/css/settingsMenu.css"
+  type="text/css"
+  rel="stylesheet" />
+</head>
+<body>
 
-	<script src="/.static/js/themeLoader.js"></script>
+  <script src="/.static/js/themeLoader.js"></script>
 
-	<nav id="dynamicHeader"></nav>
+  <nav id="dynamicHeader"></nav>
 
-	<header>
-	    <img
-		src="/.static/logo.png"
-		class="logoImg"
-		alt="logo" />
-	</header>
+  <div id="settingsWrapper">
+  
+  <header>
+    <img
+      src="/.static/logo.png"
+      class="logoImg"
+      alt="logo" />
+  </header>
 
-	<div id="settingsWrapper">
+    <fieldset id="settingsFieldset" class="shorten">
 
-	    <fieldset id="settingsFieldset">
+      <legend>Filters</legend>
 
-		<legend>Filters</legend>
+      <p>
+        Maximum filter length: <span id="maxLengthLabel"></span>
+      </p>
 
-		<form
-		    action="/createFilter.js"
-		    method="post"
-		    enctype="multipart/form-data">
-		    <input
-			type="hidden"
-			name="boardUri"
-			id="boardIdentifier">
-		    <label>
-			Original term:
-			<input
-			    type="text"
-			    class="addFilterField"
-			    name="originalTerm"
-			    id="fieldOriginalTerm">
-		    </label>
-		    <label>
-			Replacement term:
-			<input
-			    type="text"
-			    class="addFilterField"
-			    name="replacementTerm"
-			    id="fieldReplacementTerm">
-		    </label>
-		    <label>
-			<input
-			    type="checkbox"
-			    class="addFilterField"
-			    name="caseInsensitive"
-			    id="checkboxCaseInsensitive">
-			Case-insensitive
-		    </label>
-		    <button
-			type="submit"
-			id="addFormButton">Add filter</button>
+      <form
+        action="/createFilter.js"
+        method="post"
+        enctype="multipart/form-data">
+        <input
+          type="hidden"
+          name="boardUri"
+          id="boardIdentifier">
+        <label>
+          Original term:
+          <input
+            type="text"
+            class="addFilterField"
+            name="originalTerm"
+            id="fieldOriginalTerm">
+        </label>
+        <label>
+          Replacement term:
+          <input
+            type="text"
+            class="addFilterField"
+            name="replacementTerm"
+            id="fieldReplacementTerm">
+        </label>
+        <label>
+          <input
+            type="checkbox"
+            class="addFilterField"
+            name="caseInsensitive"
+            id="checkboxCaseInsensitive">
+          Case-insensitive
+        </label>
+        <button
+          type="submit"
+          id="addFormButton">Add filter</button>
 
-		</form>
-		<hr />
-		<div id="divFilters"></div>
-	    </fieldset>
-	</div>
+      </form>
+      <hr />
+      <div id="divFilters"></div>
+    </fieldset>
+  </div>
 
-    </body>
+  <footer id="dynamicFooter"></footer>
+  
+</body>
 
-    <script src="/.static/js/api.js"></script>
-    <script src="/.static/js/themes.js"></script>
-    <script src="/.static/js/favouriteBoards.js"></script>
+<script src="/.static/js/api.js"></script>
+<script src="/.static/js/themes.js"></script>
+<script src="/.static/js/favouriteBoards.js"></script>
 <script src="/.static/js/filterManagement.js"></script>
-
+<script src="/.static/js/draggable.js"></script>
+<script src="/.static/js/settingsMenu.js"></script>
+<script src="/.static/js/hiding.js"></script>
+<script src="/.static/js/watcher.js"></script>
 </html>

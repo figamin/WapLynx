@@ -1,73 +1,140 @@
 /*Elements exclusive to the front-page*/
-#indexWrapper {
-    width: 670px;
-    margin: 2em auto;
-    overflow: hidden;
+/* #indexWrapper { */
+/*   /\* width: 80%; *\/ */
+/*     margin: 2em auto; */
+
+/*     max-width: 1000px; */
+/*     padding-right: 0.5em; */
+/* } */
+
+#logoBox {
+  width: 100%;
+  /* margin: 0 auto 1em auto; */
+  text-align: center;
 }
 
 #infoBox {
-    text-align: center;
-    width: 100%;
-    padding: 0.5em;
-    margin: 1em auto 2em;
-    font-size: 120%;
-    display: none;
+  text-align: center;
+  width: 100%;
+  padding: 0.5em;
+  margin: 1em auto 2em;
+  font-size: 120%;
 }
 
-.contentRow {
-    text-align: center;
-}
+#links, #divStats {
+  padding: 0.5em;
+  /* font-size: 75%; */
+  text-align: center;
 
-.contentColumn {
-  float: left;
-  width: 25%;
-}
-
-.nonBoard {
-    margin: 0;
-}
-
-.contentRow:after {
-  content: "";
-  display: table;
-  clear: both;
-}
-
-#links {
-    font-size: 75%;
-    text-align: center;
+  font-size: 11px;
 }
 
 #links a {
-    text-decoration: none;
+  text-decoration: none;
 }
 
+/* #linkGlobalLogs:before { */
+/*   content: "\e069"; */
+/* } */
+
+/* #linkArchives:before { */
+/*   content: "\e021"; */
+/* } */
+
+/* #linkGraphs:before { */
+/*   content: "\e018"; */
+/* } */
+
+/* #linkAccount:before { */
+/*   content: "\e081"; */
+/* } */
+
+/* #linkGlobalRules:before { */
+/*   content: "\e06f"; */
+/* } */
+
+/* #linkAbout:before { */
+/*   content: "\e0b0"; */
+/* } */
+
+/* #linkEngine:before { */
+/*   content: "\e064"; */
+/* } */
+
+/* #linkLinks:before { */
+/*   content: "\e086"; */
+/* } */
+
+/* #linkContact:before { */
+/*   content: "\e05c"; */
+/* } */
+
 .topBoards {
-    width: 100%;
-    text-align: center;
-    margin: 1em 0px;
+  width: 100%;
+  text-align: center;
+  margin: 1em 0px;
 }
 
 .topBoards a {
-    padding: 0.25em 0.5em;
-    text-decoration: none;
-    margin: 0.5em 0.25em;
-    display: inline-block;
-    font-size: 90%;
+  padding: 0.25em 0.5em;
+  text-decoration: none;
+  margin: 0.5em 0.25em;
+  display: inline-block;
+  font-size: 90%;
 }
 
 #divLatestPosts {
-    width: 100%;
-    text-align: center;
+  width: 100%;
+  margin: 1em;
+  text-align: center;
+  padding: 10px 0px 10px 0px;
 }
 
-#divLatestPosts .latestPostCell {
-    padding-bottom: 0.25em;
-    text-align: left;
-    overflow: hidden;
-    max-width: 100%;
-    white-space: nowrap;
-    text-overflow: ellipsis;
+/* #divLatestPosts .latestPostCell { */
+/*   display: inline-block; */
+/*   overflow: hidden; */
+/*   padding: 0.5em; */
+/*   margin: 0.5em; */
+/*   max-width: 15%; */
+/*   max-height: 8em; */
+/*   /\* font-size: 75%; *\/ */
+/*   vertical-align: middle; */
+/* } */
+
+/* .latestPostCell a { */
+/*   display: block; */
+/* } */
+
+#divLatestImages {
+  margin: 0 auto;
+  text-align: center;
+}
+
+#divLatestImages .latestImageCell {
+  display: inline-block;
+  max-width: 15%;
+  margin: 0 0.5em;
+  vertical-align: middle;
+}
+
+#divLatestImages img {
+  max-width: 125px;
+  max-height: 125px;
+  padding: 5px;
+}
+
+/* ADDITION */
+.splitField > * {
+    vertical-align: top;
+    width: calc(100% - 2em);
+    padding-bottom: 1px;
+    min-inline-size: auto;
+}
+
+.splitField {
+    width: 100%;
+    column-count: 2;
+    text-align: center;
 }
 
 #divLatestImages {
@@ -75,132 +142,33 @@
     text-align: center;
 }
 
-#divLatestImages .latestImageCell {
-    display: inline-block;
-    max-width: 15%;
-    margin: 0 0.5em;
-    vertical-align: middle;
-}
-
-#divLatestImages img {
-    max-width: 256px;
-    max-height: 256px;
-    display: grid;
-    padding: 5px;
-    margin: auto;
-}
-
-#links {
-    padding: 3em 0.5em 16px 0.5em;
-    font-size: 75%;
-    text-align: center;
-}
-
-#divStats {
-    clear: both;
-}
-
-#irrelevantStats {
-    display: none;
-}
-
-#dynamicAnnouncement {
-    margin: auto;
-    font-size: 75%;
-    line-height: 13px;
-    text-align: left;
-    border-top: 1px solid #282a2e;
-    border-bottom: 1px solid #282a2e;
-    padding: 0.25em 0 0.25em 0;
-}
-
-#announcementWrapper {
-    padding-bottom: 16px;
-}
-
-#contentBoxInner ol {
-    padding-left: 20px;
+#divLatestPosts {
     margin: 0;
-}
-
-#contentBoxInner ul {
-    margin-bottom: 0;
-}
-
-#labelBoard {
-    display: none;
-}
-
-/* Archive Page */
-
-#divThreads {
-    display: table;
-    width: 100%;
-    border-spacing: 1px;
-}
-
-#divThreads, #divDates {
-    padding: 5px 0 5px 0;
-}
-
-.archiveCell {
-    display: table-row;
     text-align: center;
 }
 
-#divLegend {
-    display: table-row;
-    background: #1D1F21;
-    padding: 3px 7px;
-}
-
-#threadI, #threadN, #threadD, #threadV {
-    display: table-cell;
-    font-weight: bold;
-    text-align: center;
-    border: 1px solid #111;
-}
-
-.Idlabel {
-    display: table-cell;
-    width: 15%;
-}
-
-.nameLabel {
-    display: table-cell;
-    width: 55%;
-    text-align: left;
-    max-width: 200px;
+#divLatestPosts .latestPostCell {
     overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
+    margin: 0.5em;
+    max-height: 8em;
+    font-size: 9pt;
+    text-align: left;
 }
 
-.dateLabel {
-    display: table-cell;
-    width: 20%;
+#divLatestImages img, #divLatestPosts .latestPostCell {
+    background: unset;
+    border: 1px solid transparent;
 }
 
-.threadLink {
-    display: table-cell;
-    width: 10%;
-}
-
-#divThreads div:nth-child(2n) {
-    background-color: rgba(255,255,255,.1);
-}
-
-#divPages {
-    font-size: 100%;
+#dynamicLinks, #divStats {
+    padding: 0.5em;
+    font-size: 10pt;
     text-align: center;
 }
 
-#threadOpen:before {
-    content: '[';
-}
-
-#threadOpen:after {
-    content: ']';
+fieldset {
+    margin-bottom: 8px;
+    width: calc(100% - 2em);
 }
 
 #torLink {
@@ -213,27 +181,64 @@
     max-width: 12px;
 }
 
-/* End Archive */
+#divStats {
+    text-align: left;
+    padding-bottom: 8px;
+}
+
+.contentRow {
+    text-align: center;
+}
+
+.contentColumn {
+  float: left;
+  width: 25%;
+}
+
+.contentRow:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.indicatorSfw::after {
+    content: '[SFW]';
+    font-size: 70%;
+    color: white;
+    font-weight: bold;
+    padding-left: 2px;
+    position: absolute;
+}
+
+.topBoards {
+    width: 100%;
+    text-align: center;
+}
+
+.title {
+    font-weight: bold;
+}
+
+#divBoards {
+    font-size: 10pt;
+}
+
+/* END ADDITION */
+
 
 @media only screen and (max-width: 812px) {
-    .topBoards, #divLatestPosts {
-	margin: 0;
-    }
-    #indexWrapper {
-	width: 99%;
-    }
-    #links a, #divStats {
-	font-size: 153%;
-    }
-    #linkEngine {
-	display: none;
-    }
-    .contentBox.left, .contentBox.right {
-	width: inherit;
-	float: none;
-    }
-    .contentColumn {
-	float: none;
-	margin: auto;
-    }
+  .topBoards, #divLatestPosts {
+    margin: 0;
+  }
+  #indexWrapper {
+    width: 99%;
+  }
+  #links a, #divStats {
+      /* font-size: 153%; */
+
+      font-size: smaller;
+  }
+  #linkEngine {
+    display: none;
+  }
 }

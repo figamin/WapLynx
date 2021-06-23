@@ -1,214 +1,244 @@
-// note: if specific width and height is desired for each embed, just refactor slightly
-// instead of getSrcX, just have individualized buildEmbeds and then they can be appended
-// from init
-
 var embed = {};
 
-embed.buildEmbed = function(width, height, src) {
-    // assuming no ES6 support? aids concat
-    var html = "<iframe";
-    html += " width=\"" + width + "\"";
-    html += " height=\"" + height + "\"";
-    html += " src=\"" + src + "\"";
-    html += " frameborder=\"0\"";
-    html += " allowfullscreen";
-    html += "></iframe>";
+embed.init = function() {
 
-    var wrapperElement = document.createElement("div");
-    wrapperElement.style.display = "inline";
+  var messageElements = document.getElementsByClassName("divMessage");
 
-    var divElement = document.createElement("div");
-    divElement.style.display = "none";
+  for (var i = 0; i < messageElements.length; ++i) {
+    var linkElements = messageElements[i].getElementsByTagName("a");
 
-    var buttonElement = document.createElement("span");
-    buttonElement.innerHTML = "[Embed]";
-    buttonElement.className = "embedButton glowOnHover";
+    for (var j = 0; j < linkElements.length; ++j)
+      embed.processLinkForEmbed(linkElements[j]);
+  }
 
-    buttonElement.onclick = function() {
-	if (divElement.style.display === "none") {
-	    divElement.style.display = "block";
-	    divElement.innerHTML = html;
-	    buttonElement.innerHTML = "[Remove]";
-	}
-
-	else {
-	    divElement.style.display = "none";
-	    divElement.innerHTML = null;
-	    buttonElement.innerHTML = "[Embed]";
-	}
-    };
-
-    // note: append order
-    wrapperElement.appendChild(buttonElement);
-    wrapperElement.appendChild(divElement);
-
-    return wrapperElement;
 };
 
-embed.trimExtra = function(input, by) {
-    var byIndex = input.indexOf(by);
+embed.processLinkForEmbed = function(linkElement) {
 
-    if (byIndex != -1)
-	input = input.substring(0, byIndex);
+  var url = linkElement.href;
+  var domain = embed.getDomain(url);
 
-    return input;
+  if (!domain) {
+    return;
+  }
+
+  var domainSrcFunction = embed.domainFunctionMap[domain];
+
+  if (!domainSrcFunction) {
+    return;
+
+  }
+
+  var embedSrc = domainSrcFunction(url);
+
+  if (!embedSrc) {
+    return;
+  }
+
+  linkElement.parentNode.insertBefore(embed.buildEmbed(650, 350, embedSrc),
+      linkElement.nextSibling);
+
+};
+
+embed.buildEmbed = function(width, height, src) {
+
+  var html = '<iframe';
+  html += ' width="' + width + '"';
+  html += ' height="' + height + '"';
+  html += ' src="' + src + '"';
+  html += ' frameborder="0"';
+  html += ' allowfullscreen';
+  html += '></iframe>';
+
+  var wrapperElement = document.createElement('div');
+  wrapperElement.style.display = 'inline';
+
+  var divElement = document.createElement('div');
+  divElement.style.display = 'none';
+
+  var buttonElement = document.createElement('span');
+  buttonElement.innerHTML = '[Embed]';
+  buttonElement.className = 'embedButton glowOnHover';
+
+  buttonElement.onclick = function() {
+    if (divElement.style.display === 'none') {
+      divElement.style.display = 'block';
+      divElement.innerHTML = html;
+      buttonElement.innerHTML = '[Remove]';
+    }
+
+    else {
+      divElement.style.display = 'none';
+      divElement.innerHTML = null;
+      buttonElement.innerHTML = '[Embed]';
+    }
+  };
+
+  // note: append order
+  wrapperElement.appendChild(buttonElement);
+  wrapperElement.appendChild(divElement);
+
+  return wrapperElement;
+
+};
+
+// substrings to the first occurrence of an input string if present
+embed.getUntil = function(string, input) {
+
+  var inputIndex = string.indexOf(input);
+
+  return inputIndex !== -1 ? string.substring(0, inputIndex) : string;
+
 };
 
 embed.getDomain = function(url) {
-    return url.match(/\b(?!www.)\b([a-z0-9]+\.)*[a-z0-9]+\.[a-z]+/i)[0];
+
+  var match = url.match(/\b(?!www.)\b([a-z0-9]+\.)*[a-z0-9]+\.[a-z]+/i);
+
+  if (!match) {
+    return;
+  }
+
+  return match[0];
 };
 
-embed.getYouTubeStartTime = function(url) {
-    // note: youtube also has another start time called continue or continue from which i think
-    // is handled in plain seconds? its not used in sharing though. it can be implemented
-    // here if need be
-    var startTime = url.split("t=")[1];
+embed.getSrcYouTubeCommon = function(url, secure, domain) {
 
-    if (!startTime)
-	return;
+  var videoId = url.split('v=')[1];
 
-    startTime = embed.trimExtra(startTime, "&");
+  if (!videoId) {
+    return;
+  }
 
-    var totalSeconds = 0;
-    // youtube handles ?t= start time in units of hours, minutes and seconds
-    // like ?t=2h1m22s
-    // youtube ignores it if the units aren't in proper order or are repeated
-    // we don't detect that as an error, it's just treated as undefined behavior
-    var units = startTime.match(/\d+(?=h|m|s)/g);
+  videoId = embed.getUntil(videoId, '&');
 
-    for (var i = 0; i < units.length; ++i) {
-	var value = parseInt(units[i]);
+  var embedSrc = secure ? 'https' : 'http';
+  embedSrc += '://' + domain + '/embed/' + videoId;
 
-	switch (units.length - i) {
-	    // hours
-	case 3:
-	    totalSeconds += value * 3600;
-	    break;
-	    // minutes
-	case 2:
-	    totalSeconds += value * 60;
-	    break;
-	    // seconds
-	case 1:
-	    totalSeconds += value;
-	    break;
-	}
-    }
+  var startTime = embed.getYouTubeStartTime(url);
 
-    return totalSeconds;
-};
+  if (startTime) {
+    embedSrc += '?start=' + startTime;
+  }
 
-// youtube.com domain and drop-in replacements
-embed.getSrcYouTubeCommon = function(domain, url) {
-    var videoId = url.split("v=")[1];
+  return embedSrc;
 
-    if (!videoId)
-	return;
-
-    videoId = embed.trimExtra(videoId, "&");
-
-    var embedSrc = "https://" + domain + "/embed/" + videoId;
-
-    var startTime = embed.getYouTubeStartTime(url);
-
-    if (startTime)
-	embedSrc += "?start=" + startTime;
-
-    return embedSrc;
 };
 
 embed.getSrcYouTube = function(url) {
-    return embed.getSrcYouTubeCommon("www.youtube.com", url);
-};
-
-embed.getSrcInvidious = function(url) {
-    return embed.getSrcYouTubeCommon("www.invidio.us", url);
+  return embed.getSrcYouTubeCommon(url, true, 'www.youtube.com');
 };
 
 embed.getSrcYouTubeShortened = function(url) {
-    var videoId = url.split("/")[3];
 
-    if (!videoId)
-	return;
+  var videoId = url.split('/')[3];
 
-    videoId = embed.trimExtra(videoId, "?");
+  if (!videoId) {
+    return;
+  }
 
-    var embedSrc = "https://www.youtube.com/embed/" + videoId;	
+  // trim any params in the url
+  videoId = embed.getUntil(videoId, '?');
 
-    var startTime = embed.getYouTubeStartTime(url);
+  var embedSrc = 'https://www.youtube.com/embed/' + videoId;
 
-    if (startTime)
-	embedSrc += "?start=" + startTime;
+  var startTime = embed.getYouTubeStartTime(url);
 
-    return embedSrc;
+  if (startTime) {
+    embedSrc += '?start=' + startTime;
+  }
+
+  return embedSrc;
+
 };
 
 embed.getSrcBitChute = function(url) {
-    if (!url.includes("/video/"))
-	return;
 
-    var videoId = url.split("/")[4];
+  if (!url.includes('/video/')) {
+    return;
+  }
 
-    if (!videoId)
-	return;
+  var videoId = url.split('/')[4];
 
-    return "https://www.bitchute.com/embed/" + videoId;
+  if (!videoId) {
+    return;
+  }
+
+  return 'https://www.bitchute.com/embed/' + videoId;
+
+};
+
+embed.getSrcOdysee = function(url) {
+
+    if (!url.includes('@')) {
+    return;
+  }
+
+  var videoId = url.split('/')[4];
+
+  if (!videoId) {
+    return;
+  }
+
+  return 'https://www.odysee.com/$/embed/' + videoId;
+
 };
 
 embed.getSrcLiveLeak = function(url) {
-    var videoId = url.split("t=")[1];
 
-    if (!videoId)
-	return;
+  var videoId = url.split('t=')[1];
 
-    videoId = embed.trimExtra(videoId, "&");
+  if (!videoId) {
+    return;
+  }
 
-    return "https://www.liveleak.com/e/" + videoId;
+  return 'https://www.liveleak.com/e/' + embed.getUntil(videoId, '&');
+
+};
+
+// translate ?t=XhXmXs to raw seconds (the only input supported by youtube's
+// embed start time)
+// todo: recode with loop
+embed.getYouTubeStartTime = function(url) {
+
+  var startTime = url.split('t=')[1];
+
+  if (!startTime) {
+    return;
+  }
+
+  startTime = embed.getUntil(startTime, '&');
+
+  var totalSeconds = 0;
+
+  var hours = startTime.match(/(\d+)(?:h)/);
+
+  if (hours) {
+    totalSeconds += parseInt(hours[1]) * 3600;
+  }
+
+  var minutes = startTime.match(/(\d+)(?:m)/);
+
+  if (minutes) {
+    totalSeconds += parseInt(minutes[1]) * 60;
+  }
+
+  var seconds = startTime.match(/(\d+)(?:s)/);
+
+  if (seconds) {
+    totalSeconds += parseInt(seconds[1]);
+  }
+
+  return totalSeconds;
+
 };
 
 embed.domainFunctionMap = {};
 
-embed.domainFunctionMap["youtube.com"] = embed.getSrcYouTube;
-embed.domainFunctionMap["youtu.be"] = embed.getSrcYouTubeShortened;
-embed.domainFunctionMap["invidio.us"] = embed.getSrcInvidious;
-embed.domainFunctionMap["bitchute.com"] = embed.getSrcBitChute;
-embed.domainFunctionMap["liveleak.com"] = embed.getSrcLiveLeak;
-
-// on refactor consider scrapping the getFunction and just have key shit handled from init
-embed.getDomainSrcFunction = function(url) {
-    var domain = embed.getDomain(url).toLowerCase(); // all keys are lowercase
-
-    return embed.domainFunctionMap[domain];
-};
-
-embed.processLinkElement = function(element) {
-    var url = element.href;
-
-    var domainSrcFunction = embed.getDomainSrcFunction(url);
-
-    // no function found for domain
-    if (!domainSrcFunction)
-	return;
-
-    var embedSrc = domainSrcFunction(url);
-
-    // bad url
-    if (!embedSrc)
-	return;
-
-    var embedElement = embed.buildEmbed(650, 350, embedSrc);
-    element.parentNode.insertBefore(embedElement, element.nextSibling);
-};
-
-embed.init = function() {
-    var messageElements = document.getElementsByClassName("divMessage");
-
-    for (var i = 0; i < messageElements.length; ++i) {
-	var linkElements = messageElements[i].getElementsByTagName("a");
-
-	for (var j = 0; j < linkElements.length; ++j)
-	    embed.processLinkElement(linkElements[j]);
-    }
-};
+embed.domainFunctionMap['youtube.com'] = embed.getSrcYouTube;
+embed.domainFunctionMap['youtu.be'] = embed.getSrcYouTubeShortened;
+embed.domainFunctionMap['bitchute.com'] = embed.getSrcBitChute;
+embed.domainFunctionMap['odysee.com'] = embed.getSrcOdysee;
+embed.domainFunctionMap['liveleak.com'] = embed.getSrcLiveLeak;
 
 embed.init();

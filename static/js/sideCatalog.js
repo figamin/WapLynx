@@ -3,36 +3,43 @@ var sideCatalog = {};
 sideCatalog.init = function() {
 
   sideCatalog.sideCatalogBody = document.getElementById('sideCatalogBody');
+  sideCatalog.mainBody = document.getElementById('mainPanel');
 
   sideCatalog.sideCatalogDiv = document.getElementById('sideCatalogDiv');
 
   if (!localStorage.hideSideCatalog) {
     sideCatalog.sideCatalogDiv.style.display = 'block';
+    sideCatalog.mainBody.className = 'mainPanelWithSideCatalog';
   }
 
   sideCatalog.refreshSideCatalog();
 
   document.getElementById('closeSideCatalogButton').onclick = function() {
     sideCatalog.sideCatalogDiv.style.display = 'none';
+    sideCatalog.mainBody.className = '';
     localStorage.setItem('hideSideCatalog', true);
   }
 
   var catalogButton = document.getElementById('navCatalog');
 
   var sideCatalogButton = document.createElement('a');
-    sideCatalogButton.className = 'coloredIcon';
-    sideCatalogButton.id = 'navSideCatalog';
-    sideCatalog.sideCatalogDiv.style.display = 'none';
+  sideCatalogButton.className = 'coloredIcon';
+  sideCatalogButton.id = 'navSideCatalog';
+  sideCatalogButton.onclick = function() {
+    sideCatalog.mainBody.className = 'mainPanelWithSideCatalog';
+    sideCatalog.sideCatalogDiv.style.display = 'block';
+    localStorage.removeItem('hideSideCatalog');
+  };
 
     //Added ability to reclick on Side Catalog in order to toggle the view
     sideCatalogButton.onclick = function() {
 	if (sideCatalog.sideCatalogDiv.style.display === 'none') {
 	    sideCatalog.sideCatalogDiv.style.display = 'block';
 	} else {
-	    	sideCatalog.sideCatalogDiv.style.display = 'none';
+	    sideCatalog.sideCatalogDiv.style.display = 'none';
 	}
 	localStorage.removeItem('hideSideCatalog');
-  };
+    };
 
   catalogButton.parentNode.insertBefore(sideCatalogButton,
       catalogButton.nextSibling);
@@ -41,7 +48,7 @@ sideCatalog.init = function() {
       catalogButton.nextSibling);
 
   var divider = document.createElement('span');
-  divider.innerHTML = '/';
+  divider.innerHTML = '';
   catalogButton.parentNode.insertBefore(divider, catalogButton.nextSibling);
 
   catalogButton.parentNode.insertBefore(document.createTextNode(' '),
@@ -63,9 +70,7 @@ sideCatalog.handleReceivedData = function(data, cell, threadData) {
 
   sideCatalog.loadingThread = false;
 
-  if (thread.autoRefresh) {
-    thread.currentRefresh = 5;
-  }
+  thread.transition();
 
   sideCatalog.transitionThread(cell, threadData, data);
 
@@ -76,6 +81,8 @@ sideCatalog.handleReceivedData = function(data, cell, threadData) {
 sideCatalog.loadThread = function(cell, threadData) {
 
   sideCatalog.loadingThread = true;
+
+  thread.stopWs();
 
   if (api.mod) {
 
@@ -134,11 +141,43 @@ sideCatalog.getRangePanel = function() {
 
 };
 
+sideCatalog.createHistoryLinks = function(cell) {
+
+  var referenceElement = cell.getElementsByClassName('panelBacklinks')[0];
+
+  var historyLink = document.createElement('a');
+  historyLink.innerHTML = '[History]';
+  historyLink.className = 'linkHistory';
+
+  var fileHistoryLink = document.createElement('a');
+  fileHistoryLink.innerHTML = ' [File history]';
+  fileHistoryLink.className = 'linkFileHistory';
+
+  var offenseHistoryLink = document.createElement('a');
+  offenseHistoryLink.innerHTML = '[Offense record]';
+  offenseHistoryLink.className = 'linkOffenseRecord';
+
+  referenceElement.parentNode.insertBefore(historyLink, referenceElement);
+  referenceElement.parentNode.insertBefore(document.createTextNode(' '),
+      referenceElement);
+  referenceElement.parentNode.insertBefore(fileHistoryLink, referenceElement);
+  referenceElement.parentNode.insertBefore(document.createTextNode(' '),
+      referenceElement);
+  referenceElement.parentNode
+      .insertBefore(offenseHistoryLink, referenceElement);
+  referenceElement.parentNode.insertBefore(document.createTextNode(' '),
+      referenceElement);
+
+};
+
 sideCatalog.transitionThread = function(cell, threadData, data) {
 
   if (sideCatalog.selectedThreadCell) {
     sideCatalog.selectedThreadCell.className = 'sideCatalogCell';
   }
+
+  thread.wssSocket = threadData.wssSocket;
+  thread.wsSocket = threadData.wsSocket;
 
   sideCatalog.selectedThreadCell = cell;
 
@@ -153,8 +192,12 @@ sideCatalog.transitionThread = function(cell, threadData, data) {
   document.getElementById('threadIdentifier').value = threadData.threadId;
 
   if (document.getElementById('divMod')) {
+
     document.getElementById('controlThreadIdentifier').value = threadData.threadId;
-    document.getElementById('transferThreadIdentifier').value = threadData.threadId;
+
+    if (postingMenu.globalRole <= 3) {
+      document.getElementById('transferThreadIdentifier').value = threadData.threadId;
+    }
 
     document.getElementById('checkboxLock').checked = threadData.locked;
     document.getElementById('checkboxPin').checked = threadData.pinned;
@@ -173,9 +216,6 @@ sideCatalog.transitionThread = function(cell, threadData, data) {
 
   opCell.id = threadData.threadId;
   opCell.className = 'opCell';
-  if (data.files && data.files.length > 1) {
-    opCell.className += ' multipleUploads';
-  }
 
   if (!opCell.getElementsByClassName('labelSubject').length) {
 
@@ -202,18 +242,22 @@ sideCatalog.transitionThread = function(cell, threadData, data) {
 
   }
 
+  if (!opCell.getElementsByClassName('linkHistory')[0]) {
+    sideCatalog.createHistoryLinks(opCell);
+  }
+
   var panelIp = opCell.getElementsByClassName('panelIp')[0];
 
   if (!panelIp) {
 
-    var emptyPanel = document.getElementsByClassName('opHead')[0].nextSibling.nextSibling;
+    var emptyPanel = document.getElementsByClassName('panelIpContainer')[0];
 
     panelIp = document.createElement('span');
     panelIp.className = 'panelIp';
 
     panelIp.appendChild(sideCatalog.getRangePanel());
 
-    panelIp.appendChild(document.createTextNode('Ip:'));
+    panelIp.appendChild(document.createTextNode('Ip: '));
 
     var newIpLabel = document.createElement('span');
     newIpLabel.className = 'labelIp';
@@ -223,6 +267,23 @@ sideCatalog.transitionThread = function(cell, threadData, data) {
 
   } else if (!opCell.getElementsByClassName('panelRange').length) {
     panelIp.insertBefore(sideCatalog.getRangePanel(), panelIp.childNodes[0]);
+  }
+
+  var panelBypassId = opCell.getElementsByClassName('panelBypassId')[0];
+
+  if (!panelBypassId) {
+
+    panelBypassId = document.createElement('div');
+    panelBypassId.className = 'panelBypassId';
+
+    var labelBypassId = document.createElement('span');
+    labelBypassId.className = 'labelBypassId';
+
+    panelBypassId.appendChild(document.createTextNode('Bypass ID: '));
+    panelBypassId.appendChild(labelBypassId);
+
+    panelIp.parentNode.insertBefore(panelBypassId, panelIp);
+
   }
 
   var panelASN = opCell.getElementsByClassName('panelASN')[0];
@@ -238,7 +299,7 @@ sideCatalog.transitionThread = function(cell, threadData, data) {
     panelASN.appendChild(document.createTextNode('ASN: '));
     panelASN.appendChild(labelASN);
 
-    panelIp.parentNode.insertBefore(panelASN, panelIp);
+    panelBypassId.parentNode.insertBefore(panelASN, panelBypassId);
 
   }
 
@@ -318,21 +379,6 @@ sideCatalog.transitionThread = function(cell, threadData, data) {
   sideCatalog.removeAllFromClass('watchButton');
   sideCatalog.removeAllFromClass('relativeTime');
   sideCatalog.removeAllFromClass('unhideButton');
-  sideCatalog.removeAllFromClass('linkHistory');
-
-  if (api.mod) {
-
-    var newLinkHistory = document.createElement('a');
-    newLinkHistory.innerHTML = '[History]';
-    newLinkHistory.className = 'linkHistory';
-
-    var editLink = document.getElementsByClassName('linkEdit')[0];
-
-    editLink.parentNode.insertBefore(newLinkHistory, editLink.nextSibling);
-    editLink.parentNode.insertBefore(document.createTextNode(' '),
-        editLink.nextSibling);
-
-  }
 
   api.resetIndicators(data);
 
@@ -400,10 +446,8 @@ sideCatalog.addSideCatalogThread = function(thread) {
   cell.appendChild(linkContent);
 
     var upperText = document.createElement('span');
+    upperText.className = 'labelSubject';
     var lowerText = document.createElement('span');
-
-    upperText.setAttribute("class", "labelSubject");
-    lowerText.setAttribute("class", "labelStats")
 
   linkContent.appendChild(upperText);
   linkContent.appendChild(lowerText);
@@ -413,8 +457,8 @@ sideCatalog.addSideCatalogThread = function(thread) {
         return api.htmlReplaceTable[match];
       }).substring(0, 128) || thread.threadId));
 
-  lowerText.innerHTML = 'R: ' + '<span class="labelReplies">' + (thread.postCount || 0) + '</span>' + ' / F: ' + '<span class="labelFiles">' +
-      + (thread.fileCount || 0) + '</span>';
+  lowerText.innerHTML = 'R: <b>' + (thread.postCount || 0) + '</b> / F: <b>'
+      + (thread.fileCount || 0) + '</b>';
 
   sideCatalog.sideCatalogBody.appendChild(cell);
 

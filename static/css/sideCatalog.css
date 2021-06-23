@@ -1,64 +1,79 @@
-#mainPanel, #sideCatalogDiv {
-    overflow-y: auto;
-    height: calc(100vh - 22px);
-    margin-top: 22px;
-}
-
-#navSideCatalog:before {
-    content: "\e088";
-}
-
-#navSideCatalog:after {
-    content: "Side Catalog";
-}
-
 #sideCatalogDiv {
-    float: right;
-    padding: 0 10px 0 10px;
-    max-width: 20%;
-    margin-top: 0;
+  position: fixed;
+  overflow-y: auto;
+  left: 80%;
+  /* top: 22px; */
+  height: calc(100vh - 22px);
+  width: 20%;
+  overscroll-behavior: contain;
+
+  top: 32px;
 }
 
-#sideCatalogBody hr {
-    clear: both;
-}
-
-header {
-    margin-top: 36px;
-}
-
-#closeSideCatalogButton {
-    display: table-cell;
-    text-align: right;
-}
-
-#sideCatalogHeader {
-    display: table;
-    width: 100%;
-}
-
-.sideCatalogCell, .sideCatalogMarkedCell {
-    display: block;
-    cursor: pointer;
-    padding: 0.5em;
-    font-size: 75%;
-    overflow: hidden;
-    margin-bottom: 10px;
-}
-
-#sideCatalogBody img {
-    float: left;
-    margin-right: 10px;
-    max-width: 125px;
-    max-height: 125px;
+/* ADDITION */
+#sideCatalogDiv a {
+    color: #c5c8c6 !important;
 }
 
 .sideCatalogCellText {
-    vertical-align: top;
-    display: block;
+    /* font-weight: bold; */
     text-align: center;
 }
 
-.labelStats {
-    display: block;
+/* END ADDITION */
+
+.mainPanelWithSideCatalog {
+  width: 80%;
+}
+
+#navSideCatalog:before {
+  content: "\e088";
+}
+
+#sideCatalogBody hr {
+  clear: both;
+}
+
+header {
+  margin-top: 36px;
+}
+
+#closeSideCatalogButton {
+  display: table-cell;
+  text-align: right;
+}
+
+#sideCatalogHeader {
+  display: table;
+  width: 100%;
+
+  padding-bottom: 5px;
+}
+
+#closeSideCatalogButton, #sideCatalogBody {
+  padding-right: 10px;
+}
+
+.sideCatalogCell, .sideCatalogMarkedCell {
+  display: block;
+  cursor: pointer;
+  padding: 0.5em;
+  /* font-size: 75%; */
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+
+#sideCatalogBody img {
+  float: left;
+  margin-right: 10px;
+  max-width: 125px;
+  max-height: 125px;
+}
+
+.sideCatalogCellText {
+  vertical-align: top;
+}
+
+.sideCatalogCellText span {
+  display: block;
 }

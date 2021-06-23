@@ -1,69 +1,85 @@
 <!DOCTYPE html>
 <html>
-    <head>
-	<script type="text/javascript" id="dynamicAnalytics"></script>
-	<title>Archive</title>
-	<meta charset="UTF-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link href="/.static/css/global.css" type="text/css" rel="stylesheet" />
-	<link href="/.static/css/index.css" type="text/css" rel="stylesheet" />
-	<link href="/.static/css/watcher.css" type="text/css" rel="stylesheet" />
-	<link href="/.static/css/posting.css" type="text/css" rel="stylesheet" />
-    </head>
+<head>
+<meta charset="UTF-8" />
+<meta
+  name="viewport"
+  content="width=device-width, initial-scale=1.0">
+<link
+  href="/.static/css/global.css"
+  type="text/css"
+  rel="stylesheet" />
+<link
+  href="/.static/css/watcher.css"
+  type="text/css"
+  rel="stylesheet" />
+<link
+  href="/.static/css/settingsMenu.css"
+  type="text/css"
+  rel="stylesheet" />
+</head>
+<body>
 
-    <body>
+  <script src="/.static/js/themeLoader.js"></script>
 
-	<script src="/.static/js/themeLoader.js"></script>
+  <nav id="dynamicHeader"></nav>
 
-	<nav id="dynamicHeader"></nav>
+  <div id="settingsWrapper">
+  
+  <header>
+    <img
+      src="/.static/logo.png"
+      class="logoImg"
+      alt="logo" />
+  </header>
 
-	<div id="indexWrapper">
+    <fieldset id="settingsFieldset">
 
-            <div id="logoBox" class="title">
-		<a href="/">
-		    <img src="/.static/logo.png" class="logoImg" alt="logo" />
-		</a>
-            </div>
+      <legend>Archive</legend>
 
-	    <div id="dynamicLinks"></div>
+      <form
+        action="/archives.js"
+        method="GET">
+        Boards:
+        <input
+          name="boards"
+          id="fieldBoards"
+          type="text">
 
-	    <div class="contentBox">
-		<h2>Archive</h2>
-		<div id="contentBoxInner">
-		    <form
-			action="/archives.js"
-				method="GET">
-			Boards:
-			<input
-			    name="boards"
-			    id="fieldBoards"
-			    type="text">
+        <button type="submit">Filter</button>
+      </form>
 
-			<button type="submit">Filter</button>
-		    </form>
 
-		    <div id="divThreads">
-			<div id="divLegend">
-			    <span id="threadI">ID</span>
-			    <span id="threadN">Name</span>
-			    <span id="threadD">Date</span>
-			    <span id="threadV"></span>
-			</div>
-		    </div>
-		    <div id="divPages"></div>
-		</div>
-	    </div>
+      <div
+	id="divArchive"
+	class="wide">
+      <span id="divArchiveLegend"> <span id="legend"><span
+          id="labelThreadId"
+          class="cellComponent">Board/ID</span><span
+          id="labelThreadTitle"
+          class="cellComponent">Subject</span><span
+          id="labelThreadDate"
+          class="cellComponent">Date</span><span
+          id="labelThreadView"
+          class="cellComponent"></span></span></span>
 
-	</div>
 
-	<footer id="dynamicFooter"></footer>
+      <div id="divThreads"></div>
+      </div>
+      <div id="divPages"></div>
+    </fieldset>
+  </div>
 
-    </body>
+  <footer id="dynamicFooter"></footer>
 
-    <script src="/.static/js/api.js"></script>
-    <script src="/.static/js/themes.js"></script>
-    <script src="/.static/js/draggable.js"></script>
-    <script src="/.static/js/watcher.js"></script>
-    <script src="/.static/js/favouriteBoards.js"></script>
+</body>
 
+<script src="/.static/js/api.js"></script>
+<script src="/.static/js/themes.js"></script>
+<script src="/.static/js/favouriteBoards.js"></script>
+<script src="/.static/js/filterManagement.js"></script>
+<script src="/.static/js/draggable.js"></script>
+<script src="/.static/js/settingsMenu.js"></script>
+<script src="/.static/js/hiding.js"></script>
+<script src="/.static/js/watcher.js"></script>
 </html>

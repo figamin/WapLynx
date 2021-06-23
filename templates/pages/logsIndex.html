@@ -1,73 +1,79 @@
 <!DOCTYPE html>
 <html>
-    <head>
-	<script type="text/javascript" id="dynamicAnalytics"></script>
-	<title>Logs</title>
-	<meta charset="UTF-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link href="/.static/css/global.css" type="text/css" rel="stylesheet" />
-	<link href="/.static/css/index.css" type="text/css" rel="stylesheet" />
-	<link href="/.static/css/watcher.css" type="text/css" rel="stylesheet" />
-	<link href="/.static/css/posting.css" type="text/css" rel="stylesheet" />
-    </head>
+<head>
+<meta charset="UTF-8" />
+<meta
+  name="viewport"
+  content="width=device-width, initial-scale=1.0">
+<link
+  href="/.static/css/global.css"
+  type="text/css"
+  rel="stylesheet" />
+<link
+  href="/.static/css/watcher.css"
+  type="text/css"
+  rel="stylesheet" />
+<link
+  href="/.static/css/settingsMenu.css"
+  type="text/css"
+  rel="stylesheet" />
+</head>
+<body>
 
-    <body>
+  <script src="/.static/js/themeLoader.js"></script>
 
-	<script src="/.static/js/themeLoader.js"></script>
+  <nav id="dynamicHeader"></nav>
 
-	<nav id="dynamicHeader"></nav>
+  <div id="settingsWrapper">
+  
+  <header>
+    <img
+      src="/.static/logo.png"
+      class="logoImg"
+      alt="logo" />
+  </header>
 
-	<div id="indexWrapper">
+    <fieldset id="settingsFieldset">
 
-            <div id="logoBox" class="title">
-		<a href="/">
-		    <img src="/.static/logo.png" class="logoImg" alt="logo" />
-		</a>
-            </div>
+      <legend>Logs</legend>
 
-	    <div id="dynamicLinks"></div>
+      <div id="logSearch">
+        <form
+          method="get"
+          action="logs.js">
+          <label>
+            Year
+            <input
+              type="text"
+              name="year"
+              placeholder="YYYY">
+            <input
+              type="hidden"
+              name="boardUri"
+              id="identifierBoard">
+          </label>
+          <input
+            type="submit"
+            value="Search">
+        </form>
+      </div>
+      <hr />
+      <h3 id="labelBoard"></h3>
+      <div
+        id="divDates"
+        class="linkList"></div>
+    </fieldset>
+  </div>
 
-	    <div class="contentBox">
-		<h2>Logs</h2>
-		<div id="contentBoxInner">
+  <footer id="dynamicFooter"></footer>
 
-		    <div id="logSearch">
-			<form
-			    method="get"
-			    action="logs.js">
-			    <label>
-				Year:
-				<input
-				    type="text"
-				    name="year"
-				    placeholder="YYYY">
-				<input
-				    type="hidden"
-				    name="boardUri"
-				    id="identifierBoard">
-			    </label>
-			    <input
-				type="submit"
-				value="Search">
-			</form>
-		    </div>
-		    <h3 id="labelBoard"></h3>
-		    <div
-			id="divDates"
-			class="linkList"></div>
+</body>
 
-		</div>
-	    </div>
-	</div>
-
-	<footer id="dynamicFooter"></footer>
-
-    </body>
-
-    <script src="/.static/js/api.js"></script>
-    <script src="/.static/js/themes.js"></script>
-    <script src="/.static/js/draggable.js"></script>
-    <script src="/.static/js/watcher.js"></script>
-    <script src="/.static/js/favouriteBoards.js"></script>
-
+<script src="/.static/js/api.js"></script>
+<script src="/.static/js/themes.js"></script>
+<script src="/.static/js/favouriteBoards.js"></script>
+<script src="/.static/js/draggable.js"></script>
+<script src="/.static/js/settingsMenu.js"></script>
+<script src="/.static/js/hiding.js"></script>
+<script src="/.static/js/watcher.js"></script>
 </html>

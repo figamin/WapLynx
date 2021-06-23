@@ -21,7 +21,7 @@ postCommon.init = function() {
 
   postCommon.updateCurrentChar();
 
-  postCommon.selectedCell = '<div class="removeButton">✕</div>'
+  postCommon.selectedCell = '<div class="removeButton">[X]</div>'
       + '<span class="nameLabel"></span><div class="spoilerPanel">'
       + '<input type="checkbox" class="spoilerCheckBox">Spoiler</div>';
 
@@ -89,14 +89,6 @@ postCommon.init = function() {
     postCommon.setFlagPreviews(flagCombo);
   }
 
-    // thread.js sets api.boardUri because penumbralynx is braindamaged so
-  // wait until the scripts load
-  document.addEventListener("DOMContentLoaded", function() {
-    if (localStorage.getItem("enableYous") === "true") {
-      postCommon.initYous();
-    }
-  }, false);
-
   var formMore = document.getElementById('formMore');
   formMore.classList.toggle('hidden');
 
@@ -108,7 +100,7 @@ postCommon.init = function() {
   formMore.children[0].onclick = function() {
 
     extra.classList.toggle('hidden');
-    formMore.children[0].innerHTML = toggled ? 'More' : 'Less';
+    formMore.children[0].innerHTML = toggled ? 'More Options' : 'Less Options';
 
     toggled = !toggled;
 
@@ -120,14 +112,20 @@ postCommon.init = function() {
     formMore.children[0].onclick();
   }
 
-      // add paste support
-  window.addEventListener('paste', function handlePaste(evt) {
+    // thread.js sets api.boardUri because penumbralynx is braindamaged so
+    // wait until the scripts load
+    document.addEventListener("DOMContentLoaded", function() {
+	if (localStorage.getItem("enableYous") === "true") {
+	    postCommon.initYous();
+	}
+    }, false);
+
+    // add paste support
+    window.addEventListener('paste', function(evt) {
 
     if (!evt.clipboardData) return;
 
-    var data = Array.from(evt.clipboardData.items).find(function predicate(i) {
-      return i.kind === "file";
-    });
+    var data = Array.from(evt.clipboardData.items).find((i) => i.kind === "file");
     if (!data) return;
 
     evt.stopPropagation();
@@ -148,7 +146,6 @@ postCommon.init = function() {
     var blob = file.slice(0, file.size, mime);
     postCommon.addSelectedFile(new File([blob], "ClipboardImage." + ext, { type: mime }));
   });
-
 };
 
 postCommon.markPostAsYou = function(id, obj) {
@@ -204,17 +201,6 @@ postCommon.initYous = function() {
   postCommon.yous = yous;
 };
 
-postCommon.addSubmitShortcut = function(mbox) {
-  mbox.addEventListener("keyup", function(e) {
-    if (e.ctrlKey && e.key === "Enter") {
-      if (api.threadId) {
-        thread.postReply();
-      } else {
-        board.postThread();
-      }
-    }
-  });
-};
 
 postCommon.updateCurrentChar = function() {
   postCommon.currentCharLabel.innerHTML = document
@@ -318,8 +304,6 @@ postCommon.addSelectedFile = function(file) {
     postCommon.selectedFiles.splice(postCommon.selectedFiles.indexOf(file), 1);
   };
 
-  postCommon.selectedFiles.push(file);
-
   if (!file.type.indexOf('image/')) {
 
     var fileReader = new FileReader();
@@ -331,6 +315,7 @@ postCommon.addSelectedFile = function(file) {
       dndThumb.className = 'dragAndDropThumb';
       cell.appendChild(dndThumb);
 
+      postCommon.selectedFiles.push(file);
       postCommon.addDndCell(cell, removeButton);
 
     };
@@ -338,6 +323,7 @@ postCommon.addSelectedFile = function(file) {
     fileReader.readAsDataURL(file);
 
   } else {
+    postCommon.selectedFiles.push(file);
     postCommon.addDndCell(cell, removeButton);
   }
 
@@ -417,12 +403,31 @@ postCommon.newCheckExistance = function(file, callback) {
 
   var reader = new FileReader();
 
-  reader.onloadend = function() {
+  reader.onloadend = async function() {
 
-    var mime = file.type;
-    var md5 = SparkMD5.ArrayBuffer.hash(reader.result);
+    if (crypto.subtle) {
 
-    var identifier = md5 + '-' + mime.replace('/', '');
+      var hashBuffer = await
+      crypto.subtle.digest('SHA-256', reader.result);
+
+      var hashArray = Array.from(new Uint8Array(hashBuffer));
+
+      var hashHex = hashArray.map(function(b) {
+        return b.toString(16).padStart(2, '0');
+      }).join('');
+
+    } else {
+      
+      var i8a = new Uint8Array(reader.result);
+      var a = [];
+
+      for (var i = 0; i < i8a.length; i += 4) {
+        a.push(i8a[i] << 24 | i8a[i + 1] << 16 | i8a[i + 2] << 8 | i8a[i + 3]);
+      }
+
+      var wordArray = CryptoJS.lib.WordArray.create(a, i8a.length);
+      var hashHex = CryptoJS.SHA256(wordArray).toString();
+    }
 
     api.formApiRequest('checkFileIdentifier', {}, function requested(status,
         data) {
@@ -431,11 +436,11 @@ postCommon.newCheckExistance = function(file, callback) {
         console.log(data);
         callback();
       } else {
-        callback(md5, mime, data);
+        callback(hashHex, file.type, data);
       }
 
     }, false, {
-      identifier : identifier
+      identifier : hashHex
     });
 
   };
@@ -460,12 +465,12 @@ postCommon.newGetFilesToUpload = function(callback, index, files) {
 
   var file = postCommon.selectedFiles[index];
 
-  postCommon.newCheckExistance(file, function checked(md5, mime, found) {
+  postCommon.newCheckExistance(file, function checked(sha256, mime, found) {
 
     var toPush = {
       name : postCommon.selectedFiles[index].name,
       spoiler : spoiled,
-      md5 : md5,
+      sha256 : sha256,
       mime : mime
     };
 
@@ -493,13 +498,10 @@ postCommon.displayBlockBypassPrompt = function(callback) {
     var typedCaptcha = outerPanel.getElementsByClassName('modalAnswer')[0].value
         .trim();
 
-    if (typedCaptcha.length !== 6 && typedCaptcha.length !== 24) {
-      alert('Captchas are exactly 6 (24 if no cookies) characters long.');
+    if (typedCaptcha.length !== 6 && typedCaptcha.length !== 112) {
+      alert('Captchas are exactly 6 (112 if no cookies) characters long.');
       return;
-    } else if (/\W/.test(typedCaptcha)) {
-      alert('Invalid captcha.');
-      return;
-    }
+    } 
 
     api.formApiRequest('renewBypass', {
       captcha : typedCaptcha
@@ -507,11 +509,44 @@ postCommon.displayBlockBypassPrompt = function(callback) {
 
       if (status === 'ok') {
 
-        if (callback) {
-          callback();
+        if (api.getCookies().bypass.length <= 372) {
+
+          outerPanel.remove();
+
+          if (callback) {
+            callback();
+          }
+
+          return;
+
         }
 
-        outerPanel.remove();
+        if (!crypto.subtle || JSON.parse(localStorage.noJsValidation || 'false')) {
+          outerPanel.remove();
+          return bypassUtils.showNoJsValidation(callback);
+        }
+
+        okButton.value = 'Please wait for validation';
+        okButton.disabled = true;
+
+        var tempCallback = function(status, data) {
+
+          if (status === 'ok') {
+            if (callback) {
+              callback();
+            }
+          } else {
+            alert(status + ': ' + JSON.stringify(data));
+          }
+
+        };
+
+        tempCallback.stop = function() {
+          outerPanel.remove();
+
+        };
+
+        bypassUtils.runValidation(tempCallback);
 
       } else {
         alert(status + ': ' + JSON.stringify(data));
@@ -544,3 +579,4 @@ postCommon.addYou = function(boardUri, postId) {
 }
 
 postCommon.init();
+

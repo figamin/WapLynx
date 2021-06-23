@@ -1,58 +1,137 @@
 #settingsMenu {
-  position: fixed;
-  left: 100px;
-  top: 25px;
-  z-index: 100;
+    position: fixed;
+    left: 100px;
+    top: 25px;
+    z-index: 100;
 }
 
 #closeSettingsMenuButton {
-  float: right;
+    float: right;
 }
 
 #cssInput, #jsInput {
-  width: 24em;
-  height: 12em;
+    width: 24em;
+    height: 12em;
 }
 
-#closeSettingsMenuButton::before, .filterDeleteButton::before,
-  #closeSideCatalogButton::before {
+#closeSettingsMenuButton::before,
+/* .filterDeleteButton::before, */
+#closeSideCatalogButton::before {
+    /* content: '\e0db'; */
+
     content: '[X]';
-    font-family: monospace;
     font-weight: bold;
-    font-size: 14px;
+    font-family: arial;
 }
 
 .settingsTab {
-  font-size: 80%;
-  cursor: pointer;
-  margin: 0.5em;
+    /* font-size: 80%; */
+    cursor: pointer;
+    margin: 0.5em;
+
+    font-size: 10pt;
 }
 
+/* #selectedTab { */
+/*   text-shadow: 0px 0px 5px #117743; */
+/* } */
+
 #settingsMenuContent {
-  padding: 0.25em
+    padding: 0.25em
 }
 
 #newFilterPanel * {
-  margin: 0.5em
+    margin: 0.5em
 }
 
 .settingsLabel, #labelExistingFilfterType, #labelExistingFilfterContent,
-  .existingFilterTypeLabel, .existingFilterContentLabel {
-  font-size: 80%;
+.existingFilterTypeLabel, .existingFilterContentLabel {
+    /* font-size: 80%; */
+
+    font-size: 10pt;
 }
 
 #labelExistingFilfterType, .existingFilterTypeLabel {
-  display: inline-block;
-  width: 20%;
+    display: inline-block;
+    /* width: 20%; */
+
+    width: 80px;
 }
 
 #labelExistingFilfterContent, .existingFilterContentLabel {
-  width: 75%;
-  display: inline-block;
+    /* width: 75%; */
+    display: inline-block;
+
+    width: 80%;
 }
 
 #existingFiltersPanel {
-  overflow: hidden;
-  overflow-y: auto;
-  height: 20em;
+    overflow: hidden;
+    overflow-y: auto;
+    /* height: 20em; */
+
+    height: max-content;
 }
+
+/* ADDITION */
+.settingsTab {
+    padding: 0.25rem 0.5rem;
+    margin: 0.25rem;
+    border-radius: 4px;
+    border: 1px solid #000;
+    background: #282a2e;
+    display: inline-block;
+}
+
+.settingsTab:hover {
+    color: #5f89ac !important;
+}
+
+#selectedTab {
+    background: #000;
+}
+
+#existingFiltersPanel > div:nth-child(2n) {
+    background: rgba(255,255,255,.1);
+}
+
+#existingFiltersPanel {
+    margin: 0 0.25rem;
+}
+
+#newFilterPanel + div {
+    font-weight: bold;
+}
+
+#newFilterPanel + div {
+    padding: 0.5rem 0.25rem;
+}
+
+#existingFiltersPanel hr {
+    display: none;
+}
+
+#existingFiltersPanel div {
+    padding: 0.10rem 0 0.10rem 0;
+}
+
+.filterDeleteButton::before {
+    content: '\e0cf';
+    font-weight: bold;
+    font-family: 'Icons';
+}
+
+#newFilterPanel {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.header {
+    padding-top: 0.25rem;
+}
+
+.headerLabel {
+    margin: 0.25em;
+}
+/* END ADDITION */

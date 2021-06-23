@@ -1,42 +1,64 @@
 <!DOCTYPE html>
 <html>
-    <head>
-	<script type="text/javascript" id="dynamicAnalytics"></script>
-	<meta charset="UTF-8" />
-	<meta
-	    name="viewport"
-	    content="width=device-width, initial-scale=1.0">
-	<link
-	    href="/.static/css/global.css"
-	    type="text/css"
-	    rel="stylesheet" />
-    </head>
-    <body>
+<head>
+<meta charset="UTF-8" />
+<meta
+  name="viewport"
+  content="width=device-width, initial-scale=1.0">
+<link
+  href="/.static/css/global.css"
+  type="text/css"
+  rel="stylesheet" />
+<link
+  href="/.static/css/watcher.css"
+  type="text/css"
+  rel="stylesheet" />
+<link
+  href="/.static/css/settingsMenu.css"
+  type="text/css"
+  rel="stylesheet" />
+</head>
+<body>
 
-	<script src="/.static/js/themeLoader.js"></script>
+  <script src="/.static/js/themeLoader.js"></script>
 
-	<nav id="dynamicHeader"></nav>
+  <nav id="dynamicHeader"></nav>
 
-	<header>
-	    <img
-		src="/.static/logo.png"
-		class="logoImg"
-		alt="logo" />
-	</header>
+  <div id="settingsWrapper">
 
-	<div id="maint">
-	  <br><br>
-	  <p id="maintText">We are upgrading and migrating our servers. <br>
-	    Our expected downtime is 24-48 hours <span class="orangeText"><3</span><br><br>
-	Click <a href="https://rcsocial.net/web/accounts/16chan">here</a> for live updates. </p>
-									    </div>
-	<br><br><br>
-	 <center><img src="https://i.imgur.com/Ku7rinVh.jpg" width="300" height="auto"></center> 
+  <header>
+    <img
+      src="/.static/logo.png"
+      class="logoImg"
+      alt="logo" />
+  </header>
 
-    </body>
+  <div id="maint">
+    <p id="maintText">We are upgrading to the latest LynxChan version, 2.3.x → 2.6.x.
+      <br />
+      Our expected downtime is 2-6 hours <span class="orangeText"><3</span>
+      <br />
+      <br />
+      Click <a href="https://rcsocial.net/web/accounts/16chan">here</a> for live updates.
+    </p>
+  </div>
 
-    <script src="/.static/js/api.js"></script>
-    <script src="/.static/js/themes.js"></script>
-    <script src="/.static/js/favouriteBoards.js"></script>
+  <br />
+  <br />
+  <center>
+    <img src="https://i.imgur.com/Ku7rinVh.jpg" width="300" height="auto">
+  </center> 
+  </div>
 
+  <footer id="dynamicFooter"></footer>
+
+</body>
+
+<script src="/.static/js/api.js"></script>
+<script src="/.static/js/themes.js"></script>
+<script src="/.static/js/favouriteBoards.js"></script>
+<script src="/.static/js/draggable.js"></script>
+<script src="/.static/js/settingsMenu.js"></script>
+<script src="/.static/js/hiding.js"></script>
+<script src="/.static/js/watcher.js"></script>
 </html>

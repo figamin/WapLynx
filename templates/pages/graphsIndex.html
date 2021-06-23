@@ -1,69 +1,79 @@
 <!DOCTYPE html>
 <html>
-    <head>
-	<script type="text/javascript" id="dynamicAnalytics"></script>
-	<title>Graphs</title>
-	<meta charset="UTF-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link href="/.static/css/global.css" type="text/css" rel="stylesheet" />
-	<link href="/.static/css/index.css" type="text/css" rel="stylesheet" />
-	<link href="/.static/css/watcher.css" type="text/css" rel="stylesheet" />
-	<link href="/.static/css/posting.css" type="text/css" rel="stylesheet" />
-    </head>
+<head>
+<meta charset="UTF-8" />
+<meta
+  name="viewport"
+  content="width=device-width, initial-scale=1.0">
+<link
+  href="/.static/css/global.css"
+  type="text/css"
+  rel="stylesheet" />
+<link
+  href="/.static/css/watcher.css"
+  type="text/css"
+  rel="stylesheet" />
+<link
+  href="/.static/css/settingsMenu.css"
+  type="text/css"
+  rel="stylesheet" />
+</head>
+<body>
 
-    <body>
+  <script src="/.static/js/themeLoader.js"></script>
 
-	<script src="/.static/js/themeLoader.js"></script>
+  <nav id="dynamicHeader"></nav>
 
-	<nav id="dynamicHeader"></nav>
+  <div id="settingsWrapper">
+  
+  <header>
+    <img
+      src="/.static/logo.png"
+      class="logoImg"
+      alt="logo" />
+  </header>
 
-	<div id="indexWrapper">
+  <fieldset id="settingsFieldset" class="shorten">
 
-            <div id="logoBox" class="title">
-		<a href="/">
-		    <img src="/.static/logo.png" class="logoImg" alt="logo" />
-		</a>
-            </div>
+      <legend>Graphs</legend>
 
-	    <div id="dynamicLinks"></div>
+      <form
+        method="get"
+        action="graphs.js">
 
-	    <div class="contentBox">
-		<h2>Graphs</h2>
-		<div id="contentBoxInner">
+        <label>
+          Year:
+          <input
+            type="text"
+            name="year"
+            placeholder="YYYY">
+        </label>
 
-		    <form
-			method="get"
-				action="graphs.js">
+        <input
+          type="submit"
+          value="Search">
 
-			<label>
-			    Year:
-			    <input
-				type="text"
-				name="year"
-				placeholder="YYYY">
-			</label>
+      </form>
 
-			<input
-			    type="submit"
-			    value="Search">
+      <hr />
 
-		    </form>
+      <div
+        id="divDates"
+        class="linkList"></div>
 
-		    <div
-			id="divDates"
-			class="linkList"></div>
-		</div>
-	    </div>
-	</div>
+    </fieldset>
 
-	<footer id="dynamicFooter"></footer>
+  </div>
 
-    </body>
+  <footer id="dynamicFooter"></footer>
 
-    <script src="/.static/js/api.js"></script>
-    <script src="/.static/js/themes.js"></script>
-    <script src="/.static/js/draggable.js"></script>
-    <script src="/.static/js/watcher.js"></script>
-    <script src="/.static/js/favouriteBoards.js"></script>
+</body>
 
+<script src="/.static/js/api.js"></script>
+<script src="/.static/js/themes.js"></script>
+<script src="/.static/js/favouriteBoards.js"></script>
+<script src="/.static/js/draggable.js"></script>
+<script src="/.static/js/settingsMenu.js"></script>
+<script src="/.static/js/hiding.js"></script>
+<script src="/.static/js/watcher.js"></script>
 </html>

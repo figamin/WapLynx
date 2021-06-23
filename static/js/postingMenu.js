@@ -2,10 +2,10 @@ var postingMenu = {};
 
 postingMenu.init = function() {
 
-  postingMenu.banLabels = [ 'Regular ban', 'Range ban (1/2 octects)',
-      'Range ban (3/4 octects)', 'ASN ban', 'Warning' ];
+  postingMenu.banLabels = [ 'IP/Bypass ban', 'Range ban (1/2 octects)',
+      'Range ban (3/4 octects)', 'ASN ban', 'IP/Bypass warning' ];
   postingMenu.deletionOptions = [ 'Do not delete', 'Delete post',
-      'Delete post and media', 'Delete by ip' ];
+      'Delete post and media', 'Delete by ip/bypass' ];
   postingMenu.threadSettingsList = [ {
     label : 'Toggle Lock',
     field : 'locked',
@@ -38,6 +38,7 @@ postingMenu.init = function() {
     postingMenu.loggedIn = true;
 
     postingMenu.globalRole = data.globalRole;
+    postingMenu.noBanCaptcha = data.noCaptchaBan;
 
     postingMenu.moddedBoards = [];
 
@@ -62,32 +63,45 @@ postingMenu.init = function() {
 postingMenu.showReport = function(board, thread, post, global) {
 
   var outerPanel = captchaModal.getCaptchaModal(global ? 'Global report'
-      : 'Report');
+      : 'Report', api.noReportCaptcha);
 
   var reasonField = document.createElement('input');
   reasonField.type = 'text';
+
+  var categories = document.getElementById('reportComboboxCategory');
+
+  if (categories) {
+
+    var newCategories = categories.cloneNode(true);
+    newCategories.id = null;
+
+  }
 
   var okButton = outerPanel.getElementsByClassName('modalOkButton')[0];
 
   okButton.onclick = function() {
 
-    var typedCaptcha = outerPanel.getElementsByClassName('modalAnswer')[0].value
-        .trim();
+    if (!api.noReportCaptcha) {
 
-    if (typedCaptcha.length !== 6 && typedCaptcha.length !== 24) {
-      alert('Captchas are exactly 6 (24 if no cookies) characters long.');
-      return;
-    } else if (/\W/.test(typedCaptcha)) {
-      alert('Invalid captcha.');
-      return;
+      var typedCaptcha = outerPanel.getElementsByClassName('modalAnswer')[0].value
+          .trim();
+
+      if (typedCaptcha.length !== 6 && typedCaptcha.length !== 112) {
+        alert('Captchas are exactly 6 (112 if no cookies) characters long.');
+        return;
+      }
     }
 
     var params = {
-      captcha : typedCaptcha,
-      reason : reasonField.value.trim(),
-      global : global,
+      captchaReport : typedCaptcha,
+      reasonReport : reasonField.value.trim(),
+      globalReport : global,
       action : 'report'
     };
+
+    if (categories) {
+      params.categoryReport = newCategories.options[newCategories.selectedIndex].value;
+    }
 
     var key = board + '-' + thread;
 
@@ -111,11 +125,14 @@ postingMenu.showReport = function(board, thread, post, global) {
   };
 
   captchaModal.addModalRow('Reason', reasonField, okButton.onclick);
+  if (categories) {
+    captchaModal.addModalRow('Category', newCategories);
+  }
 
 };
 
 postingMenu.deleteSinglePost = function(boardUri, threadId, post, fromIp,
-    unlinkFiles, wipeMedia, innerPart, forcedPassword) {
+    unlinkFiles, wipeMedia, innerPart, forcedPassword, onThread, trash) {
 
   var key = boardUri + '/' + threadId
 
@@ -125,17 +142,32 @@ postingMenu.deleteSinglePost = function(boardUri, threadId, post, fromIp,
 
   var storedData = JSON.parse(localStorage.postingPasswords || '{}');
 
+  var delPass = document.getElementById('deletionFieldPassword');
+
+  if (delPass) {
+    delPass = delPass.value.trim();
+  }
+
   var password = forcedPassword || storedData[key]
-      || localStorage.deletionPassword
-      || document.getElementById('deletionFieldPassword').value.trim()
+      || localStorage.deletionPassword || delPass
       || Math.random().toString(36).substring(2, 10);
+
+  var selectedAction;
+
+  if (trash) {
+    selectedAction = 'trash';
+  } else if (fromIp) {
+    selectedAction = onThread ? 'thread-ip-deletion' : 'ip-deletion';
+  } else {
+    selectedAction = 'delete'
+  }
 
   var params = {
     confirmation : true,
     password : password,
     deleteUploads : unlinkFiles,
     deleteMedia : wipeMedia,
-    action : fromIp ? 'ip-deletion' : 'delete'
+    action : selectedAction
   };
 
   var key = boardUri + '-' + threadId;
@@ -158,12 +190,7 @@ postingMenu.deleteSinglePost = function(boardUri, threadId, post, fromIp,
     var removed = data.removedThreads || data.removedPosts;
 
     if (unlinkFiles && removed) {
-
-      innerPart.parentNode.className = innerPart.parentNode.className.replace(
-          ' multipleUploads', '');
-
       innerPart.getElementsByClassName('panelUploads')[0].remove();
-
     } else if (fromIp) {
 
       if (api.isBoard || !api.boardUri) {
@@ -175,14 +202,20 @@ postingMenu.deleteSinglePost = function(boardUri, threadId, post, fromIp,
     } else if (api.threadId && data.removedThreads) {
       window.location.pathname = '/' + boardUri + '/';
     } else if (removed) {
-      innerPart.parentNode.remove();
+
+      if (typeof (reports) !== 'undefined') {
+        innerPart.parentNode.parentNode.remove();
+      } else {
+        innerPart.parentNode.remove();
+      }
+
     } else if (!removed) {
 
       var newPass = prompt('Could not delete. Would you like to try another password?');
 
       if (newPass) {
         postingMenu.deleteSinglePost(boardUri, threadId, post, fromIp,
-            unlinkFiles, wipeMedia, innerPart, newPass);
+            unlinkFiles, wipeMedia, innerPart, newPass, onThread, trash);
       }
 
     }
@@ -194,19 +227,20 @@ postingMenu.deleteSinglePost = function(boardUri, threadId, post, fromIp,
 };
 
 postingMenu.applySingleBan = function(typedMessage, deletionOption,
-    typedReason, typedCaptcha, banType, typedDuration, global, boardUri,
-    thread, post, innerPart, outerPanel) {
+    typedReason, typedCaptcha, banType, typedDuration, global, nonBypassable,
+    boardUri, thread, post, innerPart, outerPanel) {
 
   localStorage.setItem('autoDeletionOption', deletionOption);
 
   var params = {
-    action : 'ban',
-    reason : typedReason,
-    captcha : typedCaptcha,
+    action : deletionOption === 1 ? 'ban-delete' : 'ban',
+    nonBypassable : nonBypassable,
+    reasonBan : typedReason,
+    captchaBan : typedCaptcha,
     banType : banType,
     duration : typedDuration,
     banMessage : typedMessage,
-    global : global
+    globalBan : global
   };
 
   var key = boardUri + '-' + thread;
@@ -235,9 +269,11 @@ postingMenu.applySingleBan = function(typedMessage, deletionOption,
 
       outerPanel.remove();
 
-      if (deletionOption) {
+      if (deletionOption > 1) {
         postingMenu.deleteSinglePost(boardUri, thread, post,
             deletionOption === 3, false, deletionOption === 2, innerPart);
+      } else if (deletionOption) {
+        innerPart.parentNode.remove();
       }
 
     } else {
@@ -249,10 +285,10 @@ postingMenu.applySingleBan = function(typedMessage, deletionOption,
 
 postingMenu.banSinglePost = function(innerPart, boardUri, thread, post, global) {
 
-  var outerPanel = captchaModal.getCaptchaModal(global ? 'Global ban' : 'Ban');
+  var useCaptcha = !(postingMenu.globalRole < 4 || postingMenu.noBanCaptcha);
 
-  var decorationPanel = outerPanel
-      .getElementsByClassName('modalDecorationPanel')[0];
+  var outerPanel = captchaModal.getCaptchaModal(global ? 'Global ban' : 'Ban',
+      !useCaptcha);
 
   var okButton = outerPanel.getElementsByClassName('modalOkButton')[0];
 
@@ -287,14 +323,20 @@ postingMenu.banSinglePost = function(innerPart, boardUri, thread, post, global) 
 
   deletionCombo.selectedIndex = +localStorage.autoDeletionOption;
 
-  var captchaField = outerPanel.getElementsByClassName('modalAnswer')[0];
-  captchaField.setAttribute('placeholder', 'only for board staff)');
+  var captchaField;
+  if (useCaptcha) {
+    captchaField = outerPanel.getElementsByClassName('modalAnswer')[0];
+  }
+
+  var nonBypassableCheckbox = document.createElement('input');
+  nonBypassableCheckbox.type = 'checkbox';
 
   okButton.onclick = function() {
     postingMenu.applySingleBan(messageField.value.trim(),
-        deletionCombo.selectedIndex, reasonField.value.trim(),
-        captchaField.value.trim(), typeCombo.selectedIndex, durationField.value
-            .trim(), global, boardUri, thread, post, innerPart, outerPanel);
+        deletionCombo.selectedIndex, reasonField.value.trim(), useCaptcha
+            && captchaField.value.trim(), typeCombo.selectedIndex,
+        durationField.value.trim(), global, nonBypassableCheckbox.checked,
+        boardUri, thread, post, innerPart, outerPanel);
   };
 
   captchaModal.addModalRow('Reason', reasonField, okButton.onclick);
@@ -302,6 +344,7 @@ postingMenu.banSinglePost = function(innerPart, boardUri, thread, post, global) 
   captchaModal.addModalRow('Message', messageField, okButton.onclick);
   captchaModal.addModalRow('Type', typeCombo);
   captchaModal.addModalRow('Deletion action', deletionCombo);
+  captchaModal.addModalRow('Non-bypassable', nonBypassableCheckbox);
 
 };
 
@@ -339,6 +382,31 @@ postingMenu.spoilSinglePost = function(innerPart, boardUri, thread, post) {
     });
     // style exception, too simple
 
+  });
+
+};
+
+postingMenu.mergeThread = function(board, thread) {
+
+  var destination = prompt('Merge with which thread?', 'Thread id');
+
+  if (!destination) {
+    return;
+  }
+
+  destination = destination.trim();
+
+  api.formApiRequest('mergeThread', {
+    boardUri : board,
+    threadSource : thread,
+    threadDestination : destination
+  }, function transferred(status, data) {
+
+    if (status === 'ok') {
+      window.location.pathname = '/' + board + '/res/' + destination + '.html';
+    } else {
+      alert(status + ': ' + JSON.stringify(data));
+    }
   });
 
 };
@@ -617,21 +685,31 @@ postingMenu.setExtraMenuThread = function(extraMenu, board, thread, innerPart) {
     postingMenu.addToggleSettingButton(extraMenu, board, thread, i, innerPart);
   }
 
-  if (!innerPart.getElementsByClassName('archiveIndicator').length) {
-
-    extraMenu.appendChild(document.createElement('hr'));
-
-    var archiveButton = document.createElement('div');
-    archiveButton.innerHTML = 'Archive';
-    archiveButton.onclick = function() {
-
-      if (confirm("Are you sure you wish to lock and archive this thread?")) {
-        postingMenu.sendArchiveRequest(board, thread, innerPart);
-      }
-
-    };
-    extraMenu.appendChild(archiveButton);
+  if (innerPart.getElementsByClassName('archiveIndicator').length) {
+    return;
   }
+
+  extraMenu.appendChild(document.createElement('hr'));
+
+  var archiveButton = document.createElement('div');
+  archiveButton.innerHTML = 'Archive';
+  archiveButton.onclick = function() {
+
+    if (confirm("Are you sure you wish to lock and archive this thread?")) {
+      postingMenu.sendArchiveRequest(board, thread, innerPart);
+    }
+
+  };
+  extraMenu.appendChild(archiveButton);
+
+  extraMenu.appendChild(document.createElement('hr'));
+
+  var mergeButton = document.createElement('div');
+  archiveButton.innerHTML = 'Merge';
+  archiveButton.onclick = function() {
+    postingMenu.mergeThread(board, thread);
+  };
+  extraMenu.appendChild(mergeButton);
 
 };
 
@@ -673,16 +751,30 @@ postingMenu.setExtraMenuMod = function(innerPart, extraMenu, board, thread,
   extraMenu.appendChild(document.createElement('hr'));
 
   var deleteByIpButton = document.createElement('div');
-  deleteByIpButton.innerHTML = 'Delete By Ip';
+  deleteByIpButton.innerHTML = 'Delete By Ip/bypass';
   deleteByIpButton.onclick = function() {
 
-    if (confirm("Are you sure you wish to delete all posts on this board made by this ip?")) {
+    if (confirm("Are you sure you wish to delete all posts on this board made by this ip/bypass?")) {
       postingMenu.deleteSinglePost(board, thread, post, true, null, null,
           innerPart);
     }
 
   };
   extraMenu.appendChild(deleteByIpButton);
+
+  extraMenu.appendChild(document.createElement('hr'));
+
+  var deleteByIpOnThreadButton = document.createElement('div');
+  deleteByIpOnThreadButton.innerHTML = 'Delete By Ip/bypass within thread';
+  deleteByIpOnThreadButton.onclick = function() {
+
+    if (confirm("Are you sure you wish to delete all posts within their thread made by this ip/bypass?")) {
+      postingMenu.deleteSinglePost(board, thread, post, true, null, null,
+          innerPart, null, true);
+    }
+
+  };
+  extraMenu.appendChild(deleteByIpOnThreadButton);
 
   extraMenu.appendChild(document.createElement('hr'));
 
@@ -727,7 +819,7 @@ postingMenu.buildMenu = function(linkSelf, extraMenu) {
 
   var href = linkSelf.href;
 
-  if (!api.mod) {
+  if (href.indexOf('mod.js') < 0) {
 
     var parts = href.split('/');
 
@@ -776,6 +868,15 @@ postingMenu.buildMenu = function(linkSelf, extraMenu) {
   deleteButton.onclick = function() {
     postingMenu.deleteSinglePost(board, thread, post, null, null, null,
         innerPart);
+  };
+
+  extraMenu.appendChild(document.createElement('hr'));
+  var trashButton = document.createElement('div');
+  trashButton.innerHTML = 'Trash Post';
+  extraMenu.appendChild(trashButton);
+  trashButton.onclick = function() {
+    postingMenu.deleteSinglePost(board, thread, post, null, null, null,
+        innerPart, null, null, true);
   };
 
   var hasFiles = linkSelf.parentNode.parentNode

@@ -1,60 +1,65 @@
 <!DOCTYPE html>
 <html>
-    <head>
-	<script type="text/javascript" id="dynamicAnalytics"></script>
-	<title>Mobile</title>
-	<meta charset="UTF-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link href="/.static/css/global.css" type="text/css" rel="stylesheet" />
-	<link href="/.static/css/index.css" type="text/css" rel="stylesheet" />
-	<link href="/.static/css/watcher.css" type="text/css" rel="stylesheet" />
-	<link href="/.static/css/posting.css" type="text/css" rel="stylesheet" />
-    </head>
+<head>
+<title>Mobile</title>
+<meta charset="UTF-8" />
+<meta
+  name="viewport"
+  content="width=device-width, initial-scale=1.0">
+<link
+  href="/.static/css/global.css"
+  type="text/css"
+  rel="stylesheet" />
+<link
+  href="/.static/css/watcher.css"
+  type="text/css"
+  rel="stylesheet" />
+<link
+  href="/.static/css/settingsMenu.css"
+  type="text/css"
+  rel="stylesheet" />
+</head>
+<body>
 
-    <body>
+  <script src="/.static/js/themeLoader.js"></script>
 
-	<script src="/.static/js/themeLoader.js"></script>
+  <nav id="dynamicHeader"></nav>
 
-	<nav id="dynamicHeader"></nav>
+  <div id="settingsWrapper">
+  
+  <header>
+    <img
+      src="/.static/logo.png"
+      class="logoImg"
+      alt="logo" />
+  </header>
 
-	<div id="indexWrapper">
+    <fieldset id="settingsFieldset">
+      <legend>Mobile App</legend>
 
-            <div id="logoBox" class="title">
-		<a href="/">
-		    <img src="/.static/logo.png" class="logoImg" alt="logo" />
-		</a>
-            </div>
+      <h3>Installation Guide:</h3>
+      16chan can now be used through the Dashchan Android app!
+      <br /><br />
+      <b>Steps for setting up 16chan on Dashchan</b>
+      <ol>
+	<li>Open this page on your Android device</li>
+	<li>Install the <a href="https://github.com/Mishiranu/Dashchan-Extensions/raw/master/update/package/Dashchan.apk">Dashchan.apk</a> - Dashchan client</li>
+	<li>Install the <a href="https://github.com/Mishiranu/Dashchan-Extensions/raw/master/update/package/DashchanWebm.apk">DashchanWebm.apk</a> - Dashchan video player libraries</li>
+	<li>Install the <a href="https://github.com/maksrago/Dashchan-Extensions-ACF/releases/download/16chan/Dashchan-16chan.apk">Dashchan-16chan.apk</a> - Dashchan Extension for 16chan</li>
+      </ol>
+      
+    </fieldset>
+  </div>
 
-	    <div id="dynamicLinks"></div>
+  <footer id="dynamicFooter"></footer>
+  
+</body>
 
-	    <div class="contentBox">
-		<h2>Mobile</h2>
-		<div id="contentBoxInner">
-
-		    <h3>Installation Guide:</h3>
-		    16chan can now be used through the Dashchan Android app!
-		    <br /><br />
-		    <b>Steps for setting up 16chan on Dashchan</b>
-		    <ol>
-			<li>Open this page on your Android device</li>
-			<li>Install the <a href="https://github.com/Mishiranu/Dashchan-Extensions/raw/master/update/package/Dashchan.apk">Dashchan.apk</a> - Dashchan client</li>
-			<li>Install the <a href="https://github.com/Mishiranu/Dashchan-Extensions/raw/master/update/package/DashchanWebm.apk">DashchanWebm.apk</a> - Dashchan video player libraries</li>
-			<li>Install the <a href="https://github.com/maksrago/Dashchan-Extensions-ACF/releases/download/16chan/Dashchan-16chan.apk">Dashchan-16chan.apk</a> - Dashchan Extension for 16chan</li>
-		    </ol>
-
-		</div>
-	    </div>
-
-	</div>
-
-	<footer id="dynamicFooter"></footer>
-
-    </body>
-
-    <script src="/.static/js/api.js"></script>
-    <script src="/.static/js/themes.js"></script>
-    <script src="/.static/js/draggable.js"></script>
-    <script src="/.static/js/watcher.js"></script>
-    <script src="/.static/js/favouriteBoards.js"></script>
-
+<script src="/.static/js/api.js"></script>
+<script src="/.static/js/themes.js"></script>
+<script src="/.static/js/favouriteBoards.js"></script>
+<script src="/.static/js/draggable.js"></script>
+<script src="/.static/js/settingsMenu.js"></script>
+<script src="/.static/js/hiding.js"></script>
+<script src="/.static/js/watcher.js"></script>
 </html>

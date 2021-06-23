@@ -1,5 +1,8 @@
 var catalogSorting = {};
 
+catalog.refreshCatalog(true);
+
+
 // Patches catalog functions to call our sorting functions.
 catalogSorting.init = function() {
   const oldSearch = catalog.search;

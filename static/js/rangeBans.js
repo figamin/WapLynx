@@ -34,7 +34,7 @@ rangeBans.processRangeBanCell = function(cell) {
 rangeBans.liftBan = function(cell) {
 
   api.formApiRequest('liftBan', {
-    banId : cell.getElementsByClassName('idIdentifier')[0].value
+    banId : cell.getElementsByClassName('liftIdentifier')[0].value
   }, function requestComplete(status, data) {
 
     if (status === 'ok') {
@@ -46,7 +46,7 @@ rangeBans.liftBan = function(cell) {
 
 };
 
-rangeBans.showNewRangeBan = function(typedRange, id) {
+rangeBans.showNewRangeBan = function(typedRange, typedReason, nonBypassable, id) {
 
   var form = document.createElement('form');
   form.className = 'rangeBanCell';
@@ -65,6 +65,21 @@ rangeBans.showNewRangeBan = function(typedRange, id) {
   rangeLabel.innerHTML = typedRange;
   rangeLabel.className = 'rangeLabel';
   rangePara.appendChild(rangeLabel);
+
+  var reasonPara = document.createElement('p');
+  reasonPara.innerHTML = 'Reason: ';
+  form.appendChild(reasonPara);
+
+  var reasonLabel = document.createElement('span');
+  reasonLabel.innerHTML = typedReason;
+  reasonLabel.className = 'reasonLabel';
+  reasonPara.appendChild(reasonLabel);
+
+  if (nonBypassable) {
+    var nonBypassablePara = document.createElement('p');
+    nonBypassablePara.innerHTML = 'Non-bypassable';
+    form.appendChild(nonBypassablePara);
+  }
 
   var idIdentifier = document.createElement('input');
   idIdentifier.className = 'idIdentifier';
@@ -87,12 +102,14 @@ rangeBans.placeRangeBan = function() {
   var typedRange = document.getElementById('rangeField').value.trim();
   var typedDuration = document.getElementById('durationField').value.trim();
   var typedReason = document.getElementById('reasonField').value.trim();
+  var nonBypassable = document.getElementById('nonBypassableCheckbox').checked;
 
   var parameters = {
     range : typedRange,
     boardUri : api.boardUri,
     duration : typedDuration,
-    reason : typedReason
+    reasonBan : typedReason,
+    nonBypassable : nonBypassable
   };
 
   api.formApiRequest('placeRangeBan', parameters, function requestComplete(
@@ -101,7 +118,7 @@ rangeBans.placeRangeBan = function() {
     if (status === 'ok') {
 
       document.getElementById('rangeField').value = '';
-      rangeBans.showNewRangeBan(typedRange, data);
+      rangeBans.showNewRangeBan(typedRange, typedReason, nonBypassable, data);
 
     } else {
       alert(status + ': ' + JSON.stringify(data));

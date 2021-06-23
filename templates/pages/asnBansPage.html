@@ -1,81 +1,102 @@
 <!DOCTYPE html>
 <html>
-    <head>
-	<script type="text/javascript" id="dynamicAnalytics"></script>
-	<meta charset="UTF-8" />
-	<meta
-	    name="viewport"
-	    content="width=device-width, initial-scale=1.0">
-	<link
-	    href="/.static/css/global.css"
-	    type="text/css"
-	    rel="stylesheet" />
-    </head>
-    <body>
+<head>
+<meta charset="UTF-8" />
+<meta
+  name="viewport"
+  content="width=device-width, initial-scale=1.0">
+<link
+  href="/.static/css/global.css"
+  type="text/css"
+  rel="stylesheet" />
+<link
+  href="/.static/css/watcher.css"
+  type="text/css"
+  rel="stylesheet" />
+<link
+  href="/.static/css/settingsMenu.css"
+  type="text/css"
+  rel="stylesheet" />
+</head>
+<body>
 
-	<script src="/.static/js/themeLoader.js"></script>
+  <script src="/.static/js/themeLoader.js"></script>
 
-	<nav id="dynamicHeader"></nav>
+  <nav id="dynamicHeader"></nav>
 
-	<header>
-	    <img
-		src="/.static/logo.png"
-		class="logoImg"
-		alt="logo" />
-	</header>
+  <fieldset id="settingsFieldset" class="shorten">
+  
+  <header>
+    <img
+      src="/.static/logo.png"
+      class="logoImg"
+      alt="logo" />
+  </header>
 
-	<div id="settingsWrapper">
+    <fieldset id="settingsFieldset">
 
-	    <fieldset id="settingsFieldset">
+      <legend>ASN Ban</legend>
 
-		<legend>ASN Ban</legend>
+      <form
+        action="/placeAsnBan.js"
+        method="post"
+        enctype="multipart/form-data">
+        <label>
+          ASN to be banned:
+          <input
+            type="text"
+            name="asn"
+            class="asnBanField"
+            id="asnField">
+        </label>
+        <label>
+          Reason:
+          <input
+            type="text"
+            name="reason"
+            class="asnBanField"
+            id="reasonField">
+        </label>
+        <label>
+          Duration:
+          <input
+            type="text"
+            name="duration"
+            class="asnBanField"
+            id="durationField">
+        </label>
+        <label>
+          <input
+            type="checkbox"
+            name="nonBypassable"
+            class="asnBanField"
+            id="nonBypassableCheckbox">
+          Non-Bypassable
+        </label>
+        <input
+          id="boardIdentifier"
+          type="hidden"
+          name="boardUri">
 
-		<form
-		    action="/placeAsnBan.js"
-		    method="post"
-		    enctype="multipart/form-data">
-		    <label>
-			ASN to be banned:
-			<input
-			    type="text"
-			    name="asn"
-			    class="asnBanField"
-			    id="asnField">
-		    </label>
-		    <label>
-			Reason:
-			<input
-			    type="text"
-			    name="reason"
-			    class="asnBanField"
-			    id="reasonField">
-		    </label>
-		    <label>
-			Duration:
-			<input
-			    type="text"
-			    name="duration"
-			    class="asnBanField"
-			    id="durationField">
-		    </label>
-		    <input
-			id="boardIdentifier"
-			type="hidden"
-			name="boardUri">
+        <button
+          type="submit"
+          id="createFormButton">Place ASN ban</button>
 
-		    <button
-			type="submit"
-			id="createFormButton">Place ASN ban</button>
+      </form>
+      <div id="asnBansDiv"></div>
+    </fieldset>
+  </div>
+  
+  <footer id="dynamicFooter"></footer>
+  
+</body>
 
-		</form>
-		<div id="asnBansDiv"></div>
-	    </fieldset>
-	</div>
-    </body>
-
-    <script src="/.static/js/api.js"></script>
-    <script src="/.static/js/asnBans.js"></script>
-    <script src="/.static/js/themes.js"></script>
+<script src="/.static/js/api.js"></script>
+<script src="/.static/js/asnBans.js"></script>
+<script src="/.static/js/themes.js"></script>
 <script src="/.static/js/favouriteBoards.js"></script>
-
+<script src="/.static/js/draggable.js"></script>
+<script src="/.static/js/settingsMenu.js"></script>
+<script src="/.static/js/hiding.js"></script>
+<script src="/.static/js/watcher.js"></script>
 </html>

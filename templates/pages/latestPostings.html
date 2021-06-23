@@ -1,125 +1,135 @@
 <!DOCTYPE html>
 <html>
-    <head>
-	<script type="text/javascript" id="dynamicAnalytics"></script>
-	<meta charset="UTF-8">
-	<meta
-	    name="viewport"
-	    content="width=device-width, initial-scale=1.0">
-	<link
-	    rel="stylesheet"
-	    type="text/css"
-	    href="/.static/css/global.css">
-	<link
-	    rel="stylesheet"
-	    type="text/css"
-	    href="/.static/css/posting.css">
-	<link
-	    rel="stylesheet"
-	    type="text/css"
-	    href="/.static/css/markdown.css">
-	<link
-	    rel="stylesheet"
-	    type="text/css"
-	    href="/.static/css/settingsMenu.css">
-	<link
-	    href="/.static/css/boardContent.css"
-	    type="text/css"
-	    rel="stylesheet" />
-    </head>
+<head>
+<meta charset="UTF-8">
+<meta
+  name="viewport"
+  content="width=device-width, initial-scale=1.0">
+<link
+  rel="stylesheet"
+  type="text/css"
+  href="/.static/css/global.css">
+<link
+  rel="stylesheet"
+  type="text/css"
+  href="/.static/css/posting.css">
+<link
+  rel="stylesheet"
+  type="text/css"
+  href="/.static/css/markdown.css">
+<link
+  href="/.static/css/watcher.css"
+  type="text/css"
+  rel="stylesheet" />
+<link
+  rel="stylesheet"
+  type="text/css"
+  href="/.static/css/settingsMenu.css">
+<link
+  href="/.static/css/boardContent.css"
+  type="text/css"
+  rel="stylesheet" />
+</head>
 
-    <body>
+<body>
 
-	<script src="/.static/js/themeLoader.js"></script>
+  <script src="/.static/js/themeLoader.js"></script>
 
-	<nav id="dynamicHeader"></nav>
+  <nav id="dynamicHeader"></nav>
 
-        <div id="logoBox" class="title">
-	    <a href="/">
-		<img src="/.static/logo.png" class="logoImg" alt="logo" />
-	    </a>
-        </div>
+  <div id="settingsWrapper">
 
-	<div id="settingsWrapper" class="latestPostings">
-	    <fieldset id="settingsFieldset">
+  <header>
+    <img
+      src="/.static/logo.png"
+      class="logoImg"
+      alt="logo" />
+  </header>
+  
+    <fieldset id="settingsFieldset">
 
-		<legend>Search</legend>
-		<a id="linkPrevious">Previous page</a>
-		<a id="linkNext">Next page</a>
+      <legend>Search</legend>
+      <a id="linkPrevious">Previous page</a>
+      <a id="linkNext">Next page</a>
 
-		<form
-		    action="/latestPostings.js"
-		    method="get">
-		    Date:
-		    <input
-			type="text"
-			name="date"
-			id="fieldDate">
-		    <br>
-		    <span id="panelIp"> Ip: <input
-						type="text"
-						name="ip"
-						id="fieldIp"> <br></span> Boards(separate with comma, if
-		    empty, all boards will be checked):
-		    <input
-			id="fieldBoards"
-			type="text"
-			name="boards">
-		    <br>
-		    <input
-			type="hidden"
-			name="boardUri"
-			id="inputBoardUri">
-		    <input
-			type="hidden"
-			name="threadId"
-			id="inputThreadId">
-		    <input
-			type="hidden"
-			name="postId"
-			id="inputPostId">
-		    <button type="submit">Search</button>
-		</form>
+      <form
+        action="/latestPostings.js"
+        method="get">
+        Date:
+        <input
+          type="text"
+          name="date"
+          id="fieldDate">
+        <br>
+        <span id="panelIp"> IP: <input
+            type="text"
+            name="ip"
+            id="fieldIp"> <br></span> Boards (separate with comma, if
+        empty, all boards will be checked):
+        <input
+          id="fieldBoards"
+          type="text"
+          name="boards">
+        <br>
+        <input
+          type="hidden"
+          name="banId"
+          id="inputBanId">
+        <input
+          type="hidden"
+          name="boardUri"
+          id="inputBoardUri">
+        <input
+          type="hidden"
+          name="threadId"
+          id="inputThreadId">
+        <input
+          type="hidden"
+          name="postId"
+          id="inputPostId">
+        <button type="submit">Search</button>
+      </form>
 
-		<hr>
-		<h3>Postings</h3>
+      <hr>
+      <h3>Postings</h3>
 
-		<form
-		    action="/contentActions.js"
-		    method="post"
-		    enctype="multipart/form-data">
+      <form
+        action="/contentActions.js"
+        method="post"
+        enctype="multipart/form-data">
 
-		    <div id="actionsForm"></div>
+        <div id="actionsForm"></div>
 
-		    <button
-			id="buttonLoadMore"
-			class="hidden">Load more</button>
-		    <div id="divPostings"></div>
+        <button
+          id="buttonLoadMore"
+          class="hidden">Load more</button>
+        <div id="divPostings"></div>
 
-		</form>
+      </form>
 
-	    </fieldset>
-	</div>
+    </fieldset>
+  </div>
 
-	<footer id="dynamicFooter"></footer>
+  <footer id="dynamicFooter"></footer>
 
-    </body>
+</body>
 
-    <script src="/.static/js/api.js"></script>
-    <script src="/.static/js/themes.js"></script>
-    <script src="/.static/js/captchaModal.js"></script>
-    <script src="/.static/js/favouriteBoards.js"></script>
-    <script src="/.static/js/posting.js"></script>
-    <script src="/.static/js/mediaHiding.js"></script>
-    <script src="/.static/js/latestPostings.js"></script>
-    <script src="/.static/js/embed.js"></script>
-    <script src="/.static/js/draggable.js"></script>
-    <script src="/.static/js/settingsMenu.js"></script>
-    <script src="/.static/js/tooltips.js"></script>
-    <script src="/.static/js/hiding.js"></script>
-    <script src="/.static/js/thumbs.js"></script>
-    <script src="/.static/js/postingMenu.js"></script>
-    <script src="/.static/js/captchaUtils.js"></script>
+<script src="/.static/js/api.js"></script>
+<script src="/.static/js/themes.js"></script>
+<script src="/.static/js/captchaModal.js"></script>
+<script src="/.static/js/favouriteBoards.js"></script>
+<script src="/.static/js/posting.js"></script>
+<script src="/.static/js/mediaHiding.js"></script>
+<script src="/.static/js/latestPostings.js"></script>
+<script src="/.static/js/embed.js"></script>
+<script src="/.static/js/draggable.js"></script>
+<script src="/.static/js/settingsMenu.js"></script>
+<script src="/.static/js/watcher.js"></script>
+<script src="/.static/js/tooltips.js"></script>
+<script src="/.static/js/hiding.js"></script>
+<script src="/.static/js/thumbs.js"></script>
+<script src="/.static/js/postingMenu.js"></script>
+<script src="/.static/js/captchaUtils.js"></script>
 <script src="/.static/js/bottomForms.js"></script>
 
 </html>

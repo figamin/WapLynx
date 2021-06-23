@@ -11,9 +11,53 @@ globalSettings.init = function() {
       setting : 'slaves',
       type : 'string'
     },
+    fieldEmailDomainWhiteList : {
+      setting : 'emailDomainWhiteList',
+      type : 'string'
+    },
     checkboxSendmail : {
       type : 'boolean',
       setting : 'useSendmail',
+    },
+    fieldTrashLimitDays : {
+      type : 'string',
+      setting : 'trashLimitDays',
+    },
+    checkboxDiskMedia : {
+      type : 'boolean',
+      setting : 'diskMedia',
+    },
+    checkboxNoReportCaptcha : {
+      type : 'boolean',
+      setting : 'noReportCaptcha',
+    },
+    checkboxRequireConfirmationForBoardCreation : {
+      type : 'boolean',
+      setting : 'requireConfirmationForBoardCreation',
+    },
+    fieldReportCategories : {
+      type : 'string',
+      setting : 'reportCategories',
+    },
+    checkboxDisableBanCaptcha : {
+      type : 'boolean',
+      setting : 'disableBanCaptcha',
+    },
+    checkboxLowercaseBoardUris : {
+      type : 'boolean',
+      setting : 'lowercaseBoardUris',
+    },
+    checkboxDisableEmail : {
+      type : 'boolean',
+      setting : 'disableEmail',
+    },
+    checkboxUseCacheControl : {
+      type : 'boolean',
+      setting : 'useCacheControl',
+    },
+    checkboxUnlockHistory : {
+      type : 'boolean',
+      setting : 'unlockHistory',
     },
     checkboxRedactModNames : {
       type : 'boolean',
@@ -26,6 +70,10 @@ globalSettings.init = function() {
     checkboxGlobalBanners : {
       type : 'boolean',
       setting : 'useGlobalBanners',
+    },
+    fieldLatestPostPinned : {
+      type : 'string',
+      setting : 'latestPostPinned',
     },
     checkboxStripExif : {
       type : 'boolean',
@@ -87,9 +135,17 @@ globalSettings.init = function() {
       type : 'string',
       setting : 'fileProcessingLimit',
     },
+    fieldMaxFilterLength : {
+      type : 'string',
+      setting : 'maxFilterLength',
+    },
     fieldImageFont : {
       type : 'string',
       setting : 'imageFont',
+    },
+    fieldBypassValidationRange : {
+      type : 'string',
+      setting : 'bypassValidationRange',
     },
     checkboxVerboseGridfs : {
       type : 'boolean',
@@ -145,6 +201,14 @@ globalSettings.init = function() {
     },
     fieldMaster : {
       setting : 'master',
+      type : 'string'
+    },
+    fieldWsPort : {
+      setting : 'wsPort',
+      type : 'string'
+    },
+    fieldWssPort : {
+      setting : 'wssPort',
       type : 'string'
     },
     fieldFileLimit : {
@@ -441,6 +505,10 @@ globalSettings.init = function() {
     },
     comboBoardCreationRequirement : {
       setting : 'boardCreationRequirement',
+      type : 'combo'
+    },
+    comboCaptchaMode : {
+      setting : 'captchaMode',
       type : 'combo'
     },
     comboBypassMode : {

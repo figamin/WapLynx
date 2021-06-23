@@ -3,17 +3,20 @@ var posting = {};
 posting.init = function() {
 
   posting.idsRelation = {};
+  api.noReportCaptcha = !document.getElementById('divReportCaptcha');
   posting.highLightedIds = [];
 
-  posting.postCellTemplate = '<div class="innerPost"><div class="postInfo title">'
+  posting.postCellTemplate = '<div class="innerPost"><h3 class="labelBoard"></h3><div class="postInfo title">'
       + '<input type="checkbox" class="deletionCheckBox"> <span class="labelSubject">'
       + '</span> <a class="linkName"></a> <img class="imgFlag"> <span class="labelRole">'
-      + '</span> <span class="labelCreated"></span> <span class="spanId"> Id:<span '
+      + '</span> <span class="labelCreated"></span> <span class="spanId"> ID:<span '
       + 'class="labelId"></span></span> <a '
       + 'class="linkSelf">No.</a> <a class="linkQuote"></a> <a class="linkEdit">[Edit]</a> '
       + '<a class="linkHistory">[History]</a> <a class="linkFileHistory">[File history]</a>'
+      + ' <a class="linkOffenseRecord">[Offense record]</a>'
       + ' <span class="panelBacklinks"></span></div>'
       + '<div class="panelASN">ASN: <span class="labelASN"></span> </div>'
+      + '<div class="panelBypassId"> Bypass ID: <span class="labelBypassId"></span> </div>'
       + '<div>'
       + '<span class="panelIp"> <span class="panelRange">Broad'
       + 'range(1/2 octets): <span class="labelBroadRange"> </span> <br>'
@@ -26,8 +29,11 @@ posting.init = function() {
   posting.uploadCell = '<div class="uploadDetails"><a class="nameLink" target="blank">'
       + '</a> <span class="hideMobile">(</span><span class="sizeLabel"></span> '
       + '<span class="dimensionLabel"></span> <a class="originalNameLink"></a><span '
-      + 'class="hideMobile">)</span></div><div class="divHash"><span>MD5: <span '
-      + 'class="labelHash"></span></span></div><a class="imgLink" target="blank"></a>';
+      + 'class="hideMobile">)</span></div><div class="divHash"><span>SHA256: <span '
+      + 'class="labelHash"></span></span></div>'
+      + '<div> <a class="unlinkLink">[Unlink]</a>'
+      + ' <a class="unlinkAndDeleteLink">[Unlink and delete]</a></div>'
+      + '<a class="imgLink" target="blank"></a>';
 
   posting.sizeOrders = [ 'B', 'KB', 'MB', 'GB', 'TB' ];
 
@@ -40,7 +46,7 @@ posting.init = function() {
   }
 
   if (document.getElementById('deleteFormButton')) {
-
+    api.convertButton('trashFormButton', posting.trashPosts);
     api.convertButton('reportFormButton', posting.reportPosts, 'reportField');
     api.convertButton('deleteFormButton', posting.deletePosts, 'deletionField');
 
@@ -81,21 +87,22 @@ posting.setLocalTime = function(time) {
 
 };
 
-posting.applyBans = function(captcha) {
+posting.applyBans = function(captcha, banDelete) {
 
-  var typedReason = document.getElementById('reportFieldReason').value.trim();
+  var typedReason = document.getElementById('fieldBanReason').value.trim();
   var typedDuration = document.getElementById('fieldDuration').value.trim();
   var typedMessage = document.getElementById('fieldbanMessage').value.trim();
   var banType = document.getElementById('comboBoxBanTypes').selectedIndex;
 
   var params = {
-    action : 'ban',
-    reason : typedReason,
-    captcha : captcha,
+    action : banDelete ? 'ban-delete' : 'ban',
+    reasonBan : typedReason,
+    captchaBan : captcha,
     banType : banType,
     duration : typedDuration,
     banMessage : typedMessage,
-    global : document.getElementById('checkboxGlobal').checked
+    nonBypassable : document.getElementById('checkBoxNonBypassable').checked,
+    globalBan : document.getElementById('checkboxGlobalBan').checked
   };
 
   posting.newGetSelectedContent(params);
@@ -112,26 +119,24 @@ posting.applyBans = function(captcha) {
   });
 };
 
-posting.banPosts = function() {
+posting.banDeletePosts = function() {
+  posting.banPosts(true);
+};
 
-  if (!document.getElementsByClassName('panelRange').length) {
-    posting.applyBans();
-    return;
+posting.banPosts = function(banDelete) {
+
+  if (!document.getElementsByClassName('divBanCaptcha').length) {
+    return posting.applyBans();
   }
 
-  var typedCaptcha = document.getElementById('fieldCaptchaReport').value.trim();
+  var typedCaptcha = document.getElementById('fieldCaptchaBan').value.trim();
 
-  if (typedCaptcha && /\W/.test(typedCaptcha)) {
-    alert('Invalid captcha.');
-    return;
-  }
-
-  if (typedCaptcha.length == 24 || !typedCaptcha) {
-    thread.applyBans(typedCaptcha);
+  if (typedCaptcha.length == 112 || !typedCaptcha) {
+    posting.applyBans(typedCaptcha);
   } else {
     var parsedCookies = api.getCookies();
 
-    api.formaApiRequest('solveCaptcha', {
+    api.formApiRequest('solveCaptcha', {
       captchaId : parsedCookies.captchaid,
       answer : typedCaptcha
     }, function solvedCaptcha(status, data) {
@@ -141,13 +146,17 @@ posting.banPosts = function() {
         return;
       }
 
-      posting.applyBans(parsedCookies.captchaid);
+      posting.applyBans(parsedCookies.captchaid, banDelete);
     });
   }
 
 };
 
-posting.deleteFromIpOnBoard = function() {
+posting.deleteFromIpOnThread = function() {
+  posting.deleteFromIpOnBoard(null, true);
+};
+
+posting.deleteFromIpOnBoard = function(event, onThread) {
 
   var checkBoxes = document.getElementsByClassName('deletionCheckBox');
 
@@ -171,7 +180,7 @@ posting.deleteFromIpOnBoard = function() {
       .getElementById('ipDeletionConfirmationCheckbox');
 
   var param = {
-    action : 'ip-deletion',
+    action : onThread ? 'thread-ip-deletion' : 'ip-deletion',
     confirmation : confirmationBox.checked
   };
 
@@ -328,21 +337,31 @@ posting.newGetSelectedContent = function(object) {
 posting.reportPosts = function() {
 
   var typedReason = document.getElementById('reportFieldReason').value.trim();
-  var typedCaptcha = document.getElementById('fieldCaptchaReport').value.trim();
 
-  if (typedCaptcha.length !== 6 && typedCaptcha.length !== 24) {
-    alert('Captchas are exactly 6 (24 if no cookies) characters long.');
-    return;
-  } else if (/\W/.test(typedCaptcha)) {
-    alert('Invalid captcha.');
-    return;
+  if (!api.noReportCaptcha) {
+    var typedCaptcha = document.getElementById('fieldCaptchaReport').value
+        .trim();
+
+    if (typedCaptcha.length !== 6 && typedCaptcha.length !== 112) {
+      alert('Captchas are exactly 6 (112 if no cookies) characters long.');
+      return;
+    }
+  }
+
+  var reportCategories = document.getElementById('reportComboboxCategory');
+
+  if (reportCategories) {
+
+    var category = reportCategories.options[reportCategories.selectedIndex].value;
+
   }
 
   var params = {
     action : 'report',
-    reason : typedReason,
-    captcha : typedCaptcha,
-    global : document.getElementById('checkboxGlobal').checked,
+    categoryReport : category,
+    reasonReport : typedReason,
+    captchaReport : typedCaptcha,
+    globalReport : document.getElementById('checkboxGlobalReport').checked,
   };
 
   posting.newGetSelectedContent(params);
@@ -361,7 +380,11 @@ posting.reportPosts = function() {
 
 };
 
-posting.deletePosts = function() {
+posting.trashPosts = function() {
+  posting.deletePosts(null, true);
+};
+
+posting.deletePosts = function(event, trash) {
 
   var typedPassword = document.getElementById('deletionFieldPassword').value
       .trim();
@@ -370,7 +393,7 @@ posting.deletePosts = function() {
     password : typedPassword,
     deleteMedia : document.getElementById('checkboxMediaDeletion').checked,
     deleteUploads : document.getElementById('checkboxOnlyFiles').checked,
-    action : 'delete'
+    action : trash ? 'trash' : 'delete'
   };
 
   posting.newGetSelectedContent(params);
@@ -383,7 +406,7 @@ posting.deletePosts = function() {
       alert(data.removedThreads + ' threads and ' + data.removedPosts
           + ' posts were successfully deleted.');
 
-      if (latestPostings) {
+      if (typeof latestPostings !== 'undefined') {
 
         var checkBoxes = document.getElementsByClassName('deletionCheckBox');
 
@@ -396,6 +419,8 @@ posting.deletePosts = function() {
 
         }
 
+      } else if (window.location.toString().indexOf('trashBin.js' >= 0)) {
+        location.reload(true);
       } else if (!api.isBoard && !data.removedThreads && data.removedPosts) {
         thread.refreshPosts(true, true);
       } else if (data.removedThreads || data.removedPosts) {
@@ -479,11 +504,13 @@ posting.getUploadCellBase = function() {
 
 }
 
-posting.setUploadCell = function(node, files, noExtras) {
+posting.setUploadCell = function(node, post, boardUri, noExtras) {
 
-  if (!files) {
+  if (!post.files) {
     return;
   }
+
+  var files = post.files;
 
   for (var i = 0; i < files.length; i++) {
     var file = files[i];
@@ -503,8 +530,30 @@ posting.setUploadCell = function(node, files, noExtras) {
       dimensionLabel.remove();
     }
 
-    if (file.md5) {
-      cell.getElementsByClassName('labelHash')[0].innerHTML = file.md5;
+    var unlinkCell = cell.getElementsByClassName('unlinkLink')[0];
+    var deleteCell = cell.getElementsByClassName('unlinkAndDeleteLink')[0];
+
+    if (!api.mod) {
+      unlinkCell.remove();
+      deleteCell.remove();
+    } else {
+      var urlToUse = '/unlinkSingle.js?boardUri=' + boardUri;
+
+      if (post.postId) {
+        urlToUse += '&postId=' + post.postId;
+      } else {
+        urlToUse += '&threadId=' + post.threadId;
+      }
+
+      urlToUse += '&index=' + i;
+
+      unlinkCell.href = urlToUse;
+      deleteCell.href = urlToUse + '&delete=1';
+
+    }
+
+    if (file.sha256) {
+      cell.getElementsByClassName('labelHash')[0].innerHTML = file.sha256;
     } else {
       cell.getElementsByClassName('divHash')[0].remove();
     }
@@ -569,6 +618,12 @@ posting.setPostHideableElements = function(postCell, post, noExtras) {
     postCell.getElementsByClassName('labelASN')[0].innerHTML = post.asn;
   }
 
+  if (!post.bypassId) {
+    postCell.getElementsByClassName('panelBypassId')[0].remove();
+  } else {
+    postCell.getElementsByClassName('labelBypassId')[0].innerHTML = post.bypassId;
+  }
+
   if (!post.ip) {
     postCell.getElementsByClassName('panelIp')[0].remove();
   } else {
@@ -589,11 +644,12 @@ posting.setPostHideableElements = function(postCell, post, noExtras) {
 };
 
 posting.setPostLinks = function(postCell, post, boardUri, link, threadId,
-    linkQuote, deletionCheckbox) {
+    linkQuote, deletionCheckbox, preview) {
 
   var postingId = post.postId || threadId;
 
-  var linkStart = '#';
+  var linkStart = (preview ? '/' + boardUri + '/res/' + threadId + '.html' : '')
+      + '#';
 
   linkQuote.href = linkStart;
   link.href = linkStart;
@@ -604,6 +660,7 @@ posting.setPostLinks = function(postCell, post, boardUri, link, threadId,
   var linkEdit = postCell.getElementsByClassName('linkEdit')[0];
   var linkHistory = postCell.getElementsByClassName('linkHistory')[0];
   var linkFileHistory = postCell.getElementsByClassName('linkFileHistory')[0];
+  var linkOffenseHistory = postCell.getElementsByClassName('linkOffenseRecord')[0];
 
   var complement = (post.postId ? 'postId' : 'threadId') + '=' + postingId;
 
@@ -614,15 +671,20 @@ posting.setPostLinks = function(postCell, post, boardUri, link, threadId,
     linkEdit.remove();
   }
 
-  if (api.mod && post.ip) {
+  if (api.mod && (post.ip || post.bypassId)) {
     linkFileHistory.href = '/mediaManagement.js?boardUri=' + boardUri + '&';
     linkFileHistory.href += complement;
 
     linkHistory.href = '/latestPostings.js?boardUri=' + boardUri + '&';
     linkHistory.href += complement;
+
+    linkOffenseHistory.href = '/offenseRecord.js?boardUri=' + boardUri + '&';
+    linkOffenseHistory.href += complement;
+
   } else if (linkHistory) {
     linkHistory.remove();
     linkFileHistory.remove();
+    linkOffenseHistory.remove();
   }
 
   var checkboxName = boardUri + '-' + threadId;
@@ -648,7 +710,7 @@ posting.setRoleSignature = function(postingCell, posting) {
 };
 
 posting.setPostComplexElements = function(postCell, post, boardUri, threadId,
-    noExtras) {
+    noExtras, preview) {
 
   posting.setRoleSignature(postCell, post);
 
@@ -660,20 +722,25 @@ posting.setPostComplexElements = function(postCell, post, boardUri, threadId,
   var deletionCheckbox = postCell.getElementsByClassName('deletionCheckBox')[0];
 
   posting.setPostLinks(postCell, post, boardUri, link, threadId, linkQuote,
-      deletionCheckbox);
+      deletionCheckbox, preview);
 
   var panelUploads = postCell.getElementsByClassName('panelUploads')[0];
 
   if (!post.files || !post.files.length) {
     panelUploads.remove();
   } else {
-    posting.setUploadCell(panelUploads, post.files, noExtras);
+
+    if (post.files.length > 1) {
+      panelUploads.className += ' multipleUploads';
+    }
+
+    posting.setUploadCell(panelUploads, post, boardUri, noExtras);
   }
 
 };
 
 posting.setPostInnerElements = function(boardUri, threadId, post, postCell,
-    noExtras) {
+    noExtras, preview) {
 
   var linkName = postCell.getElementsByClassName('linkName')[0];
 
@@ -701,13 +768,14 @@ posting.setPostInnerElements = function(boardUri, threadId, post, postCell,
 
   posting.setPostHideableElements(postCell, post, noExtras);
 
-  posting.setPostComplexElements(postCell, post, boardUri, threadId, noExtras);
+  posting.setPostComplexElements(postCell, post, boardUri, threadId, noExtras,
+      preview);
 
   var messageLinks = postCell.getElementsByClassName('divMessage')[0]
       .getElementsByTagName('a');
 
   for (var i = 0; i < messageLinks.length; i++) {
-    embed.processLinkElement(messageLinks[i]);
+    embed.processLinkForEmbed(messageLinks[i]);
   }
 
   var links = postCell.getElementsByClassName('imgLink');
@@ -758,7 +826,7 @@ posting.setPostInnerElements = function(boardUri, threadId, post, postCell,
 
 };
 
-posting.addPost = function(post, boardUri, threadId, noExtra) {
+posting.addPost = function(post, boardUri, threadId, noExtra, preview) {
 
   var postCell = document.createElement('div');
   postCell.innerHTML = posting.postCellTemplate;
@@ -766,13 +834,18 @@ posting.addPost = function(post, boardUri, threadId, noExtra) {
   postCell.id = post.postId;
   postCell.setAttribute('class', 'postCell');
 
-  if (post.files && post.files.length > 1) {
-    postCell.className += ' multipleUploads';
-  }
-
   postCell.setAttribute('data-boarduri', boardUri);
 
-  posting.setPostInnerElements(boardUri, threadId, post, postCell, noExtra);
+  var labelBoard = postCell.getElementsByClassName('labelBoard')[0];
+
+  if (preview) {
+    labelBoard.innerHTML = '/' + boardUri + '/';
+  } else {
+    labelBoard.remove();
+  }
+
+  posting.setPostInnerElements(boardUri, threadId, post, postCell, noExtra,
+      preview);
 
   return postCell;
 

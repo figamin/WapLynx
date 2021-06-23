@@ -21,10 +21,10 @@ catalog.init = function() {
   catalogCellTemplate += '<p class="threadStats">R: ';
   catalogCellTemplate += '<span class="labelReplies"></span> / I: ';
   catalogCellTemplate += '<span class="labelImages"></span> / P: ';
-  catalogCellTemplate += '<span class="labelPage"></span>';
-  catalogCellTemplate += '<span class="lockIndicator" title="Locked"></span>';
-  catalogCellTemplate += '<span class="pinIndicator" title="Sticky"></span>';
-  catalogCellTemplate += '<span class="cyclicIndicator" title="Cyclical Thread"></span>';
+  catalogCellTemplate += '<span class="labelPage"></span> ';
+  catalogCellTemplate += '<span class="lockIndicator" title="Locked"></span> ';
+  catalogCellTemplate += '<span class="pinIndicator" title="Sticky"></span> ';
+  catalogCellTemplate += '<span class="cyclicIndicator" title="Cyclical Thread"></span> ';
   catalogCellTemplate += '<span class="bumpLockIndicator" title="Bumplocked"></span>';
   catalogCellTemplate += '</p><p><span class="labelSubject"></span></p>';
   catalogCellTemplate += '<div class="divMessage"></div>';
@@ -144,9 +144,23 @@ catalog.initCatalog = function() {
 
   });
 
+  var postingForm = document.getElementById('newPostFieldset');
+
+  if (postingForm) {
+
+    var toggleLink = document.getElementById('togglePosting');
+    toggleLink.style.display = 'inline-block';
+    postingForm.style.display = 'none';
+
+    toggleLink.onclick = function() {
+      toggleLink.style.display = 'none';
+      postingForm.style.display = 'inline-block';
+    };
+  }
+
   var links = document.getElementsByClassName('linkThumb');
 
-  for (var i = 0; i < links.length; i++) {
+  for (var i = links.length - 1; i >= 0; i--) {
 
     var link = links[i];
 

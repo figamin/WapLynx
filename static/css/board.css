@@ -1,46 +1,24 @@
 /*Elements used exclusively on board pages*/
-#linkPrevious, #linkNext {
-
-    margin: 0 0.25em;
-    font-size: 80%;
-}
-
-#linkNext:after, #linkPrevious:after {
-    content: ']';
-    color: #c5c8c6;
-}
-
-#linkNext:before, #linkPrevious:before {
-    content: '[';
-    color: #c5c8c6;
-}
-
-#divCatalog a {
-    font-size: 80%;
-}
-
-#divPagesSpacer {
-    color: #111;
-    padding-left: 0.25em;
-    padding-right: 0.50em;
+#linkPrevious:before {
+  font-family: Icons;
+  content: "\e035";
+  margin: 0 0.25em;
 }
 
 #linkLogs:before {
-    content: "\e021";
+  content: "\e069"
+}
+
+#linkPrevious, #linkNext {
+  vertical-align: middle;
+}
+
+#linkNext:after {
+  font-family: Icons;
+  content: "\e036";
+  margin: 0 0.25em;
 }
 
 .threadPages a {
-    text-decoration: none
-}
-
-#dynamicAnnouncement {
-    width: 450px;
-    margin: auto;
-    font-size: 75%;
-    line-height: 13px;
-    text-align: left;
-}
-
-#dynamicAnnouncement td {
-    vertical-align: top;
+  text-decoration: none
 }

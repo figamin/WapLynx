@@ -1,78 +1,94 @@
 <!DOCTYPE html>
+<html>
 <head>
-    <script type="text/javascript" id="dynamicAnalytics"></script>
-    <head>
-	<meta charset="UTF-8" />
-	<meta
-	    name="viewport"
-	    content="width=device-width, initial-scale=1.0">
-	<link
-	    href="/.static/css/global.css"
-	    type="text/css"
-	    rel="stylesheet" />
-    </head>
-    <body>
+<meta charset="UTF-8" />
+<meta
+  name="viewport"
+  content="width=device-width, initial-scale=1.0">
+<link
+  href="/.static/css/global.css"
+  type="text/css"
+  rel="stylesheet" />
+<link
+  href="/.static/css/watcher.css"
+  type="text/css"
+  rel="stylesheet" />
+<link
+  href="/.static/css/settingsMenu.css"
+  type="text/css"
+  rel="stylesheet" />
+</head>
+<body>
 
-	<script src="/.static/js/themeLoader.js"></script>
+  <script src="/.static/js/themeLoader.js"></script>
 
-	<nav id="dynamicHeader"></nav>
+  <nav id="dynamicHeader"></nav>
 
-	<header>
-	    <img
-		src="/.static/logo.png"
-		class="logoImg"
-		alt="logo" />
-	</header>
+  <div id="settingsWrapper">
+  
+  <header>
+    <img
+      src="/.static/logo.png"
+      class="logoImg"
+      alt="logo" />
+  </header>
 
-	<div id="settingsWrapper">
+    <fieldset id="settingsFieldset">
 
-	    <fieldset id="settingsFieldset">
+      <legend>Edit</legend>
+      <p>
+        Max message length: <span id="labelMessageLength"></span>
+      </p>
+      <form
+        action="/saveEdit.js"
+        method="post"
+        enctype="multipart/form-data">
+        <br>
 
-		<legend>Edit</legend>
-		<p>
-		    Max message length: <span id="labelMessageLength"></span>
-		</p>
-		<form
-		    action="/saveEdit.js"
-		    method="post"
-		    enctype="multipart/form-data">
-		    <br>
-		    <input
-			type="text"
-			class="editField"
-			placeholder="Subject"
-			id="fieldSubject"
-			name="subject">
-		    <textarea
-			name="message"
-			id="fieldMessage"
-			class="wide editField"></textarea>
-		    <input
-			type="hidden"
-			name="boardUri"
-			id="boardIdentifier">
-		    <input
-			type="hidden"
-			name="threadId"
-			id="threadIdentifier">
-		    <input
-			type="hidden"
-			name="postId"
-			id="postIdentifier">
-		    <button
-			type="submit"
-			id="saveFormButton">Save</button>
-		</form>
+        <label>
+          <input
+            type="text"
+            class="editField"
+            placeholder="Subject"
+            id="fieldSubject"
+            name="subject">
+        </label>
 
-	    </fieldset>
+        <textarea
+          name="message"
+          id="fieldMessage"
+          class="wide editField"></textarea>
+        <input
+          type="hidden"
+          name="boardUri"
+          id="boardIdentifier">
+        <input
+          type="hidden"
+          name="threadId"
+          id="threadIdentifier">
+        <input
+          type="hidden"
+          name="postId"
+          id="postIdentifier">
+        <button
+          type="submit"
+          id="saveFormButton">Save</button>
+      </form>
 
-	</div>
+    </fieldset>
 
-    </body>
+  </div>
 
-    <script src="/.static/js/api.js"></script>
-    <script src="/.static/js/edit.js"></script>
-    <script src="/.static/js/themes.js"></script>
+  <footer id="dynamicFooter"></footer>
+
+</body>
+
+<script src="/.static/js/api.js"></script>
+<script src="/.static/js/edit.js"></script>
+<script src="/.static/js/themes.js"></script>
 <script src="/.static/js/favouriteBoards.js"></script>
-
+<script src="/.static/js/draggable.js"></script>
+<script src="/.static/js/settingsMenu.js"></script>
+<script src="/.static/js/hiding.js"></script>
+<script src="/.static/js/watcher.js"></script>
 </html>

@@ -1,208 +1,188 @@
 /*Elements shown on board and thread pages*/
 .selectedCell, .dropzone {
-    top: 5px;
-    text-align: center;
-    margin-bottom: 5px;
-    padding: 5px 0px;
+  /* top: 5px; */
+  text-align: center;
+  /* margin-bottom: 5px; */
+  padding: 5px 0px;
 }
 
 .selectedCell {
-    margin-top: 10px;
-    cursor: default;
+  margin-top: 10px;
+  cursor: default;
+
+  margin-right: 1px;
 }
 
 #bannerImage {
     max-width: 100%;
+
+    margin: 50px 0 25px 0;
 }
 
 .dropzone {
-    cursor: pointer;
-    transition: all 0.2s ease 0s;
+  cursor: pointer;
+  transition: all 0.2s ease 0s;
 }
 
 .dragAndDropThumb {
-    max-height: 100px;
-    max-width: 85px;
-}
-
-#filesWrapper {
-    clear: both;
+  max-height: 100px;
+  max-width: 85px;
 }
 
 .removeButton {
-    cursor: pointer;
-    color: rgba(125, 125, 125, 0.5);
-    display: inline-block;
-    margin-right: 5px;
-    font-size: 20px;
+  cursor: pointer;
+  /* color: rgba(125, 125, 125, 0.5); */
+  display: inline-block;
+  /* margin-right: 5px; */
+  /* font-size: 20px; */
+
+  margin: 0px 5px 0px 5px;
+  font-weight: bold;
+  vertical-align: middle;
+  color: #81a2be !important;
 }
 
 .removeButton:hover {
-    color: #7D7D7D;
+    /* color: #7D7D7D; */
+
+    color: #5f89ac !important;
 }
 
-#panelMessage {
-    margin: 1em;
-}
+/* #panelMessage { */
+/*   margin: 1em; */
+/* } */
 
 #flagCombobox {
-    width: 85%;
+  width: 85%;
 }
 
 .flagPreview {
-    display: inline-block;
-    max-width: 10%;
-    height: 16px;
+  display: inline-block;
+  max-width: 10%;
+  height: 16px;
 }
 
 #divUpload, .centered {
-    text-align: center;
+  text-align: center;
 }
 
 #newPostFieldset {
-    display: inline-block;
-    padding-right: 0.75em;
-    width: 25em;
-}
-
-div.postingTypeBanner {
-    background: #282a2e;
-    border: 1px solid #111;
-    text-align: center;
-    width: 260px;
-    padding: 4px;
-    padding-left: 12px;
-    padding-right: 12px;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 5px;
-    margin-bottom: 10px;
-    font-size: 12px;
-    font-weight: bold;
+  display: inline-block;
+  padding-right: 0.75em;
+  width: 25em;
 }
 
 #postingForm {
-    text-align: center;
-    margin: 1em auto;
-    margin-top: 0;
-    display: none;
+  text-align: center;
+  margin: 1em auto;
 }
 
 #postingForm button, #qrbutton {
-    width: 8em;
-    margin: 0.5em auto;
-    font-size: 125%;
+  width: 8em;
+  margin: 0.5em auto;
+  font-size: 125%;
 }
+
+/* #postingForm button:active { */
+/*   box-shadow: 0px 0px 5px #117743; */
+/* } */
 
 #postingForm label {
-    font-size: 80%;
-    vertical-align: text-top;
+  /* font-size: 80%; */
+  /* display: block; */
+  clear: both;
 }
 
-#postingForm td, .modalTableBody td {
-    text-align: left;
-}
+/* input[type=checkbox].postingCheckbox { */
+/*   display: none; */
+/* } */
 
-#postingForm th, .modalTableBody th {
-    font-weight: bold;
-    text-align: left;
-    width: 100px;
-    font-size: 80%;
-    padding-left: 0.1em;
-    cursor: default;
-    border: 1px solid #000;
-    padding: 0 5px;
-    background: #282A2E;
-}
-
-.theme_clear #postingForm th, .theme_clear .modalTableBody th {
-    background: #dddddd;
-}
+/* input[type=checkbox].postingCheckbox+label::before { */
+/*   font-family: Icons; */
+/*   content: "\e0db"; */
+/*   margin-right: 0.5em; */
+/*   color: #117743; */
+/*   display: inline-block; */
+/*   cursor: pointer; */
+/* } */
 
 #checkboxSpoiler+label:after {
-    content: "Spoiler";
+    /* content: "Spoiler"; */
+
+    content: "Spoiler (all files)";
 }
 
 #alwaysUseBypassCheckBox+label:after {
-    content: "Bypass check";
+    /* content: "Bypass check"; */
+
+    content: "Make sure I have a block bypass";
 }
 
 #checkboxNoFlag+label:after {
-    content: "No location";
+    /* content: "No location"; */
+
+    content: "Don't use location flag";
 }
+
+/* input[type=checkbox].postingCheckbox:checked+label:before { */
+/*   content: "\e033"; */
+/* } */
 
 #boardContentLinks {
+  margin-top: 0.5em;
+  /* font-size: 80%; */
+}
+
+/* ADDITION */
+#boardContentLinks a, #showFormsButton {
+    font-size: 10pt;
+}
+
+#showFormsButton {
     margin-top: 0.5em;
-    font-size: 80%;
-    float: right;
-}
-
-.modalPanel {
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    z-index: 200;
-    display: table;
-    text-align: center;
-    background: rgba(29, 31, 33, 0.66);
-    right: 0;
-    top: 0;
-}
-
-.modalInnerPanel {
-    vertical-align: middle;
-    display: table-cell;
-}
-
-.modalDecorationPanel {
-    background: #1D1F21;
-    padding: 10px;
-    display: inline-block;
-}
-
-.theme_clear .modalDecorationPanel {
-    background: #cccccc;
-}
-
-.modalHeader {
     display: block;
-    margin-bottom: 5px;
-    font-weight: bold;
 }
 
-.modalCaptchaControls {
-    display: block;
+#boardContentLinks, #showFormsButton {
+    text-align: right;
+}
+
+#checkboxSpoiler,
+#checkboxNoFlag,
+#alwaysUseBypassCheckBox {
+    vertical-align: sub;
+}
+
+#postingInformation {
     text-align: left;
+    font-size: smaller;
 }
-
-.modalCaptchaControls input, .modalOkButton {
-    margin-right: 10px;
-}
+/* END ADDITION */
 
 #favouriteButton:before {
-    font-family: Icons;
-    content: "\e0c2";
-    margin-left: 0.5em;
-    cursor: pointer;
+  font-family: Icons;
+  content: "\e0c2";
+  margin-left: 0.5em;
+  cursor: pointer;
 }
 
 @media only screen and (max-width: 812px) {
-    .boardHeader p#labelDescription {
-	display: none;
-    }
-    #fieldMessage {
-	width: 100%;
-    }
-    .reportFieldset {
-	padding: 0;
-    }
-    #newPostFieldset {
-	width: unset;
-	padding: 0;
-	border: unset;
-    }
-    #postingForm th {
-	font-size: 80%;
-	width: 60px;
-    }
+  .boardHeader p#labelDescription {
+    display: none;
+  }
+  #fieldMessage {
+    width: 100%;
+  }
+  .reportFieldset {
+    padding: 0;
+  }
+  #newPostFieldset {
+    width: unset;
+    padding: 0;
+    border: unset;
+  }
+  #postingForm th {
+    font-size: 80%;
+    width: 60px;
+  }
 }

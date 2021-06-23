@@ -1,189 +1,208 @@
 <!DOCTYPE html>
 <html>
-    <head>
-	<script type="text/javascript" id="dynamicAnalytics"></script>
-	<meta charset="UTF-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link href="/.static/css/global.css" type="text/css" rel="stylesheet" />
-	<link href="/.static/css/posting.css" type="text/css" rel="stylesheet" />
-	<link href="/.static/css/thread.css" type="text/css" rel="stylesheet" />
-	<link href="/.static/css/board.css" type="text/css" rel="stylesheet" />
-	<link href="/.static/css/boardContent.css" type="text/css" rel="stylesheet" />
-	<link href="/.static/css/watcher.css" type="text/css" rel="stylesheet" />
-	<link href="/.static/css/settingsMenu.css" type="text/css" rel="stylesheet" />
-    </head>
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript">
+      //<![CDATA[
+      //document.write("<link href='css/style-js.css' rel='styleSheet' type='text/css' />"); 
+      //is not legal in XHTML, we do the long way:
+      var l=document.createElementNS("http://www.w3.org/1999/xhtml","link");
+      l.setAttribute("rel", "stylesheet");
+      l.setAttribute("type", "text/css");
+      l.setAttribute("href", "/.static/css/js.css");
+      document.getElementsByTagName("head")[0].appendChild(l);
+      //]]>
+    </script>
+    <link
+      href="/.static/css/global.css"
+      type="text/css"
+      rel="stylesheet" />
+    <link
+      href="/.static/css/posting.css"
+      type="text/css"
+      rel="stylesheet" />
+    <link
+      href="/.static/css/thread.css"
+      type="text/css"
+      rel="stylesheet" />
+    <link
+      href="/.static/css/board.css"
+      type="text/css"
+      rel="stylesheet" />
+    <link
+      href="/.static/css/boardContent.css"
+      type="text/css"
+      rel="stylesheet" />
+    <link
+      href="/.static/css/watcher.css"
+      type="text/css"
+      rel="stylesheet" />
+    <link
+      href="/.static/css/settingsMenu.css"
+      type="text/css"
+      rel="stylesheet" />
+  </head>
+  <body>
 
-    <body>
+    <script src="/.static/js/themeLoader.js"></script>
 
-	<script src="/.static/js/themeLoader.js"></script>
+    <nav id="dynamicHeaderAlt"></nav>
 
-	<nav id="dynamicHeaderAlt"></nav>
+    <header class="boardHeader">
+      <img id="bannerImage" />
+      <div>
+	<p id="labelName"></p>
+      </div>
+      <p id="labelDescription"></p>
+    </header>
 
-	<header class="boardHeader">
-            <img id="bannerImage" />
-            <div>
-		<p id="labelName"></p>
-            </div>
-            <p id="labelDescription"></p>
-	</header>
+      <div id="newThreadText">
+	[<a href="#" onclick="displayFunction()">Start a New Thread</a>]
+      </div>
 
-	<hr id="belowHeader">
 
-	<center>
-            <div id="newThreadText">
-		[<a href="#" onclick="displayFunction()">Start a New Thread</a>]
-            </div>
-	</center>
+    <div id="postingForm">
 
-	<div id="postingForm">
+      <div id="hideThread">
+	[<a onclick="hideDisplayFunction()">Hide</a>]
+      </div>
 
-            <div id="hideThread">
-		<center>[<a onclick="hideDisplayFunction()">Hide</a>]</center>
-            </div>
 
-            <fieldset id="newPostFieldset">
+      <fieldset id="newPostFieldset">
+	<legend>Posting Mode: New Thread</legend>
 
-		<div class="postingTypeBanner">Posting Mode: New Thread</div>
+	<form
+          action="/newThread.js"
+          enctype="multipart/form-data"
+          method="post">
 
-		<form action="/newThread.js" enctype="multipart/form-data" method="post">
+          <table id="postingTable">
+          </table>
 
-                    <table id="postingTable">
-                    </table>
+	  <div id="postingInformation"></div>
 
-		    <div id="postingInformation"></div>
+          <!-- <p class="small"> -->
+          <!--   Remember to follow the -->
+          <!--   <a -->
+          <!--     href="rules.html" -->
+          <!--     class="rules">rules</a> -->
+          <!-- </p> -->
 
-                    <button type="submit" id="formButton">Post</button>
+          <button
+            type="submit"
+            id="formButton">Post</button>
 
-		</form>
+	</form>
 
-            </fieldset>
+      </fieldset>
+
+    </div>
+
+    <div id="dynamicAnnouncement"></div>
+
+    <div id="panelMessage">
+      <hr>
+      <div id="divMessage"></div>
+    </div>
+
+    <div id="innerUtilityTop">
+      <span>
+	[<a href="./catalog.html">Catalog</a>]
+      </span>
+
+      <span id="archive">
+	[<a id="archiveLinkBoard">Archive</a>]
+      </span>
+
+      <span>
+	[<a href="#footer">Bottom</a>]
+      </span>
+
+      <span>
+	[<a onclick="location.reload()">Refresh</a>]
+      </span>
+    </div>
+
+
+    <div id="threadList">
+
+      <form
+	action="/contentActions.js"
+	method="post"
+	enctype="multipart/form-data">
+
+	<div id="divThreads"></div>
+
+	<hr class="clearer" />
+
+	<div id="innerUtilityBottom">
+	  <span>
+	    [<a href="./catalog.html">Catalog</a>]
+	  </span>
+
+	  <span id="archive">
+	    [<a id="archiveLinkBoardBottom">Archive</a>]
+	  </span>
+
+	  <span>
+	    [<a href="#">Top</a>]
+	  </span>
+
+	  <span>
+	    [<a onclick="location.reload()">Refresh</a>]
+	  </span>
 	</div>
-	    </div>
+	
 
-	    <noscript>
-		<style>
-		 #newThreadText {
-		     display: none;
-		 }
-		 #postingForm {
-		     display: block;
-		 }
-		 #archive {
-		     display: none;
-		 }
-		</style>
-	    </noscript>
+	<div class="threadPages">
 
-	    <hr id="belowPost">
+          <span class="divPages">[ <a id="linkPrevious"></a> <span
+							       id="divPages"></span> <a id="linkNext"></a> ]
+          </span>
 
-	    <div id="dynamicAnnouncement"></div>
+          <div id="boardContentLinks">
+            [<a id="linkManagement">Manage Board</a>]
+            <span><span></span></span>
+            [<a id="linkModeration">Moderate Board</a>]
+            <span><span></span></span>
+            [<a id="linkMod">Moderate Threads</a>]
+          </div>
 
-	    <hr id="belowPost">
+	</div>
 
-	    <div id="panelMessage">
-		<hr>
-		<div id="divMessage"></div>
-	    </div>
+	<div id="actionsForm"></div>
 
-	    <div id="innerUtility">
-		<hr>
+      </form>
 
-		<span>
-		    [<a href="./catalog.html">Catalog</a>]
-		</span>
+    </div>
 
-		<span id="archive">
-		    [<a id="archiveLinkBoard">Archive</a>]
-		</span>
+    <footer id="dynamicFooterAlt"></footer>
 
-		<span>
-		    [<a href="#footer">Bottom</a>]
-		</span>
+  </body>
 
-		<span>
-		    [<a onclick="location.reload()">Refresh</a>]
-		</span>
-
-		<hr>
-	    </div>
-
-	    <div id="threadList">
-
-		<form action="/contentActions.js" method="post" enctype="multipart/form-data">
-
-		    <div id="divThreads"></div>
-
-		    <hr class="clearer" />
-
-		    <div class="threadPages">
-
-			<div id="innerUtility" class="bottom">
-			    <hr>
-
-			    <span>
-				[<a href="./catalog.html">Catalog</a>]
-			    </span>
-
-			    <span id="archive">
-				[<a id="archiveLinkBoardBottom">Archive</a>]
-			    </span>
-
-			    <span>
-				[<a href="#">Top</a>]
-			    </span>
-
-			    <span>
-				[<a onclick="location.reload()">Refresh</a>]
-			    </span>
-
-			    <hr>
-			</div>
-
-			<span class="divPages"><a id="linkPrevious">Previous</a><span id="divPages"></span><a id="linkNext">Next</a>
-			    <div id="divPagesSpacer">|</div><div id="divCatalog"> <a href="catalog.html">Catalog</a></div>
-			</span>
-
-			<div id="boardContentLinks">
-			    <span></span>
-			    [<a id="linkManagement">Manage Board</a>
-			    <span>/</span>
-			    <a id="linkModeration">Moderate Board</a>
-			    <span>/</span>
-			    <a id="linkMod">Moderate Threads</a>]
-			    <span></span>
-			</div>
-
-		    </div>
-
-		    <div id="actionsForm"></div>
-
-		</form>
-
-	    </div>
-
-	    <footer id="dynamicFooterAlt"></footer>
-
-    </body>
-
-    <script src="/.static/js/api.js"></script>
-    <script src="/.static/js/crypt.js"></script>
-    <script src="/.static/js/postCommon.js"></script>
-    <script src="/.static/js/captchaModal.js"></script>
-    <script src="/.static/js/thumbs.js"></script>
-    <script src="/.static/js/tooltips.js"></script>
-    <script src="/.static/js/posting.js"></script>
-    <script src="/.static/js/board.js"></script>
-    <script src="/.static/js/captchaUtils.js"></script>
-    <script src="/.static/js/themes.js"></script>
-    <script src="/.static/js/draggable.js"></script>
-    <script src="/.static/js/settingsMenu.js"></script>
-    <script src="/.static/js/hiding.js"></script>
-    <script src="/.static/js/mediaHiding.js"></script>
-    <script src="/.static/js/embed.js"></script>
-    <script src="/.static/js/postingMenu.js"></script>
-    <script src="/.static/js/watcher.js"></script>
-    <script src="/.static/js/favouriteBoards.js"></script>
-    <script src="/.static/js/bottomForms.js"></script>
-    <script src="/.static/js/hideThread.js"></script>
+  <script src="/.static/js/crypto.js"></script>
+  <script src="/.static/js/api.js"></script>
+  <script src="/.static/js/postCommon.js"></script>
+  <script src="/.static/js/captchaModal.js"></script>
+  <script src="/.static/js/thumbs.js"></script>
+  <script src="/.static/js/tooltips.js"></script>
+  <script src="/.static/js/posting.js"></script>
+  <script src="/.static/js/board.js"></script>
+  <script src="/.static/js/captchaUtils.js"></script>
+  <script src="/.static/js/themes.js"></script>
+  <script src="/.static/js/draggable.js"></script>
+  <script src="/.static/js/settingsMenu.js"></script>
+  <script src="/.static/js/hiding.js"></script>
+  <script src="/.static/js/mediaHiding.js"></script>
+  <script src="/.static/js/embed.js"></script>
+  <script src="/.static/js/postingMenu.js"></script>
+  <script src="/.static/js/watcher.js"></script>
+  <script src="/.static/js/favouriteBoards.js"></script>
+  <script src="/.static/js/bottomForms.js"></script>
+  <script src="/.static/js/bypassUtils.js"></script>
+  <script src="/.static/js/utility.js"></script>
 
 </html>

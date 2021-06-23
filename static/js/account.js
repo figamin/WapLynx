@@ -1,6 +1,7 @@
 var account = {};
 
 account.settingsRelation = {
+  checkboxNoBoardReports : 'noBoardReports',
   checkboxAlwaysSign : 'alwaysSignRole',
   checkboxReportNotify : 'reportNotify'
 };
@@ -119,6 +120,20 @@ account.save = function() {
     parameters[account.settingsRelation[key]] = document.getElementById(key).checked;
   }
 
+  var filters = [];
+
+  var filterCells = document.getElementsByClassName('categoryCheckbox');
+
+  for (var i = 0; i < filterCells.length; i++) {
+
+    if (filterCells[i].checked) {
+      filters.push(filterCells[i].value);
+    }
+
+  }
+
+  parameters.categoryFilter = filters;
+
   var typedEmail = document.getElementById('emailField').value.trim();
 
   if (typedEmail.length > 64) {
@@ -154,11 +169,8 @@ account.createBoard = function() {
   } else if (/\W/.test(typedUri)) {
     alert('Invalid uri.');
     return;
-  } else if (typedCaptcha.length !== 6 && typedCaptcha.length !== 24) {
-    alert('Captchas are exactly 6 (24 if no cookies) characters long.');
-    return;
-  } else if (/\W/.test(typedCaptcha)) {
-    alert('Invalid captcha.');
+  } else if (typedCaptcha.length !== 6 && typedCaptcha.length !== 112) {
+    alert('Captchas are exactly 6 (112 if no cookies) characters long.');
     return;
   } else {
     api.formApiRequest('createBoard', {

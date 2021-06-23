@@ -1,63 +1,75 @@
 <!DOCTYPE html>
 <html>
-    <head>
-	<script type="text/javascript" id="dynamicAnalytics"></script>
-	<title>IRC</title>
-	<meta charset="UTF-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link href="/.static/css/global.css" type="text/css" rel="stylesheet" />
-	<link href="/.static/css/index.css" type="text/css" rel="stylesheet" />
-	<link href="/.static/css/watcher.css" type="text/css" rel="stylesheet" />
-	<link href="/.static/css/posting.css" type="text/css" rel="stylesheet" />
-    </head>
+<head>
+<title>Matrix and IRC Information</title>
+<meta charset="UTF-8" />
+<meta
+  name="viewport"
+  content="width=device-width, initial-scale=1.0">
+<link
+  href="/.static/css/global.css"
+  type="text/css"
+  rel="stylesheet" />
+<link
+  href="/.static/css/watcher.css"
+  type="text/css"
+  rel="stylesheet" />
+<link
+  href="/.static/css/settingsMenu.css"
+  type="text/css"
+  rel="stylesheet" />
+</head>
+<body>
 
-    <body>
+  <script src="/.static/js/themeLoader.js"></script>
 
-	<script src="/.static/js/themeLoader.js"></script>
+  <nav id="dynamicHeader"></nav>
 
-	<nav id="dynamicHeader"></nav>
+  <div id="settingsWrapper">
+  
+  <header>
+    <img
+      src="/.static/logo.png"
+      class="logoImg"
+      alt="logo" />
+  </header>
 
-	<div id="indexWrapper">
+    <fieldset id="settingsFieldset" class="spacerFieldset">
+      <legend>Matrix</legend>
+      <p>
+	The 16chan Matrix community chat can be accessed <a href="https://matrix.to/#/+16chan:privacytools.io">here</a>.
+      </p>
+    </fieldset>
 
-            <div id="logoBox" class="title">
-		<a href="/">
-		    <img src="/.static/logo.png" class="logoImg" alt="logo" />
-		</a>
-            </div>
+    <fieldset id="settingsFieldset" class="spacerFieldset">
+      <legend>IRC Information</legend>
+      <p>
+	16chan's IRC server is hosted on the Rizon network, for information on how to access the Rizon network please refer to this <a href="https://www.rizon.net/info/access">page</a>.
+      </p>
+      <br>
+      <p>
+	16chan's official channel is #16chan
+      </p>
+      <br>
+      <p>
+	Click <a href="http://qchat.rizon.net/?channels=16chan">here</a> to access a web IRC client to connect our channel.
+      </p>
 
-	    <div id="dynamicLinks"></div>
-	    
-	    <div class="contentBox spaced">
-	      <h2>Matrix</h2>
-		<div id="contentBoxInner">
-		  <p>The 16chan Matrix community chat can be accessed <a href="https://matrix.to/#/+16chan:privacytools.io">here</a>.</p>
-		</div>
-	    </div>
+    </fieldset>
 
-	    <div class="contentBox">
-		<h2>IRC Information</h2>
-		<div id="contentBoxInner">
-		  <p>16chan's IRC server is hosted on the Rizon network, for information on how to access the Rizon network please refer to this <a href="https://www.rizon.net/info/access">page</a>.</p>
-		  <br>
 
-		  <p>16chan's official channel is #16chan</p>
+  
+  </div>
 
-		  <br>
+  <footer id="dynamicFooter"></footer>
+  
+</body>
 
-		  <p>Click <a href="http://qchat.rizon.net/?channels=16chan">here</a> to access a web IRC client to connect our channel.</p>
-		</div>
-	    </div>
-
-	</div>
-
-	<footer id="dynamicFooter"></footer>
-
-    </body>
-
-    <script src="/.static/js/api.js"></script>
-    <script src="/.static/js/themes.js"></script>
-    <script src="/.static/js/draggable.js"></script>
-    <script src="/.static/js/watcher.js"></script>
-    <script src="/.static/js/favouriteBoards.js"></script>
-
+<script src="/.static/js/api.js"></script>
+<script src="/.static/js/themes.js"></script>
+<script src="/.static/js/favouriteBoards.js"></script>
+<script src="/.static/js/draggable.js"></script>
+<script src="/.static/js/settingsMenu.js"></script>
+<script src="/.static/js/hiding.js"></script>
+<script src="/.static/js/watcher.js"></script>
 </html>

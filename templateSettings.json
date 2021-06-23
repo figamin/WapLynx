@@ -1,21 +1,21 @@
 {
     "optional": {
 	"dynamicHeader": "content/header.html",
-        "dynamicHeaderAlt": "content/headerAlt.html",
+	"postingTable": "content/postingForm.html",
+	"actionsForm": "content/actionsForm.html",
+
+	"dynamicHeaderAlt": "content/headerAlt.html",
+	"dynamicHeaderThread": "content/headerThread.html",
 	"dynamicHeaderOverboard": "content/headerOverboard.html",
-        "dynamicHeaderThread": "content/headerThread.html",
 	"dynamicFooter": "content/footer.html",
 	"dynamicFooterAlt": "content/footerAlt.html",
 	"dynamicAnnouncement": "content/announcement.html",
-	"dynamicLinks": "content/links.html",
-	"postingInformation": "content/postingInformation.html",
-	"postingTable": "content/postingForm.html",
-	"actionsForm": "content/actionsForm.html"
+	"postingInformation": "content/postingInformation.html"
     },
     "templated": [
 	"pages/about.html",
-	"pages/donate.html",
 	"pages/contact.html",
+	"pages/donate.html",	
 	"pages/globalRules.html",
 	"pages/irc.html",
 	"pages/legal.html",
@@ -78,13 +78,11 @@
     "hashBanCell": "cells/hashBanCell.html",
     "latestImageCell": "cells/latestImageCell.html",
     "latestPostCell": "cells/latestPostsCell.html",
-    "logIndexCell": "cells/logIndexCell.html",
     "logCell": "cells/logCell.html",
     "postCell": "cells/post.html",
     "ruleCell": "cells/ruleCell.html",
     "reportCell": "cells/reportCell.html",
     "ruleManagementCell": "cells/ruleManagementCell.html",
-    "rangeBanCell": "cells/rangeBanCell.html",
     "staffCell": "cells/staffCell.html",
     "uploadCell": "cells/uploadCell.html",
     "volunteerCell": "cells/volunteerCell.html",
@@ -108,5 +106,11 @@
     "archiveCell": "cells/archiveCell.html",
     "asnBanPage": "pages/asnBanPage.html",
     "asnBansPage": "pages/asnBansPage.html",
-    "asnBanCell": "cells/asnBanCell.html"
+    "offenseRecordPage": "pages/offenseRecordPage.html",
+    "offenseCell": "cells/offenseCell.html",
+    "openReportsPage": "pages/openReportsPage.html",
+    "reportCategoryFilterCell": "cells/reportCategoryFilterCell.html",
+    "trashBinPage": "pages/trashBin.html",
+    "mimeThumbsPage": "pages/mimeThumbsPage.html",
+    "mimeThumbCell": "cells/mimeThumbCell.html"
 }

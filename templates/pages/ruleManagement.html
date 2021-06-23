@@ -1,67 +1,82 @@
 <!DOCTYPE html>
 <html>
-    <head>
-	<script type="text/javascript" id="dynamicAnalytics"></script>
-	<meta charset="UTF-8" />
-	<meta
-	    name="viewport"
-	    content="width=device-width, initial-scale=1.0">
-	<link
-	    href="/.static/css/global.css"
-	    type="text/css"
-	    rel="stylesheet" />
-    </head>
-    <body>
+<head>
+<meta charset="UTF-8" />
+<meta
+  name="viewport"
+  content="width=device-width, initial-scale=1.0">
+<link
+  href="/.static/css/global.css"
+  type="text/css"
+  rel="stylesheet" />
+<link
+  href="/.static/css/watcher.css"
+  type="text/css"
+  rel="stylesheet" />
+<link
+  href="/.static/css/settingsMenu.css"
+  type="text/css"
+  rel="stylesheet" />
+</head>
+<body>
 
-	<script src="/.static/js/themeLoader.js"></script>
+  <script src="/.static/js/themeLoader.js"></script>
 
-	<nav id="dynamicHeader"></nav>
+  <nav id="dynamicHeader"></nav>
 
-	<header>
-	    <img
-		src="/.static/logo.png"
-		class="logoImg"
-		alt="logo" />
-	</header>
+  <header>
+    <img
+      src="/.static/logo.png"
+      class="logoImg"
+      alt="logo" />
+  </header>
 
-	<div id="settingsWrapper">
+  <div id="settingsWrapper">
 
-	    <fieldset id="settingsFieldset">
+    <fieldset id="settingsFieldset">
 
-		<legend>Rules</legend>
+      <legend>Rules</legend>
 
-		<form
-		    action="/createRule.js"
-		    method="post"
-		    enctype="multipart/form-data">
-		    <input
-			type="hidden"
-			name="boardUri"
-			id="boardIdentifier">
-		    <input
-			type="text"
-			name="rule"
-			class="ruleManagementField"
-			id="fieldRule">
-		    <button
-			type="submit"
-			id="addFormButton">Add Rule</button>
+      <form
+        action="/createRule.js"
+        method="post"
+        enctype="multipart/form-data">
+        
+        <input
+          type="hidden"
+          name="boardUri"
+          id="boardIdentifier">
+        
+        <label>
+          <input
+          type="text"
+          name="rule"
+          class="ruleManagementField"
+          id="fieldRule">
+        </label>
+        
+        <button
+          type="submit"
+          id="addFormButton">Add Rule</button>
 
-		</form>
+      </form>
 
-		<hr />
+      <hr />
 
-		<div id="divRules"></div>
+      <div id="divRules"></div>
 
-	    </fieldset>
+    </fieldset>
 
-	</div>
+  </div>
 
-    </body>
+</body>
 
-    <script src="/.static/js/api.js"></script>
-    <script src="/.static/js/ruleManagement.js"></script>
-    <script src="/.static/js/themes.js"></script>
+<script src="/.static/js/api.js"></script>
+<script src="/.static/js/ruleManagement.js"></script>
+<script src="/.static/js/themes.js"></script>
 <script src="/.static/js/favouriteBoards.js"></script>
-
+<script src="/.static/js/draggable.js"></script>
+<script src="/.static/js/settingsMenu.js"></script>
+<script src="/.static/js/hiding.js"></script>
+<script src="/.static/js/watcher.js"></script>
 </html>

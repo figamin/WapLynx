@@ -2,16 +2,28 @@ var themes = {};
 
 themes.init = function() {
 
-  themes.themes = [ {
-      label : 'Yotsuba',
-      id : 'yotsuba'
-  }, {
-      label : 'Yotsuba B',
-      id : 'yotsuba_b'
-  }, {
-      label : 'Warosu',
-      id : 'warosu'
-  } ];
+    themes.themes = [
+	{
+	    label : 'March',
+	    id : 'march'
+	},
+	{
+	    label : 'Tomorrow',
+	    id : 'tomorrow'
+	},
+	{
+	    label : 'Warosu',
+	    id : 'warosu'
+	},
+	{
+	    label : 'Yotsuba',
+	    id : 'yotsuba'
+	},
+	{
+	    label : 'Yotsuba B',
+	    id : 'yotsuba_b'
+	}
+    ];
 
   var postingLink = document.getElementById('navPosting');
 
@@ -23,7 +35,7 @@ themes.init = function() {
         referenceNode);
 
     var divider = document.createElement('span');
-    divider.innerHTML = '/';
+    divider.innerHTML = '';
     postingLink.parentNode.insertBefore(divider, referenceNode);
 
     postingLink.parentNode.insertBefore(document.createTextNode(' '),
@@ -33,7 +45,7 @@ themes.init = function() {
     themeSelector.id = 'themeSelector';
 
     var vanillaOption = document.createElement('option');
-    vanillaOption.innerHTML = 'Tomorrow';
+    vanillaOption.innerHTML = 'Board-specific CSS';
     themeSelector.appendChild(vanillaOption);
 
     for (var i = 0; i < themes.themes.length; i++) {
@@ -80,5 +92,9 @@ themes.init = function() {
   }
 
 };
+
+function boardUrlHandler(value) {                               
+    window.location.assign(`${value}`);
+}
 
 themes.init();

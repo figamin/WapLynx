@@ -1,85 +1,126 @@
 <!DOCTYPE html>
 <html>
-    <head>
-	<script type="text/javascript" id="dynamicAnalytics"></script>
-	<meta charset="UTF-8" />
-	<meta
-	    name="viewport"
-	    content="width=device-width, initial-scale=1.0">
-	<link
-	    href="/.static/css/global.css"
-	    type="text/css"
-	    rel="stylesheet" />
-    </head>
-    <body>
+<head>
+<meta charset="UTF-8" />
+<meta
+  name="viewport"
+  content="width=device-width, initial-scale=1.0">
+<link
+  href="/.static/css/global.css"
+  type="text/css"
+  rel="stylesheet" />
+<link
+  href="/.static/css/watcher.css"
+  type="text/css"
+  rel="stylesheet" />
+<link
+  href="/.static/css/settingsMenu.css"
+  type="text/css"
+  rel="stylesheet" />
+</head>
+<body>
 
-	<script src="/.static/js/themeLoader.js"></script>
+  <script src="/.static/js/themeLoader.js"></script>
 
-	<nav id="dynamicHeader"></nav>
+  <nav id="dynamicHeader"></nav>
 
-	<header>
-	    <img
-		src="/.static/logo.png"
-		class="logoImg"
-		alt="logo" />
-	</header>
+  <div id="settingsWrapper">
+  
+  <header>
+    <img
+      src="/.static/logo.png"
+      class="logoImg"
+      alt="logo" />
+  </header>
 
-	<div id="settingsWrapper">
+    <fieldset id="settingsFieldset">
 
-	    <fieldset id="settingsFieldset">
+      <legend>Bypass</legend>
 
-		<legend>Bypass</legend>
+      <h3>Warning: Block bypasses require cookies to work</h3>
 
-		<h3>Warning: Block bypasses require cookies to work</h3>
-		<p>
-		    <span id="indicatorValidBypass">You have a valid block bypass.</span>
-		</p>
-		<form
-		    id="renewForm"
-		    action="/renewBypass.js"
-		    enctype="multipart/form-data"
-		    method="post">
-		    <hr />
-		    <h3>Renew bypass</h3>
+      <div id="indicatorValidBypass">
+        You have a valid block bypass.
+        <div id="indicatorNotValidated">
+          It still needs validation.
 
-		    <div class="captchaDiv">
+          <form
+            action="/validateBypass.js"
+            enctype="multipart/form-data"
+            method="post">
 
-			<img
-			    class="captchaImage"
-			    id="captchaImage"
-			    src="/captcha.js">
-			<br>
-			<input
-			    type="button"
-			    class="hidden reloadCaptchaButton"
-			    onclick="captchaUtils.reloadCaptcha()"
-			    value="Reload">
-			<span class="captchaTimer"></span>
-			<br>
-			<input
-			    name="captcha"
-			    type="text"
-			    class="bypassField"
-			    id="fieldCaptcha"
-			    placeholder="Answer">
-			<a
-			    href="/noCookieCaptcha.js"
-			    class="small">no cookies?</a>
-			<br>
-			<button
-			    type="submit"
-			    id="bypassFormButton">Renew block bypass</button>
-		    </div>
-		</form>
-	    </fieldset>
-	</div>
+            <div id="noJs">
+              <span>Download the <a
+                  href="https://gitgud.io/LynxChan/PoWSolver">PoW Solver</a> and
+                read it's instructions on how to obtain the code from the
+                following string:
+              </span>
 
-    </body>
+              <p id="labelBypass"></p>
+              <span>Validation code:</span>
+              <input
+                name="code"
+                type="text">
+            </div>
+            <button id="validationButton">Validate</button>
 
-    <script src="/.static/js/api.js"></script>
-    <script src="/.static/js/bypass.js"></script>
-    <script src="/.static/js/captchaUtils.js"></script>
-    <script src="/.static/js/themes.js"></script>
+          </form>
+
+
+        </div>
+      </div>
+
+      <form
+        id="renewForm"
+        action="/renewBypass.js"
+        enctype="multipart/form-data"
+        method="post">
+        <hr />
+        <h3>Renew bypass</h3>
+
+        <div class="captchaDiv">
+
+          <img
+            class="captchaImage"
+            src="/captcha.js">
+          <br>
+          <input
+            type="button"
+            class="hidden reloadCaptchaButton"
+            onclick="captchaUtils.reloadCaptcha()"
+            value="Reload">
+          <span class="captchaTimer"></span>
+          <br>
+          <input
+            name="captcha"
+            type="text"
+            class="bypassField"
+            id="fieldCaptcha"
+            placeholder="Answer">
+          <a
+            href="/noCookieCaptcha.js"
+            class="small">no cookies?</a>
+          <br>
+          <button
+            type="submit"
+            id="bypassFormButton">Renew block bypass</button>
+        </div>
+      </form>
+    </fieldset>
+  </div>
+
+  <footer id="dynamicFooter"></footer>
+
+</body>
+
+<script src="/.static/js/api.js"></script>
+<script src="/.static/js/bypass.js"></script>
+<script src="/.static/js/captchaUtils.js"></script>
+<script src="/.static/js/themes.js"></script>
 <script src="/.static/js/favouriteBoards.js"></script>
-
+<script src="/.static/js/bypassUtils.js"></script>
+<script src="/.static/js/draggable.js"></script>
+<script src="/.static/js/settingsMenu.js"></script>
+<script src="/.static/js/hiding.js"></script>
+<script src="/.static/js/watcher.js"></script>
 </html>

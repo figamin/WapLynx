@@ -1,229 +1,228 @@
 <!DOCTYPE html>
 <html>
-    <head>
-	<script type="text/javascript" id="dynamicAnalytics"></script>
-	<title>Overboard</title>
-	<meta charset="UTF-8" />
-	<meta
-	    name="viewport"
-	    content="width=device-width, initial-scale=1.0">
-	<link
-	    href="/.static/css/global.css"
-	    type="text/css"
-	    rel="stylesheet" />
-	<link
-	    href="/.static/css/posting.css"
-	    type="text/css"
-	    rel="stylesheet" />
-	<link
-	    href="/.static/css/thread.css"
-	    type="text/css"
-	    rel="stylesheet" />
-	<link href="/.static/css/board.css"
-	      type="text/css"
-	      rel="stylesheet" />
-	<link
-	    href="/.static/css/boardContent.css"
-	    type="text/css"
-	    rel="stylesheet" />
-	<link
-	    href="/.static/css/watcher.css"
-	    type="text/css"
-	    rel="stylesheet" />
-	<link
-	    href="/.static/css/settingsMenu.css"
-	    type="text/css"
-	    rel="stylesheet" />
-    </head>
-    <body>
+<head>
+<meta charset="UTF-8" />
+<meta
+  name="viewport"
+  content="width=device-width, initial-scale=1.0">
+<link
+  href="/.static/css/global.css"
+  type="text/css"
+  rel="stylesheet" />
+<link
+  href="/.static/css/posting.css"
+  type="text/css"
+  rel="stylesheet" />
+<link
+  href="/.static/css/thread.css"
+  type="text/css"
+  rel="stylesheet" />
+<link
+  href="/.static/css/boardContent.css"
+  type="text/css"
+  rel="stylesheet" />
+<link
+  href="/.static/css/watcher.css"
+  type="text/css"
+  rel="stylesheet" />
+<link
+  href="/.static/css/settingsMenu.css"
+  type="text/css"
+  rel="stylesheet" />
+</head>
+<body>
 
-	<script src="/.static/js/themeLoader.js"></script>
+  <script src="/.static/js/themeLoader.js"></script>
 
-	<nav id="dynamicHeaderOverboard"></nav>
+  <nav id="dynamicHeaderOverboard"></nav>
 
-	<header class="boardHeader">
-	    <img
-		id="bannerImage"
-		    src="/randomBanner.js" />
-	    <br>
-	    <p id="overboardId">Overboard</p>
-	    <p id="labelDescription">50 of the latest bumped threads</p>
-	</header>
+  <header class="boardHeader">
+    <img
+      id="bannerImage"
+      src="/randomBanner.js" />
+    <div>
+      <p id="labelNameOverboard">Latest Posts</p>
+    </div>
+    <p id="labelDescription">50 of the lastest bumped threads</p>
+  </header>
 
-	<hr id="belowPost">
+  <div id="dynamicAnnouncement"></div>
+  
+  <div id="innerUtilityTop">
+    <span>
+      [<a href="/archives.js">Archives</a>]
+    </span>
 
-	<div id="dynamicAnnouncement"></div>
+    <span>
+      [<a href="#footer">Bottom</a>]
+    </span>
 
-	<hr id="belowPost">
+    <span>
+      [<a href="/overboard/">Refresh</a>]
+    </span>
+  </div>
 
-	<div id="innerUtility">
-	    <hr>
 
-	    <span>
-		[<a href="/archives.js" id="linkArchives"></a>]
-	    </span>
+  <div id="threadList">
 
-	    <span>
-		[<a href="#footer">Bottom</a>]
-	    </span>
+    <form
+      action="/contentActions.js"
+      method="post"
+      enctype="multipart/form-data">
 
-	    <span>
-		[<a href="/overboard/">Refresh</a>]
-	    </span>
+      <div id="divThreads"></div>
 
-	    <hr>
-	</div>
+    </form>
 
-	<div id="threadList">
+    <hr class="clearer">
 
-	    <form
-		action="/contentActions.js"
-			method="post"
-			enctype="multipart/form-data">
+    <div id="innerUtilityBottom">
+      <span>
+	[<a href="/archives.js">Archives</a>]
+      </span>
 
-		<div id="divThreads"></div>
+      <span>
+	[<a href="#">Top</a>]
+      </span>
 
-	    </form>
+    <span>
+      [<a href="/overboard/">Refresh</a>]
+    </span>
+    </div>
 
-	    <hr class="clearer">
+    <div id="bottomForms">
 
-	    <div id="innerUtility" class="bottom">
-		<hr>
+      <fieldset class="reportFieldset">
+        <legend>Delete</legend>
 
-		<span>
-		    [<a href="/archives.js" id="linkArchives"></a>]
-		</span>
+        <div class="contentAction">
+          <label>
+            Password
+            <input
+              type="text"
+              class="deletionField"
+              id="deletionFieldPassword"
+              name="password">
+          </label>
+          <label>
+            <input
+              type="checkbox"
+              class="deletionField"
+              id="checkboxOnlyFiles"
+              name="deleteUploads">
+            Delete only files (Removes the file reference to the posts)
+          </label>
+          <label>
+            <input
+              type="checkbox"
+              class="deletionField"
+              id="checkboxMediaDeletion"
+              name="deleteMedia">
+            Delete media (Removes the saved files from the server)
+          </label>
+          <button
+            type="submit"
+            id="deleteFormButton"
+            value="delete"
+            name="action">Delete</button>
+          <button
+            type="submit"
+            id="trashFormButton"
+            value="trash"
+            name="action">Trash</button>
 
-		<span>
-		    [<a href="#">Top</a>]
-		</span>
+        </div>
+      </fieldset>
 
-		<span>
-		    [<a onclick="/overboard/">Refresh</a>]
-		</span>
+      <fieldset class="reportFieldset">
+        <legend>Report</legend>
 
-		<hr>
-	    </div>
+        <div class="contentAction">
 
-	    <div id="bottomForms">
+          <label>
+            Reason
+            <input
+              type="text"
+              class="reportField"
+              id="reportFieldReason"
+              name="reasonReport">
+          </label>
+          <label id="reportCategoriesDiv">
+            Category
+            <select
+              class="reportField"
+              id="reportComboboxCategory"
+              name="categoryReport"></select>
+          </label>
+          <label>
+            <input
+              type="checkbox"
+              class="reportField"
+              id="checkboxGlobalReport"
+              name="globalReport">
+            Global
+          </label>
 
-		<fieldset class="reportFieldset">
-		    <legend>Delete</legend>
+          <div id="divReportCaptcha">
+            <img
+              class="captchaImage"
+              src="/captcha.js">
 
-		    <div class="contentAction">
-			<label>
-			    Password
-			    <input
-				type="text"
-				class="deletionField"
-				id="deletionFieldPassword"
-				name="password">
-			</label>
-			<label>
-			    <input
-				type="checkbox"
-				class="deletionField"
-				id="checkboxOnlyFiles"
-				name="deleteUploads">
-			    Delete only files (Removes the file reference to the posts)
-			</label>
-			<label>
-			    <input
-				type="checkbox"
-				class="deletionField"
-				id="checkboxMediaDeletion"
-				name="deleteMedia">
-			    Delete media (Removes the saved files from the server)
-			</label>
-			<button
-			    type="submit"
-			    id="deleteFormButton"
-			    value="delete"
-			    name="action">Delete</button>
+            <input
+              type="button"
+              class="hidden reloadCaptchaButton"
+              onclick="captchaUtils.reloadCaptcha()"
+              value="Reload">
+            <span class="captchaTimer"></span>
+            <br>
 
-		    </div>
-		</fieldset>
+            <input
+              name="captchaReport"
+              type="text"
+              class="captchaField reportField"
+              id="fieldCaptchaReport"
+              placeholder="answer">
 
-		<fieldset class="reportFieldset">
-		    <legend>Report</legend>
+            <a
+              href="/noCookieCaptcha.js"
+              class="small">no cookies?</a>
+            <br>
+          </div>
 
-		    <div class="contentAction">
+          <button
+            type="submit"
+            id="reportFormButton"
+            value="report"
+            name="action">Report</button>
 
-			<label>
-			    Reason
-			    <input
-				type="text"
-				class="reportField"
-				id="reportFieldReason"
-				name="reason">
-			</label>
-			<label>
-			    <input
-				type="checkbox"
-				class="reportField"
-				id="checkboxGlobal"
-				name="global">
-			    Global
-			</label>
-			<img
-			    class="captchaImage"
-			    id="captchaImageReport"
-			    src="/captcha.js">
+        </div>
 
-			<input
-			    type="button"
-			    class="hidden reloadCaptchaButton"
-			    onclick="captchaUtils.reloadCaptcha()"
-			    value="Reload">
-			<span class="captchaTimer"></span>
-			<br>
+      </fieldset>
+    </div>
 
-			<input
-			    name="captcha"
-			    type="text"
-			    class="captchaField reportField"
-			    id="fieldCaptchaReport"
-			    placeholder="answer">
+  </div>
 
-			<a
-			    href="/noCookieCaptcha.js"
-			    class="small">no cookies?</a>
-			<br>
+  <footer id="dynamicFooterAlt"></footer>
 
-			<button
-			    type="submit"
-			    id="reportFormButton"
-			    value="report"
-			    name="action">Report</button>
+</body>
 
-		    </div>
-
-		</fieldset>
-	    </div>
-
-	</div>
-
-	<footer id="dynamicFooterAlt"></footer>
-
-    </body>
-
-    <script src="/.static/js/api.js"></script>
-    <script src="/.static/js/overboard.js"></script>
-    <script src="/.static/js/thumbs.js"></script>
-    <script src="/.static/js/tooltips.js"></script>
-    <script src="/.static/js/posting.js"></script>
-    <script src="/.static/js/themes.js"></script>
-    <script src="/.static/js/draggable.js"></script>
-    <script src="/.static/js/settingsMenu.js"></script>
-    <script src="/.static/js/hiding.js"></script>
-    <script src="/.static/js/mediaHiding.js"></script>
-    <script src="/.static/js/embed.js"></script>
-    <script src="/.static/js/board.js"></script>
-    <script src="/.static/js/captchaUtils.js"></script>
-    <script src="/.static/js/postingMenu.js"></script>
-    <script src="/.static/js/watcher.js"></script>
-    <script src="/.static/js/captchaModal.js"></script>
-    <script src="/.static/js/favouriteBoards.js"></script>
-    <script src="/.static/js/bottomForms.js"></script>
+<script src="/.static/js/api.js"></script>
+<script src="/.static/js/overboard.js"></script>
+<script src="/.static/js/thumbs.js"></script>
+<script src="/.static/js/tooltips.js"></script>
+<script src="/.static/js/posting.js"></script>
+<script src="/.static/js/themes.js"></script>
+<script src="/.static/js/draggable.js"></script>
+<script src="/.static/js/settingsMenu.js"></script>
+<script src="/.static/js/hiding.js"></script>
+<script src="/.static/js/mediaHiding.js"></script>
+<script src="/.static/js/embed.js"></script>
+<script src="/.static/js/board.js"></script>
+<script src="/.static/js/captchaUtils.js"></script>
+<script src="/.static/js/postingMenu.js"></script>
+<script src="/.static/js/watcher.js"></script>
+<script src="/.static/js/captchaModal.js"></script>
+<script src="/.static/js/favouriteBoards.js"></script>
+<script src="/.static/js/bottomForms.js"></script>
 
 </html>

@@ -1,93 +1,134 @@
 <!DOCTYPE html>
 <html>
-    <head>
-	<script type="text/javascript" id="dynamicAnalytics"></script>
-	<meta charset="UTF-8">
-	<meta
-	    name="viewport"
-	    content="width=device-width, initial-scale=1.0">
-	<link
-	    rel="stylesheet"
-	    type="text/css"
-	    href="/.static/css/global.css">
-    </head>
-    <body>
+<head>
+<meta charset="UTF-8">
+<meta
+  name="viewport"
+  content="width=device-width, initial-scale=1.0">
+<link
+  rel="stylesheet"
+  type="text/css"
+  href="/.static/css/global.css">
+<link
+  href="/.static/css/watcher.css"
+  type="text/css"
+  rel="stylesheet" />
+<link
+  href="/.static/css/settingsMenu.css"
+  type="text/css"
+  rel="stylesheet" />
+</head>
+<body>
 
-	<script src="/.static/js/themeLoader.js"></script>
+  <script src="/.static/js/themeLoader.js"></script>
 
-	<nav id="dynamicHeader"></nav>
+  <nav id="dynamicHeader"></nav>
 
-	<header>
-	    <img
-		src="/.static/logo.png"
-		class="logoImg"
-		alt="logo" />
-	</header>
+  <header>
+    <img
+      src="/.static/logo.png"
+      class="logoImg"
+      alt="logo" />
+  </header>
 
-	<div id="settingsWrapper">
+  <div id="settingsWrapper">
 
-	    <fieldset id="settingsFieldset">
+    <fieldset id="settingsFieldset" class="shorten">
 
-		<legend>Media Management</legend>
+      <legend>Media Management</legend>
 
-		<form
-		    action="/mediaManagement.js"
-		    method="GET">
-		    Search:
-		    <input
-			name="filter"
-			type="text">
+      <form
+        action="/mediaManagement.js"
+        method="GET">
+        Search:
+        <input
+          name="filter"
+          type="text">
 
-		    <label>
-			<input
-			    type="checkbox"
-			    id="orphanedCheckbox"
-			    name="orphaned">
-			Show only orphaned files
-		    </label>
+        <label>
+          <input
+            type="checkbox"
+            id="orphanedCheckbox"
+            name="orphaned">
+          Show only orphaned files
+        </label>
 
-		    <input
-			type="hidden"
-			name="boardUri"
-			id="boardUriIdentifier">
-		    <input
-			type="hidden"
-			name="threadId"
-			id="threadIdIdentifier">
-		    <input
-			type="hidden"
-			name="postId"
-			id="postIdIdentifier">
+        <input
+          type="hidden"
+          name="boardUri"
+          id="boardUriIdentifier">
+        <input
+          type="hidden"
+          name="threadId"
+          id="threadIdIdentifier">
+        <input
+          type="hidden"
+          name="postId"
+          id="postIdIdentifier">
+        <input
+          type="hidden"
+          name="banId"
+          id="banIdentifier">
 
-		    <button type="submit">Filter</button>
-		</form>
+        <button type="submit">Filter</button>
+      </form>
 
-		<button
-		    class="hidden"
-		    id="selectAllButton"
-		    onclick="mediaManagement.selectAll()">Select all</button>
+      <hr>
 
-		<form
-		    action="/deleteMedia.js"
-		    method="POST"
-		    enctype="multipart/form-data">
-		    <button
-			type="submit"
-			id="deleteFormButton">Delete selected media</button>
+      <button
+        class="hidden"
+        id="selectAllButton"
+        onclick="mediaManagement.selectAll()">Select all</button>
 
-		    <div id="filesDiv"></div>
-		</form>
-		<hr>
-		<div id="pagesDiv"></div>
+      <form
+        action="/deleteMedia.js"
+        method="POST"
+        enctype="multipart/form-data">
 
-	    </fieldset>
+        <label>
+          <span>Mass deletion:</span>
+          <textarea
+            name="text"
+            id="massTextField"></textarea>
+        </label>
 
-	</div>
+        <div id="banPanel">
+          <label>
+            <span>Ban reason:</span>
+            <input
+              type="text"
+              name="reason"
+              id="reasonField">
+          </label>
+          <label>
+            <input
+              name="ban"
+              id="banCheckbox"
+              type="checkbox">
+            <span>Ban deleted files</span>
+          </label>
+        </div>
 
-    </body>
-    <script src="/.static/js/api.js"></script>
-    <script src="/.static/js/mediaManagement.js"></script>
-    <script src="/.static/js/themes.js"></script>
+        <button
+          type="submit"
+          id="deleteFormButton">Delete selected media</button>
+
+        <div id="filesDiv"></div>
+      </form>
+      <hr>
+      <div id="pagesDiv"></div>
+
+    </fieldset>
+
+  </div>
+
+</body>
+<script src="/.static/js/api.js"></script>
+<script src="/.static/js/mediaManagement.js"></script>
+<script src="/.static/js/themes.js"></script>
 <script src="/.static/js/favouriteBoards.js"></script>
-
+<script src="/.static/js/draggable.js"></script>
+<script src="/.static/js/settingsMenu.js"></script>
+<script src="/.static/js/hiding.js"></script>
+<script src="/.static/js/watcher.js"></script>
 </html>

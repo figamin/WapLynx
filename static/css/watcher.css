@@ -1,20 +1,24 @@
 #watcherButton::before {
-  content: '\e077';
-  margin-right: 0.25em;
+  /* content: '\e065'; */
+  /* margin-right: 0.25em; */
 }
 
 .watchButton::before {
-  content: '\e077';
+    /* content: '\e065'; */
+
+    font-family: Icofont;
+    content: '\ef44';
 }
 
-#closeWatcherMenuButton::before, .close-btn::before,
-.watchedCellCloseButton::before {
+#closeWatcherMenuButton::before,
+.close-btn::before
+/* .watchedCellCloseButton::before */ {
+    /* content: '\e0db'; */
+
     content: '[X]';
-    font-family: monospace;
+    font-family: arial;
     font-weight: bold;
-    font-size: 14px;
 }
-
 
 .watchedCell {
   display: table;
@@ -23,7 +27,9 @@
 
 .watchedCellLabel {
   display: table-cell;
-  width: 90%;
+  /* width: 90%; */
+
+  width: 93%;
 }
 
 .watchedNotification::before {
@@ -41,9 +47,49 @@
 }
 
 #watchedMenu label {
-  font-size: 80%;
-  cursor: pointer;
+  /* font-size: 80%; */
+    cursor: pointer;
+
+    font-size: 10pt;
+    padding: 0.25rem;
 }
+
+/* ADDITION */
+#closeWatcherMenuButton {
+    float: right;
+}
+
+.header {
+    margin: 0.25em;
+}
+
+.header label {
+    font-weight: bold;
+    font-size: 11pt !important;
+}
+
+.watchedCellCloseButton::before {
+    content: '\e0cf';
+    font-weight: bold;
+    font-family: 'Icons';
+}
+
+.watchedCell {
+    margin: 0 0.25rem;
+}
+
+#watchedMenu > div:nth-child(2n) {
+    background: rgba(255,255,255,.1);
+}
+
+.watchedCellLabel a {
+    font-weight: normal;
+}
+
+.watchedCellCloseButton {
+    margin-right: 0.40em;
+}
+/* END ADDITION */
 
 @media only screen and (max-width: 812px) {
   .mobileAlert {

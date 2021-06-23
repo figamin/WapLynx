@@ -1,80 +1,101 @@
 <!DOCTYPE html>
 <html>
-    <head>
-	<script type="text/javascript" id="dynamicAnalytics"></script>
-	<meta charset="UTF-8">
-	<meta
-	    name="viewport"
-	    content="width=device-width, initial-scale=1.0">
-	<link
-	    rel="stylesheet"
-	    type="text/css"
-	    href="/.static/css/global.css">
-    </head>
+<head>
+<meta charset="UTF-8">
+<meta
+  name="viewport"
+  content="width=device-width, initial-scale=1.0">
+<link
+  rel="stylesheet"
+  type="text/css"
+  href="/.static/css/global.css">
+<link
+  href="/.static/css/watcher.css"
+  type="text/css"
+  rel="stylesheet" />
+<link
+  href="/.static/css/settingsMenu.css"
+  type="text/css"
+  rel="stylesheet" />
+</head>
 
-    <body>
+<body>
 
-	<script src="/.static/js/themeLoader.js"></script>
+  <script src="/.static/js/themeLoader.js"></script>
 
-	<nav id="dynamicHeader"></nav>
+  <nav id="dynamicHeader"></nav>
 
-	<header>
-	    <img
-		src="/.static/logo.png"
-		class="logoImg"
-		alt="logo" />
-	</header>
+  <div id="settingsWrapper">
+  
+  <header>
+    <img
+      src="/.static/logo.png"
+      class="logoImg"
+      alt="logo" />
+  </header>
 
-	<div id="settingsWrapper">
-	    <fieldset id="settingsFieldset">
+    <fieldset id="settingsFieldset" class="shorten">
 
-		<legend>Accounts</legend>
-		<form
-		    action="/addAccount.js"
-		    method="post"
-		    enctype="multipart/form-data">
+      <legend>Accounts</legend>
+      <form
+        action="/addAccount.js"
+        method="post"
+        enctype="multipart/form-data">
 
-		    <h3>Add account</h3>
+        <h3>Add account</h3>
 
-		    <input
-			type="text"
-			id="fieldLogin"
-			name="login"
-			class="addAccountField"
-			placeholder="login">
+        <label>
+          <input
+            type="text"
+            id="fieldLogin"
+            name="login"
+            class="addAccountField"
+            placeholder="login">
 
-		    <input
-			type="text"
-			id="fieldEmail"
-			class="addAccountField"
-			name="email"
-			placeholder="e-mail">
+        </label>
 
-		    <input
-			type="password"
-			id="fieldPassword"
-			class="addAccountField"
-			name="password"
-			placeholder="password">
+        <label>
+          <input
+            type="text"
+            id="fieldEmail"
+            class="addAccountField"
+            name="email"
+            placeholder="e-mail">
+        </label>
 
-		    <button
-			id="addAccountFormButton"
-			type="submit">Add Account</button>
+        <label>
+          <input
+            type="password"
+            id="fieldPassword"
+            class="addAccountField"
+            name="password"
+            placeholder="password">
+        </label>
 
-		</form>
-		<hr>
-		<h3>Existing Accounts</h3>
-		<div
-		    id="divAccounts"
-		    class="linkList"></div>
+        <button
+          id="addAccountFormButton"
+          type="submit">Add Account</button>
 
-	    </fieldset>
-	</div>
-    </body>
+      </form>
+      <hr>
+      <h3>Existing Accounts</h3>
+      <div
+        id="divAccounts"
+        class="linkList"></div>
 
-    <script src="/.static/js/api.js"></script>
-    <script src="/.static/js/accounts.js"></script>
-    <script src="/.static/js/themes.js"></script>
+    </fieldset>
+  </div>
+
+  <footer id="dynamicFooter"></footer>
+  
+</body>
+
+<script src="/.static/js/api.js"></script>
+<script src="/.static/js/accounts.js"></script>
+<script src="/.static/js/themes.js"></script>
 <script src="/.static/js/favouriteBoards.js"></script>
-
+<script src="/.static/js/draggable.js"></script>
+<script src="/.static/js/settingsMenu.js"></script>
+<script src="/.static/js/hiding.js"></script>
+<script src="/.static/js/watcher.js"></script>
 </html>

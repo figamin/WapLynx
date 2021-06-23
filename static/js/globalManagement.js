@@ -5,8 +5,6 @@ globalManagement.roles = [ 'Admin', 'Global volunteer', 'Global janitor',
 
 globalManagement.init = function() {
 
-  api.management = true;
-
   if (document.getElementById('addStaffForm')) {
 
     api
@@ -18,9 +16,6 @@ globalManagement.init = function() {
   }
 
   globalManagement.divStaff = document.getElementById('divStaff');
-
-  api.convertButton('closeReportsFormButton', reports.closeReports,
-      'closeReportsField');
 
   var staffCells = document.getElementsByClassName('staffCell');
 

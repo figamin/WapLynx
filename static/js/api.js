@@ -170,11 +170,6 @@ api.handleConnectionResponse = function(xhr, callback, silent) {
     return;
   }
 
-  if (response.auth && response.auth.authStatus === 'expired') {
-    document.cookie = 'hash=' + response.auth.newHash + '; path=/; expires='
-        + new Date(response.auth.expiration).toUTCString();
-  }
-
   if (response.status === 'error') {
 
     if (!silent) {
@@ -197,6 +192,10 @@ api.handleConnectionResponse = function(xhr, callback, silent) {
       desc += 'File ' + ban.file + ' is banned from '
           + (ban.boardUri ? '/' + ban.boardUri + '/' : 'all boards.');
 
+      if (ban.reason) {
+        desc += ' Reason: ' + ban.reason + '.';
+      }
+
     }
 
     alert(desc);
@@ -209,7 +208,7 @@ api.handleConnectionResponse = function(xhr, callback, silent) {
   } else if (response.status === 'maintenance') {
 
     if (!silent) {
-      alert('The site is going under maintenance and all of it\'s functionalities are disabled temporarily.');
+      alert('The site is undergoing maintenance and all of its functionalities are temporarily disabled.');
     }
 
   } else if (response.status === 'banned') {
@@ -345,7 +344,19 @@ api.formApiRequest = function(page, parameters, callback, silent, getParameters)
     }
 
     if (entry !== 'files') {
-      form.append(entry, parameters[entry]);
+
+      if (Array.isArray(parameters[entry])) {
+
+        var values = parameters[entry];
+
+        for (var i = 0; i < values.length; i++) {
+          form.append(entry, values[i]);
+        }
+
+      } else {
+        form.append(entry, parameters[entry]);
+      }
+
     } else {
 
       var files = parameters.files;
@@ -354,8 +365,8 @@ api.formApiRequest = function(page, parameters, callback, silent, getParameters)
 
         var file = files[i];
 
-        if (file.md5 && file.mime) {
-          form.append('fileMd5', file.md5);
+        if (file.sha256) {
+          form.append('fileSha256', file.sha256);
           form.append('fileMime', file.mime);
           form.append('fileSpoiler', file.spoiler || '');
           form.append('fileName', file.name);

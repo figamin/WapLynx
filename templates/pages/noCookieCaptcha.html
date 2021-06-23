@@ -1,81 +1,86 @@
 <!DOCTYPE html>
 <html>
-    <head>
-	<script type="text/javascript" id="dynamicAnalytics"></script>
-	<title>No Cookie Captcha</title>
-	<meta charset="UTF-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link href="/.static/css/global.css" type="text/css" rel="stylesheet" />
-	<link href="/.static/css/index.css" type="text/css" rel="stylesheet" />
-	<link href="/.static/css/watcher.css" type="text/css" rel="stylesheet" />
-	<link href="/.static/css/posting.css" type="text/css" rel="stylesheet" />
-    </head>
+<head>
+<meta charset="UTF-8" />
+<meta
+  name="viewport"
+  content="width=device-width, initial-scale=1.0">
+<link
+  href="/.static/css/global.css"
+  type="text/css"
+  rel="stylesheet" />
+<link
+  href="/.static/css/watcher.css"
+  type="text/css"
+  rel="stylesheet" />
+<link
+  href="/.static/css/settingsMenu.css"
+  type="text/css"
+  rel="stylesheet" />
+</head>
+<body>
 
-    <body>
+  <script src="/.static/js/themeLoader.js"></script>
 
-	<script src="/.static/js/themeLoader.js"></script>
+  <nav id="dynamicHeader"></nav>
 
-	<nav id="dynamicHeader"></nav>
+  <div id="settingsWrapper">
 
-	<div id="indexWrapper">
+  <header>
+    <img
+      src="/.static/logo.png"
+      class="logoImg"
+      alt="logo" />
+  </header>
 
-            <div id="logoBox" class="title">
-		<a href="/">
-		    <img src="/.static/logo.png" class="logoImg" alt="logo" />
-		</a>
-            </div>
+  <fieldset id="settingsFieldset" class="shorten">
+    <legend>No Cookies?</legend>
+    <div id="divSolvedCaptcha">
+      <h3>
+        Captcha solved. Input this ID as the answer to the captcha when posting:
+        <span id="labelCaptchaId"></span>
+      </h3>
+      <hr />
+    </div>
+    <div>
+      <p>No problem! Solve this captcha here instead.</p>
+      <img id="imageCaptcha">
+      <form
+        method="post"
+        action="/solveCaptcha.js"
+        enctype="multipart/form-data">
 
-	    <div id="dynamicLinks"></div>
+        <input
+          type="hidden"
+          name="captchaId"
+          id="inputCaptchaId">
 
-	    <div class="contentBox other">
-		<h2>No Cookies?</h2>
-		<div id="contentBoxInner">
+        <label>
+          <input
+            type="text"
+            name="answer"
+            placeholder="answer">
+        </label>
 
-			<div id="divSolvedCaptcha">
-			    <b>
-				Captcha solved. Input this ID as the answer to the captcha when posting:<br>
-				<center><span id="labelCaptchaId"></span></center>
-			    </b>
-			</div>
-			<div>
-			    <p>No problem! Solve this captcha here instead.</p>
-			    <img id="imageCaptcha">
-			    <form
-				method="post"
-				action="/solveCaptcha.js"
-				enctype="multipart/form-data">
-				<input
-				    type="hidden"
-					  name="captchaId"
-				    id="inputCaptchaId">
+        <input
+          type="submit"
+          value="Solve">
 
-				<table>
-				    <tr>
-					<th id="labelContent"><span id="loginText">Answer</span></th>
-					<th>
-					    <input type="text" name="answer">
-					</th>
-				    </tr>
-				</table>
+      </form>
+    </div>
+  </fieldset>
 
-				<input type="submit" value="Solve">
+  </div>
 
-			    </form>
-			</div>
+  <footer id="dynamicFooter"></footer>
 
-		</div>
-	    </div>
+</body>
 
-	</div>
-
-	<footer id="dynamicFooter"></footer>
-
-    </body>
-
-    <script src="/.static/js/api.js"></script>
-    <script src="/.static/js/themes.js"></script>
-    <script src="/.static/js/draggable.js"></script>
-    <script src="/.static/js/watcher.js"></script>
-    <script src="/.static/js/favouriteBoards.js"></script>
-
+<script src="/.static/js/api.js"></script>
+<script src="/.static/js/themes.js"></script>
+<script src="/.static/js/favouriteBoards.js"></script>
+<script src="/.static/js/draggable.js"></script>
+<script src="/.static/js/settingsMenu.js"></script>
+<script src="/.static/js/hiding.js"></script>
+<script src="/.static/js/watcher.js"></script>
 </html>

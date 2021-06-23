@@ -1,80 +1,99 @@
 <!DOCTYPE html>
 <html>
-    <head>
-	<script type="text/javascript" id="dynamicAnalytics"></script>
-	<meta charset="UTF-8">
-	<meta
-	    name="viewport"
-	    content="width=device-width, initial-scale=1.0">
-	<link
-	    rel="stylesheet"
-	    type="text/css"
-	    href="/.static/css/global.css">
-    </head>
-    <body>
+<head>
+<meta charset="UTF-8">
+<meta
+  name="viewport"
+  content="width=device-width, initial-scale=1.0">
+<link
+  rel="stylesheet"
+  type="text/css"
+  href="/.static/css/global.css">
+<link
+  href="/.static/css/watcher.css"
+  type="text/css"
+  rel="stylesheet" />
+<link
+  href="/.static/css/settingsMenu.css"
+  type="text/css"
+  rel="stylesheet" />
+</head>
+<body>
 
-	<script src="/.static/js/themeLoader.js"></script>
+  <script src="/.static/js/themeLoader.js"></script>
 
-	<nav id="dynamicHeader"></nav>
+  <nav id="dynamicHeader"></nav>
 
-	<header>
-	    <img
-		src="/.static/logo.png"
-		class="logoImg"
-		alt="logo" />
-	</header>
+  <div id="settingsWrapper">
+  
+  <header>
+    <img
+      src="/.static/logo.png"
+      class="logoImg"
+      alt="logo" />
+  </header>
 
-	<div id="settingsWrapper">
+    <fieldset id="settingsFieldset" class="shorten">
 
-	    <fieldset id="settingsFieldset">
+      <legend>Languages</legend>
+      <h3>New language</h3>
+      <form
+        action="/addLanguage.js"
+        method="post"
+        enctype="multipart/form-data">
 
-		<legend>Languages</legend>
-		<h3>New language</h3>
-		<form
-		    action="/addLanguage.js"
-		    method="post"
-		    enctype="multipart/form-data">
+        <label>
+          <input
+            type="text"
+            name="headerValues"
+            class="newLanguageField"
+            id="fieldHeaderValues"
+            placeholder="header values*">
+        </label>
 
-		    <input
-			type="text"
-			name="headerValues"
-			class="newLanguageField"
-			id="fieldHeaderValues"
-			placeholder="header values*">
-		    <input
-			type="text"
-			name="frontEnd"
-			class="newLanguageField"
-			id="fieldFrontEnd"
-			placeholder="front-end">
-		    <input
-			type="text"
-			class="newLanguageField"
-			name="languagePack"
-			id="fieldLanguagePack"
-			placeholder="language pack">
-		    <br>
+        <label>
+          <input
+            type="text"
+            name="frontEnd"
+            class="newLanguageField"
+            id="fieldFrontEnd"
+            placeholder="front-end">
+        </label>
 
-		    <button
-			type="submit"
-			id="addFormButton">Add language</button>
-		    <br>
+        <label>
+          <input
+            type="text"
+            class="newLanguageField"
+            name="languagePack"
+            id="fieldLanguagePack"
+            placeholder="language pack">
+        </label>
 
-		</form>
-		<hr>
-		<h3>Existing languages</h3>
-		<div id="languagesDiv"></div>
-		<br>
-		*: separate values by commas, spaces will be ignored (a, b,c)
-	    </fieldset>
+        <button
+          type="submit"
+          id="addFormButton">Add language</button>
+        <br>
 
-	</div>
+      </form>
+      <hr>
+      <h3>Existing languages</h3>
+      <div id="languagesDiv"></div>
+      <br>
+      *: separate values by commas, spaces will be ignored (a, b,c)
+    </fieldset>
 
-    </body>
+  </div>
 
-    <script src="/.static/js/api.js"></script>
-    <script src="/.static/js/languages.js"></script>
-    <script src="/.static/js/themes.js"></script>
+  <footer id="dynamicFooter"></footer>
+
+</body>
+
+<script src="/.static/js/api.js"></script>
+<script src="/.static/js/languages.js"></script>
+<script src="/.static/js/themes.js"></script>
 <script src="/.static/js/favouriteBoards.js"></script>
-
+<script src="/.static/js/draggable.js"></script>
+<script src="/.static/js/settingsMenu.js"></script>
+<script src="/.static/js/hiding.js"></script>
+<script src="/.static/js/watcher.js"></script>
 </html>

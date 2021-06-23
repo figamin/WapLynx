@@ -1,57 +1,63 @@
 <!DOCTYPE html>
 <html>
-    <head>
-	<script type="text/javascript" id="dynamicAnalytics"></script>
-	<title>Links</title>
-	<meta charset="UTF-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link href="/.static/css/global.css" type="text/css" rel="stylesheet" />
-	<link href="/.static/css/index.css" type="text/css" rel="stylesheet" />
-	<link href="/.static/css/watcher.css" type="text/css" rel="stylesheet" />
-	<link href="/.static/css/posting.css" type="text/css" rel="stylesheet" />
-    </head>
+<head>
+<title>Links</title>
+<meta charset="UTF-8" />
+<meta
+  name="viewport"
+  content="width=device-width, initial-scale=1.0">
+<link
+  href="/.static/css/global.css"
+  type="text/css"
+  rel="stylesheet" />
+<link
+  href="/.static/css/watcher.css"
+  type="text/css"
+  rel="stylesheet" />
+<link
+  href="/.static/css/settingsMenu.css"
+  type="text/css"
+  rel="stylesheet" />
+</head>
+<body>
 
-    <body>
+  <script src="/.static/js/themeLoader.js"></script>
 
-	<script src="/.static/js/themeLoader.js"></script>
+  <nav id="dynamicHeader"></nav>
 
-	<nav id="dynamicHeader"></nav>
+  <div id="settingsWrapper">
+    
+  <header>
+    <img
+      src="/.static/logo.png"
+      class="logoImg"
+      alt="logo" />
+  </header>
 
-	<div id="indexWrapper">
+  <fieldset id="settingsFieldset" class="shorten">
 
-            <div id="logoBox" class="title">
-		<a href="/">
-		    <img src="/.static/logo.png" class="logoImg" alt="logo" />
-		</a>
-            </div>
+      <legend>Links</legend>
+      <p class="title">Here are some links to other sites that you may
+        enjoy.</p>
+      <ul>
+        <li><a href="https://gitgud.io/LynxChan/PenumbraLynx">Penumbra
+            Lynx</a>, the repository for this front-end.</li>
+        <li><a href="https://gitgud.io/LynxChan">LynxChan</a>, the
+          repository for LynxChan.</li>
+      </ul>
 
-	    <div id="dynamicLinks"></div>
+    </fieldset>
+  </div>
+  
+  <footer id="dynamicFooter"></footer>
+  
+</body>
 
-	    <div class="contentBox">
-		<h2>Links</h2>
-		<div id="contentBoxInner">
-		    <p class="title">16chan is made possible because of the LynxChan project. A fully opensource imageboard engine.</p>
-		    <ul>
-			<li><a href="https://gitgud.io/LynxChan">LynxChan</a>, the repository for the backend utilized by 16chan.</li>
-			<li><a href="https://gitgud.io/663/16lynx">16chan Front End</a>, the repository for the 16chan front end.</li>
-			<li><a href="https://im663.com/">im663.com</a>, blog featuring all of the latest news and updates related to 16chan.</li>
-			<li><a href="https://matomo.org/">Matomo</a>, the libre analytics platform that 16chan uses.</li>
-			<li><a href="https://github.com/im663/Dashchan-Extensions-ACF">16chan Mobile App Source</a>, the official extension for the Dashchan mobile app.</li>
-			<li><a href="/.static/pages/irc.html">IRC/Discord/Matrix Information</a>, how to connect to all of our respective platforms.</li>
-		    </ul>
-		</div>
-	    </div>
-
-	</div>
-
-	<footer id="dynamicFooter"></footer>
-
-    </body>
-
-    <script src="/.static/js/api.js"></script>
-    <script src="/.static/js/themes.js"></script>
-    <script src="/.static/js/draggable.js"></script>
-    <script src="/.static/js/watcher.js"></script>
-    <script src="/.static/js/favouriteBoards.js"></script>
-
+<script src="/.static/js/api.js"></script>
+<script src="/.static/js/themes.js"></script>
+<script src="/.static/js/favouriteBoards.js"></script>
+<script src="/.static/js/draggable.js"></script>
+<script src="/.static/js/settingsMenu.js"></script>
+<script src="/.static/js/hiding.js"></script>
+<script src="/.static/js/watcher.js"></script>
 </html>
