@@ -159,14 +159,6 @@
           <input
             type="checkbox"
             class="globalSettingsField"
-            id="checkboxSendmail"
-            name="useSendmail">
-          Use sendmail
-        </label>
-        <label>
-          <input
-            type="checkbox"
-            class="globalSettingsField"
             id="checkboxHttp2"
             name="useHttp2">
           Use HTTP2 for SSL (Might be unstable due to node's implementation)
@@ -353,6 +345,14 @@
             class="globalSettingsField"
             name="captchaLimit"
             id="fieldCaptchaLimit">
+        </label>
+        <label>
+          Maximum amount of captchas in the captcha pool:
+          <input
+            type="number"
+            class="globalSettingsField"
+            name="captchaPool"
+            id="fieldCaptchaPool">
         </label>
         <label>
           Maximum amount of times accounts can authenticate every minute:
@@ -642,6 +642,14 @@
             id="fieldMaxBoardBanners">
         </label>
         <label>
+          Maximum number of flags in boards:
+          <input
+            type="number"
+            class="globalSettingsField"
+            name="flagLimit"
+            id="fieldFlagLimit">
+        </label>
+        <label>
           Maximum number of tags per board:
           <input
             type="number"
@@ -808,6 +816,14 @@
             class="globalSettingsField"
             name="addons"
             id="fieldAddons">
+        </label>
+        <label>
+          Default theme:
+          <input
+            type="text"
+            class="globalSettingsField"
+            name="defaultTheme"
+            id="fieldDefaultTheme">
         </label>
         <label>
           Report categories<sup>1</sup>:
@@ -1089,6 +1105,20 @@
             name="bypassValidationRange"
             id="fieldBypassValidationRange">
         </label>
+
+        <hr>
+        <div id="authDiv">
+          <p class="title">Authentication</p>
+          <label>
+            Your password:
+            <input
+              type="password"
+              name="password"
+              class="globalSettingsField"
+              id="fieldPassword">
+          </label>
+        </div>
+
         <button
           type="submit"
           id="saveFormButton">Save</button>
