@@ -145,7 +145,7 @@ tooltips.checkHeight = function(tooltip) {
 
 tooltips.processQuote = function(quote, backLink) {
 
-    var tooltip;
+  var tooltip;
 
     var quoteUrl = quote.href;
 

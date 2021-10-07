@@ -159,7 +159,7 @@ postingMenu.deleteSinglePost = function(boardUri, threadId, post, fromIp,
   } else if (fromIp) {
     selectedAction = onThread ? 'thread-ip-deletion' : 'ip-deletion';
   } else {
-    selectedAction = 'delete'
+    selectedAction = 'delete';
   }
 
   var params = {
@@ -706,8 +706,8 @@ postingMenu.setExtraMenuThread = function(extraMenu, board, thread, innerPart) {
   extraMenu.appendChild(document.createElement('hr'));
 
   var mergeButton = document.createElement('div');
-  archiveButton.innerHTML = 'Merge';
-  archiveButton.onclick = function() {
+  mergeButton.innerHTML = 'Merge';
+  mergeButton.onclick = function() {
     postingMenu.mergeThread(board, thread);
   };
   extraMenu.appendChild(mergeButton);

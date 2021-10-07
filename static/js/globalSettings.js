@@ -15,13 +15,17 @@ globalSettings.init = function() {
       setting : 'emailDomainWhiteList',
       type : 'string'
     },
-    checkboxSendmail : {
-      type : 'boolean',
-      setting : 'useSendmail',
+    fieldFlagLimit : {
+      setting : 'flagLimit',
+      type : 'string'
     },
     fieldTrashLimitDays : {
       type : 'string',
       setting : 'trashLimitDays',
+    },
+    fieldCaptchaPool : {
+      type : 'string',
+      setting : 'captchaPool',
     },
     checkboxDiskMedia : {
       type : 'boolean',
@@ -134,6 +138,10 @@ globalSettings.init = function() {
     fieldFileProcessingLimit : {
       type : 'string',
       setting : 'fileProcessingLimit',
+    },
+    fieldDefaultTheme : {
+      type : 'string',
+      setting : 'defaultTheme',
     },
     fieldMaxFilterLength : {
       type : 'string',
@@ -529,7 +537,17 @@ globalSettings.init = function() {
 
 globalSettings.save = function() {
 
-  var parameters = {};
+  if (document.getElementById('authDiv')) {
+    var typedPassword = document.getElementById('fieldPassword').value;
+
+    if (!typedPassword) {
+      return alert('You must provide your password.');
+    }
+  }
+
+  var parameters = {
+    password : typedPassword
+  };
 
   for ( var key in globalSettings.siteSettingsRelation) {
 
