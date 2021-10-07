@@ -328,8 +328,9 @@ postingMenu.banSinglePost = function(innerPart, boardUri, thread, post, global) 
     captchaField = outerPanel.getElementsByClassName('modalAnswer')[0];
   }
 
-  var nonBypassableCheckbox = document.createElement('input');
-  nonBypassableCheckbox.type = 'checkbox';
+    var nonBypassableCheckbox = document.createElement('input');
+    nonBypassableCheckbox.type = 'checkbox';
+    nonBypassableCheckbox.checked = true;
 
   okButton.onclick = function() {
     postingMenu.applySingleBan(messageField.value.trim(),

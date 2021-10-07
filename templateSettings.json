@@ -95,7 +95,7 @@
     "audioThumb": "images/music.png",
     "defaultBanner": "images/banner.png",
     "spoiler": "images/spoiler.png",
-    "thumb": "../static/logo.png",
+    "thumb": "images/thumbGeneric.png",
     "maintenanceImage": "images/maintenanceImage.png",
     "socketManagementPage": "pages/socket.html",
     "mediaDetailsPage": "pages/mediaDetailsPage.html",

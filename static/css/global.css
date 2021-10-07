@@ -1387,11 +1387,13 @@ body.theme_march {
 
 .theme_march hr,
 .theme_march #innerUtilityTop,
-.theme_march #dynamicAnnouncement{
+.theme_march #dynamicAnnouncement,
+.theme_march #innerUtilityBottom.catalogBottom {
     border-top: 1px solid #282a2e;
 }
 
-.theme_march #innerUtilityBottom {
+.theme_march #innerUtilityBottom,
+.theme_march #innerUtilityTop.catalogTop {
     border-bottom: 1px solid #282a2e;
 }
 
@@ -1676,11 +1678,13 @@ body.theme_warosu {
 
 .theme_warosu hr,
 .theme_warosu #innerUtilityTop,
-.theme_warosu #dynamicAnnouncement{
+.theme_warosu #dynamicAnnouncement,
+.theme_warosu #innerUtilityBottom.catalogBottom {
     border-top: 1px solid rgba(0,0,0,0.11);
 }
 
-.theme_warosu #innerUtilityBottom {
+.theme_warosu #innerUtilityBottom,
+.theme_warosu #innerUtilityTop.catalogTop {
     border-bottom: 1px solid rgba(0,0,0,0.11);
 }
 
@@ -1930,11 +1934,13 @@ body.theme_yotsuba {
 
 .theme_yotsuba hr,
 .theme_yotsuba #innerUtilityTop,
-.theme_yotsuba #dynamicAnnouncement{
+.theme_yotsuba #dynamicAnnouncement,
+.theme_yotsuba #innerUtilityBottom.catalogBottom {
     border-top: 1px solid #d9bfb7;
 }
 
-.theme_yotsuba #innerUtilityBottom {
+.theme_yotsuba #innerUtilityBottom,
+.theme_yotsuba #innerUtilityTop.catalogTop {
     border-bottom: 1px solid #d9bfb7;
 }
 
@@ -2183,11 +2189,13 @@ body.theme_yotsuba_b {
 
 .theme_yotsuba_b hr,
 .theme_yotsuba_b #innerUtilityTop,
-.theme_yotsuba_b #dynamicAnnouncement{
+.theme_yotsuba_b #dynamicAnnouncement,
+.theme_yotsuba_b #innerUtilityBottom.catalogBottom {
     border-top: 1px solid #b7c5d9;
 }
 
-.theme_yotsuba_b #innerUtilityBottom {
+.theme_yotsuba_b #innerUtilityBottom,
+.theme_yotsuba_b #innerUtilityTop.catalogTop {
     border-bottom: 1px solid #b7c5d9;
 }
 

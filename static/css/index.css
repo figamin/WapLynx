@@ -129,12 +129,14 @@
     width: calc(100% - 2em);
     padding-bottom: 1px;
     min-inline-size: auto;
+    height: min-content;
 }
 
 .splitField {
     width: 100%;
     column-count: 2;
     text-align: center;
+    display: inline-flex;
 }
 
 #divLatestImages {
