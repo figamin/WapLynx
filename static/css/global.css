@@ -1680,7 +1680,8 @@ body.theme_warosu {
 .theme_warosu #innerUtilityTop,
 .theme_warosu #dynamicAnnouncement,
 .theme_warosu #innerUtilityBottom.catalogBottom {
-    border-top: 1px solid rgba(0,0,0,0.11);
+    border-top: 1px solid #333;
+    border-bottom: 1px solid #333;
 }
 
 .theme_warosu #innerUtilityBottom,
@@ -1936,7 +1937,8 @@ body.theme_yotsuba {
 .theme_yotsuba #innerUtilityTop,
 .theme_yotsuba #dynamicAnnouncement,
 .theme_yotsuba #innerUtilityBottom.catalogBottom {
-    border-top: 1px solid #d9bfb7;
+    border-top: 1px solid #800;
+    border-bottom: 1px solid #800;
 }
 
 .theme_yotsuba #innerUtilityBottom,
@@ -2191,7 +2193,8 @@ body.theme_yotsuba_b {
 .theme_yotsuba_b #innerUtilityTop,
 .theme_yotsuba_b #dynamicAnnouncement,
 .theme_yotsuba_b #innerUtilityBottom.catalogBottom {
-    border-top: 1px solid #b7c5d9;
+    border-top: 1px solid #000;
+    border-bottom: 1px solid #000;
 }
 
 .theme_yotsuba_b #innerUtilityBottom,
@@ -2446,7 +2449,8 @@ body.theme_miku {
 .theme_miku #innerUtilityTop,
 .theme_miku #dynamicAnnouncement,
 .theme_miku #innerUtilityBottom.catalogBottom {
-    border-top: 1px solid #728E7E;
+    border-top: 1px solid rgb(0, 147, 171);
+    border-bottom: 1px solid rgb(0, 147, 171);
 }
 
 .theme_miku #innerUtilityBottom,

@@ -65,7 +65,13 @@ watcher.init = function() {
 
   watcherButton.onclick = function() {
 
-    if (showingWatched) {
+      if (watcher.watchedMenu.style.display === 'none') {
+	  watcher.watchedMenu.style.display = 'block';
+      } else {
+	  watcher.watchedMenu.style.display = 'none';
+      }
+
+      if (showingWatched) {
       return;
     }
 
