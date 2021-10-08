@@ -375,6 +375,8 @@ thread.refreshCallback = function(error, receivedData) {
 
           var postCell = posting.addPost(post, api.boardUri, api.threadId);
 
+          postCommon.checkForYou(postCell, post.postId);
+
           thread.divPosts.appendChild(postCell);
 
           thread.lastPost = postCell;

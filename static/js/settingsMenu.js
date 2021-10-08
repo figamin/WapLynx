@@ -378,7 +378,7 @@ settingsMenu.getOtherContent = function() {
 	    localStorage.setItem(key, settingRelation[key].checked);
 	    //localStoarge.setItem('localTime', settingRelation['localTime'].checked);
 	    //localStoarge.setItem('relativeTime', settingRelation['relativeTime'].checked);
-	    localStorage.setItem('enableYous', enableYousCheckbox.checked);
+	    //localStorage.setItem('enableYous', enableYousCheckbox.checked);
 	}
 
 	location.reload();
