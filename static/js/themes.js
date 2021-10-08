@@ -8,6 +8,10 @@ themes.init = function() {
 	    id : 'march'
 	},
 	{
+	    label : 'Miku',
+	    id : 'miku'
+	},
+	{
 	    label : 'Tomorrow',
 	    id : 'tomorrow'
 	},

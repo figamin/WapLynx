@@ -1967,7 +1967,7 @@ body.theme_yotsuba {
 /* END YOTSUBA */
 
 /* --- */
-
+ 
 /* BEGIN YOTSUBA B */
 
 body.theme_yotsuba_b {
@@ -2220,3 +2220,258 @@ body.theme_yotsuba_b {
     color: #789922;
 }
 /* END YOTSUBA B */
+
+/* --- */
+ 
+/* BEGIN MIKU */
+
+body.theme_miku {
+    background: #D2FFEE no-repeat;
+    background-image: none;
+    color: #000;
+    background-image: linear-gradient(to bottom, #a1e8ec 0, transparent 260px);
+}
+
+.theme_miku a,
+.theme_miku .coloredIcon,
+.theme_miku .unhideButton,
+.theme_miku .embedButton,
+.theme_miku .checkedFavouriteButton::before,
+.theme_miku #selectedTab,
+.theme_miku .labelOmission,
+.theme_miku #formMore,
+.theme_miku #qrFormMore,
+.theme_miku .removeButton {
+    color: #00637B !important;
+}
+
+.theme_miku a:hover,
+.theme_miku .glowOnHover:hover,
+.theme_miku #formMore:hover,
+.theme_miku #qrFormMore:hover,
+.theme_miku .floatingMenu.extraMenu div:hover,
+.theme_miku .floatingMenu.hideMenu div:hover,
+.theme_miku .removeButton:hover {
+    color: #d00 !important;
+    filter: none;
+}
+
+.theme_miku #settingsFieldset,
+.theme_miku .reportFieldset,
+.theme_miku .titleFieldset,
+.theme_miku input,
+.theme_miku select,
+.theme_miku textarea,
+.theme_miku .contentAction,
+.theme_miku #divBoards .boardsCell:nth-child(1n) {
+    background: #fff;
+}
+
+.theme_miku input,
+.theme_miku select,
+.theme_miku textarea {
+    color: #000;
+}
+
+.theme_miku #settingsFieldset,
+.theme_miku .reportFieldset,
+.theme_miku .titleFieldset {
+    border: 1px solid rgb(0, 147, 171);
+}
+
+.theme_miku fieldset legend,
+.theme_miku #divBoardsLegend,
+.theme_miku #divArchiveLegend {
+    background: #c9f8f0;
+    color: #000;
+}
+
+.theme_miku nav,
+.theme_miku .dropdown-content {
+    background: rgb(182, 221, 222);
+}
+
+.theme_miku nav {
+    border-bottom: 1px solid rgb(0, 147, 171);
+}
+
+.theme_miku .dropdown-content {
+    border: 1px solid #89A;
+}
+
+.theme_miku #dynamicHeader a:hover,
+.theme_miku #dynamicHeaderAlt a:hover,
+.theme_miku #dynamicHeaderThread a:hover,
+.theme_miku #dynamicHeaderOverboard a:hover,
+.theme_miku .glowOnHover:hover,
+.theme_miku .floatingMenu.extraMenu div:hover,
+.theme_miku .floatingMenu.hideMenu div:hover,
+.theme_miku .settingsTab:hover {
+    color: #d00 !important;
+}
+
+.theme_miku .topBoards a {
+    background: none;
+}
+
+.theme_miku #divBoards .boardsCell:nth-child(2n) {
+    background-color: #B6DDDE;
+}
+
+.theme_miku input[type="button"],
+.theme_miku input[type="submit"],
+.theme_miku button,
+.theme_miku .dropzone,
+.theme_miku selectedCell,
+.theme_miku #contentBoxInner button,
+.theme_miku #contentBoxInner .hidden.reloadCaptchaButton,
+.theme_miku #contentBoxInner input[type="submit"] {
+    border: 1px solid rgb(0, 147, 171);
+    background: #c9f8f0;
+    color: #000;
+}
+
+.theme_miku input,
+.theme_miku select,
+.theme_miku textarea,
+.theme_miku #quick-reply input:focus,
+.theme_miku #quick-reply textarea:focus {
+    border: 1px solid #aaa;
+}
+
+.theme_miku #quick-reply input:focus,
+.theme_miku #quick-reply textarea:focus,
+.theme_miku input:focus,
+.theme_miku #fieldMessage:focus,
+.theme_miku textarea:focus {
+    border: 1px solid #000;
+}
+
+.theme_miku .floatingMenu,
+.theme_miku #quick-reply table,
+.theme_miku .modalDecorationPanel,
+.theme_miku #divArchive div:nth-child(2n),
+.theme_miku .innerPost,
+.theme_miku .sideCatalogCell {
+    background: #B6DDDE;
+}
+
+.theme_miku .markedPost,
+.theme_miku .sideCatalogMarkedCell {
+    background: #a9d8ff;
+    border: 1px solid rgb(0, 147, 171);
+}
+
+.theme_miku #existingFiltersPanel > div:nth-child(2n),
+.theme_miku #watchedMenu > div:nth-child(2n),
+.theme_miku .settingsTab {
+    background: rgba(255,255,255,.40);
+}
+
+.theme_miku #postingForm th,
+.theme_miku .modalTableBody th,
+.theme_miku .postingTypeBanner,
+.theme_miku #quick-reply th,
+.theme_miku #newPostFieldset legend,
+.theme_miku #selectedTab{
+    background: #c9f8f0;
+    border: 1px solid rgb(0, 147, 171);
+}
+
+.theme_miku .innerPost,
+.theme_miku .reportFieldset,
+.theme_miku .sideCatalogCell {
+    border: 1px solid #8FCCCD;
+}
+
+.theme_miku .noEmailName,
+.theme_miku .noEmailName:hover {
+    color: #117743 !important;
+}
+
+.theme_miku .labelSubject {
+    color: #117743;
+}
+
+.theme_miku #questionBox::before,
+.theme_miku #questionBox::after,
+.theme_miku #showFederatedButton::before,
+.theme_miku #showFederatedButton::after,
+.theme_miku .returnReplyLink::before,
+.theme_miku .returnReplyLink::after,
+.theme_miku #showFormsButton::before,
+.theme_miku #showFormsButton::after,
+.theme_miku #threadOpen::before,
+.theme_miku #threadOpen::after,
+.theme_miku .opHead .coloredIcon,
+.theme_miku .postInfo .coloredIcon {
+    color: #00637B !important;
+}
+
+.theme_miku #sideCatalogDiv a,
+.theme_miku #labelDescription,
+.theme_miku .linkSelf,
+.theme_miku .linkQuote,
+.theme_miku .labelStats,
+.theme_miku .spoiler:hover,
+.theme_miku .indicatorSfw::after,
+.theme_miku .indicatorInactive::after,
+.theme_miku #formMore td::before,
+.theme_miku #qrFormMore td::before,
+.theme_miku #formMore td::after,
+.theme_miku #qrFormMore td::after,
+.theme_miku #showFormsButton::before,
+.theme_miku #showFormsButton::after,
+.theme_miku #dynamicHeader a,
+.theme_miku #dynamicHeaderAlt a,
+.theme_miku #dynamicHeaderThread a,
+.theme_miku #dynamicHeaderOverboard a{
+    color: #34345C !important;
+}
+
+.theme_miku #quick-reply table,
+.theme_miku .modalDecorationPanel,
+.theme_miku .floatingMenu,
+.theme_miku #settingsFieldset,
+.theme_miku .reportFieldset,
+.theme_miku #newPostFieldset legend,
+.theme_miku .settingsTab,
+.theme_miku fieldset legend,
+.theme_miku #divBoardsLegend,
+.theme_miku #divArchiveLegend {
+    border: 1px solid rgb(0, 147, 171) !important;
+}
+
+.theme_miku hr,
+.theme_miku #innerUtilityTop,
+.theme_miku #dynamicAnnouncement,
+.theme_miku #innerUtilityBottom.catalogBottom {
+    border-top: 1px solid #728E7E;
+}
+
+.theme_miku #innerUtilityBottom,
+.theme_miku #innerUtilityTop.catalogTop {
+    border-bottom: 1px solid #728E7E;
+}
+
+.theme_miku .quoteTooltip {
+    border: none;
+}
+
+.theme_miku .floatingMenu,
+.theme_miku #quick-reply table,
+.theme_miku .modalDecorationPanel {
+    color: #000;
+}
+
+.theme_miku .dropzone,
+.theme_miku .selectedCell {
+    border: 1px solid rgb(0, 147, 171) !important;
+    background: #c9f8f0;
+    color: #000;
+}
+
+.theme_miku .greenText {
+    color: #789922;
+}
+/* END MIKU */
