@@ -102,4 +102,9 @@ themes.init = function() {
 
 };
 
+//Functionality for the board selector
+function boardUrlHandler(value) {                               
+    window.location.assign(`${value}`);
+}
+
 themes.init();
