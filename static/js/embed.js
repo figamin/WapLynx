@@ -180,8 +180,8 @@ embed.getSrcOdysee = function(url) {
     return;
   }
 
-  if (videoId.includes(':') == true)) {
-    videoId.split(':')[0];
+  if (videoId.includes(':') == true) {
+    videoId = videoId.split(':')[0];
   }
 
   return 'https://odysee.com/$/embed/' + videoId;
