@@ -149,6 +149,12 @@ td {
     margin-left: auto;
     margin-right: auto;
     display: block;
+    max-width: 1000px;
+}
+
+#settingsFieldset.latestPostings {
+    display: table-cell;
+    max-width: 1000px;
 }
 
 #actionsForm {
