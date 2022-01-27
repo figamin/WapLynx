@@ -21,11 +21,14 @@ themeLoader.load = function(init) {
     }
     body.className = 'theme_' + localStorage.selectedTheme;
   } else {
-
-    if (themeLoader.customCss && !themeLoader.customCss.parentNode) {
-      document.head.appendChild(themeLoader.customCss);
+    if (themeLoader.customCss && themeLoader.customCss.parentNode) {
+      themeLoader.customCss.remove();
     }
-    body.removeAttribute('class');
+    body.className = 'theme_march';
+    //if (themeLoader.customCss && !themeLoader.customCss.parentNode) {
+     // document.head.appendChild(themeLoader.customCss);
+    //}
+    //body.removeAttribute('class');
   }
 
 };

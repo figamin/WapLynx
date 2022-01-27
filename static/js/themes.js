@@ -50,9 +50,9 @@ themes.init = function() {
   var themeSelector = document.createElement('select');
   themeSelector.id = 'themeSelector';
 
-  var vanillaOption = document.createElement('option');
-  vanillaOption.innerHTML = 'Board-specific CSS';
-  themeSelector.appendChild(vanillaOption);
+  //var vanillaOption = document.createElement('option');
+  //vanillaOption.innerHTML = 'Board-specific CSS';
+  //themeSelector.appendChild(vanillaOption);
 
   for (var i = 0; i < themes.themes.length; i++) {
 
@@ -85,7 +85,7 @@ themes.init = function() {
       return;
     }
 
-    var selectedTheme = themes.themes[themeSelector.selectedIndex - 1];
+    var selectedTheme = themes.themes[themeSelector.selectedIndex];
 
     if (selectedTheme.id === localStorage.selectedTheme) {
       return;

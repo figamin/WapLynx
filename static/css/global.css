@@ -383,10 +383,10 @@ textarea:focus {
 }
 
 .natsocText:before {
-    content: '卐 ';
+    content: '「';
 }
 .natsocText:after {
-    content: ' 卐';
+    content: '」';
 }
 
 .deathText {
@@ -1069,12 +1069,12 @@ footer {
 
 @media only screen and (max-width: 812px) {
     /* #navLinkSpan span, */
+    /* text-align: center; */
     legend,
-    #settingsButton,
     #links span,
     .hideMobile,
-    #themeSelector,
     #navBoardsSpan,
+    #settingsButton,
     .dropdown {
 	display: none;
     }
@@ -1430,19 +1430,20 @@ body.theme_march {
 }
 
 .theme_march .labelRole::before {
-  content: "卐 ";
+  content: "「 ";
 }
 .theme_march .labelRole::after {
-  content: " 卐";
+  content: " 」";
 }
-.theme_march .labelRole,
+/*.theme_march .labelRole,
 .theme_march .labelRole::after,
 .theme_march .labelRole::before {
     color: #ff000a !important;
     text-shadow: 1px 1px 8px #ff000a;
     font-size: 10pt;
     vertical-align: text-bottom;
-}
+}*/
+
 /* END MARCH */
 
 /* --- */

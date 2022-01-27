@@ -217,7 +217,7 @@ video {
     /* color: #A00; */
 
     font-family: 'Icofont';
-    content: " \e859";
+    content: " \f00a";
     margin-left: -3px;
     font-size: 18px;
     vertical-align: middle;
@@ -225,9 +225,9 @@ video {
 
 .labelRole,
 .labelRole:after {
-    color: #81d516 !important;
+    color: #d51616 !important;
 
-    text-shadow: 1px 1px 8px #1ad21a;
+    text-shadow: 1px 1px 8px #711616;
 }
 
 .divMessage {

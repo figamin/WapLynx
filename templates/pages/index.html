@@ -63,79 +63,68 @@
 	  <a href="/.static/pages/about.html" class="coloredIcon" id="linkAbout"></a>
 	  <span>•</span>
 	  <a href="/.static/pages/contact.html" class="coloredIcon" id="linkContact"></a>
-	  <span>•</span>
-	  <a href="/.static/pages/donate.html" class="coloredIcon" id="linkDonate"></a>
-	  <span>•</span>
-	  <a href="/account.js" class="coloredIcon" id="linkAccount"></a>
 	</div>
       </fieldset>
 
       <fieldset class="titleFieldset">
-	<legend>Welcome</legend>
+	<legend>hey!</legend>
 	<p>
-	  16chan is a simple imageboard where anyone can post comments and share images. There are boards dedicated to a variety of topics. Users do not need to register an account before participating in the community.<br /><br />
+	  wapchan is a simple imageboard where anyone can post text and images, mainly focused around retro (pre 2000s) content. there is currently a single SFW board (/ar/), as well as a meta board, but this will be expanded soon. enjoy your time here!<br /><br />
 
-	  Be sure to familiarize yourself with the <a href="/.static/pages/globalRules.html">global rules</a> before posting, and read the <a href="/.static/pages/about.html">FAQ</a> if you wish to learn about how to use the site.
+	  be sure to familiarize yourself with the <a href="/.static/pages/globalRules.html">global rules</a> before posting, and read the <a href="/.static/pages/about.html">FAQ</a> if you wish to learn about how to use the site.
 	</p>
 
       	<br />
 
-	<div id="torLink">
-	  <img src="/.static/onion.png"><b>Tor v3:</b> <a href="http://mbv5a7cc6756lkpqts6si5zcpxwvd43cyb4atbqzjqypktsdoftphyqd.onion">mbv5a7cc6756lkpqts6si5zcpxwvd43cyb4atbqzjqypktsdoftphyqd.onion</a> <b>(redirect <a href="https://tor.16chan.xyz">tor.16chan.xyz</a> or <a href="https://onion.16chan.xyz">onion.16chan.xyz</a>)</b>
 
-	  <br />
-	  
-	  <sup>We have retired our old v2 onion address since the upcoming version of Tor will no longer support it.</sub>
-	</div>
 
 	<br />
 	
       </fieldset>
 
       <fieldset class="titleFieldset">
-	<legend>Boards</legend>
+	<legend>boards</legend>
 
 	<div id="divBoards" class="topBoards title">
-	    <!-- <a href="/200acres">/200acres/ - 200acres</a> -->
-	    <a href="/ausneets">/ausneets/ - Aussie NEETs</a>
-	    <a href="/b">/b/ - Random</a>
-	    <a href="/bmw">/bmw/ - The Bureau of Memetic Warfare</a>
-	    <a href="/culture">/culture/ - Kultur</a>
-	    <a href="/fascist">/fascist/ - Surf the Kali Yuga</a>
-	    <a href="/g">/g/ - Technology</a>
-	    <a href="/k">/k/ - Weapons</a>
-	    <a href="/library">/library/ - Library</a>
-	    <!-- <a href="/mde">/mde/ - Million Dollar Extreme</a> -->
-	    <a href="/meta">/meta/ - 16chan Discussion</a>
-	    <a href="/pol">/pol/ - Politically Incorrect</a>
-	    <a href="/r9k">/r9k/ - ROBOT9001</a>
-	    <a href="/v">/v/ - Video Games</a>
+	    <a href="/ar">/ar/ - Anime/Retro</a>
+	    <a href="/meta">/meta/ - Wapchan Discussion</a>
 	</div>
 
       </fieldset>
       
       <div class="splitField">
 	<fieldset class="titleFieldset">
-	  <legend>Latest Images</legend>
+	  <legend>latest images</legend>
 	  <div id="divLatestImages"></div>
 	</fieldset>
 	<fieldset class="titleFieldset">
-	  <legend>Latest Posts</legend>
+	  <legend>latest posts</legend>
 	  <div id="divLatestPosts"></div>
 	</fieldset>
       </div>
-
+    <fieldset class="titleFieldset">
+	<legend>other links</legend>
+	<a href="telnet://bbs.wapchan.org">wapnet BBS [telnet]</a> <a href="http://bbs.wapchan.org:8002">[http]</a> 
+	<br>
+    <a href="https://dis.wapchan.org">Wapchan Textboard</a>
+    <br>
+    <a href="https://horus.wapchan.org">Horus Gallery (under construction)</a>
+    <br>
+    <a href="https://qchat.rizon.net/?channels=wapchan">IRC Server</a>
+      </fieldset>
 	<fieldset class="titleFieldset">
-	  <legend>Stats</legend>
+	  <legend>stats</legend>
 	  <div id="divStats">
 	  <span></span> <b><span>Total posts:</b> <span id="labelTotalPosts"></span></span>
 	  <br>
+	  <span></span><b><span>Media files stored:</b> <span id="labelTotalFiles"></span></span>
+	  <br>
 	  <span><span> <b><span>Total media size:</b> <span id="labelTotalSize"></span></span>
+	  <br>
 	      <div class="hidden">
-		<span>/</span> <span>Posts in last hour: <span id="labelTotalPPH"></span></span>
-		<span>/</span> <span>Unique recent IPs: <span id="labelTotalIps"></span></span>
-		<span>/</span> <span>Total boards: <span id="labelTotalBoards"></span></span>
-		<span>/</span> <span>Media files stored: <span id="labelTotalFiles"></span></span>
+		<span>/</span> <span><span id="labelTotalPPH"></span></span>
+		<span>/</span> <span><span id="labelTotalBoards"></span></span>
+		<span>/</span> <span><span id="labelTotalIps"></span></span>
 		<span>]</span>
 	      </div>
 	  </div>
