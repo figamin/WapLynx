@@ -26,6 +26,18 @@ themes.init = function() {
 	{
 	    label : 'Yotsuba B',
 	    id : 'yotsuba_b'
+	},
+	{
+	    label : 'Terminal',
+	    id : 'terminal'
+	},
+	{
+	    label : 'Terminal (Amber)',
+	    id : 'terminal_amber'
+	},
+    {
+	    label : 'W64',
+	    id : 'w64'
 	}
     ];
 

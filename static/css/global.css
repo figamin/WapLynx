@@ -691,6 +691,27 @@ input[type=button], input[type=submit], button, .dropzone, .selectedCell
     font-style: normal;
 }
 
+@font-face {
+  font-family: 'IBM';
+  src: url('../ibm-vga.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'PEEP';
+  src: url('../peep8x16.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'C64';
+  src: url('../C64.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
 /* body styles, inherited by whole page */
 body {
     /* color: #ACACAC; */
@@ -2499,3 +2520,51 @@ body.theme_miku {
     color: #789922;
 }
 /* END MIKU */
+
+/* --- */
+
+/* begin terminal */
+
+*.theme_terminal {
+    color: #33ff33;
+    background: #000000;
+    font-family: "IBM" !important;
+    font-size: 15pt !important;
+}
+
+.theme_terminal .greenText {
+    color: #ffb000;
+}
+
+body.theme_terminal_amber {
+    color: #ffb000;
+    background: #000000;
+    font-family: "IBM" !important;
+    font-size: 15pt !important;
+}
+
+.theme_terminal_amber .greenText {
+    color: #33ff33;
+}
+
+body.theme_w64 {
+    color: #7c71da;
+    background: #3e32a2;
+    font-family: "C64" !important;
+    font-size: 10pt !important;
+}
+
+.theme_w64 .greenText {
+    color: #2b90c2;
+}
+.theme_w64 .latestPostCell,
+.theme_w64 .innerPost,
+.theme_w64 .sideCatalogCell,
+.theme_w64 .markedPost,
+.theme_w64 .sideCatalogMarkedCell {
+    background: #2b2bc2;
+    /* border-radius: 5px; */
+}
+/* end terminal */
+
+/* --- */
