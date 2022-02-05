@@ -1,61 +1,31 @@
-<input type="text"
-   id="prevent_autofill_uname"
-   class="hidden"
-   autocomplete="off"
-   tabindex="-1" />
-<input type="password"
-    id="prevent_autofill_pwd"
-    class="hidden"
-    autocomplete="off"
-    tabindex="-2" />
+<tbody>
 
-<table> <tbody>
+  <tr>
+    <th>Sage:</th>
+    <td><input type="checkbox" class="postingInput" id="checkboxSage" name="sage"></td>
+  </tr>
 
   <tr id="divName">
     <th>Name</th>
     <td><input
         type="text"
-        autocomplete="none"
         class="postingInput"
-        id="fieldName"
+          id="fieldName"
+	  Placeholder="Anonymous"
         name="name"></td>
-  </tr>
- 
-  <tr id="divOptions">
-    <th>Options</th>
-    <td>
-      <span id="useSageSpan">
-        <input
-          type="checkbox"
-          class="postingCheckbox postingInput"
-		  name="sage"
-          id="doSageCheckbox">
-        <label for="doSageCheckbox"></label>
-      </span>
-
-      <span class="hidden" id="alwaysUseBypassSpan">
-        <input
-          type="checkbox"
-          class="postingCheckbox postingInput"
-          id="alwaysUseBypassCheckBox">
-        <label for="alwaysUseBypassCheckBox"></label>
-      </span>
-    </td>
   </tr>
 
   <tr>
     <th>Subject</th>
     <td><input
         type="text"
-        autocomplete="none"
         class="postingInput"
         id="fieldSubject"
         name="subject">
       <input
         name="boardUri"
         id="boardIdentifier"
-        type="hidden"
-        tabindex="-3" /></td>
+        type="hidden"></td>
   </tr>
 
   <tr>
@@ -101,19 +71,6 @@
         name="spoiler"
         class="postingCheckbox"
         id="checkboxSpoiler"> <label for="checkboxSpoiler"></label>
-      <label id="labelScramble" for="checkboxScramble"></label>
-
-      <p class="small">
-        Max file size: <span id="labelMaxFileSize"></span>
-      </p>
-      <p class="small">
-        Max files: <span id="labelMaxFiles"></span>
-      </p>
-      <p class="small">
-        Supported file types: GIF, JPG, PNG, WebM, OGG, and
-       	<a class="localPageLink" href="/.static/pages/about.html#filetypes">more</a>
-      </p>
-
     </td>
   </tr>
 
@@ -136,31 +93,30 @@
         <input
           name="captcha"
           type="text"
-          autocomplete="none"
           class="captchaField postingInput"
           id="fieldCaptcha"
           placeholder="answer">
 
         <a
           href="/noCookieCaptcha.js"
-          class="small"
-          id="noCookiesLink">no cookies?</a>
+          class="small">no cookies?</a>
 
       </div></td>
   </tr>
 
-</tbody> </table>
+  <tr
+    class="hidden small"
+    id="formMore">
+    <td>More Options</td>
+  </tr>
 
-<details class="postingFormExtra">
-<summary class="glowOnHover"></summary>
-
-<table> <tbody>
+</tbody>
+<tbody id="extra">
 
   <tr>
     <th>E-mail</th>
     <td><input
         type="text"
-        autocomplete="none"
         class="postingInput"
         id="fieldEmail"
         name="email"></td>
@@ -193,8 +149,15 @@
           name="noFlag">
         <label for="checkboxNoFlag"></label>
       </div>
+      <div
+        class="hidden"
+        id="alwaysUseBypassDiv">
+        <input
+          type="checkbox"
+          class="postingCheckbox postingInput"
+          id="alwaysUseBypassCheckBox">
+        <label for="alwaysUseBypassCheckBox"></label>
+      </div>
     </td>
   </tr>
-</tbody> </table>
-
-</details>
+</tbody>

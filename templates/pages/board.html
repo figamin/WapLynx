@@ -52,7 +52,11 @@
     <nav id="dynamicHeaderAlt"></nav>
 
     <header class="boardHeader">
-      <img id="bannerImage" />
+      <video width="300" height="225" playsinline autoplay muted loop id="bannerImage">
+      </video>
+        <script type="text/javascript">
+        document.getElementById("bannerImage").setAttribute("poster", document.getElementById("bannerImage").getAttribute("src"));
+        </script>
       <div>
 	<p id="labelName"></p>
       </div>
