@@ -50,7 +50,7 @@
       currentLink.href = "https://www.youtube.com/watch?v=" + values2[i].slice(-16).slice(0, -5);
       currentLink.target = '_blank';
       currentLink.innerHTML = values2[i].substring(8).slice(0, -18);
-      currentLink.style = "background-color: #303030;"
+      currentLink.style = "background: rgb(210,251,63);background: radial-gradient(circle, rgba(210,251,63,1) 0%, rgba(226,6,241,1) 44%, rgba(0,198,255,1) 73%);"
       paragraph.appendChild(currentLink);
       paragraph.appendChild(document.createElement("br"));
     }

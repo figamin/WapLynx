@@ -22,7 +22,8 @@
 	"pages/links.html",
 	"pages/mobile.html",
 	"pages/moderation.html",
-	"pages/posting.html"
+	"pages/posting.html",
+	"pages/quotes.html"
     ],
     "logIndexCell": "cells/logIndexCell.html",
     "accountPage": "pages/account.html",

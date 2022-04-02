@@ -6,7 +6,19 @@
 /*     max-width: 1000px; */
 /*     padding-right: 0.5em; */
 /* } */
-
+@-webkit-keyframes hue {
+  from {
+    -webkit-filter: hue-rotate(0deg);
+  }
+  
+  to {
+    -webkit-filter: hue-rotate(360deg);
+  }
+}
+#randoMessage {
+  text-align: center;
+  font-style: italic;
+}
 #logoBox {
   width: 100%;
   /* margin: 0 auto 1em auto; */

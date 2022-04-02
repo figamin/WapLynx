@@ -1,39 +1,36 @@
 <script src="/.static/js/jquery.min.js"></script>
-<span id="navLinkSpan"><span></span> <a
-    href="/"
-    class="coloredIcon"
-    id="navLinkHome"></a><span></span> <a
-    href="/boards.js"
-    class="coloredIcon"
-    id="navBoardList"></a><span></span> <a
-    href="/overboard"
-    class="coloredIcon"
-    id="navOverboard"></a><a
-    href="/.static/pages/posting.html"
-    class="coloredIcon"
-    id="navPosting"></a>
+    <span id="navLinkSpan"><span></span> <a
+        href="/"
+        class="coloredIcon"
+        id="navLinkHome"></a><span></span> <a
+        href="/boards.js"
+        class="coloredIcon"
+        id="navBoardList"></a><span></span> <a
+        href="/overboard"
+        class="coloredIcon"
+        id="navOverboard"></a><a
+        href="/.static/pages/posting.html"
+        class="coloredIcon"
+        id="navPosting"></a>
 
 <span>
   <span>
     <div class="dropdown">
       <a class="dropbtn">misc</a>
       <div class="dropdown-content">
-	<a href="/.static/pages/posting.html">posting</a>
 	<a href="/account.js">mod</a>
       </div>
     </div>
-    
   </span>
 </span>
-<b><a class="mobiledown" href="https://radio.wapchan.org:8000/">WAP-FM</a></b>
-
+<b style="text-align=right;"><a href="https://radio.wapchan.org:8000/">WAP-FM</a></b>
 <audio controls preload="false" style="width: 100px; height: 15px;">
     <source src="https://radio.wapchan.org:8000/wapfm" type="audio/mpeg">
     Your browser does not support the audio element.
 </audio>
 <span>
-<details id="last5" style="width:3.69px;position:absolute;top:6.5px;">
-<summary id="last5" style="width:100px;">last 5 songs</summary>
+<details style="width:3.69px;position:absolute;top:6.5px;">
+<summary style="width:100px;">last 5 songs</summary>
 <pre id="historics"></pre>
 </details>
 <p id="ircusers" style="position:relative;left:110px;"> users currently on </p>
@@ -50,7 +47,7 @@
       currentLink.href = "https://www.youtube.com/watch?v=" + values2[i].slice(-16).slice(0, -5);
       currentLink.target = '_blank';
       currentLink.innerHTML = values2[i].substring(8).slice(0, -18);
-      currentLink.style = "background-color: #303030;"
+      currentLink.style = "background: rgb(210,251,63);background: radial-gradient(circle, rgba(210,251,63,1) 0%, rgba(226,6,241,1) 44%, rgba(0,198,255,1) 73%);"
       paragraph.appendChild(currentLink);
       paragraph.appendChild(document.createElement("br"));
     }
@@ -63,7 +60,23 @@
     paragraph2.appendChild(currentLink);
   }, 'text');
 </script>
-</span>
-<span id="navBoardsSpan"> </span>
-<span id="navOptionsSpan"> </span>
-
+    </span>
+    <span id="navBoardsSpan">
+    </span>
+    <span id="navOptionsSpan">
+      <span>
+      </span>
+      <a
+        href=".."
+        id="linkBack"
+        class="coloredIcon"></a> <span></span> <a
+        href="#bannerImage"
+        id="linkTop"
+        class="coloredIcon"></a> <span></span> <a
+        href="#footer"
+        id="linkBottom"
+        class="coloredIcon"></a> <span></span> <a
+        href="../catalog.html"
+        id="navCatalog"
+        class="coloredIcon"></a> <span></span>
+    </span>

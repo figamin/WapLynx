@@ -38,6 +38,10 @@ themes.init = function() {
     {
 	    label : 'W64',
 	    id : 'w64'
+	},
+    {
+	    label : 'Lovely',
+	    id : 'lovely'
 	}
     ];
 
