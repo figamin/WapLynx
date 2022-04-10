@@ -45,36 +45,13 @@
       <p id="randoMessage"></p>
       <!--<p style="text-align: center;font-size:7px;"><a href="/.static/pages/quotes.html" >got a good quote?</a></p>-->
       
-      <script>
-        var texts = [
-  '"Marutanian approved."',
-  '"sure you can bash my head in Ran I love you"',
-  '"Now a bunch of fucking jocks are laughing at Ranma."',
-  '"hey, if you type in your pw, it will show as stars"',
-  '"i love lum so fucking much bros"',
-  '"I watch one episode per week and have calculated that I will finish the whole show in eighty years."',
-  '"technology makes everything worse, retard"',
-  '"I hate boys! I really, really, really hate boys!!"',
-  '"Obstacles are for killing."',
-  '"Kon!"',
-  '"old good, new bad"',
-  '"lmao imagine watching something made last century"',
-  '"Just fap to Madoka."',
-  '"i\'m kind of a sucker for romcoms and coming of age stuff from the 80s and 90s."',
-  '"Does the sight of cleavage make you insane?!"',
-  '"Sounds like someone didn\'t get enough Doraemon in his life!"',
-  '"I don\'t want to shift to the digital world. Instead I want to drag the digital into my world, the analog"',
-  '"actually, cel animation has infinite resolution"'
-];
-var element = document.getElementById("randoMessage");
-element.innerHTML = texts[Math.floor(Math.random()*texts.length)];
-      </script>
+      <script src="https://horus.wapchan.org/quotes.js" type="text/javascript"></script>
       
       <div
 	id="divBoards"
 	class="topBoards title"></div>
-
-      <div id="dynamicAnnouncement" class="alt"></div>
+  <object id="dynAnnouncement" style="width:450px;height:100px;display:block;" data="https://horus.wapchan.org/announcement.html"></object> 
+      <div  class="alt"></div>
 
       <fieldset class="titleFieldset">
 	<div id="dynamicLinks"><a href="/logs.js" class="coloredIcon" id="linkGlobalLogs"></a>

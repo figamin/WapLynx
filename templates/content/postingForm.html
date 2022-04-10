@@ -41,7 +41,15 @@
         Max message length: <span id="labelMessageLength"></span>
       </p></td>
   </tr>
-
+  <tr>
+    <th>Drawing</th>
+    <td>
+      <input type="number" placeholder="width" size="4" maxsize="4" id="oekakiWidth" value="300"> x
+      <input type="number" placeholder="height" size="4" maxsize="4" id="oekakiHeight" value="300">
+      <a href="#" onclick="Draw()">size canvas</a>
+      <div id="wPaint" style="position:relative;"></div>
+    </td>
+  </tr>
   <tr id="divUpload">
     <th>Files</th>
     <td>

@@ -80,7 +80,7 @@ td {
     padding: 0;
 }
 
-#dynamicAnnouncement {
+#dynAnnouncement {
     border: none;
     border-top: 1px solid #282a2e;
     /* border-bottom: 1px solid #282a2e; */
@@ -91,20 +91,20 @@ td {
     margin-bottom: 12px;
 }
 
-#dynamicAnnouncement table {
+#dynAnnouncement table {
     padding: 5px 0px 5px 0px;
 }
 
-#dynamicAnnouncement td {
+#dynAnnouncement td {
     vertical-align: top;
     padding-right: 4px;
 }
 
-#dynamicAnnouncement tr {
+#dynAnnouncement tr {
     line-height: 14px;
 }
 
-#dynamicAnnouncement.alt {
+#dynAnnouncement.alt {
     border-bottom: 1px solid #282a2e;
     margin-bottom: 10px;
 }
@@ -1022,11 +1022,13 @@ footer {
 }
 
 #navBoardList::after {
-    content: 'boards';
+    font-family: arial, "Line Awesome Free";
+   content: "\f51b boards";
 }
 
 #navOverboard::after, #linkOverboard::after {
-    content: 'overboard';
+    font-family: arial, "Line Awesome Free";
+   content: "\f1c0 overboard";
 }
 
 #linkSfwOver::after {
@@ -1038,16 +1040,23 @@ footer {
 }
 
 #navLinkHome::after {
-    content: 'home';
+   font-family: arial, "Line Awesome Free";
+   content: "\f015 home";
+   /*display: inline-block;
+   padding-right: 3px;
+   vertical-align: middle;
+   */
 }
 
 #watcherButton::after {
     /* content: 'watched threads'; */
-    content: 'watching';
+    font-family: arial, "Line Awesome Free";
+    content: "\f077 watching";
 }
 
 #settingsButton::after {
-    content: 'settings';
+    font-family: arial, "Line Awesome Free";
+    content: "\f7d9 settings";
 }
 
 #linkGlobalLogs::after {
@@ -1207,7 +1216,7 @@ footer {
     #linkAccount::after {
 	content: 'account';
     }
-
+    
     /* END ADDITION */
 }
 
@@ -1437,7 +1446,7 @@ body.theme_march {
 
 .theme_march hr,
 .theme_march #innerUtilityTop,
-.theme_march #dynamicAnnouncement,
+.theme_march #dynAnnouncement,
 .theme_march #innerUtilityBottom.catalogBottom {
     border-top: 1px solid #282a2e;
 }
@@ -1733,7 +1742,7 @@ body.theme_warosu {
     border-top: 1px solid rgba(0,0,0,0.11);
 }
 
-.theme_warosu #dynamicAnnouncement {
+.theme_warosu #dynAnnouncement {
     border-top: 1px solid rgba(0,0,0,0.11);
     border-bottom: 1px solid rgba(0,0,0,0.11);
 }
@@ -1993,7 +2002,7 @@ body.theme_yotsuba {
     border-top: 1px solid #d9bfb7;
 }
 
-.theme_yotsuba #dynamicAnnouncement {
+.theme_yotsuba #dynAnnouncement {
     border-top: 1px solid #d9bfb7;
     border-bottom: 1px solid #d9bfb7;
 }
@@ -2252,7 +2261,7 @@ body.theme_yotsuba_b {
     border-top: 1px solid #b7c5d9;
 }
 
-.theme_yotsuba_b #dynamicAnnouncement {
+.theme_yotsuba_b #dynAnnouncement {
     border-top: 1px solid #b7c5d9;
     border-bottom: 1px solid #b7c5d9;
 }
@@ -2511,7 +2520,7 @@ body.theme_miku {
     border-top: 1px solid rgb(0, 147, 171);
 }
 
-.theme_miku #dynamicAnnouncement {
+.theme_miku #dynAnnouncement {
     border-top: 1px solid rgb(0, 147, 171);
     border-bottom: 1px solid rgb(0, 147, 171);
 }
@@ -2811,7 +2820,7 @@ body.theme_lovely {
     border-top: 1px solid #f097e8;
 }
 
-.theme_lovely #dynamicAnnouncement {
+.theme_lovely #dynAnnouncement {
     border-top: 1px solid #f097e8;
     border-bottom: 1px solid #f097e8;
 }

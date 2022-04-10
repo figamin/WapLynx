@@ -360,7 +360,8 @@ api.formApiRequest = function(page, parameters, callback, silent, getParameters)
     } else {
 
       var files = parameters.files;
-
+      console.log("num of files")
+      console.log(files.length)
       for (var i = 0; i < files.length; i++) {
 
         var file = files[i];

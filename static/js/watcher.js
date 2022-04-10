@@ -22,7 +22,7 @@ watcher.init = function() {
 
   var watcherButton = document.createElement('a');
   watcherButton.id = 'watcherButton';
-  watcherButton.className = 'coloredIcon';
+  watcherButton.className = 'la';
 
   watcher.watcherCounter = document.createElement('span');
 

@@ -112,7 +112,7 @@ settingsMenu.placeNavBarButton = function(settingsMenuDiv) {
 
     var settingsButton = document.createElement('a');
     settingsButton.id = 'settingsButton';
-    settingsButton.className = 'coloredIcon';
+    settingsButton.className = 'la';
     postingLink.parentNode.insertBefore(settingsButton, referenceNode);
 
     settingsButton.onclick = function() {
