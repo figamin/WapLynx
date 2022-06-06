@@ -23,7 +23,10 @@
 	"pages/mobile.html",
 	"pages/moderation.html",
 	"pages/posting.html",
-	"pages/quotes.html"
+	"pages/quotes.html",
+    "pages/recruit.html",
+    "pages/staffapply.html",
+    "pages/play.html"
     ],
     "logIndexCell": "cells/logIndexCell.html",
     "accountPage": "pages/account.html",

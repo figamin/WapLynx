@@ -442,8 +442,18 @@ sideCatalog.addSideCatalogThread = function(thread) {
 
     cell.appendChild(img);
   }
-
+  function getPosition(string, subString, index) {
+    return string.split(subString, index).join(subString).length;
+  }
   var linkContent = document.createElement('span');
+  /*console.log("LINK CONTENT")
+  console.log(linkContent)
+  console.log("THREAD")
+  console.log(thread)
+  console.log("URL")
+    console.log(window.location.href)
+  console.log("CUT URL")
+  console.log(window.location.href.substring(getPosition(window.location.href, '/', 3), getPosition(window.location.href, '/', 4)))*/
   linkContent.className = 'sideCatalogCellText';
   cell.appendChild(linkContent);
 
@@ -466,6 +476,8 @@ sideCatalog.addSideCatalogThread = function(thread) {
 
   if (api.threadId === thread.threadId) {
     cell.className = 'sideCatalogMarkedCell';
+    
+    cell.href = window.location.href.substring(getPosition(window.location.href, '/', 3), getPosition(window.location.href, '/', 4)) + "/res/" + thread.threadId + ".html"
     cell.scrollIntoView();
     sideCatalog.selectedThreadCell = cell;
   } else {

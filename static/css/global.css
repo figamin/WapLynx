@@ -1076,7 +1076,7 @@ footer {
 }
 
 #linkLinks::after {
-    content: 'links';
+    content: 'friendly sites';
 }
 
 #linkAbout::after {
@@ -1097,6 +1097,10 @@ footer {
 
 #linkWapTV::after {
     content: 'wapTV';
+}
+
+#linkRum247::after {
+    content: 'rumic 24/7';
 }
 
 #linkCalendar::after {
