@@ -1,4 +1,6 @@
-waplynx is the frontend for [wapchan.org](https://wapchan.org) and is a fork of the frontend from 16chan, [16Lynx](https://gitgud.io/663/16Lynx), modified to fit the needs of wapchan.
+waplynx is the frontend for [wapchan.org](https://wapchan.org), a LynxChan based imageboard.
+## note
+This repo used to be based on gitgud and mirrored here, but I reversed that. Any old commits published under "ranchan" are mine, as I previously used a different name to reflect the name I generally use on that site. 
 
 ## features
   - WAP-FM
