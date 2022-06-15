@@ -559,20 +559,6 @@ function dataURItoBlob(dataURI) {
 thread.processFilesToPost = function(captchaId) {
 
   postCommon.newGetFilesToUpload(function gotFiles(files) {
-
-    // see if there's an oekaki file to add
-    if (typeof($)!='undefined' && $('#wPaint').wPaint){// && oekaki.expanded != false) {
-       var dataURI = $('#wPaint').wPaint('image');
-      files.unshift({
-        name : 'oekaki.png',
-        content: oekaki.dataURLtoBlob(dataURI),
-        mime : 'image/png',
-        spoiler : document.getElementById('checkboxSpoiler').checked
-      });
-      $('#wPaint').wPaint('clear');
-    }
-    // end oekaki
-
     thread.sendReplyData(files, captchaId);
   });
 

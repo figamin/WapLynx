@@ -85,24 +85,24 @@ qr.setQr = function() {
     qrhtml += '<span class="handle">';
     qrhtml += '<a class="close-btn coloredIcon"';
     qrhtml += ' onclick=\'qr.removeQr();\'></a>';
-    qrhtml += 'Quick Reply</span></th> </tr>';
+    qrhtml += 'quick reply</span></th> </tr>';
 
     qrhtml += '<tr><td colspan="2">';
-    qrhtml += '<input id="qrsage" type="checkbox"><label for="qrsage">Sage</label>';
+    qrhtml += '<input id="qrsage" type="checkbox"><label for="qrsage">sage</label>';
     qrhtml += '</td> </tr> ';
 
     if (QRshowname) {
 	qrhtml += '<tr><td colspan="2"><input id="qrname" type="text"';
-	qrhtml += ' maxlength="35" autocomplete="off" placeholder="Name"></td> </tr>';
+	qrhtml += ' maxlength="35" autocomplete="off" placeholder="name"></td> </tr>';
     }
 
     qrhtml += '<tr><td colspan="2">';
     qrhtml += '<input id="qrsubject" type="text" maxlength="100"';
-    qrhtml += 'autocomplete="off" placeholder="Subject ">';
+    qrhtml += 'autocomplete="off" placeholder="subject ">';
     qrhtml += '</td>';
     qrhtml += '</tr>';
 
-    qrhtml += '<tr><td colspan="2"><textarea id="qrbody" rows="5" placeholder="Comment">';
+    qrhtml += '<tr><td colspan="2"><textarea id="qrbody" rows="5" placeholder="message">';
     qrhtml += '</textarea></td></tr> ';
 
     if (!textBoard) {
@@ -111,9 +111,9 @@ qr.setQr = function() {
 	    qrhtml += '<tr id="qrFilesButton"><td class="small">Files</td></tr>';
 	    qrhtml += '</tbody><tbody class="hidden" id="filesBody">';
 	}
-
+    qrhtml += '<tr><td colspan="2"><input id="oekakiWidth2" type="number" style="width:50px;text-align:center" value="300"> × <input id="oekakiHeight2" type="number" style="width:50px;text-align:center" value="300"><button type="button" style="text-align:center; margin:0em;" onclick="openOekaki(document.getElementById(\'oekakiWidth2\').value,document.getElementById(\'oekakiHeight2\').value)">start drawing!</button></td> </tr>'
 	qrhtml += ' <tr><td colspan="2"><div class="dropzone" id="dropzoneQr">';
-	qrhtml += 'Drag files to upload or<br> click here to select them</div>';
+	qrhtml += 'drag files to upload or<br> click here to select them</div>';
 	qrhtml += '<div id="selectedDivQr"></div></td> </tr>';
 
 	qrhtml += '<tr><td class="left" colspan="2"><input type="checkbox" ';

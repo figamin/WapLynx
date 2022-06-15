@@ -1,22 +1,22 @@
 <tbody>
 
   <tr>
-    <th>Sage:</th>
+    <th>sage:</th>
     <td><input type="checkbox" class="postingInput" id="checkboxSage" name="sage"></td>
   </tr>
 
   <tr id="divName">
-    <th>Name</th>
+    <th>name</th>
     <td><input
         type="text"
         class="postingInput"
           id="fieldName"
-	  Placeholder="Anonymous"
+	  Placeholder="anon"
         name="name"></td>
   </tr>
 
   <tr>
-    <th>Subject</th>
+    <th>subject</th>
     <td><input
         type="text"
         class="postingInput"
@@ -29,7 +29,7 @@
   </tr>
 
   <tr>
-    <th>Message</th>
+    <th>message</th>
     <td><textarea
         rows="5"
         cols="35"
@@ -38,20 +38,18 @@
         name="message"></textarea>
 
       <p class="small">
-        Max message length: <span id="labelMessageLength"></span>
+        max message length: <span id="labelMessageLength"></span>
       </p></td>
   </tr>
   <tr>
-    <th>Drawing</th>
+    <th>drawing</th>
     <td>
-      <input type="number" placeholder="width" size="4" maxsize="4" id="oekakiWidth" value="300"> x
-      <input type="number" placeholder="height" size="4" maxsize="4" id="oekakiHeight" value="300">
-      <a href="#" onclick="Draw()">size canvas</a>
-      <div id="wPaint" style="position:relative;"></div>
+      <!--<a href="#" onclick="Draw()">size canvas</a>-->
+      <div id="oekaki-form" style="margin-bottom: 1px;">Size: <input id="oekakiWidth" type="number" style="width:50px;text-align:center" value="300"> × <input id="oekakiHeight" type="number" style="width:50px;text-align:center" value="300"> <!--<input type="checkbox" name="replay">replay--><button type="button" style="text-align:center; margin:0em;" onclick="openOekaki(document.getElementById('oekakiWidth').value,document.getElementById('oekakiHeight').value)">start drawing!</button>
     </td>
   </tr>
   <tr id="divUpload">
-    <th>Files</th>
+    <th>files</th>
     <td>
       <div
         class="hidden"
@@ -59,7 +57,7 @@
         <div
           class="dropzone"
           id="dropzone">
-          Drag files to upload or
+          drag files to upload or
           <br>
           click here to select them
         </div>
@@ -84,7 +82,7 @@
 
   <tr id="captchaDiv">
 
-    <th>Captcha</th>
+    <th>captcha</th>
     <td><img
       class="captchaImage"
       src="/captcha.js" />
@@ -122,7 +120,7 @@
 <tbody id="extra">
 
   <tr>
-    <th>E-mail</th>
+    <th>e-mail</th>
     <td><input
         type="text"
         class="postingInput"
@@ -131,7 +129,7 @@
   </tr>
 
   <tr>
-    <th>Password</th>
+    <th>password</th>
     <td><input
         id="fieldPostingPassword"
         name="password"
@@ -141,7 +139,7 @@
   </tr>
 
   <tr>
-    <th>Misc</th>
+    <th>misc</th>
     <td>
       <div id="flagsDiv">
         <select

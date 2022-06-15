@@ -3,36 +3,40 @@ var themes = {};
 themes.init = function() {
 
     themes.themes = [
+    {
+        label : 'wapfriends',
+        id : 'wapfriends'
+    },
 	{
-	    label : 'March',
+	    label : 'march',
 	    id : 'march'
 	},
 	{
-	    label : 'Miku',
+	    label : 'miku',
 	    id : 'miku'
 	},
 	{
-	    label : 'Tomorrow',
+	    label : 'tomorrow',
 	    id : 'tomorrow'
 	},
 	{
-	    label : 'Warosu',
+	    label : 'warosu',
 	    id : 'warosu'
 	},
 	{
-	    label : 'Yotsuba',
+	    label : 'yotsuba',
 	    id : 'yotsuba'
 	},
 	{
-	    label : 'Yotsuba B',
+	    label : 'yotsuba b',
 	    id : 'yotsuba_b'
 	},
 	{
-	    label : 'Terminal',
+	    label : 'terminal',
 	    id : 'terminal'
 	},
 	{
-	    label : 'Terminal (Amber)',
+	    label : 'terminal (amber)',
 	    id : 'terminal_amber'
 	},
     {
@@ -40,12 +44,12 @@ themes.init = function() {
 	    id : 'w64'
 	},
     {
-	    label : 'Lovely',
+	    label : 'lovely',
 	    id : 'lovely'
 	}
     ];
 
-  var postingLink = document.getElementById('navPosting');
+  var postingLink = document.getElementById('themeIndex');
 
   if (!postingLink) {
     return;
@@ -65,6 +69,7 @@ themes.init = function() {
 
   var themeSelector = document.createElement('select');
   themeSelector.id = 'themeSelector';
+  themeSelector.style = 'font-family: arial; font-size: 10pt;'
 
   //var vanillaOption = document.createElement('option');
   //vanillaOption.innerHTML = 'Board-specific CSS';

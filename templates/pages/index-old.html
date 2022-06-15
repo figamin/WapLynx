@@ -31,6 +31,7 @@
     <script src="/.static/js/themeLoader.js"></script>
 
     <nav id="dynamicHeader"></nav>
+
     <div id="indexWrapper">
 
       <div
@@ -41,7 +42,6 @@
           class="logoImg"
           alt="logo" />
       </div>
-	  <!--how's it going anon? hope you like my source-->
       <p id="randoMessage"></p>
       <!--<p style="text-align: center;font-size:7px;"><a href="/.static/pages/quotes.html" >got a good quote?</a></p>-->
       
@@ -54,38 +54,54 @@
       <div  class="alt"></div>
 
       <fieldset class="titleFieldset">
-	<div id="dynamicLinks">
-		<a href="/.static/pages/about.html" class="coloredIcon" id="linkAbout"></a>
+	<div id="dynamicLinks"><a href="/logs.js" class="coloredIcon" id="linkGlobalLogs"></a>
 	  <span>•</span>
-    <a href="/.static/pages/globalRules.html" class="coloredIcon" id="linkGlobalRules"></a>
-    <span>•</span>
-	  <a href="https://cal.wapchan.org/" class="coloredIcon" id="linkCalendar"></a>
-    <span>•</span>
-	  <a href="/.static/pages/quotes.html" class="coloredIcon" id="linkQuotes"></a>
-    <span>•</span>
-    <a href="/graphs.js" class="coloredIcon" id="linkGraphs"></a>
+	  <a href="/archives.js" class="coloredIcon" id="linkArchives"></a>
+	  <span>•</span>
+	  <a href="/graphs.js" class="coloredIcon" id="linkGraphs"></a>
+	  <span>•</span>
+	  <a href="/.static/pages/globalRules.html" class="coloredIcon" id="linkGlobalRules"></a>
+	  <span>•</span>
+	  <a href="/.static/pages/links.html" class="coloredIcon" id="linkLinks"></a>
+	  <span>•</span>
+	  <a href="/.static/pages/about.html" class="coloredIcon" id="linkAbout"></a>
 	  <span>•</span>
 	  <a href="/.static/pages/contact.html" class="coloredIcon" id="linkContact"></a>
+	  <span>•</span>
+	  <a href="/.static/pages/quotes.html" class="coloredIcon" id="linkQuotes"></a>
+	  <span>•</span>
+	  <a href="https://cal.wapchan.org/" class="coloredIcon" id="linkCalendar"></a>
+	  <span>•</span>
+	  <a href="https://radio.wapchan.org:8000/" class="coloredIcon" id="linkWapFM"></a>
+	  <span>•</span>
+	  <a href="https://cytu.be/r/waptv" class="coloredIcon" id="linkWapTV"></a>
+	  <span>•</span>
+	  <a href="https://cytu.be/r/storytimecinema" class="coloredIcon" id="linkRum247"></a>
 	</div>
       </fieldset>
 
       <fieldset class="titleFieldset">
 	<legend>hey!</legend>
-	<p style="font-size:120%">
-	welcome to wapchan, a comfy little community on the net mostly focused around retro content. we've got a few different boards for various topics, as well as a network of game servers. enjoy your stay, friend!
+	<p>
+	 wapchan is an imageboard that tries to go for a "classic net" feel through regular streams, game nights, and more. we're mostly focused around retro anime and manga, but we have some other boards as well. we also have a <b><a href="https://radio.wapchan.org:8000/">radio station</a></b>, an <b><a href="irc://wapchan.org:+6697/ar?key">IRC server</a></b>, a <b><a href="telnet://bbs.wapchan.org">BBS</a></b> and much more! forget the soulless modern web and get comfy, friend. <br>for more information, check out the <b><a href="/.static/pages/about.html">about</a></b> page.<br>if you want to help spread the word, check out the <b><a href="/.static/pages/recruit.html">recruit</a></b> page.<br>also, visit our <b><a href="/.static/pages/links.html">friendly sites</a></b> sometime!<br>
+	 <h4>please make sure to read the <b><a href="/.static/pages/globalRules.html">global rules</a></b> before posting!</h4>
+    
 	</p>
 	
       </fieldset>
+
       <fieldset class="titleFieldset">
-        <legend>boards</legend>
-        <div id="dynamicLinks">
-          「<a href="/ar" title="cel animated goodness">/ar/ - anime/retro</a>」
-          「<a href="/a2k" title="oh, the aughties...">/a2k/ - anime/aughts</a>」
-          「<a href="/br" title="anything goes - keep it pre 2000s">/br/ - random/retro</a>」
-          「<a href="/meta" title="for anything surrounding the site itself">/meta/ - wapchan discussion</a>」
-        </div>
-            </fieldset>
-  
+	<legend>boards</legend>
+
+	<div id="divBoards" class="topBoards title">
+	    <a href="/ar">/ar/ - Retro Anime</a>
+		<a href="/a2k">/a2k/ - 2000s Anime</a>
+	    <a href="/br">/br/ - Retro Grab Bag</a>
+	    <a href="/meta">/meta/ - Wapchan Discussion</a>
+	</div>
+
+      </fieldset>
+      
       <div class="splitField">
 	<fieldset class="titleFieldset">
 	  <legend>latest images</legend>
@@ -98,18 +114,28 @@
 	</fieldset>
       </div>
     <fieldset class="titleFieldset">
-    <legend><b>irc</b></legend>
+	<legend>other links</legend>
+	<a href="telnet://bbs.wapchan.org">wapnet BBS [telnet]</a> <a href="http://bbs.wapchan.org:8002">[http]</a> 
+	<br>
+    <a href="https://dis.wapchan.org">Wapchan Textboard</a>
+    <br>
+    <a href="https://play.wapchan.org/sourcebans/">Wapchan Game Servers</a>
+    <br>
+    <a href="https://horus.wapchan.org">Horus Gallery (under construction)</a>
+      </fieldset>
+    <fieldset class="titleFieldset">
+    <legend><b>wapchat</b></legend>
 	<iframe src="https://kiwiirc.com/nextclient/wapchan.org:+6697/?&theme=cli#ar" style="border:0; width:100%; height:450px;"></iframe>
 	<a href="irc://wapchan.org:+6697/ar?key">Or, if you'd prefer to use your own IRC client...</a></b>
     </fieldset> 
 	<fieldset class="titleFieldset">
 	  <legend>stats</legend>
 	  <div id="divStats">
-	  <span></span> <b><span>total posts:</b> <span id="labelTotalPosts"></span></span>
+	  <span></span> <b><span>Total posts:</b> <span id="labelTotalPosts"></span></span>
 	  <br>
-	  <span></span><b><span>media files stored:</b> <span id="labelTotalFiles"></span></span>
+	  <span></span><b><span>Media files stored:</b> <span id="labelTotalFiles"></span></span>
 	  <br>
-	  <span><span> <b><span>total media size:</b> <span id="labelTotalSize"></span></span>
+	  <span><span> <b><span>Total media size:</b> <span id="labelTotalSize"></span></span>
 	  <br>
 	      <div class="hidden">
 		<span>/</span> <span><span id="labelTotalPPH"></span></span>

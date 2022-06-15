@@ -26,7 +26,8 @@
 	"pages/quotes.html",
     "pages/recruit.html",
     "pages/staffapply.html",
-    "pages/play.html"
+    "pages/play.html",
+    "pages/index-new.html"
     ],
     "logIndexCell": "cells/logIndexCell.html",
     "accountPage": "pages/account.html",

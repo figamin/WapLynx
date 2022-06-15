@@ -24,7 +24,7 @@ themeLoader.load = function(init) {
     if (themeLoader.customCss && themeLoader.customCss.parentNode) {
       themeLoader.customCss.remove();
     }
-    body.className = 'theme_march';
+    body.className = 'theme_wapfriends';
     //if (themeLoader.customCss && !themeLoader.customCss.parentNode) {
      // document.head.appendChild(themeLoader.customCss);
     //}

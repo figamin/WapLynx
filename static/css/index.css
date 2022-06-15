@@ -6,6 +6,7 @@
 /*     max-width: 1000px; */
 /*     padding-right: 0.5em; */
 /* } */
+
 @-webkit-keyframes hue {
   from {
     -webkit-filter: hue-rotate(0deg);
@@ -92,7 +93,6 @@
   text-decoration: none;
   margin: 0.5em 0.25em;
   display: inline-block;
-  font-size: 90%;
 }
 
 #divLatestPosts {
@@ -165,8 +165,50 @@
     overflow: hidden;
     margin: 0.5em;
     max-height: 8em;
-    font-size: 9pt;
+    font-size: 11pt;
     text-align: left;
+}
+.theme_tomorrow #links, #divStats {
+  padding: 0.5em;
+  /* font-size: 75%; */
+  text-align: center;
+
+  font-size: 9px;
+}
+.theme_tomorrow #divLatestPosts .latestPostCell {
+  overflow: hidden;
+  margin: 0.5em;
+  max-height: 8em;
+  font-size: 9pt;
+  text-align: left;
+}
+.theme_march #links, #divStats {
+  padding: 0.5em;
+  /* font-size: 75%; */
+  text-align: center;
+
+  font-size: 9px;
+}
+.theme_march #divLatestPosts .latestPostCell {
+  overflow: hidden;
+  margin: 0.5em;
+  max-height: 8em;
+  font-size: 9pt;
+  text-align: left;
+}
+.theme_miku #links, #divStats {
+  padding: 0.5em;
+  /* font-size: 75%; */
+  text-align: center;
+
+  font-size: 9px;
+}
+.theme_miku #divLatestPosts .latestPostCell {
+  overflow: hidden;
+  margin: 0.5em;
+  max-height: 8em;
+  font-size: 9pt;
+  text-align: left;
 }
 
 #divLatestImages img, #divLatestPosts .latestPostCell {
@@ -174,10 +216,45 @@
     border: 1px solid transparent;
 }
 
-#dynamicLinks, #divStats {
+#dynamicLinks{
     padding: 0.5em;
-    font-size: 10pt;
+    font-size: 15pt;
     text-align: center;
+}
+#divStats{
+  padding: 0.5em;
+  font-size: 12pt;
+  text-align: center;
+}
+.theme_miku #dynamicLinks {
+  padding: 0.5em;
+  font-size: 12pt;
+  text-align: center;
+}
+.theme_march #dynamicLinks {
+  padding: 0.5em;
+  font-size: 12pt;
+  text-align: center;
+}
+.theme_tomorrow #dynamicLinks {
+  padding: 0.5em;
+  font-size: 12pt;
+  text-align: center;
+}
+.theme_yotsuba #dynamicLinks {
+  padding: 0.5em;
+  font-size: 12pt;
+  text-align: center;
+}
+.theme_yotsuba_b #dynamicLinks {
+  padding: 0.5em;
+  font-size: 12pt;
+  text-align: center;
+}
+.theme_warosu #dynamicLinks {
+  padding: 0.5em;
+  font-size: 12pt;
+  text-align: center;
 }
 
 fieldset {
@@ -234,9 +311,17 @@ fieldset {
 }
 
 #divBoards {
-    font-size: 10pt;
+    font-size: 12pt;
 }
-
+.theme_miku #divBoards {
+  font-size: 9pt;
+}
+.theme_march #divBoards {
+  font-size: 9pt;
+}
+.theme_tomorrow #divBoards {
+  font-size: 9pt;
+}
 /* END ADDITION */
 
 
