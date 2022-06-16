@@ -11,7 +11,7 @@ bottomForms.init = function() {
   forms.classList.toggle('hidden');
 
   var showFormsButton = document.createElement('a');
-  showFormsButton.innerHTML = 'Show forms (Report/Delete)';
+  showFormsButton.innerHTML = 'show forms (report/delete)';
   showFormsButton.id = 'showFormsButton';
 
   forms.parentElement.insertBefore(showFormsButton, forms);

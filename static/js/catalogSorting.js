@@ -47,7 +47,7 @@ catalog.sortByField = function(a, b, field) {
 // A list of methods to sort.
 catalogSorting.methods = new Map([
   [
-    "Bump order",
+    "bump order",
     function() {
       catalog.catalogThreads.sort(function(a, b) {
         return catalog.sortByField(a, b, "lastBump");
@@ -55,7 +55,7 @@ catalogSorting.methods = new Map([
     }
   ],
   [
-    "Last reply",
+    "last reply",
     function() {
       catalog.catalogThreads.sort(function(a, b) {
         return catalog.sortByField(a, b, "lastReply");
@@ -63,7 +63,7 @@ catalogSorting.methods = new Map([
     }
   ],
   [
-    "Creation date",
+    "creation date",
     function() {
       catalog.catalogThreads.sort(function(a, b) {
         return catalog.sortByField(a, b, "creation");
@@ -71,7 +71,7 @@ catalogSorting.methods = new Map([
     }
   ],
   [
-    "Reply count",
+    "reply count",
     function() {
       catalog.catalogThreads.sort(function(a, b) {
         return catalog.sortByField(a, b, "postCount");
@@ -81,7 +81,7 @@ catalogSorting.methods = new Map([
 ]);
 // The current sorting method. Restored from persistence if possible.
 catalogSorting.currentMethod =
-  localStorage.getItem("catalogSort") || "Bump order";
+  localStorage.getItem("catalogSort") || "bump order";
 
 // Updates the current sorting method, also persists it.
 catalogSorting.updateMethod = function(value) {
@@ -97,7 +97,7 @@ catalogSorting.sortThreads = function() {
 // Initializes the sorting menu.
 catalogSorting.initSort = function() {
   const sortingLabel = document.createElement("label");
-  sortingLabel.appendChild(document.createTextNode("Sort by: "));
+  sortingLabel.appendChild(document.createTextNode("sort by: "));
 
   const sortSelect = document.createElement("select");
 

@@ -52,24 +52,24 @@
   <nav id="dynamicHeader"></nav>
 
   <p id="catalogId">
-    <span class="title">Catalog of </span>
+    <span class="title">catalog of </span>
     <a
       href="."
       id="labelBoard"></a>
   </p>
 
   <div id="newThreadText">
-    [<a href="#" onclick="displayFunction()">Start a New Thread</a>]
+    「<a href="#" onclick="displayFunction()">start a new thread</a>」
   </div>
 
   <div id="postingForm">
 
       <div id="hideThread">
-	[<a onclick="hideDisplayFunction()">Hide</a>]
+        「<a onclick="hideDisplayFunction()">Hide</a>」
       </div>
     
     <fieldset id="newPostFieldset">
-      <legend>Posting Mode: New Thread</legend>
+      <legend>posting mode: new thread</legend>
 
       <form
         action="/newThread.js"
@@ -90,7 +90,7 @@
 
         <button
           type="submit"
-          id="formButton">Post</button>
+          id="formButton">post</button>
 
       </form>
 
@@ -102,22 +102,22 @@
 
   <div id="innerUtilityTop" class="catalogTop">
     <span>
-      [<a href="./#">Index</a>]
+      「<a href="./#">index</a>」
     </span>
 
-    <span id="archive">
+    <!--<span id="archive">
       [<a id="archiveLinkBoard">Archive</a>]
-    </span>
+    </span>-->
 
     <span>
-      [<a href="#footer">Bottom</a>]
+      「<a href="#footer">bottom</a>」
     </span>
 
     <span>
       <button
 	id="catalogRefreshButton"
 	class="catalogLabel"
-	onclick="catalog.refreshCatalog(true)">Refresh</button>
+	onclick="catalog.refreshCatalog(true)">refresh</button>
       <input
 	type="checkbox"
 	id="autoCatalogRefreshCheckBox"
@@ -126,12 +126,12 @@
 
     <span
       class="catalogLabel"
-      id="catalogRefreshLabel">Auto</span>
+      id="catalogRefreshLabel">auto</span>
 
     <div
       id="divTools">
 
-      <span class="catalogLabel">Search :</span>
+      <span class="catalogLabel">search :</span>
       <input
 	type="text"
 	id="catalogSearchField">
@@ -144,19 +144,19 @@
 
   <div id="innerUtilityBottom" class="catalogBottom">
     <span>
-      [<a href="./#">Index</a>]
+      「<a href="./#">index</a>」
     </span>
 
-    <span id="archive">
+    <!--<span id="archive">
       [<a id="archiveLinkBoardBottom">Archive</a>]
+    </span>-->
+
+    <span>
+      「<a href="#">top</a>」
     </span>
 
     <span>
-      [<a href="#">Top</a>]
-    </span>
-
-    <span>
-      [<a onclick="location.reload()">Refresh</a>]
+      「<a onclick="location.reload()">refresh</a>」
     </span>
   </div>
 
