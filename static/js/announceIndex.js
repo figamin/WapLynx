@@ -14,15 +14,19 @@ $.getJSON('https://wapchan.org/meta/res/713.json', function(data) {
     else*/
     document.getElementById("annoTitle").innerHTML = data.posts[i].subject + "<span style='float:right'>" + "by " + data.posts[i].name + " on " + d.toLocaleDateString() + " at " + d.toLocaleTimeString() + "</span>";
     //document.getElementById("annoSubtitle").innerText = ;
-    if (data.posts[i].message.length < 300) {
-        document.getElementById("annoMessage").innerText = data.posts[i].message.substring(0, 300) + "...";
+    if (data.posts[i].message.length > 600) {
+        document.getElementById("annoMessage").innerText = data.posts[i].message.substring(0, 600) + "...";
     }
     else {
         document.getElementById("annoMessage").innerText = data.posts[i].message;
     }
-    
-    document.getElementById("annoImage").src = data.posts[i].files[0].path;
-    document.getElementById("annoImage").title = data.posts[i].files[0].originalName;
+    if(data.posts[i].files.length) {
+        document.getElementById("annoImage").src = data.posts[i].files[0].path;
+        document.getElementById("annoImage").title = data.posts[i].files[0].originalName;
+    }
+    else {
+        document.getElementById("annoImage").hidden = "hidden"
+    }
     document.getElementById("annoLink").href = "https://wapchan.org/meta/res/713.html#" + data.posts[i].postId;
     document.getElementById("annoLink").innerText = "Discuss..."
 });

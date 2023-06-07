@@ -14,7 +14,7 @@ $.getJSON('https://wapchan.org/meta/res/713.json', function(data) {
     else*/
     document.getElementById("annoTitle").innerHTML = data.posts[i].subject + "<span style='float:right'>" + "by " + data.posts[i].name + " on " + d.toLocaleDateString() + " at " + d.toLocaleTimeString() + "</span>";
     //document.getElementById("annoSubtitle").innerText = ;
-    if (data.posts[i].message.length < 100) {
+    if (data.posts[i].message.length > 100) {
         document.getElementById("annoMessage").innerText = data.posts[i].message.substring(0, 100) + "...";
     }
     else {

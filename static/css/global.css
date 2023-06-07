@@ -738,7 +738,7 @@ body {
     background-attachment: fixed;*/
 
 }
-#navLinkHome,
+#navLinkHome,s
 #navOverboard,
 #navPosting,
 #watcherButton,
@@ -1148,7 +1148,6 @@ footer {
     border-bottom-style: solid;
 }
 #annoMessage {
-    align-self: flex-end;
     font-size: 15pt;
 }
 @media only screen and (max-width: 812px) {
