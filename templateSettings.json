@@ -13,10 +13,10 @@
 	"postingInformation": "content/postingInformation.html"
     },
     "templated": [
-	"pages/about.html",
+	"pages/faq.html",
 	"pages/contact.html",
 	"pages/donate.html",	
-	"pages/globalRules.html",
+	"pages/rules.html",
 	"pages/irc.html",
 	"pages/legal.html",
 	"pages/links.html",

@@ -26,10 +26,36 @@
 .catalogCell .divMessage {
   margin: 0;
   /* font-size: 75%; */
-
+  font-size: 13pt;
+}
+.theme_miku .catalogCell .divMessage {
+  margin: 0;
   font-size: 10pt;
 }
-
+.theme_march .catalogCell .divMessage {
+  margin: 0;
+  font-size: 10pt;
+}
+.theme_tomorrow .catalogCell .divMessage {
+  margin: 0;
+  font-size: 10pt;
+}
+.theme_yotsuba .catalogCell .divMessage {
+  margin: 0;
+  font-size: 10pt;
+}
+.theme_yotsuba_b .catalogCell .divMessage {
+  margin: 0;
+  font-size: 10pt;
+}
+.theme_warosu .catalogCell .divMessage {
+  margin: 0;
+  font-size: 10pt;
+}
+.theme_wapfriends .catalogCell .divMessage {
+  margin: 0;
+  font-size: 13pt;
+}
 #divTools {
   text-align: left;
   margin-left: 15px;

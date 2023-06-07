@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0">
+    <link
+      href="/.static/css/global.css"
+      type="text/css"
+      rel="stylesheet" />
+    <link
+      href="/.static/css/index.css"
+      type="text/css"
+      rel="stylesheet" />
+    <link
+      href="/.static/css/watcher.css"
+      type="text/css"
+      rel="stylesheet" />
+    <link
+      href="/.static/css/posting.css"
+      type="text/css"
+      rel="stylesheet" />
+    <link
+      href="/.static/css/settingsMenu.css"
+      type="text/css"
+      rel="stylesheet" />
+    <style>.column {
+      width:470px;
+      float:left
+ }</style>
+  </head>
+  <body>
+
+    <script src="/.static/js/themeLoader.js"></script>
+
+    <nav id="dynamicHeader"></nav>
+    <div id="indexWrapper">
+
+      <div
+	id="logoBox"
+	class="title">
+	<img
+          src="/.static/logo.webp"
+          class="logoImg"
+          alt="logo" />
+      </div>
+	  <!--how's it going anon? hope you like my source-->
+      <p id="randoMessage" title="click me!"></p>
+      <!--<p style="text-align: center;font-size:7px;"><a href="/.static/pages/quotes.html" >got a good quote?</a></p>-->
+      
+      <script src="https://horus.wapchan.org/quotes.js" type="text/javascript"></script>
+      
+      <div
+	id="divBoards"
+	class="topBoards title"></div>
+  <object id="dynAnnouncement" style="width:450px;height:100px;display:block;" data="https://horus.wapchan.org/announcement.html"></object> 
+      <div  class="alt"></div>
+
+      <fieldset class="titleFieldset">
+	<div id="dynamicLinks">
+		<a href="/.static/pages/about.html" class="coloredIcon" id="linkAbout"></a>
+	  <span>•</span>
+    <a href="/.static/pages/globalRules.html" class="coloredIcon" id="linkGlobalRules"></a>
+    <span>•</span>
+	  <a href="https://cal.wapchan.org/" class="coloredIcon" id="linkCalendar"></a>
+    <span>•</span>
+	  <a href="/.static/pages/quotes.html" class="coloredIcon" id="linkQuotes"></a>
+    <span>•</span>
+    <a href="/graphs.js" class="coloredIcon" id="linkGraphs"></a>
+	  <span>•</span>
+	  <a href="/.static/pages/contact.html" class="coloredIcon" id="linkContact"></a>
+	</div>
+      </fieldset>
+
+      <fieldset class="titleFieldset">
+	<legend>hey!</legend>
+	<p style="font-size:120%">
+	welcome to wapchan, a retro content community and the new home of /lum/! we've got a few different boards for various topics as well as some game servers, so grab a hot drink and get cozy, friend.
+	</p>
+	
+      </fieldset>
+      <fieldset class="titleFieldset">
+        <legend>boards</legend>
+        <div id="dynamicLinks">
+          <div class="column"><p>｢<a href="/ar" title="cel animated goodness">/ar/ - anime/retro</a>｣</p>
+            <p>｢<a href="/a2k" title="oh, the aughties...">/a2k/ - anime/aughts</a>｣</p>
+            <p>｢<a href="/br" title="anything goes - keep it pre 2000s">/br/ - random/retro</a>｣</p>
+            <p>｢<a href="/clv" title="such is life - yours, preferably">/clv/ - c'est la vie</a>｣</p></div>
+            <div class="column">
+              <p>｢<a href="/lum" title="i luv lum">/lum/ - urusei yatsura</a>｣</p>
+              <p>｢<a href="/meta" title="for anything surrounding the site itself">/meta/ - wapchan discussion</a>｣</p>
+              <p>｢<a href="/vr" title="ya got quarters?">/vr/ - vidya/retro</a>｣</p>
+            </div>
+        </div>
+            </fieldset>
+  
+      <div class="splitField">
+	<fieldset class="titleFieldset">
+	  <legend>latest images</legend>
+	  <div id="divLatestImages"></div>
+	</fieldset>
+	<fieldset class="titleFieldset">
+	  <legend>latest posts</legend>
+	  <div id="divLatestPosts"></div>
+    <object data="https://cal.wapchan.org/timer/index-bottom.html" type="text/html"></object>
+	</fieldset>
+      </div>
+    <fieldset class="titleFieldset">
+    <legend><b>irc</b></legend>
+	<iframe src="https://kiwiirc.com/nextclient/wapchan.org:+6697/?&theme=cli#ar" style="border:0; width:100%; height:450px;"></iframe>
+	<a href="irc://wapchan.org:+6697/ar?key">Or, if you'd prefer to use your own IRC client...</a></b>
+    </fieldset> 
+	<fieldset class="titleFieldset">
+	  <legend>stats</legend>
+	  <div id="divStats">
+	  <span></span> <b><span>total posts:</b> <span id="labelTotalPosts"></span></span>
+	  <br>
+	  <span></span><b><span>media files stored:</b> <span id="labelTotalFiles"></span></span>
+	  <br>
+	  <span><span> <b><span>total media size:</b> <span id="labelTotalSize"></span></span>
+	  <br>
+	      <div class="hidden">
+		<span>/</span> <span><span id="labelTotalPPH"></span></span>
+		<span>/</span> <span><span id="labelTotalBoards"></span></span>
+		<span>/</span> <span><span id="labelTotalIps"></span></span>
+		<span>]</span>
+	      </div>
+	  </div>
+	</fieldset>
+
+    </div>
+
+    <footer id="dynamicFooter"></footer>
+
+  </body>
+
+  <script src="/.static/js/api.js"></script>
+  <script src="/.static/js/themes.js"></script>
+  <script src="/.static/js/draggable.js"></script>
+  <script src="/.static/js/settingsMenu.js"></script>
+  <script src="/.static/js/hiding.js"></script>
+  <script src="/.static/js/watcher.js"></script>
+  <script src="/.static/js/favouriteBoards.js"></script>
+
+</html>

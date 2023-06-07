@@ -56,11 +56,9 @@
     <nav id="dynamicHeaderAlt"></nav>
 
     <header class="boardHeader">
-      <video width="300" height="225" playsinline autoplay muted loop id="bannerImage">
-      </video>
-        <script type="text/javascript">
-        document.getElementById("bannerImage").setAttribute("poster", document.getElementById("bannerImage").getAttribute("src"));
-        </script>
+      <span style="display: inline-block;">
+       <img id="bannerImage" style="width: 50%;"/>
+      </span>
       <div>
 	<p id="labelName"></p>
       </div>
@@ -68,14 +66,14 @@
     </header>
 
       <div id="newThreadText">
-  「<a href="#" onclick="displayFunction()">start a new thread</a>」
+  ｢<a href="#" onclick="displayFunction()">start a new thread</a>｣
       </div>
 
 
     <div id="postingForm">
 
       <div id="hideThread">
-  「<a onclick="hideDisplayFunction()">hide</a>」
+  ｢<a onclick="hideDisplayFunction()">hide</a>｣
       </div>
 
 
@@ -108,9 +106,9 @@
       </fieldset>
 
     </div>
-
-    <object id="dynAnnouncement" style="width:450px;height:100px;display:block;" data="https://horus.wapchan.org/announcement.html"></object> 
-
+    <p id="annoTitle" style="text-align:center; width:600px; margin:auto;">Loading...</p>    
+      <p id="annoMessage" style="text-align:center; width:600px; margin:auto;"></p>
+      <p style="text-align:center; width:600px; margin:auto;"><a id="annoLink" ></a></p>
     <div id="panelMessage">
       <hr>
       <div id="divMessage"></div>
@@ -118,19 +116,19 @@
 
     <div id="innerUtilityTop">
       <span>
-  「<a href="./catalog.html">catalog</a>」
+  ｢<a href="./catalog.html">catalog</a>｣
       </span>
 
       <!--<span id="archive">
-	「<a id="archiveLinkBoard">Archive</a>]
+	｢<a id="archiveLinkBoard">Archive</a>]
       </span>-->
 
       <span>
-  「<a href="#footer">bottom</a>」
+  ｢<a href="#footer">bottom</a>｣
       </span>
 
       <span>
-  「<a onclick="location.reload()">refresh</a>」
+  ｢<a onclick="location.reload()">refresh</a>｣
       </span>
     </div>
 
@@ -148,7 +146,7 @@
 
 	<div id="innerUtilityBottom">
 	  <span>
-	    「<a href="./catalog.html">catalog</a>」
+	    ｢<a href="./catalog.html">catalog</a>｣
 	  </span>
 
 	  <!--<span id="archive">
@@ -156,27 +154,27 @@
 	  </span>-->
 
 	  <span>
-	    「<a href="#">top</a>」
+	    ｢<a href="#">top</a>｣
 	  </span>
 
 	  <span>
-	    「<a onclick="location.reload()">refresh</a>」
+	    ｢<a onclick="location.reload()">refresh</a>｣
 	  </span>
 	</div>
 	
 
 	<div class="threadPages">
 
-          <span class="divPages">「<a id="linkPrevious"></a> <span
-							       id="divPages"></span> <a id="linkNext"></a>」
+          <span class="divPages">｢<a id="linkPrevious">&lt;</a> <span
+							       id="divPages"></span> <a id="linkNext">&gt;</a>｣
           </span>
 
           <div id="boardContentLinks">
-            「<a id="linkManagement">manage board</a>」
+            ｢<a id="linkManagement">manage board</a>｣
             <span><span></span></span>
-            「<a id="linkModeration">moderate board</a>」
+            ｢<a id="linkModeration">moderate board</a>｣
             <span><span></span></span>
-            「<a id="linkMod">moderate threads</a>」
+            ｢<a id="linkMod">moderate threads</a>｣
           </div>
 
 	</div>
@@ -215,4 +213,5 @@
   <script src="/.static/js/ruffle.js"></script>
   <script src="/.static/js/tegaki.min.js"></script>
   <script src="/.static/js/tegakihelper.js"></script> 
+  <script src="/.static/js/announce.js"></script>
 </html>

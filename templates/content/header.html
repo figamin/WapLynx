@@ -1,22 +1,26 @@
 <link rel="stylesheet" href="/.static/line-awesome/css/line-awesome.min.css">
+<!-- <iframe src="https://wapchan.org/.static/silence.mp3" allow="autoplay" id="audio" style="display: none"></iframe>
+<audio id="player" autoplay>
+    <source src="https://wapchan.org/.static/patriotic.mp3" type="audio/mp3">
+</audio> -->
 <script src="/.static/js/jquery.min.js"></script>
     <span id="navLinkSpan" style="font-size: 0;">
       <span class="statusBar">
-        <p>「<a href="/" title="home">home</a>」</p>
+        <p>｢<a href="/" title="home">home</a>｣</p>
       </span>
       <span class="statusBar">
-        <p>「<a href="/ar" title="anime/retro">ar</a> / <a href="/a2k" title="anime/aughts">a2k</a> / <a href="/br" title="random/retro">br</a> / <a href="/meta" title="wapchan discussion">meta</a>」</p>
+        <p>｢<a href="/ar" title="anime/retro">ar</a> / <a href="/a2k" title="anime/aughts">a2k</a> / <a href="/br" title="random/retro">br</a> / <a href="/clv" title="c'est la vie">clv</a> / <a href="/lum" title="urusei yatsura">lum</a> / <a href="/meta" title="wapchan discussion">meta</a> / <a href="/vr" title="vidya/retro">vr</a>｣</p>
       </span>
       <span class="statusBar">
-        <p>「<a href="/overboard" title="overboard">overboard</a>」</p>
+        <p>｢<a href="/overboard" title="latest posts">latest posts</a>｣</p>
       </span>
       <span class="statusBar">
         <div class="dropdown">
-          <p>「<a class="dropbtn" title="info">info</a>」</p>
+          <p>｢<a class="dropbtn" title="info">info</a>｣</p>
           <div class="dropdown-content">
-            <a href="/.static/pages/about.html">about</a>
-            <a href="/.static/pages/globalRules.html">rules</a>
-            <a href="/.static/pages/staffapply.html">staff</a>
+            <a href="/.static/pages/faq.html">faq & history</a>
+            <a href="/.static/pages/rules.html">rules & guidelines</a>
+            <a href="/.static/pages/staffapply.html">apply for staff</a>
             <a href="/.static/pages/recruit.html">recruit</a>
             <a href="/.static/pages/contact.html">contact</a>
             <a href="/.static/pages/legal.html">legal</a>
@@ -25,7 +29,28 @@
       </span>
       <span class="statusBar">
         <div class="dropdown">
-          <p>「<a class="dropbtn">wap-fm</a>」</p>
+          <p>｢<a class="dropbtn">chat</a>｣</p>
+          <div class="dropdown-content">
+            <a href="irc://irc.rizon.net:+6697/wapchat">irc</a>
+            <a href="https://discord.gg/crNSm7cQRz">discord</a>
+            <a href="https://matrix.to/#/#wapchat:matrix.com">matrix</a>
+            <a href="https://t.me/wapchanchat">telegram</a>
+          </div>
+        </div>
+      </span>
+      <span class="statusBar">
+        <div class="dropdown">
+          <p>｢<a class="dropbtn">post notifs</a>｣</p>
+          <div class="dropdown-content">
+            <a href="ircs://irc.rizon.net:+6697/wapnotif">irc</a>
+            <a href="https://matrix.to/#/#wapnotif:matrix.com">matrix</a>
+            <a href="https://t.me/wapnotif">telegram</a>
+          </div>
+        </div>
+      </span>
+      <span class="statusBar">
+        <div class="dropdown">
+          <p>｢<a class="dropbtn">radio</a>｣</p>
           <div class="dropdown-content">
             <audio controls preload="false" style="width: 100px; height: 40px;">
               <source src="https://radio.wapchan.org:8000/wapfm" type="audio/mpeg">
@@ -40,32 +65,16 @@
         </div>
       </span>
       <span class="statusBar">
-        <p>「<a href="https://play.wapchan.org/sourcebans/" title="game servers">game servers</a>」</p>
+        <p>｢<a href="https://play.wapchan.org/sourcebans/" title="game servers">game servers</a>｣</p>
       </span>
       <span class="statusBar">
-        <div class="dropdown">
-          <p>「<a class="dropbtn">misc</a>」</p>
-          <div class="dropdown-content">
-            <a href="https://dis.wapchan.org/">textboard</a>
-            <a href="telnet://bbs.wapchan.org">bbs</a>
-            <a href="https://cytu.be/r/waptv">wapTV</a>
-            <a href="/.static/pages/links.html">friendly sites</a>
-          </div>
-        </div>
-      </span>
-      <span class="statusBar">
-        <div class="dropdown">
-          <p>「<a class="dropbtn">irc</a>」</p>
-          <div class="dropdown-content">
-            <a href="irc://wapchan.org:+6697/ar?key"><p id="ircusers"> users online</p></a>
-          </div>
-        </div>
+        <p>｢<a href="https://wapchan.org/.static/pages/links.html" title="friendly sites">friendly sites</a>｣</p>
       </span>
       <span id="themeIndex" style="font-size: 10pt;">
-        <p>「</p>
+        <p>｢style: </p>
       </span>
       <span class="statusBar">
-        <p>」</p>
+        <p>｣</p>
       </span>
     </span>
 
@@ -90,7 +99,7 @@
   $.get('https://horus.wapchan.org/ircusercount', function(data) {
     paragraph2.textContent = data + paragraph2.textContent;
     /*let currentLink = document.createElement("a");
-    currentLink.href = "irc://wapchan.org:+6697/ar?key"
+    currentLink.href = "irc://irc.wapchan.org:+6697/ar?key"
     currentLink.innerHTML = "IRC"
     paragraph2.appendChild(currentLink);*/
   }, 'text');

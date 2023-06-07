@@ -606,7 +606,7 @@ video {
     .hiddenFile::after {
 	content: '(Show)';
     }
-    .originalNameLink, .labelCreated, .sizeLabel, .dimensionLabel {
+    .originalNameLink, .sizeLabel, .dimensionLabel {
 	display: none;
     }
     .divMessage {

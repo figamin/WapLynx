@@ -29,15 +29,17 @@ qr.init = function() {
 qr.removeQr = function() {
     qr.qrPanel.style.display = 'none';
 };
-
+qr.showQrEmpty = function() {
+    qr.qrPanel.style.display = 'block';
+};
 qr.showQr = function(quote) {
-
+	
     qr.qrPanel.style.display = 'block';
 
     if (qr.qrPanel.getBoundingClientRect().top < 0) {
 	qr.qrPanel.style.top = '25px';
     }
-
+    
     document.getElementById('qrbody').value += '>>' + quote + '\n';
 
     var selectedText = window.getSelection();
@@ -47,7 +49,7 @@ qr.showQr = function(quote) {
 
     document.getElementById('fieldMessage').value = document
 	.getElementById('qrbody').value;
-
+    
     postCommon.updateCurrentChar();
 
 };

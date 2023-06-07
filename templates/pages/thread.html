@@ -81,11 +81,9 @@
   <div id="mainPanel">
 
     <header class="boardHeader">
-      <video width="300" height="225" playsinline autoplay muted loop id="bannerImage">
-      </video>
-        <script type="text/javascript">
-        document.getElementById("bannerImage").setAttribute("poster", document.getElementById("bannerImage").getAttribute("src"));
-        </script>
+      <span style="display: inline-block;">
+        <img id="bannerImage" style="width: 50%;"/>
+       </span>
       <div>
         <p id="labelName"></p>
       </div>
@@ -137,8 +135,9 @@
 
     </div>
 
-    <object id="dynAnnouncement" style="width:450px;height:100px;display:block;" data="https://horus.wapchan.org/announcement.html"></object> 
-
+    <p id="annoTitle" style="text-align:center; width:600px; margin:auto;">Loading...</p>    
+      <p id="annoMessage" style="text-align:center; width:600px; margin:auto;"></p>
+      <p style="text-align:center; width:600px; margin:auto;"><a id="annoLink" ></a></p>
     <div id="divControls">
 
       <form
@@ -350,23 +349,23 @@
 
     <div id="innerUtilityTop">
       <span>
-	「<a href="../">index</a>」
+	｢<a href="../">index</a>｣
       </span>
       
       <span>
-	「<a href="../catalog.html">catalog</a>」
+	｢<a href="../catalog.html">catalog</a>｣
       </span>
 
       <!--<span id="archive">
-	「<a id="archiveLinkBoard">Archive</a>」
+	｢<a id="archiveLinkBoard">Archive</a>｣
       </span>-->
       
       <span>
-	「<a href="#footer">bottom</a>」
+	｢<a href="#footer">bottom</a>｣
       </span>
       
       <span>
-	「<a onclick="location.reload()">refresh</a>」
+	｢<a onclick="qr.showQrEmpty()">reply</a>｣
       </span>
     </div>
     
@@ -384,23 +383,23 @@
 	<div id="innerUtilityBottom">
 
 	  <span>
-	    「<a href="../">index</a>」
+	    ｢<a href="../">index</a>｣
 	  </span>
 
 	  <span>
-	    「<a href="../catalog.html">catalog</a>」
+	    ｢<a href="../catalog.html">catalog</a>｣
 	  </span>
 
 	  <!--<span id="archive">
-	    「<a id="archiveLinkBoardBottom">archive</a>」
+	    ｢<a id="archiveLinkBoardBottom">archive</a>｣
 	  </span>-->
 
 	  <span>
-	    「<a href="#bannerImage">top</a>」
+	    ｢<a href="#bannerImage">top</a>｣
 	  </span>
 
 	  <span>
-	    「<a onclick="location.reload()">refresh</a>」
+	    ｢<a onclick="qr.showQrEmpty()">reply</a>｣
 	  </span>
     
 	</div>
@@ -425,9 +424,9 @@
         </div>
 
         <div id=boardContentLinks>
-          「<a id="linkManagement">manage board</a>」
+          ｢<a id="linkManagement">manage board</a>｣
           <span><span></span></span>
-          「<a id="linkMod">Moderate Thread</a>」
+          ｢<a id="linkMod">Moderate Thread</a>｣
         </div>
 
         <div id="actionsForm"></div>
@@ -469,4 +468,5 @@
 <script src="/.static/js/ruffle.js"></script>
 <script src="/.static/js/tegaki.min.js"></script>
 <script src="/.static/js/tegakihelper.js"></script>
+<script src="/.static/js/announce.js"></script>
 </html>

@@ -72,7 +72,7 @@
   #quick-reply select {
   width: 100%;
   padding: 2px;
-  font-size: 10pt;
+  font-size: 13pt;
   box-sizing: border-box;
 }
 
@@ -86,7 +86,125 @@
 #quick-reply textarea {
   width: 100%;
   box-sizing: border-box;
+  font-size: 13pt;
+  resize: both;
+}
+
+#quick-reply input[type="text"], #quick-reply input[type="password"],
+  #quick-reply select {
+  width: 100%;
+  padding: 2px;
+  font-size: 13pt;
+  box-sizing: border-box;
+}
+
+#quick-reply select {
+  padding: 2px;
   font-size: 10pt;
+  box-sizing: border-box;
+  width: 85%;
+}
+
+#quick-reply textarea {
+  width: 100%;
+  box-sizing: border-box;
+  font-size: 13pt;
+  resize: both;
+}
+.theme_miku #quick-reply input[type="text"], #quick-reply input[type="password"],
+#quick-reply select {
+width: 100%;
+padding: 2px;
+font-size: 10pt;
+font-family: arial, helvetica, sans-serif;
+box-sizing: border-box;
+}
+
+.theme_miku #quick-reply textarea {
+  width: 100%;
+  box-sizing: border-box;
+  font-size: 10pt;
+  font-family: arial, helvetica, sans-serif;
+  resize: both;
+}
+.theme_march #quick-reply input[type="text"], #quick-reply input[type="password"],
+#quick-reply select {
+width: 100%;
+padding: 2px;
+font-size: 10pt;
+font-family: arial, helvetica, sans-serif;
+box-sizing: border-box;
+}
+
+.theme_march #quick-reply textarea {
+  width: 100%;
+  box-sizing: border-box;
+  font-size: 10pt;
+  font-family: arial, helvetica, sans-serif;
+  resize: both;
+}
+.theme_tomorrow #quick-reply input[type="text"], #quick-reply input[type="password"],
+#quick-reply select {
+width: 100%;
+padding: 2px;
+font-size: 10pt;
+font-family: arial, helvetica, sans-serif;
+box-sizing: border-box;
+}
+
+.theme_tomorrow #quick-reply textarea {
+  width: 100%;
+  box-sizing: border-box;
+  font-size: 10pt;
+  font-family: arial, helvetica, sans-serif;
+  resize: both;
+}
+.theme_yotsuba #quick-reply input[type="text"], #quick-reply input[type="password"],
+#quick-reply select {
+width: 100%;
+padding: 2px;
+font-size: 10pt;
+font-family: arial, helvetica, sans-serif;
+box-sizing: border-box;
+}
+
+.theme_yotsuba #quick-reply textarea {
+  width: 100%;
+  box-sizing: border-box;
+  font-size: 10pt;
+  font-family: arial, helvetica, sans-serif;
+  resize: both;
+}
+.theme_yotsuba_b #quick-reply input[type="text"], #quick-reply input[type="password"],
+#quick-reply select {
+width: 100%;
+padding: 2px;
+font-size: 10pt;
+font-family: arial, helvetica, sans-serif;
+box-sizing: border-box;
+}
+
+.theme_yotsuba_b #quick-reply textarea {
+  width: 100%;
+  box-sizing: border-box;
+  font-size: 10pt;
+  font-family: arial, helvetica, sans-serif;
+  resize: both;
+}
+.theme_warosu #quick-reply input[type="text"], #quick-reply input[type="password"],
+#quick-reply select {
+width: 100%;
+padding: 2px;
+font-size: 10pt;
+font-family: arial, helvetica, sans-serif;
+box-sizing: border-box;
+}
+
+.theme_warosu #quick-reply textarea {
+  width: 100%;
+  box-sizing: border-box;
+  font-size: 10pt;
+  font-family: arial, helvetica, sans-serif;
   resize: both;
 }
 

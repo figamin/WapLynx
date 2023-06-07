@@ -1,9 +1,4 @@
 /*Elements used exclusively on board pages*/
-#linkPrevious:before {
-  font-family: Icons;
-  content: "\e035";
-  margin: 0 0.25em;
-}
 
 #linkLogs:before {
   content: "\e069"

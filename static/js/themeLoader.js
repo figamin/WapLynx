@@ -25,10 +25,10 @@ themeLoader.load = function(init) {
       themeLoader.customCss.remove();
     }
     body.className = 'theme_wapfriends';
-    //if (themeLoader.customCss && !themeLoader.customCss.parentNode) {
-     // document.head.appendChild(themeLoader.customCss);
-    //}
-    //body.removeAttribute('class');
+    if (themeLoader.customCss && !themeLoader.customCss.parentNode) {
+      document.head.appendChild(themeLoader.customCss);
+    }
+    body.removeAttribute('class');
   }
 
 };

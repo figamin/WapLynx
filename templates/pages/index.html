@@ -25,6 +25,10 @@
       href="/.static/css/settingsMenu.css"
       type="text/css"
       rel="stylesheet" />
+    <style>.column {
+      width:50%;
+      float:left
+ }</style>
   </head>
   <body>
 
@@ -37,12 +41,12 @@
 	id="logoBox"
 	class="title">
 	<img
-          src="/.static/logo.png"
+          src="/.static/logo.webp"
           class="logoImg"
-          alt="logo" />
+          alt="logo" title="the offbeat retro content community"/>
       </div>
 	  <!--how's it going anon? hope you like my source-->
-      <p id="randoMessage"></p>
+      <p id="randoMessage" title="click me!"></p>
       <!--<p style="text-align: center;font-size:7px;"><a href="/.static/pages/quotes.html" >got a good quote?</a></p>-->
       
       <script src="https://horus.wapchan.org/quotes.js" type="text/javascript"></script>
@@ -50,76 +54,100 @@
       <div
 	id="divBoards"
 	class="topBoards title"></div>
-  <object id="dynAnnouncement" style="width:450px;height:100px;display:block;" data="https://horus.wapchan.org/announcement.html"></object> 
+  
       <div  class="alt"></div>
 
       <fieldset class="titleFieldset">
-	<div id="dynamicLinks">
-		<a href="/.static/pages/about.html" class="coloredIcon" id="linkAbout"></a>
-	  <span>•</span>
-    <a href="/.static/pages/globalRules.html" class="coloredIcon" id="linkGlobalRules"></a>
-    <span>•</span>
-	  <a href="https://cal.wapchan.org/" class="coloredIcon" id="linkCalendar"></a>
-    <span>•</span>
-	  <a href="/.static/pages/quotes.html" class="coloredIcon" id="linkQuotes"></a>
-    <span>•</span>
-    <a href="/graphs.js" class="coloredIcon" id="linkGraphs"></a>
-	  <span>•</span>
-	  <a href="/.static/pages/contact.html" class="coloredIcon" id="linkContact"></a>
-	</div>
-      </fieldset>
-
+        <legend>｢news｣</legend>
+      <p id="annoTitle">Loading...
+      </p>
+      <p style="display: flex;">
+        <span id="annoMessage"></span>
+        <img id="annoImage" style="max-width: 200px;
+        width: 100%;
+        height: autor;"></p>
+      <a id="annoLink"></a>
+    </fieldset>
       <fieldset class="titleFieldset">
-	<legend>hey!</legend>
+	<legend>｢hello!｣</legend>
 	<p style="font-size:120%">
-	welcome to wapchan, a comfy little community on the net mostly focused around retro content. we've got a few different boards for various topics, as well as a network of game servers. enjoy your stay, friend!
+	Welcome to ｢wapchan｣, the offbeat retro content forum. While most of our discussion boards are geared towards anime & manga, we also have boards where you can relax and shoot the breeze, as well as a number of chat services to keep you connected. <br><br>
+  If you're new here, be sure to read the <a href="/.static/pages/rules.html">rules & guidelines</a> to get up to speed on how we do things around here, subscribe to one of our <a href="#postNotifs">post notification services</a>, and start posting! Whether you're a total newbie or a seasoned otaku, we hope you watch and read some new stuff during your time here.
+</p>
+<p style="color: rgb(181, 189, 104)">楽しむ! - ranchan</p>
+  <div id="dynamicLinks" style="text-align: center;">
+    ｢<a href="/.static/pages/faq.html">faq & history</a> / 
+    <a href="/.static/pages/rules.html">rules & guidelines</a> / 
+	  
+	  <a href="/.static/pages/quotes.html">banners & quotes</a> / 
+    <a href="https://cal.wapchan.org/">events</a> / 
+    <a href="/graphs.js">daily post graphs</a> / 
+	  <a href="/.static/pages/contact.html">contact</a>｣
+	</div>
+  <div id="divStats" style="text-align: center;">
+    ｢total posts: <span id="labelTotalPosts"></span> / 
+    total files: <span id="labelTotalFiles"></span> / 
+    total file size: <span id="labelTotalSize"></span>｣
+        <div class="hidden">
+    <span>/</span> <span><span id="labelTotalPPH"></span></span>
+    <span>/</span> <span><span id="labelTotalBoards"></span></span>
+    <span>/</span> <span><span id="labelTotalIps"></span></span>
+    <span>]</span>
+        </div>
 	</p>
-	
       </fieldset>
       <fieldset class="titleFieldset">
-        <legend>boards</legend>
+        <legend>｢boards｣</legend>
         <div id="dynamicLinks">
-          「<a href="/ar" title="cel animated goodness">/ar/ - anime/retro</a>」
-          「<a href="/a2k" title="oh, the aughties...">/a2k/ - anime/aughts</a>」
-          「<a href="/br" title="anything goes - keep it pre 2000s">/br/ - random/retro</a>」
-          「<a href="/meta" title="for anything surrounding the site itself">/meta/ - wapchan discussion</a>」
+          <div class="column"><p>｢<a href="/ar" title="cel animated goodness">/ar/ - anime/retro</a>｣</p>
+            <p>｢<a href="/a2k" title="oh, the aughties...">/a2k/ - anime/aughts</a>｣</p>
+            <p>｢<a href="/br" title="anything goes - keep it pre 2000s">/br/ - random/retro</a>｣</p>
+            <p>｢<a href="/clv" title="such is life - yours, preferably">/clv/ - c'est la vie</a>｣</p></div>
+            <div class="column">
+              <p>｢<a href="/lum" title="i luv lum">/lum/ - urusei yatsura</a>｣</p>
+              <p>｢<a href="/meta" title="for anything surrounding the site itself">/meta/ - wapchan discussion</a>｣</p>
+              <p>｢<a href="/vr" title="ya got quarters?">/vr/ - vidya/retro</a>｣</p>
+            </div>
         </div>
             </fieldset>
+            <div class="splitField">
+              <fieldset class="titleFieldset">
+                <legend>｢chat｣</legend>
+                <div id="dynamicLinks">
+                  <p>All of our chat services are linked, so use whatever you like best.</p>
+                  <div id="dynamicLinks" style="text-align: center;">
+                    ｢<a href="irc://irc.rizon.net:+6697/wapchat">irc</a> / 
+                    <a href="https://discord.gg/crNSm7cQRz">discord</a> / 
+                    <a href="https://matrix.to/#/#wapchat:matrix.com">matrix</a> / 
+                    <a href="https://t.me/wapchanchat">telegram</a>｣ 
+                  </div>
+                </div>
+              </fieldset>
+              <fieldset class="titleFieldset">
+                <legend>｢post notifs｣</legend>
+                <div id="dynamicLinks">
+                  <p>If you want to get automatically notified whenever a new post is made on here, you can use any of the below channels.</p>
+                  <div id="dynamicLinks" style="text-align: center;">
+                    ｢<a href="irc://irc.rizon.net:+6697/wapnotif">irc</a> / 
+                    <a href="https://discord.gg/crNSm7cQRz">discord</a> / 
+                    <a href="https://matrix.to/#/#wapnotif:matrix.com">matrix</a> / 
+                    <a href=" https://t.me/wapnotif">telegram</a>｣ 
+                  </div>
+                </div>
+              </fieldset>
+                  </div>
   
       <div class="splitField">
 	<fieldset class="titleFieldset">
-	  <legend>latest images</legend>
+	  <legend>｢latest images｣</legend>
 	  <div id="divLatestImages"></div>
 	</fieldset>
 	<fieldset class="titleFieldset">
-	  <legend>latest posts</legend>
+	  <legend>｢latest posts｣</legend>
 	  <div id="divLatestPosts"></div>
     <object data="https://cal.wapchan.org/timer/index-bottom.html" type="text/html"></object>
 	</fieldset>
       </div>
-    <fieldset class="titleFieldset">
-    <legend><b>irc</b></legend>
-	<iframe src="https://kiwiirc.com/nextclient/wapchan.org:+6697/?&theme=cli#ar" style="border:0; width:100%; height:450px;"></iframe>
-	<a href="irc://wapchan.org:+6697/ar?key">Or, if you'd prefer to use your own IRC client...</a></b>
-    </fieldset> 
-	<fieldset class="titleFieldset">
-	  <legend>stats</legend>
-	  <div id="divStats">
-	  <span></span> <b><span>total posts:</b> <span id="labelTotalPosts"></span></span>
-	  <br>
-	  <span></span><b><span>media files stored:</b> <span id="labelTotalFiles"></span></span>
-	  <br>
-	  <span><span> <b><span>total media size:</b> <span id="labelTotalSize"></span></span>
-	  <br>
-	      <div class="hidden">
-		<span>/</span> <span><span id="labelTotalPPH"></span></span>
-		<span>/</span> <span><span id="labelTotalBoards"></span></span>
-		<span>/</span> <span><span id="labelTotalIps"></span></span>
-		<span>]</span>
-	      </div>
-	  </div>
-	</fieldset>
-
     </div>
 
     <footer id="dynamicFooter"></footer>
@@ -133,5 +161,8 @@
   <script src="/.static/js/hiding.js"></script>
   <script src="/.static/js/watcher.js"></script>
   <script src="/.static/js/favouriteBoards.js"></script>
-
+  <script src="/.static/js/announceIndex.js"></script>
+  <script>window.onload = function (){$("#relaychat").show();}</script>
+    
+    
 </html>

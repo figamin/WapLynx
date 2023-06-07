@@ -168,7 +168,7 @@ fieldset legend,
 #divBoardsLegend,
 #divArchiveLegend {
     font-weight: bold;
-    font-size: 12pt;
+    font-size: 15pt;
     padding: 2px;
     width: 100%;
     margin-left: -14px;
@@ -386,10 +386,10 @@ textarea:focus {
 }
 
 .natsocText:before {
-    content: '「';
+    content: '｢';
 }
 .natsocText:after {
-    content: '」';
+    content: '｣';
 }
 
 .deathText {
@@ -493,7 +493,7 @@ textarea:focus {
     height: 150px;
     min-width: 1px;
 
-    margin: 15px auto 1em auto;
+    margin: 0px 0px 0px 0px;
 }
 
 .captchaImage {
@@ -613,7 +613,7 @@ input, select, textarea {
     font-weight: normal;
     font-style: normal;
     padding: 0 5px;
-    font-size: 12pt;
+    font-size: 13pt;
     letter-spacing: +0.075em;
     color: #c5c8c6;
     padding: 2px 4px 3px;
@@ -663,7 +663,8 @@ input[type=button], input[type=submit], button, .dropzone, .selectedCell
 /* import resources here; external CSS, fonts, etc */
 @font-face {
     font-family: 'Pixel';
-    src: url('../nine0.ttf') format('truetype');
+    src: url('../nine0.woff2') format('woff2'),
+    url('../nine0.ttf') format('truetype');
   }
 @font-face {
     font-family: 'Hack';
@@ -725,7 +726,7 @@ input[type=button], input[type=submit], button, .dropzone, .selectedCell
 /* body styles, inherited by whole page */
 body {
     /* color: #ACACAC; */
-    background: #1d1f21;
+    background: url("../snow.gif") repeat, #1d1f21;
     /* font-family: 'Hack', monospace, sans-serif; */
     font-size: 13pt;
     margin: 0px;
@@ -733,11 +734,9 @@ body {
     font-family: 'Pixel';
     letter-spacing: +0.075em;
     color: #c5c8c6;
-    /*background-image:    url(https://www.wapchan.org/.static/wapfriends.webp);*/
-    background-repeat: no-repeat;
-    background-position: left center;
-    background-size: 100%;
-    background-attachment: fixed;
+    /*background-position: left center;
+    background-attachment: fixed;*/
+
 }
 #navLinkHome,
 #navOverboard,
@@ -893,7 +892,9 @@ nav span, nav a {
     padding: 0 0.25em;
     display: inline-block;
 }
-
+#dynamicHeader, #dynamicHeaderAlt, #dynamicHeaderThread, #dynamicHeaderOverboard {
+    padding: 0px 0px 0px 0px;
+}
 /* a.rules:after { */
 /*     font-family: Icons; */
 /*     content: "\e052"; */
@@ -1096,7 +1097,7 @@ footer {
 }
 
 #linkGlobalRules::after {
-    content: 'global rules';
+    content: 'rules & guidelines';
 }
 
 #linkLinks::after {
@@ -1140,7 +1141,16 @@ footer {
 }
 
 /* BEGIN MOBILE */
-
+#annoTitle {
+    text-align: left;
+    font-size: 22px;
+    font-weight: bold;
+    border-bottom-style: solid;
+}
+#annoMessage {
+    align-self: flex-end;
+    font-size: 15pt;
+}
 @media only screen and (max-width: 812px) {
     /* #navLinkSpan span, */
     /* text-align: center; */
@@ -1158,6 +1168,17 @@ footer {
     #last5 {
         position: relative !important;
     }
+    /* NEW STUFF */
+    #annoTitle {
+        font-size: 15px;
+    }
+    #annoImage {
+        display: none;
+    }
+    #annoMessage {
+        font-size: 120%;
+    }
+    /* END NEW STUFF */
     /* #navLinkSpan a::after, #navOptionsSpan a::after, #links a::after { */
     /* 	content: ''; */
     /* } */
@@ -1170,7 +1191,7 @@ footer {
 	max-width: 100px;
     }
     .logoImg {
-	margin-top: 10px;
+	margin-top: 0px;
 	height: 75px;
     }
     input, select, textarea {
@@ -1222,7 +1243,7 @@ footer {
     }
 
     #linkGlobalRules::after {
-	content: 'global rules';
+	content: 'rules & guidelines';
     }
 
     #linkLinks::after {
@@ -1267,14 +1288,13 @@ footer {
     font-size: 10pt;
 }
 .theme_wapfriends .statusBar {
-    font-size: 12pt;
+    font-size: 10pt;
 }
 /* END MOBILE */
 body.theme_wapfriends {
     /*background-image:    url(https://www.wapchan.org/.static/wapfriends.webp);
-    background-repeat: no-repeat;
+    background-repeat: repeat;
     background-position: left center;
-    background-size: 100%;
     background-attachment: fixed;*/
 }
 /* BEGIN MARCH */
@@ -1540,10 +1560,10 @@ body.theme_march {
 }
 
 .theme_march .labelRole::before {
-  content: "「 ";
+  content: "｢ ";
 }
 .theme_march .labelRole::after {
-  content: " 」";
+  content: " ｣";
 }
 /*.theme_march .labelRole,
 .theme_march .labelRole::after,

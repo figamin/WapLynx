@@ -69,11 +69,11 @@ themes.init = function() {
 
   var themeSelector = document.createElement('select');
   themeSelector.id = 'themeSelector';
-  themeSelector.style = 'font-family: arial; font-size: 10pt;'
+  themeSelector.style = 'font-family: arial; font-size: 8pt;'
 
-  //var vanillaOption = document.createElement('option');
-  //vanillaOption.innerHTML = 'Board-specific CSS';
-  //themeSelector.appendChild(vanillaOption);
+  var vanillaOption = document.createElement('option');
+  vanillaOption.innerHTML = 'board-specific css';
+  themeSelector.appendChild(vanillaOption);
 
   for (var i = 0; i < themes.themes.length; i++) {
 
@@ -106,7 +106,7 @@ themes.init = function() {
       return;
     }
 
-    var selectedTheme = themes.themes[themeSelector.selectedIndex];
+    var selectedTheme = themes.themes[themeSelector.selectedIndex - 1];
 
     if (selectedTheme.id === localStorage.selectedTheme) {
       return;
